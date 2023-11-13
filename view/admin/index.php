@@ -18,6 +18,7 @@ include '../../model/tintuc.php';
 include 'header.php';
 
 $danhmuc = loadall_danhmuc();
+
 if (isset($_GET['act']) && ($_GET['act']) != '') {
     $act = $_GET['act'];
     switch ($act) {
@@ -95,27 +96,59 @@ if (isset($_GET['act']) && ($_GET['act']) != '') {
             }
             include 'danhmuc/delete.php';
             break;
+
+            // sản phẩm
+        case 'sanpham':
+            $sanpham = loadall_sanpham($keyw = "", $iddm = 0);
+            include 'sanpham/list.php';
+            break;
+
         case 'sanphamcungdanhmuc':
-            if(isset($_GET['id']) && ($_GET['id']) > 0){
+            if (isset($_GET['id']) && ($_GET['id']) > 0) {
                 $id = $_GET['id'];
                 $sanpham = loadallsp_cungdanhmuc($id);
             }
             include 'sanpham/list.php';
             break;
 
-            // sản phẩm
-        case 'sanpham':
-            $sanpham = loadall_sanpham($keyw="", $iddm=0);
-            include 'sanpham/list.php';
-            break;
-
-
         case 'themsanpham':
+            if (isset($_POST['addsanpham']) && ($_POST['addsanpham'])) {
+                $tensanpham = $_POST['tensanpham'];
+                $giasanpham = $_POST['giasanpham'];
+                $soluongsanpham = $_POST['soluongsanpham'];
+                $iddm = $_POST['iddm'];
+                $mota = $_POST['edit'];
+                $target_dir = '../../view/img/';
+                $anhdaidien = $_FILES['anhdaidien']['name'];
+                $target_file = $target_dir . basename($anhdaidien);
+                move_uploaded_file($_FILES['anhdaidien']['tmp_name'], $target_file);
+
+                $anh1 = $_FILES['anh1']['name'];
+                $target_file1 = $target_dir . basename($anh1);
+                move_uploaded_file($_FILES['anh1']['tmp_name'], $target_file1);
+
+                $anh2 = $_FILES['anh2']['name'];
+                $target_file2 = $target_dir . basename($anh2);
+                move_uploaded_file($_FILES['anh2']['tmp_name'], $target_file2);
+
+                $anh3 = $_FILES['anh3']['name'];
+                $target_file3 = $target_dir . basename($anh3);
+                move_uploaded_file($_FILES['anh3']['tmp_name'], $target_file3);
+                if($tensanpham != '' && $giasanpham > 0 && $anhdaidien != '' && $mota != '' && $soluongsanpham > 0 && $anh1 != '' && $anh2 != '' && $anh3 != ''){
+                    add_sanpham($tensanpham, $giasanpham, $anhdaidien, $mota, $soluongsanpham, $anh1, $anh2, $anh3, $iddm);
+                    $thongbao = 'thêm sản phẩm thành công';
+                }else{
+                    $thongbao = 'thất bại';
+                }
+            }
             include 'sanpham/add.php';
             break;
 
+        // case '':
+            
 
         case 'suasanpham':
+            
             include 'sanpham/update.php';
             break;
 

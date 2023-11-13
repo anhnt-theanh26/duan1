@@ -30,7 +30,7 @@
 
     // load all san pham cung danh muc
     function loadallsp_cungdanhmuc($iddm){
-        $sql = "select * from sanpham where iddm = $iddm && trangthai='0'";
+        $sql = "select * from sanpham where iddm = $iddm && trang_thai='0'";
         $sanpham = pdo_query($sql);
         return $sanpham;
     }
@@ -60,8 +60,16 @@
     }
     
     // thêm sản phẩm
-    function add_sanpham($name, $price, $img, $mota, $iddm){
-        $sql = "insert into sanpham(name , price, img, mota, iddm) values('$name', '$price', '$img', '$mota', '$iddm')";
+    function add_sanpham($tensanpham, $giasanpham, $anhdaidien, $mota, $soluongsanpham, $anh1, $anh2, $anh3, $iddm){
+        $sql = "INSERT INTO sanpham(ten_san_pham, gia_san_pham, img_dai_dien, mo_ta_san_pham, so_luong, img_san_pham1, img_san_pham2, img_san_pham3, iddm) 
+        VALUES('$tensanpham', '$giasanpham', '$anhdaidien', '$mota', '$soluongsanpham', '$anh1', '$anh2', '$anh3', '$iddm');";
+        pdo_execute($sql);
+    }
+
+    function add_sanpham1($tensanpham, $giasanpham, $anhdaidien, $mota, $soluongsanpham, $iddm){
+        $sql = "insert into 
+        sanpham(ten_san_pham, gia_san_pham, img_dai_dien, mo_ta_san_pham, so_luong, iddm) 
+        VALUES($tensanpham, $giasanpham, $anhdaidien, $mota, $soluongsanpham, $iddm);";
         pdo_execute($sql);
     }
     
