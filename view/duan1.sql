@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 13, 2023 lúc 06:25 AM
+-- Thời gian đã tạo: Th10 13, 2023 lúc 09:54 AM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -55,7 +55,13 @@ INSERT INTO `danhmuc` (`id`, `ten_danh_muc`, `trang_thai`) VALUES
 (1, 'Tin học', 0),
 (2, 'Khoa học', 0),
 (3, 'Kinh doanh', 0),
-(4, 'Truyện tranh ', 0);
+(4, 'Truyện tranh ', 0),
+(5, 'Doraemon', 0),
+(6, 'Conan', 0),
+(7, 'Dragonbal', 0),
+(8, 'Tom and jerry', 0),
+(9, 'shin cau be but chi', 1),
+(10, '7 vien ngoc rong a moi sua', 1);
 
 -- --------------------------------------------------------
 
@@ -119,8 +125,17 @@ CREATE TABLE `sanpham` (
   `img_san_pham1` varchar(255) NOT NULL,
   `img_san_pham2` varchar(255) NOT NULL,
   `img_san_pham3` varchar(255) NOT NULL,
+  `trang_thai` int(11) NOT NULL,
   `iddm` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `sanpham`
+--
+
+INSERT INTO `sanpham` (`id`, `ten_san_pham`, `gia_san_pham`, `img_dai_dien`, `mo_ta_san_pham`, `so_luong`, `da_ban`, `luot_xem`, `img_san_pham1`, `img_san_pham2`, `img_san_pham3`, `trang_thai`, `iddm`) VALUES
+(1, 'san pham 1', 100000, 'macdinh.png', 'khong có mô tả', 12, 0, 0, 'macdinh.png', 'macdinh.png', 'macdinh.png', 0, 5),
+(2, 'san pham2', 123000, '4b7c037158f13312857b6d201802771e.jpg', 'khong có', 12, 0, 0, '4b7c037158f13312857b6d201802771e.jpg', '4b7c037158f13312857b6d201802771e.jpg', '4b7c037158f13312857b6d201802771e.jpg', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -185,7 +200,7 @@ ALTER TABLE `binhluan`
 -- AUTO_INCREMENT cho bảng `danhmuc`
 --
 ALTER TABLE `danhmuc`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT cho bảng `khachhang`
@@ -203,7 +218,7 @@ ALTER TABLE `nguoidung`
 -- AUTO_INCREMENT cho bảng `sanpham`
 --
 ALTER TABLE `sanpham`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

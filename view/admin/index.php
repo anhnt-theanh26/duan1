@@ -17,7 +17,7 @@ include '../../model/tintuc.php';
 
 include 'header.php';
 
-
+$danhmuc = loadall_danhmuc();
 if (isset($_GET['act']) && ($_GET['act']) != '') {
     $act = $_GET['act'];
     switch ($act) {
@@ -32,7 +32,12 @@ if (isset($_GET['act']) && ($_GET['act']) != '') {
             break;
 
         case 'themdanhmuc':
-            
+            if (isset($_POST['themsanpham']) && ($_POST['themsanpham'])) {
+                $tenloai = $_POST['tendanhmuc'];
+                insert_danhmuc($tenloai);
+                $thongbao = 'them danh muc thanh cong';
+                // header("location: index.php?act=themdanhmuc");
+            }
             include 'danhmuc/add.php';
             break;
 
@@ -41,17 +46,6 @@ if (isset($_GET['act']) && ($_GET['act']) != '') {
             if (isset($_GET['id']) && ($_GET['id']) > 0) {
                 $suadm = loadone_danhmuc($_GET['id']);
             }
-            // if (isset($_POST['suadm']) && ($_POST['suadm'])) {
-            //     $id = $_POST['id'];
-            //     $tendanhmuc = $_POST['tendanhmuc'];
-            //     if($tendanhmuc != ""){
-            //         fix_danhmuc($id, $name);
-            //         $thongbao = 'sửa thành công';
-            //         // header('location: index.php?act=suadanhmuc&&id=$id');
-            //     }else{
-            //         $thongbao = 'sửa thất bại';
-            //     }
-            // }
             include 'danhmuc/update.php';
             break;
 
@@ -59,27 +53,59 @@ if (isset($_GET['act']) && ($_GET['act']) != '') {
             if (isset($_POST['suadm']) && ($_POST['suadm'])) {
                 $id = $_POST['id'];
                 $name = $_POST['tendanhmuc'];
-                if($name != ""){
+                if ($name != "") {
                     fix_danhmuc($id, $name);
                     $thongbao = 'sửa thành công';
-                }else{
+                } else {
                     $thongbao = 'sửa thất bại';
                 }
-                header('location: index.php?act=suadanhmuc&&id='.$id);
+                header('location: index.php?act=suadanhmuc&&id=' . $id);
             }
-            // include 'danhmuc/update.php';
+            include 'danhmuc/update.php';
             break;
 
         case 'xoadanhmuc':
-            include 'danhmuc/list.php';
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                $id = $_GET['id'];
+                delete_mem($id);
+                header("location: index.php?act=danhmuc");
+            }
             break;
 
         case 'danhmucxoa':
+            $danhmuc = loadall_danhmuc_xoamem();
             include 'danhmuc/delete.php';
+            break;
+
+        case 'khoiphucdanhmuc':
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                $id = $_GET['id'];
+                restore_danhmuc($id);
+                $danhmuc = loadall_danhmuc_xoamem();
+                header("location: index.php?act=danhmucxoa");
+            }
+            include 'danhmuc/delete.php';
+            break;
+
+        case 'xoacungdanhmuc':
+            if (isset($_GET['id']) && ($_GET['id']) > 0) {
+                $id = $_GET['id'];
+                delete_danhmuc($id);
+                header("location: index.php?act=danhmucxoa");
+            }
+            include 'danhmuc/delete.php';
+            break;
+        case 'sanphamcungdanhmuc':
+            if(isset($_GET['id']) && ($_GET['id']) > 0){
+                $id = $_GET['id'];
+                $sanpham = loadallsp_cungdanhmuc($id);
+            }
+            include 'sanpham/list.php';
             break;
 
             // sản phẩm
         case 'sanpham':
+            $sanpham = loadall_sanpham($keyw="", $iddm=0);
             include 'sanpham/list.php';
             break;
 

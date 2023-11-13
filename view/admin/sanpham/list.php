@@ -55,55 +55,64 @@
                                     Ảnh
                                 </th>
                                 <th style="width: 20%">
-                                    email
+                                    Giá
                                 </th>
                                 <th style="width: 10%">
-                                    Vai trò
+                                    iddm
                                 </th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>
-                                    #
-                                </td>
-                                <td>
-                                    id
-                                </td>
-                                <td>
-                                    tên
-                                </td>
-                                <td>
-                                    <ul class="list-inline">
-                                        <li class="list-inline-item">
-                                            <img alt="Avatar" class="table-avatar" src="../admin/dist/img/user1-128x128.jpg">
-                                        </li>
-                                    </ul>
-                                </td>
-                                <td>
-                                    email
-                                </td>
-                                <td class="project_progress">
-                                    vai trò
-                                </td>
-                                <td class="project-actions text-right">
-                                    <!-- <a class="btn btn-primary btn-sm" href="#">
+                            <?php
+                            foreach ($sanpham as $sp) {
+                                extract($sp);
+                                $linkimg = '../../view/img/'.$img_dai_dien;
+                            ?>
+                                <tr>
+                                    <td>
+                                        #
+                                    </td>
+                                    <td>
+                                        <?= $id ?>
+                                    </td>
+                                    <td>
+                                    <?= $ten_san_pham ?>
+                                    </td>
+                                    <td>
+                                        <ul class="list-inline">
+                                            <li class="list-inline-item">
+                                                <img alt="Avatar" class="table-avatar" src="<?= $linkimg ?>">
+                                            </li>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                    <?= $gia_san_pham ?>
+                                    </td>
+                                    <td class="project_progress">
+                                    <?= $iddm ?>
+                                    </td>
+                                    <td class="project-actions text-right">
+                                        <!-- <a class="btn btn-primary btn-sm" href="#">
                                         <i class="fas fa-folder">
                                         </i>
                                         View
                                     </a> -->
-                                    <a class="btn btn-info btn-sm" href="#">
-                                        <i class="fas fa-pencil-alt">
-                                        </i>
-                                        Edit
-                                    </a>
-                                    <a class="btn btn-danger btn-sm" href="#">
-                                        <i class="fas fa-trash">
-                                        </i>
-                                        Delete
-                                    </a>
-                                </td>
-                            </tr>
+                                        <a class="btn btn-info btn-sm" href="#">
+                                            <i class="fas fa-pencil-alt">
+                                            </i>
+                                            Edit
+                                        </a>
+                                        <a class="btn btn-danger btn-sm" href="#">
+                                            <i class="fas fa-trash">
+                                            </i>
+                                            Delete
+                                        </a>
+                                    </td>
+                                </tr>
+                            <?php
+                            }
+                            ?>
+
                             <!-- <tr>
                                 <td>
                                     #
@@ -556,7 +565,7 @@
                                 </td>
                             </tr> -->
                         </tbody>
-                        
+
                     </table>
                 </div>
                 <!-- /.card-body -->

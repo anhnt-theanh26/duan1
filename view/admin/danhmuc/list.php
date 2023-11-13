@@ -67,7 +67,7 @@
                                         <?= $id ?>
                                     </td>
                                     <td>
-                                        <?= $ten_danh_muc ?>
+                                        <a href="index.php?act=sanphamcungdanhmuc&&id=<?= $id ?>" style="color: black;"><?= $ten_danh_muc ?></a>
                                     </td>
                                     <td class="project-actions text-right">
                                         <a class="btn btn-info btn-sm" href="index.php?act=suadanhmuc&&id=<?= $id ?>">
@@ -75,7 +75,7 @@
                                             </i>
                                             Edit
                                         </a>
-                                        <a class="btn btn-danger btn-sm" href="#">
+                                        <a class="btn btn-danger btn-sm" href="index.php?act=xoadanhmuc&&id=<?= $id ?>">
                                             <i class="fas fa-trash">
                                             </i>
                                             Delete

@@ -22,11 +22,12 @@
             <div class="card-header">
                 <h3 class="card-title">Thêm danh mục</h3>
             </div>
-            <form action="index.php?act=" method="post" enctype="multipart/form-data">
+            <!-- index.php?act= -->
+            <form action="#" method="post" enctype="multipart/form-data">
                 <div class="card-body">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Tên danh mục</label>
-                        <input name="tensanpham" type="text" class="form-control" id="exampleInputEmail1" placeholder="Tên danh mục">
+                        <input name="tendanhmuc" type="text" class="form-control" id="exampleInputEmail1" placeholder="Tên danh mục">
                     </div>
                     
 
@@ -34,10 +35,16 @@
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                    <input type="submit" class="btn btn-primary" name="themsanpham" id="" value="Thêm sản phẩm">
+                    <input type="submit" class="btn btn-primary" name="themsanpham" id="" value="Thêm danh mục">
                 </div>
+                <?php
+                if(isset($thongbao) && $thongbao != ""){
+                    echo '<p>'.$thongbao.'</p>';
+                } 
+                ?>
+                
             </form>
-
+            
     </section>
     <!-- /.content -->
 </div>

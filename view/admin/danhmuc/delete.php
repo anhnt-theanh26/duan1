@@ -9,12 +9,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Danh mục xóa</h1>
+                        <h1>Danh mục</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Danh mục xóa</li>
+                            <li class="breadcrumb-item active">Danh mục</li>
                         </ol>
                     </div>
                 </div>
@@ -27,7 +27,7 @@
             <!-- Default box -->
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Danh mục xóa</h3>
+                    <h3 class="card-title">Danh mục</h3>
 
                     <div class="card-tools">
                         <!-- <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -51,59 +51,45 @@
                                 <th style="width: 20%">
                                     Tên
                                 </th>
-                                <th style="width: 20%">
-                                    Ảnh
-                                </th>
-                                <th style="width: 20%">
-                                    email
-                                </th>
-                                <th style="width: 10%">
-                                    Vai trò
-                                </th>
+
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>
-                                    #
-                                </td>
-                                <td>
-                                    id
-                                </td>
-                                <td>
-                                    tên
-                                </td>
-                                <td>
-                                    <ul class="list-inline">
-                                        <li class="list-inline-item">
-                                            <img alt="Avatar" class="table-avatar" src="../admin/dist/img/user1-128x128.jpg">
-                                        </li>
-                                    </ul>
-                                </td>
-                                <td>
-                                    email
-                                </td>
-                                <td class="project_progress">
-                                    vai trò
-                                </td>
-                                <td class="project-actions text-right">
-                                    <a class="btn btn-primary btn-sm" href="#">
-                                        <i class="fas fa-folder">
-                                        </i>
-                                        Restore
-                                    </a>
-                                    <!-- <a class="btn btn-info btn-sm" href="#">
-                                        <i class="fas fa-pencil-alt">
-                                        </i>
-                                        Edit
-                                    </a> -->
-                                    <a class="btn btn-danger btn-sm" href="#">
-                                        <i class="fas fa-trash">
-                                        </i>
-                                        Delete
-                                    </a>
-                                </td>
-                            </tr>
+                            <?php
+                            foreach ($danhmuc as $dm) {
+                                extract($dm);
+                            ?>
+                                <tr>
+                                    <td>
+                                        #
+                                    </td>
+                                    <td>
+                                        <?= $id ?>
+                                    </td>
+                                    <td>
+                                        <?= $ten_danh_muc ?>
+                                    </td>
+                                    <td class="project-actions text-right">
+                                        <a class="btn btn-primary btn-sm" href="index.php?act=khoiphucdanhmuc&&id=<?= $id ?>">
+                                            <i class="fas fa-folder">
+                                            </i>
+                                            Restore
+                                        </a>
+                                        <a class="btn btn-info btn-sm" href="index.php?act=suadanhmuc&&id=<?= $id ?>">
+                                            <i class="fas fa-pencil-alt">
+                                            </i>
+                                            Edit
+                                        </a>
+                                        <a class="btn btn-danger btn-sm" href="index.php?act=xoacungdanhmuc&&id=<?= $id ?>">
+                                            <i class="fas fa-trash">
+                                            </i>
+                                            Delete
+                                        </a>
+                                    </td>
+                                </tr>
+                            <?php
+                            }
+                            ?>
                             <!-- <tr>
                                 <td>
                                     #
@@ -556,7 +542,7 @@
                                 </td>
                             </tr> -->
                         </tbody>
-                        
+
                     </table>
                 </div>
                 <!-- /.card-body -->

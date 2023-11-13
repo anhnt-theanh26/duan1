@@ -1,7 +1,7 @@
 <?php
 // load danh muc
 function loadall_danhmuc(){
-    $sql = "select * from danhmuc order by id desc";
+    $sql = "select * from danhmuc where trang_thai = '0' order by id desc";
     $listdanhmuc = pdo_query($sql);
     return $listdanhmuc;
 }
@@ -13,9 +13,16 @@ function loadall_danhmuc(){
 //     return $name;
 // }
 
+// load danh muc xoa mem
+function loadall_danhmuc_xoamem(){
+    $sql = "select * from danhmuc where trang_thai = '1' order by id desc";
+    $listdanhmuc = pdo_query($sql);
+    return $listdanhmuc;
+}
+
 // them danh muc 
 function insert_danhmuc($tenloai){
-    $sql = "insert into danhmuc(name) values ('$tenloai')";
+    $sql = "insert into danhmuc(ten_danh_muc) values ('$tenloai')";
     pdo_execute($sql);
 }
 
@@ -31,6 +38,19 @@ function delete_danhmuc($id){
     $sql = "delete from danhmuc where id = '$id'";
     pdo_execute($sql);
 }
+
+// xoa mem
+function delete_mem($id){
+    $sql = "update danhmuc set trang_thai = '1' where id = '$id'";
+    pdo_execute($sql);
+}
+
+// khoi phuc danh muc
+function restore_danhmuc($id){
+    $sql = "update danhmuc set trang_thai = '0' where id = '$id'";
+    pdo_execute($sql);
+}
+
 // sua danh muc
 function fix_danhmuc($id, $name){
     $sql = "update danhmuc set ten_danh_muc = '$name' where id = '$id'";
