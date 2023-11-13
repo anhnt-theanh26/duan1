@@ -32,6 +32,7 @@ if (isset($_GET['act']) && ($_GET['act']) != '') {
             break;
 
         case 'themdanhmuc':
+            
             include 'danhmuc/add.php';
             break;
 
