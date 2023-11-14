@@ -273,12 +273,6 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="index.php?act=suadanhmuc" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Sửa</p>
-                  </a>
-                </li>
-                <li class="nav-item">
                   <a href="index.php?act=danhmucxoa" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Danh mục xóa</p>
@@ -329,12 +323,6 @@
                   <a href="index.php?act=themsanpham" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Thêm</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="index.php?act=suasanpham" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Sửa</p>
                   </a>
                 </li>
                 <li class="nav-item">

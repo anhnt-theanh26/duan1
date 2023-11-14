@@ -97,7 +97,7 @@
                                         </i>
                                         View
                                     </a> -->
-                                        <a class="btn btn-info btn-sm" href="#">
+                                        <a class="btn btn-info btn-sm" href="index.php?act=suasanpham&&id=<?= $id ?>">
                                             <i class="fas fa-pencil-alt">
                                             </i>
                                             Edit

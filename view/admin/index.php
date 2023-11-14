@@ -57,10 +57,10 @@ if (isset($_GET['act']) && ($_GET['act']) != '') {
                 if ($name != "") {
                     fix_danhmuc($id, $name);
                     $thongbao = 'sửa thành công';
+                    header('location: index.php?act=suadanhmuc&&id=' . $id);
                 } else {
                     $thongbao = 'sửa thất bại';
                 }
-                header('location: index.php?act=suadanhmuc&&id=' . $id);
             }
             include 'danhmuc/update.php';
             break;
@@ -148,7 +148,12 @@ if (isset($_GET['act']) && ($_GET['act']) != '') {
             
 
         case 'suasanpham':
-            
+            if(isset($_GET['id']) && ($_GET['id']) > 0){
+                $sanpham = loadone_sanpham($_GET['id']);
+            }
+            if(isset($_POST['updatesanpham']) && ($_POST['updatesanpham'])){
+                $thongbao = 'sua thanh cong';
+            }
             include 'sanpham/update.php';
             break;
 

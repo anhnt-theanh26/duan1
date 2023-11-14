@@ -16,7 +16,7 @@
 
     // load 1 sản phẩm cùng loại
     function loadone_sanpham($id){
-        $sql = "select * from sanpham where id = '$id' && trangthai='0'";
+        $sql = "select * from sanpham where id = '$id'";
         $sanpham = pdo_query_one($sql);
         return $sanpham;
     }
