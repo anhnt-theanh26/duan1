@@ -9,12 +9,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Sản phẩm xóa mềm</h1>
+                        <h1>Sản phẩm</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Sản phẩm xóa mềm</li>
+                            <li class="breadcrumb-item active">Sản phẩm</li>
                         </ol>
                     </div>
                 </div>
@@ -27,7 +27,7 @@
             <!-- Default box -->
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Sản phẩm xóa mềm</h3>
+                    <h3 class="card-title">Sản phẩm</h3>
 
                     <div class="card-tools">
                         <!-- <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -55,55 +55,64 @@
                                     Ảnh
                                 </th>
                                 <th style="width: 20%">
-                                    email
+                                    Giá
                                 </th>
-                                <th style="width: 10%">
-                                    Vai trò
+                                <th style="width: 5%">
+                                    iddm
                                 </th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>
-                                    #
-                                </td>
-                                <td>
-                                    id
-                                </td>
-                                <td>
-                                    tên
-                                </td>
-                                <td>
-                                    <ul class="list-inline">
-                                        <li class="list-inline-item">
-                                            <img alt="Avatar" class="table-avatar" src="../admin/dist/img/user1-128x128.jpg">
-                                        </li>
-                                    </ul>
-                                </td>
-                                <td>
-                                    email
-                                </td>
-                                <td class="project_progress">
-                                    vai trò
-                                </td>
-                                <td class="project-actions text-right">
-                                    <a class="btn btn-primary btn-sm" href="#">
+                            <?php
+                            foreach ($sanpham as $sp) {
+                                extract($sp);
+                                $linkimg = '../../view/img/'.$img_dai_dien;
+                            ?>
+                                <tr>
+                                    <td>
+                                        #
+                                    </td>
+                                    <td>
+                                        <?= $id ?>
+                                    </td>
+                                    <td>
+                                    <?= $ten_san_pham ?>
+                                    </td>
+                                    <td>
+                                        <ul class="list-inline">
+                                            <li class="list-inline-item">
+                                                <img alt="Avatar" class="table-avatar" src="<?= $linkimg ?>">
+                                            </li>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                    <?= $gia_san_pham ?>
+                                    </td>
+                                    <td class="project_progress">
+                                    <?= $iddm ?>
+                                    </td>
+                                    <td class="project-actions text-right">
+                                        <a class="btn btn-primary btn-sm" href="index.php?act=khoiphucsanpham&&id=<?= $id ?>">
                                         <i class="fas fa-folder">
                                         </i>
                                         Restore
                                     </a>
-                                    <!-- <a class="btn btn-info btn-sm" href="#">
-                                        <i class="fas fa-pencil-alt">
-                                        </i>
-                                        Edit
-                                    </a> -->
-                                    <a class="btn btn-danger btn-sm" href="#">
-                                        <i class="fas fa-trash">
-                                        </i>
-                                        Delete
-                                    </a>
-                                </td>
-                            </tr>
+                                        <a class="btn btn-info btn-sm" href="index.php?act=suasanpham&&id=<?= $id ?>">
+                                            <i class="fas fa-pencil-alt">
+                                            </i>
+                                            Edit
+                                        </a>
+                                        <a onclick="return confirm('xóa sản phẩm')" class="btn btn-danger btn-sm" href="index.php?act=xoasanpham&&id=<?= $id ?>">
+                                            <i class="fas fa-trash">
+                                            </i>
+                                            Delete
+                                        </a>
+                                    </td>
+                                </tr>
+                            <?php
+                            }
+                            ?>
+
                             <!-- <tr>
                                 <td>
                                     #
@@ -556,7 +565,7 @@
                                 </td>
                             </tr> -->
                         </tbody>
-                        
+
                     </table>
                 </div>
                 <!-- /.card-body -->

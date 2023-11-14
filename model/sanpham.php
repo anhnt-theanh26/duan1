@@ -49,29 +49,33 @@
         return $listsanpham;
     }
 
-    // sửa sản phẩm
-    function update_sanpham($id, $name, $price, $img, $mota, $luotxem, $iddm){
-        if($img != ''){
-            $sql = "update sanpham set name = '$name', price = '$price', img = '$img', mota = '$mota', luotxem = '$luotxem', iddm = '$iddm' where id = '$id'";
-        }else{
-            $sql = "update sanpham set name = '$name', price = '$price', mota = '$mota', luotxem = '$luotxem', iddm = '$iddm' where id = '$id'";
+    // sửa sản phẩm đã sửa
+    function update_sanpham($tensanpham, $giasanpham, $anhdaidien, $mota, $soluongsanpham, $anh1, $anh2, $anh3, $iddm, $id){
+        $sql = "UPDATE sanpham set 
+        ten_san_pham = '$tensanpham', gia_san_pham = '$giasanpham'";
+        if($anhdaidien != ''){
+            $sql.= ", img_dai_dien = '$anhdaidien'";
         }
+        if($anh1 != ''){
+            $sql.= ", img_san_pham1 = '$anh1'";
+        }
+        if($anh2 != ''){
+            $sql.= ", img_san_pham2 = '$anh2'";
+        }
+        if($anh3 != ''){
+            $sql.= ", img_san_pham3 = '$anh3'";
+        }
+        $sql.= ", mo_ta_san_pham = '$mota', so_luong = '$soluongsanpham', iddm = '$iddm' WHERE id = '$id';";
         pdo_execute($sql);
     }
     
-    // thêm sản phẩm
+    // thêm sản phẩm đã sửa
     function add_sanpham($tensanpham, $giasanpham, $anhdaidien, $mota, $soluongsanpham, $anh1, $anh2, $anh3, $iddm){
         $sql = "INSERT INTO sanpham(ten_san_pham, gia_san_pham, img_dai_dien, mo_ta_san_pham, so_luong, img_san_pham1, img_san_pham2, img_san_pham3, iddm) 
         VALUES('$tensanpham', '$giasanpham', '$anhdaidien', '$mota', '$soluongsanpham', '$anh1', '$anh2', '$anh3', '$iddm');";
         pdo_execute($sql);
     }
 
-    function add_sanpham1($tensanpham, $giasanpham, $anhdaidien, $mota, $soluongsanpham, $iddm){
-        $sql = "insert into 
-        sanpham(ten_san_pham, gia_san_pham, img_dai_dien, mo_ta_san_pham, so_luong, iddm) 
-        VALUES($tensanpham, $giasanpham, $anhdaidien, $mota, $soluongsanpham, $iddm);";
-        pdo_execute($sql);
-    }
     
     // xóa cứng
     function hard_delete_sanpham($id){
@@ -79,19 +83,19 @@
         pdo_execute($sql);
     }
 
-    // xóa mềm
+    // xóa mềm đã sửa
     function soft_delete_sanpham($id){
-        $sql = "update sanpham set trangthai='1' where id = '$id'";
+        $sql = "update sanpham set trang_thai='1' where id = '$id'";
         pdo_execute($sql);
     }
-    // khôi phục sản phẩm xóa mềm
+    // khôi phục sản phẩm xóa mềm đã sửa
     function restore_sanpham($id){
-        $sql = "update sanpham set trangthai='0' where id = '$id'";
+        $sql = "update sanpham set trang_thai='0' where id = '$id'";
         pdo_execute($sql);
     }
     // loadall các sản phẩm xóa mềm
     function loadall_sanpham_soft($keyw="", $iddm=0){
-        $sql = "select * from sanpham where trangthai!='0' ";
+        $sql = "select * from sanpham where trang_thai!='0' ";
         if($keyw!=""){
             $sql.="and name like '%".$keyw."%'";
         }

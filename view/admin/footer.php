@@ -1,6 +1,6 @@
 <!-- creditor -->
 <script>
-    CKEDITOR.replace('edit');
+    CKEDITOR.replace('mota');
 </script>
 <footer class="main-footer">
     <strong>Copyright &copy; 2014-2021 <a href="?act=home">TAD</a>.</strong>

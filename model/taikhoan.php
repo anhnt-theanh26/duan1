@@ -10,8 +10,8 @@ function insert_taikhoan($email, $user, $pass){
 
 // dang nhap
 // session_start();
-function dangnhap($user, $pass){
-    $sql = "SELECT * from taikhoan where user='$user' and pass='$pass'";
+function dangnhap($ten_dang_nhap, $mat_khau){
+    $sql = "SELECT * from nguoidung where ten_dang_nhap='$ten_dang_nhap' and mat_khau='$mat_khau'";
     $taikhoan = pdo_query_one($sql);
     
     // if($taikhoan != false){

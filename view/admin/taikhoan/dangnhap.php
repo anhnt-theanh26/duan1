@@ -29,29 +29,48 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form id="quickForm">
+            <form id="quickForm" method="post">
               <div class="card-body">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Email address</label>
-                  <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                  <input type="text" name="ten_dang_nhap" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Password</label>
-                  <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                  <input type="password" name="mat_khau" class="form-control" id="exampleInputPassword1" placeholder="Password">
                 </div>
                 <div class="form-group mb-0">
-                  <div class="custom-control custom-checkbox">
+                  <!-- <div class="custom-control custom-checkbox">
                     <input type="checkbox" name="terms" class="custom-control-input" id="exampleCheck1">
                     <label class="custom-control-label" for="exampleCheck1">I agree to the <a href="#">terms of service</a>.</label>
-                  </div>
+                  </div> -->
                 </div>
               </div>
               <!-- /.card-body -->
               <div class="card-footer">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <input type="submit" class="btn btn-primary" name="dangnhap" id="" value="Đăng nhập">
+                <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
               </div>
             </form>
-            
+            <?php
+            if (isset($_POST['dangnhap']) && $_POST['dangnhap']) {
+              $ten_dang_nhap = $_POST['ten_dang_nhap'];
+              $mat_khau = md5($_POST['mat_khau']);
+              $loginMess = dangnhap($ten_dang_nhap, $mat_khau);
+              if (is_array($loginMess)) {
+                $_SESSION['user'] = $loginMess;
+                header("location: index.php?act=home");
+              } else {
+                $thongbao = 'dang nhap that bai! tai khoan khong ton tai';
+                $thongbao = $mat_khau;
+              }
+            }
+            ?>
+            <?php
+            if (isset($thongbao) && $thongbao != '') {
+              echo $thongbao;
+            }
+            ?>
           </div>
           <!-- /.card -->
         </div>

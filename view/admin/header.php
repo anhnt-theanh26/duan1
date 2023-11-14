@@ -326,7 +326,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="index.php?act=xoamemsanpham" class="nav-link">
+                  <a href="index.php?act=sanphamxoamem" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Xóa mềm</p>
                   </a>
@@ -767,14 +767,14 @@
                 </p>
               </a>
               <ul class="nav nav-treeview">
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                   <a href="index.php?act=dangnhap" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Đăng nhập</p>
                   </a>
-                </li>
+                </li> -->
                 <li class="nav-item">
-                  <a href="index.php?act=" class="nav-link">
+                  <a href="index.php?act=dangxuat" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Đăng xuất</p>
                   </a>
