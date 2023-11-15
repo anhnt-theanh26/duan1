@@ -39,7 +39,13 @@ if (isset($_SESSION['user']) && ($_SESSION['user'])) {
                 case 'themdanhmuc':
                     if (isset($_POST['themsanpham']) && ($_POST['themsanpham'])) {
                         $tenloai = $_POST['tendanhmuc'];
-                        insert_danhmuc($tenloai);
+                        $target_dir = '../../view/img/';
+                        $img_danh_muc = $_FILES['img_danh_muc']['name'];
+                        $target_file = $target_dir . basename($img_danh_muc);
+                        move_uploaded_file($_FILES['img_danh_muc']['tmp_name'], $target_file);
+                        if($tenloai != "" && $img_danh_muc != ""){
+                            insert_danhmuc($tenloai, $img_danh_muc);
+                        }
                         $thongbao = 'them danh muc thanh cong';
                         // header("location: index.php?act=themdanhmuc");
                     }
@@ -58,11 +64,17 @@ if (isset($_SESSION['user']) && ($_SESSION['user'])) {
                     if (isset($_POST['suadm']) && ($_POST['suadm'])) {
                         $id = $_POST['id'];
                         $name = $_POST['tendanhmuc'];
+
+                        $target_dir = '../../view/img/';
+                        $img_danh_muc = $_FILES['img_danh_muc']['name'];
+                        $target_file = $target_dir . basename($img_danh_muc);
+                        move_uploaded_file($_FILES['img_danh_muc']['tmp_name'], $target_file);
+
                         if ($name != "") {
-                            fix_danhmuc($id, $name);
+                            fix_danhmuc($id, $name, $img_danh_muc);
                             $thongbao = 'sửa thành công';
                             $suadm = loadone_danhmuc($id);
-                            header('location: index.php?act=suadanhmuc&&id=' . $id);
+                            // header('location: index.php?act=suadanhmuc&&id=' . $id);
                         } else {
                             $thongbao = 'sửa thất bại';
                         }

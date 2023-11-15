@@ -1,5 +1,6 @@
 <?php
 extract($suadm);
+$linkimg = '../../view/img/';
 ?>
 
 <div class="content-wrapper">
@@ -34,7 +35,11 @@ extract($suadm);
                         <input type="hidden" name="id" id="" value="<?= $id ?>">
                         <input name="tendanhmuc" type="text" class="form-control" id="exampleInputEmail1" value="<?= $ten_danh_muc ?>">
                     </div>
-
+                    <div class="form-group">
+                        <label for="img_danh_muc">Ảnh danh mục</label><br>
+                        <img src="<?= $linkimg . $img_danh_muc ?>" alt="" width="100px">
+                        <input type="file" name="img_danh_muc" id="img_danh_muc">
+                    </div>
 
                 </div>
                 <!-- /.card-body -->

@@ -21,8 +21,8 @@ function loadall_danhmuc_xoamem(){
 }
 
 // them danh muc 
-function insert_danhmuc($tenloai){
-    $sql = "insert into danhmuc(ten_danh_muc) values ('$tenloai')";
+function insert_danhmuc($tenloai, $img_danh_muc){
+    $sql = "insert into danhmuc(ten_danh_muc, img_danh_muc) values ('$tenloai', '$img_danh_muc')";
     pdo_execute($sql);
 }
 
@@ -52,8 +52,12 @@ function restore_danhmuc($id){
 }
 
 // sua danh muc
-function fix_danhmuc($id, $name){
-    $sql = "update danhmuc set ten_danh_muc = '$name' where id = '$id'";
+function fix_danhmuc($id, $name, $img_danh_muc){
+    $sql = "update danhmuc set ten_danh_muc = '$name' ";
+    if($img_danh_muc != ""){
+        $sql.=",img_danh_muc = '$img_danh_muc'";
+    }
+    $sql.=" where id = '$id'";
     pdo_execute($sql);
 }
 

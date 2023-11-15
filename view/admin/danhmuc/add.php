@@ -30,7 +30,10 @@
                         <input name="tendanhmuc" type="text" class="form-control" id="exampleInputEmail1" placeholder="Tên danh mục">
                     </div>
                     
-
+                    <div class="form-group">
+                        <label for="img_danh_muc">Ảnh danh mục</label><br>
+                        <input type="file" name="img_danh_muc" id="img_danh_muc">
+                    </div>
                 </div>
                 <!-- /.card-body -->
 
