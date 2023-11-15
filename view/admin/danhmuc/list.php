@@ -51,6 +51,9 @@
                                 <th style="width: 20%">
                                     Tên
                                 </th>
+                                <th style="width: 20%">
+                                    IMG
+                                </th>
 
                             </tr>
                         </thead>
@@ -58,6 +61,7 @@
                             <?php
                             foreach ($danhmuc as $dm) {
                                 extract($dm);
+                                $linkimg = '../../view/img/'.$img_danh_muc;
                             ?>
                                 <tr>
                                     <td>
@@ -68,6 +72,13 @@
                                     </td>
                                     <td>
                                         <a href="index.php?act=sanphamcungdanhmuc&&id=<?= $id ?>" style="color: black;"><?= $ten_danh_muc ?></a>
+                                    </td>
+                                    <td>
+                                        <ul class="list-inline">
+                                            <li class="list-inline-item">
+                                                <img alt="Avatar" class="table-avatar" src="<?= $linkimg ?>">
+                                            </li>
+                                        </ul>
                                     </td>
                                     <td class="project-actions text-right">
                                         <a class="btn btn-info btn-sm" href="index.php?act=suadanhmuc&&id=<?= $id ?>">
