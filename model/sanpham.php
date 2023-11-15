@@ -35,6 +35,11 @@
         return $sanpham;
     }
 
+    function sanpham(){
+        $sql = "SELECT * FROM `sanpham` WHERE 1";
+        $sanpham = pdo_query($sql);
+        return $sanpham;
+    }
     // load tất cả các sản phẩm
     function loadall_sanpham($keyw="", $iddm=0){
         $sql = "select * from sanpham where trang_thai='0' ";

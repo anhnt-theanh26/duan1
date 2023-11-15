@@ -29,8 +29,8 @@ $linkimg = '../../view/img/';
             <!-- index.php?act=updatesp -->
             <form action="#" method="post" enctype="multipart/form-data">
                 <div class="card-body">
-                    <input name="id" type="text" value="<?= $id ?>">
-                    <input name="iddm" type="text" value="<?= $iddm ?>">
+                    <input name="id" type="hidden" value="<?= $id ?>">
+                    <input name="iddm" type="hidden" value="<?= $iddm ?>">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Tên sản phẩm</label>
                         <input name="tensanpham" type="text" class="form-control" id="exampleInputEmail1" placeholder="Tên sản phẩm" value="<?= $ten_san_pham ?>">

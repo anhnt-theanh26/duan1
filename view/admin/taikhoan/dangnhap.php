@@ -4,12 +4,12 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Validation</h1>
+          <h1>Đăng nhập</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Validation</li>
+            <li class="breadcrumb-item active">Đăng nhập</li>
           </ol>
         </div>
       </div>
@@ -22,21 +22,21 @@
       <div class="row">
         <!-- left column -->
         <div class="col-md-12">
-          <!-- jquery validation -->
+          <!-- jquery Đăng nhập -->
           <div class="card card-primary">
             <div class="card-header">
-              <h3 class="card-title">Quick Example <small>jQuery Validation</small></h3>
+              <h3 class="card-title">Đăng nhập tài khoản</h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
             <form id="quickForm" method="post">
               <div class="card-body">
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Email address</label>
+                  <label for="exampleInputEmail1">Tên đăng nhập</label>
                   <input type="text" name="ten_dang_nhap" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputPassword1">Password</label>
+                  <label for="exampleInputPassword1">Mật khẩu</label>
                   <input type="password" name="mat_khau" class="form-control" id="exampleInputPassword1" placeholder="Password">
                 </div>
                 <div class="form-group mb-0">
@@ -62,7 +62,7 @@
                 header("location: index.php?act=home");
               } else {
                 $thongbao = 'dang nhap that bai! tai khoan khong ton tai';
-                $thongbao = $mat_khau;
+                // $thongbao = $mat_khau;
               }
             }
             ?>

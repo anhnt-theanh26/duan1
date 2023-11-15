@@ -47,9 +47,9 @@ if (isset($_SESSION['user']) && ($_SESSION['user'])) {
                     break;
 
                 case 'suadanhmuc':
-                    $id = $_GET['id'];
                     if (isset($_GET['id']) && ($_GET['id']) > 0) {
-                        $suadm = loadone_danhmuc($_GET['id']);
+                        $id = $_GET['id'];
+                        $suadm = loadone_danhmuc($id);
                     }
                     include 'danhmuc/update.php';
                     break;
@@ -61,6 +61,7 @@ if (isset($_SESSION['user']) && ($_SESSION['user'])) {
                         if ($name != "") {
                             fix_danhmuc($id, $name);
                             $thongbao = 'sửa thành công';
+                            $suadm = loadone_danhmuc($id);
                             header('location: index.php?act=suadanhmuc&&id=' . $id);
                         } else {
                             $thongbao = 'sửa thất bại';
@@ -228,14 +229,60 @@ if (isset($_SESSION['user']) && ($_SESSION['user'])) {
                     break;
                     // bình luận
                 case 'binhluan':
+                    $binhluan = load_so_binh_luan();
                     include 'binhluan/list.php';
                     break;
 
+                case 'addbinhluan':
+                    $khachhang = loadall_khachhang();
+                    $sanpham = sanpham();
+                    if(isset($_POST['thembinhluan']) && ($_POST['thembinhluan'])){
+                        $noidung = $_POST['noidung'];
+                        $idsp = $_POST['idsp'];
+                        $idkh = $_POST['idkh'];
+                        if($noidung != ""){
+                            insert_binhluan($noidung, $idsp, $idkh);
+                            $thongbao = 'thêm bình luận thành công';
+                            $thongbao = "nội dung: $noidung; idsp: $idsp; idkh: $idkh";
+                        }else{
+                            $thongbao = 'thêm bình luận thất bại';
+                        }
+                    }
+                    include 'binhluan/add.php';
+                    break;
 
                 case 'binhluansanpham':
+                    if(isset($_GET['idsp']) && ($_GET['idsp']) > 0){
+                        $id = $_GET['idsp'];
+                        $binhluan = load_binhluan($id);
+                    }
                     include 'binhluan/binhluansanpham.php';
                     break;
 
+                case 'suabinhluan':
+                    if(isset($_GET['idbl']) && $_GET['idbl'] != 0){
+                        $id = $_GET['idbl'];
+                        $binhluan = loadone_binhluan($id);
+                    }
+                    include 'binhluan/update.php';
+                    break;
+
+                case 'updatebl':
+                    if(isset($_POST['suabl']) && ($_POST['suabl'])){
+                        $id = $_POST['id'];
+                        $noidung = $_POST['noidung'];
+                        update_binhluan($id, $noidung);
+                        if ($noidung != "") {
+                            update_binhluan($id, $noidung);
+                            $binhluan = loadone_binhluan($id);
+                            $thongbao = 'sửa thành công';
+                        } else {
+                            $thongbao = 'sửa thất bại';
+                        }
+                        // header("location: index.php?act=updatebl&&idbl=$id");
+                    }
+                    include 'binhluan/update.php';
+                    break;
                     //tin tức
                 case 'tintuc':
                     include 'tintuc/list.php';
@@ -344,7 +391,7 @@ if (isset($_SESSION['user']) && ($_SESSION['user'])) {
         }
     } else {
         $thongbao = 'dang nhap that bai! tai khoan khong ton tai';
-        include 'dangnhap.php';
+        include 'taikhoan/dangnhap.php';
     }
 } else {
     include 'taikhoan/dangnhap.php';

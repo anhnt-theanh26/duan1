@@ -349,11 +349,17 @@
                   </a>
                 </li>
                 <li class="nav-item">
+                  <a href="index.php?act=addbinhluan" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Thêm bình luận</p>
+                  </a>
+                </li>
+                <!-- <li class="nav-item">
                   <a href="index.php?act=binhluansanpham" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Bình luận sản phẩm</p>
                   </a>
-                </li>
+                </li> -->
                 <!-- <li class="nav-item">
                   <a href="index.php?act=" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>

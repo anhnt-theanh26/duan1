@@ -46,45 +46,39 @@
                                     #
                                 </th>
                                 <th style="width: 4%">
-                                    id
+                                    idbl
                                 </th>
                                 <th style="width: 20%">
-                                    Tên
+                                    Nội dung
                                 </th>
                                 <th style="width: 20%">
-                                    Ảnh
+                                    Tên khách hàng
                                 </th>
                                 <th style="width: 20%">
-                                    email
-                                </th>
-                                <th style="width: 10%">
-                                    Vai trò
+                                    Ngày bình luận
                                 </th>
                             </tr>
                         </thead>
                         <tbody>
+                            <?php
+                            foreach ($binhluan as $bl) {
+                                extract($bl);
+                            ?>
                             <tr>
                                 <td>
                                     #
                                 </td>
                                 <td>
-                                    id
+                                    <?= $idbl ?>
                                 </td>
                                 <td>
-                                    tên
+                                    <?= $noi_dung ?>
                                 </td>
                                 <td>
-                                    <ul class="list-inline">
-                                        <li class="list-inline-item">
-                                            <img alt="Avatar" class="table-avatar" src="../admin/dist/img/user1-128x128.jpg">
-                                        </li>
-                                    </ul>
+                                    <?= $ten_khach_hang ?>
                                 </td>
                                 <td>
-                                    email
-                                </td>
-                                <td class="project_progress">
-                                    vai trò
+                                    <?= $ngay_binh_luan ?>
                                 </td>
                                 <td class="project-actions text-right">
                                     <!-- <a class="btn btn-primary btn-sm" href="#">
@@ -92,7 +86,7 @@
                                         </i>
                                         View
                                     </a> -->
-                                    <a class="btn btn-info btn-sm" href="#">
+                                    <a class="btn btn-info btn-sm" href="index.php?act=suabinhluan&&idbl=<?= $idbl ?>">
                                         <i class="fas fa-pencil-alt">
                                         </i>
                                         Edit
@@ -104,6 +98,9 @@
                                     </a>
                                 </td>
                             </tr>
+                            <?php
+                            }
+                            ?>
                             <!-- <tr>
                                 <td>
                                     #
@@ -556,7 +553,7 @@
                                 </td>
                             </tr> -->
                         </tbody>
-                        
+
                     </table>
                 </div>
                 <!-- /.card-body -->
