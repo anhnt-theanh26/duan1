@@ -51,6 +51,9 @@
                                 <th style="width: 20%">
                                     Tên
                                 </th>
+                                <th style="width: 20%">
+                                    Img
+                                </th>
 
                             </tr>
                         </thead>
@@ -58,6 +61,7 @@
                             <?php
                             foreach ($danhmuc as $dm) {
                                 extract($dm);
+                                $linkimg = '../../view/img/'.$img_danh_muc
                             ?>
                                 <tr>
                                     <td>
@@ -68,6 +72,13 @@
                                     </td>
                                     <td>
                                         <?= $ten_danh_muc ?>
+                                    </td>
+                                    <td>
+                                        <ul class="list-inline">
+                                            <li class="list-inline-item">
+                                                <img alt="Avatar" class="table-avatar" src="<?= $linkimg ?>">
+                                            </li>
+                                        </ul>
                                     </td>
                                     <td class="project-actions text-right">
                                         <a class="btn btn-primary btn-sm" href="index.php?act=khoiphucdanhmuc&&id=<?= $id ?>">
@@ -80,7 +91,7 @@
                                             </i>
                                             Edit
                                         </a>
-                                        <a class="btn btn-danger btn-sm" href="index.php?act=xoacungdanhmuc&&id=<?= $id ?>">
+                                        <a onclick="return confirm('xóa cứng danh mục')" class="btn btn-danger btn-sm" href="index.php?act=xoacungdanhmuc&&id=<?= $id ?>">
                                             <i class="fas fa-trash">
                                             </i>
                                             Delete

@@ -51,22 +51,20 @@
                                 <th style="width: 20%">
                                     Tên
                                 </th>
-                                <th style="width: 10%">
+                                <th style="width: 20%">
                                     Ảnh
                                 </th>
                                 <th style="width: 20%">
-                                    email
+                                    Link
                                 </th>
-                                <th style="width: 10%">
-                                    Vai trò
-                                </th>
+                            
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                            foreach ($nguoidung as $nd) {
-                                extract($nd);
-                                $linkimg = '../../view/img/' . $img_nguoi_dung;
+                            foreach ($banner as $bn) {
+                                extract($bn);
+                                $linkimg = '../../view/img/'.$img_banner;
                             ?>
                                 <tr>
                                     <td>
@@ -76,7 +74,7 @@
                                         <?= $id ?>
                                     </td>
                                     <td>
-                                        <?= $ten_nguoi_dung ?>
+                                        <?= $ten_banner ?>
                                     </td>
                                     <td>
                                         <ul class="list-inline">
@@ -86,34 +84,21 @@
                                         </ul>
                                     </td>
                                     <td>
-                                        <?= $email_nguoi_dung ?>
+                                        <?= $link ?>
                                     </td>
-                                    <td>
-                                        <?php
-                                        if ($vai_tro == 1) {
-                                        ?>
-                                            <p>admin</p>
-                                        <?php
-                                        } else {
-                                        ?>
-                                            <p>người bán hàng</p>
-                                        <?php
-                                        }
-                                        ?>
 
-                                    </td>
                                     <td class="project-actions text-right">
                                         <!-- <a class="btn btn-primary btn-sm" href="#">
                                             <i class="fas fa-folder">
                                             </i>
                                             View
                                         </a> -->
-                                        <a class="btn btn-info btn-sm" href="index.php?act=suanguoidung&&id=<?= $id ?>">
+                                        <a class="btn btn-info btn-sm" href="index.php?act=suabanner&&id=<?= $id ?>">
                                             <i class="fas fa-pencil-alt">
                                             </i>
                                             Edit
                                         </a>
-                                        <a onclick="return confirm('xóa mềm người dùng')" class="btn btn-danger btn-sm" href="index.php?act=xoamemnguoidung&&id=<?= $id ?>">
+                                        <a onclick="return confirm('xóa mềm banner')" class="btn btn-danger btn-sm" href="index.php?act=xoamembanner&&id=<?= $id ?>">
                                             <i class="fas fa-trash">
                                             </i>
                                             Delete
@@ -123,6 +108,7 @@
                             <?php
                             }
                             ?>
+
 
                         </tbody>
 

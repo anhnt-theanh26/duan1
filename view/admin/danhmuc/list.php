@@ -86,7 +86,7 @@
                                             </i>
                                             Edit
                                         </a>
-                                        <a class="btn btn-danger btn-sm" href="index.php?act=xoadanhmuc&&id=<?= $id ?>">
+                                        <a onclick="return confirm('xóa mềm danh mục')" class="btn btn-danger btn-sm" href="index.php?act=xoadanhmuc&&id=<?= $id ?>">
                                             <i class="fas fa-trash">
                                             </i>
                                             Delete

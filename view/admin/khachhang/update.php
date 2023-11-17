@@ -1,15 +1,19 @@
+<?php
+extract($khachhang);
+$linkimg = '../../view/img/' . $img_khach_hang;
+?>
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Thêm tin tức</h1>
+                    <h1>Sửa khách hàng</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Thêm tin tức</li>
+                        <li class="breadcrumb-item active">Sửa khách hàng</li>
                     </ol>
                 </div>
             </div>
@@ -20,91 +24,52 @@
     <section class="content">
         <div class="container-fluid">
             <div class="card-header">
-                <h3 class="card-title">Thêm tin tức</h3>
+                <h3 class="card-title">Sửa khách hàng</h3>
             </div>
-            <form action="index.php?act=" method="post" enctype="multipart/form-data">
+            <!-- index.php?act=addnguoidung -->
+            <form action="index.php?act=updatekhachhang" method="post" enctype="multipart/form-data">
                 <div class="card-body">
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Tên tin tức</label>
-                        <input name="tensanpham" type="text" class="form-control" id="exampleInputEmail1" placeholder="Tên tin tức">
+                        <input name="id" type="hidden" value="<?= $id ?>">
+                        <label for="ten">Tên khách hàng</label>
+                        <input name="ten" type="text" class="form-control" id="ten" placeholder="Tên khách hàng" value="<?= $ten_khach_hang ?>">
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Giá tin tức</label>
-                        <input name="giasanpham" type="text" class="form-control" id="exampleInputEmail1" placeholder="Giá tin tức">
+                        <label for="tendangnhap">Tên đăng nhập khách hàng</label>
+                        <input name="tendangnhap" type="text" class="form-control" id="tendangnhap" placeholder="Tên đăng nhập khách hàng" value="<?= $ten_dang_nhap ?>">
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Số lượng tin tức</label>
-                        <input name="soluongsanpham" type="number" value="1" class="form-control" id="exampleInputEmail1" placeholder="Số lượng tin tức">
+                        <label for="matkhau">Mật khẩu mới</label>
+                        <input name="matkhau" type="password" class="form-control" id="matkhau" placeholder="Mật khẩu mới">
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputFile">Ảnh đại diện tin tức</label>
-                        <div class="input-group">
-                            <div class="custom-file">
-                                <input name="anhdaiien" type="file" class="custom-file-input" id="exampleInputFile">
-                                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                            </div>
-                            <!-- <div class="input-group-append">
-                                <span class="input-group-text">Upload</span>
-                            </div> -->
-                        </div>
+                        <label for="img">Ảnh đại diện khách hàng</label><br>
+                        <img src="<?= $linkimg ?>" alt="" width="100px">
+                        <input name="img" type="file">
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputFile">Ảnh 1</label>
-                        <div class="input-group">
-                            <div class="custom-file">
-                                <input name="anh1" type="file" class="custom-file-input" id="exampleInputFile">
-                                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                            </div>
-                            <!-- <div class="input-group-append">
-                                <span class="input-group-text">Upload</span>
-                            </div> -->
-                        </div>
+                        <label for="email">Email khách hàng</label>
+                        <input name="email" type="email" class="form-control" id="email" placeholder="Email khách hàng" value="<?= $email_khach_hang ?>">
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputFile">Ảnh 2</label>
-                        <div class="input-group">
-                            <div class="custom-file">
-                                <input name="anh2" type="file" class="custom-file-input" id="exampleInputFile">
-                                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                            </div>
-                            <!-- <div class="input-group-append">
-                                <span class="input-group-text">Upload</span>
-                            </div> -->
-                        </div>
+                        <label for="sdt">Sdt khách hàng</label>
+                        <input name="sdt" type="number" class="form-control" id="sdt" placeholder="Sdt khách hàng" value="<?= $sdt_khach_hang ?>">
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputFile">Ảnh 3</label>
-                        <div class="input-group">
-                            <div class="custom-file">
-                                <input name="anh3" type="file" class="custom-file-input" id="exampleInputFile">
-                                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                            </div>
-                            <!-- <div class="input-group-append">
-                                <span class="input-group-text">Upload</span>
-                            </div> -->
-                        </div>
+                        <label for="diachi">Địa chỉ khách hàng</label>
+                        <input name="diachi" type="number" class="form-control" id="diachi" placeholder="Địa chỉ khách hàng" value="<?= $dia_chi_khach_hang ?>">
                     </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Danh mục tin tức</label><br>
-                        <select name="iddm" id="">
-                            <option value="">danh muc 1</option>
-                            <option value="">danh muc 12</option>
-                            <option value="">danh muc 13</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Mô tả tin tức</label>
-                        <textarea name="edit" id="edit" cols="30" rows="10"></textarea>
-
-                    </div>
-                    
-
                 </div>
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                    <input type="submit" class="btn btn-primary" name="themsanpham" id="" value="Thêm tin tức">
+                    <input type="submit" class="btn btn-primary" name="suakh" id="" value="Sửa khách hàng">
                 </div>
+                <?php
+                if (isset($thongbao) && ($thongbao) != "") {
+                    echo $thongbao;
+                }
+                ?>
             </form>
 
     </section>

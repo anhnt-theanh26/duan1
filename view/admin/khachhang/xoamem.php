@@ -1,7 +1,4 @@
 <div class="wrapper">
-
-
-
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -57,53 +54,55 @@
                                 <th style="width: 20%">
                                     email
                                 </th>
-                                <th style="width: 10%">
-                                    Vai trò
-                                </th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>
-                                    #
-                                </td>
-                                <td>
-                                    id
-                                </td>
-                                <td>
-                                    tên
-                                </td>
-                                <td>
-                                    <ul class="list-inline">
-                                        <li class="list-inline-item">
-                                            <img alt="Avatar" class="table-avatar" src="../admin/dist/img/user1-128x128.jpg">
-                                        </li>
-                                    </ul>
-                                </td>
-                                <td>
-                                    email
-                                </td>
-                                <td class="project_progress">
-                                    vai trò
-                                </td>
-                                <td class="project-actions text-right">
-                                    <a class="btn btn-primary btn-sm" href="#">
-                                        <i class="fas fa-folder">
-                                        </i>
-                                        View
-                                    </a>
-                                    <a class="btn btn-info btn-sm" href="#">
-                                        <i class="fas fa-pencil-alt">
-                                        </i>
-                                        Edit
-                                    </a>
-                                    <a class="btn btn-danger btn-sm" href="#">
-                                        <i class="fas fa-trash">
-                                        </i>
-                                        Delete
-                                    </a>
-                                </td>
-                            </tr>
+                            <?php
+                            foreach ($khachhang as $kh) {
+                                extract($kh);
+                                $linkimg = '../../view/img/' . $img_khach_hang;
+                            ?>
+                                <tr>
+                                    <td>
+                                        #
+                                    </td>
+                                    <td>
+                                        <?= $id ?>
+                                    </td>
+                                    <td>
+                                        <?= $ten_khach_hang ?>
+                                    </td>
+                                    <td>
+                                        <ul class="list-inline">
+                                            <li class="list-inline-item">
+                                                <img alt="Avatar" class="table-avatar" src="<?= $linkimg ?>">
+                                            </li>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <?= $email_khach_hang ?>
+                                    </td>
+                                    <td class="project-actions text-right">
+                                        <a class="btn btn-primary btn-sm" href="index.php?act=restorekhachhang&&id=<?= $id ?>">
+                                            <i class="fas fa-folder">
+                                            </i>
+                                            Restore
+                                        </a>
+                                        <a class="btn btn-info btn-sm" href="index.php?act=suakhachhang&&id=<?= $id ?>">
+                                            <i class="fas fa-pencil-alt">
+                                            </i>
+                                            Edit
+                                        </a>
+                                        <a onclick="return confirm('xóa cứng khách hàng')" class="btn btn-danger btn-sm" href="index.php?act=xoamemkhachhang&&id=<?= $id ?>">
+                                            <i class="fas fa-trash">
+                                            </i>
+                                            Delete
+                                        </a>
+                                    </td>
+                                </tr>
+                            <?php
+                            }
+                            ?>
                             <!-- <tr>
                                 <td>
                                     #
@@ -556,7 +555,7 @@
                                 </td>
                             </tr> -->
                         </tbody>
-                        
+
                     </table>
                 </div>
                 <!-- /.card-body -->

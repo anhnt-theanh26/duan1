@@ -91,7 +91,7 @@
                                         </i>
                                         Edit
                                     </a>
-                                    <a class="btn btn-danger btn-sm" href="#">
+                                    <a onclick="return confirm('xóa bình luận')" class="btn btn-danger btn-sm" href="index.php?act=xoabinhluan&&idbl=<?= $idbl ?>&&idsp=<?= $idsp ?>">
                                         <i class="fas fa-trash">
                                         </i>
                                         Delete

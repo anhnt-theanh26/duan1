@@ -49,61 +49,64 @@
                                     id
                                 </th>
                                 <th style="width: 20%">
-                                    Tên
+                                    Tiêu đề
                                 </th>
                                 <th style="width: 20%">
                                     Ảnh
                                 </th>
-                                <th style="width: 20%">
-                                    email
-                                </th>
-                                <th style="width: 10%">
-                                    Vai trò
+                                <th style="width: 5%">
+                                    IDDM
                                 </th>
                             </tr>
                         </thead>
                         <tbody>
+                            <?php
+                            foreach ($tintuc as $tt) {
+                                extract($tt);
+                                $linkimg = '../../view/img/'.$img_tin_tuc;
+                            ?>
                             <tr>
                                 <td>
                                     #
                                 </td>
                                 <td>
-                                    id
+                                    <?= $id ?>
                                 </td>
                                 <td>
-                                    tên
+                                    <?= $tieu_de ?>
                                 </td>
                                 <td>
                                     <ul class="list-inline">
                                         <li class="list-inline-item">
-                                            <img alt="Avatar" class="table-avatar" src="../admin/dist/img/user1-128x128.jpg">
+                                            <img alt="Avatar" class="table-avatar" src="<?= $linkimg ?>">
                                         </li>
                                     </ul>
                                 </td>
-                                <td>
-                                    email
-                                </td>
                                 <td class="project_progress">
-                                    vai trò
+                                    <?= $iddm ?>
                                 </td>
                                 <td class="project-actions text-right">
-                                    <!-- <a class="btn btn-primary btn-sm" href="#">
+                                    <a class="btn btn-primary btn-sm" href="index.php?act=khoiphuctintuc&&id=<?= $id ?>">
                                         <i class="fas fa-folder">
                                         </i>
-                                        View
-                                    </a> -->
-                                    <a class="btn btn-info btn-sm" href="#">
+                                        Restore
+                                    </a>
+                                    <a class="btn btn-info btn-sm" href="index.php?act=suatintuc&&id=<?= $id ?>">
                                         <i class="fas fa-pencil-alt">
                                         </i>
                                         Edit
                                     </a>
-                                    <a class="btn btn-danger btn-sm" href="#">
+                                    <a onclick="return confirm('xóa cứng tin tức')" class="btn btn-danger btn-sm" href="index.php?act=xoacungtintuc&&id=<?= $id ?>">
                                         <i class="fas fa-trash">
                                         </i>
                                         Delete
                                     </a>
                                 </td>
                             </tr>
+                            <?php
+                            }
+
+                            ?>
                             <!-- <tr>
                                 <td>
                                     #

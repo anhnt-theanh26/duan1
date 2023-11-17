@@ -4,12 +4,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Thêm tin tức</h1>
+                    <h1>Thêm khuyến mại</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Thêm tin tức</li>
+                        <li class="breadcrumb-item active">Thêm khuyến mại</li>
                     </ol>
                 </div>
             </div>
@@ -20,46 +20,33 @@
     <section class="content">
         <div class="container-fluid">
             <div class="card-header">
-                <h3 class="card-title">Thêm tin tức</h3>
+                <h3 class="card-title">Thêm khuyến mại</h3>
             </div>
-            <!-- index.php?act= -->
+            <!-- index.php?act=addsp -->
             <form action="#" method="post" enctype="multipart/form-data">
                 <div class="card-body">
                     <div class="form-group">
-                        <label for="tieude">Tiêu đề</label>
-                        <input name="tieude" type="text" class="form-control" id="tieude" placeholder="Tên tin tức">
+                        <label for="makm">Mã khuyến mại</label>
+                        <input name="makm" type="text" class="form-control" id="makm" placeholder="Mã khuyến mại">
                     </div>
                     <div class="form-group">
-                        <label for="mota">Nội dung</label>
-                        <textarea name="mota" id="mota" cols="30" rows="10"></textarea>
-
-                    </div>
-
-                    <div class="form-group">
-                        <label for="img">Img tin tức</label>
-                        <input name="img" type="file" class="form-control" id="img">
+                        <label for="phantram">% khuyến mại</label>
+                        <input name="phantram" type="number" class="form-control" id="phantram" placeholder="% khuyến mại">
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputPassword1">Danh mục tin tức</label><br>
-                        <select name="iddm" id="">
-                            <?php
-                            foreach ($danhmuc as $dm) {
-                                extract($dm);
-                            ?>
-                                <option value="<?= $id ?>"><?= $ten_danh_muc ?></option>
-                            <?php
-                            }
-                            ?>
-                        </select>
+                        <label for="batdau">Ngày bắt đầu khuyến mại</label>
+                        <input name="batdau" type="date" value="1" class="form-control" id="batdau" placeholder="Ngày bắt đầu khuyến mại">
                     </div>
-
-
-
+                    <div class="form-group">
+                        <label for="ketthuc">Ngày kết thúc khuyến mại</label>
+                        <input name="ketthuc" type="date" value="1" class="form-control" id="ketthuc" placeholder="Ngày kết thúc khuyến mại">
+                    </div>
+                    
                 </div>
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                    <input type="submit" class="btn btn-primary" name="addtintuc" id="" value="Thêm tin tức">
+                    <input type="submit" class="btn btn-primary" name="addkm" id="" value="Thêm khuyến mại">
                 </div>
                 <?php
                 if (isset($thongbao) && ($thongbao) != "") {
