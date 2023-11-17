@@ -13,7 +13,7 @@ function insert_taikhoan($email, $user, $pass)
 // session_start();
 function dangnhap($ten_dang_nhap, $mat_khau)
 {
-    $sql = "SELECT * from nguoidung where ten_dang_nhap='$ten_dang_nhap' and mat_khau='$mat_khau'";
+    $sql = "SELECT * from nguoidung where ten_dang_nhap='$ten_dang_nhap' and mat_khau='$mat_khau' and trang_thai = '0';";
     $taikhoan = pdo_query_one($sql);
 
     // if($taikhoan != false){
