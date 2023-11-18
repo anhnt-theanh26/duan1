@@ -6,7 +6,7 @@ function nguoidung()
     include 'nguoidung/list.php';
 }
 
-function themkhachhang()
+function themnguoidung()
 {
     if (isset($_POST['add']) && ($_POST['add'])) {
         $tennguoidung = $_POST['tennguoidung'];

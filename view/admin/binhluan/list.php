@@ -9,12 +9,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Sản phẩm</h1>
+                        <h1>Số lượng bình luận của sản phẩm</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Sản phẩm</li>
+                            <li class="breadcrumb-item"><a href="index.php?act=home">Home</a></li>
+                            <li class="breadcrumb-item active">Số lượng bình luận của sản phẩm</li>
                         </ol>
                     </div>
                 </div>
@@ -27,7 +27,7 @@
             <!-- Default box -->
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Sản phẩm</h3>
+                    <h3 class="card-title">Số lượng bình luận của sản phẩm</h3>
 
                     <div class="card-tools">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">

@@ -12,7 +12,7 @@ $linkimg = '../../view/img/' . $img_tin_tuc;
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="index.php?act=home">Home</a></li>
                         <li class="breadcrumb-item active">Sửa tin tức</li>
                     </ol>
                 </div>
@@ -39,14 +39,6 @@ $linkimg = '../../view/img/' . $img_tin_tuc;
                         <textarea name="mota" id="mota" cols="30" rows="10"><?= $noi_dung ?></textarea>
 
                     </div>
-                    <!-- <div class="form-group">
-                        <label for="exampleInputEmail1">Giá tin tức</label>
-                        <input name="giasanpham" type="text" class="form-control" id="exampleInputEmail1" placeholder="Giá tin tức">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Số lượng tin tức</label>
-                        <input name="soluongsanpham" type="number" value="1" class="form-control" id="exampleInputEmail1" placeholder="Số lượng tin tức">
-                    </div> -->
                     <div class="form-group">
                         <label for="img">Ảnh tin tức</label><br>
                         <img src="<?= $linkimg ?>" alt="" width="100px">

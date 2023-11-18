@@ -5,7 +5,7 @@ function khachhang()
     include 'khachhang/list.php';
 }
 
-function themnguoidung()
+function themkhachhang()
 {
     if (isset($_POST['add']) && ($_POST['add'])) {
         $ten = $_POST['ten'];
