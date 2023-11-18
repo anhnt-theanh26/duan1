@@ -51,14 +51,17 @@
                                 <th style="width: 20%">
                                     Tên
                                 </th>
-                                <th style="width: 20%">
+                                <th style="width: 10%">
                                     Ảnh
                                 </th>
-                                <th style="width: 20%">
+                                <th style="width: 10%">
                                     Giá
                                 </th>
-                                <th style="width: 5%">
+                                <th style="width: 10%">
                                     iddm
+                                </th>
+                                <th style="width: 10%">
+                                    Đã bán
                                 </th>
                             </tr>
                         </thead>
@@ -66,7 +69,7 @@
                             <?php
                             foreach ($sanpham as $sp) {
                                 extract($sp);
-                                $linkimg = '../../view/img/'.$img_dai_dien;
+                                $linkimg = '../../view/img/' . $img_dai_dien;
                             ?>
                                 <tr>
                                     <td>
@@ -76,7 +79,7 @@
                                         <?= $id ?>
                                     </td>
                                     <td>
-                                    <?= $ten_san_pham ?>
+                                        <?= $ten_san_pham ?>
                                     </td>
                                     <td>
                                         <ul class="list-inline">
@@ -86,23 +89,26 @@
                                         </ul>
                                     </td>
                                     <td>
-                                    <?= $gia_san_pham ?>
+                                        <?= $gia_san_pham ?>
                                     </td>
-                                    <td class="project_progress">
-                                    <?= $iddm ?>
+                                    <td>
+                                        <?= $iddm ?>
+                                    </td>
+                                    <td>
+                                        <?= $da_ban ?>
                                     </td>
                                     <td class="project-actions text-right">
                                         <a class="btn btn-primary btn-sm" href="index.php?act=khoiphucsanpham&&id=<?= $id ?>">
-                                        <i class="fas fa-folder">
-                                        </i>
-                                        Restore
-                                    </a>
+                                            <i class="fas fa-folder">
+                                            </i>
+                                            Restore
+                                        </a>
                                         <a class="btn btn-info btn-sm" href="index.php?act=suasanpham&&id=<?= $id ?>">
                                             <i class="fas fa-pencil-alt">
                                             </i>
                                             Edit
                                         </a>
-                                        <a onclick="return confirm('xóa cứng sản phẩm')" class="btn btn-danger btn-sm" href="index.php?act=xoasanpham&&id=<?= $id ?>">
+                                        <a onclick="return confirm('xóa mềm sản phẩm')" class="btn btn-danger btn-sm" href="index.php?act=xoamemsanpham&&id=<?= $id ?>">
                                             <i class="fas fa-trash">
                                             </i>
                                             Delete
@@ -112,6 +118,7 @@
                             <?php
                             }
                             ?>
+
                         </tbody>
 
                     </table>

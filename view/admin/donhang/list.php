@@ -48,11 +48,11 @@
                                 <th style="width: 4%">
                                     id
                                 </th>
-                                <th style="width: 10%">
-                                    idsp
+                                <th style="width: 20%">
+                                    Tên sản phẩm
                                 </th>
-                                <th style="width: 10%">
-                                    idkh
+                                <th style="width: 20%">
+                                    Tên khách hàng
                                 </th>
                                 <th style="width: 10%">
                                     Số lượng
@@ -81,16 +81,16 @@
                                     <?= $id ?>
                                 </td>
                                 <td>
-                                    <?= $id_sp ?>
+                                    <?= $tensp ?>
                                 </td>
                                 <td>
-                                    <?= $id_kh ?>
+                                    <?= $tenkh ?>
                                 </td>
                                 <td>
                                     <?= $so_luong ?>
                                 </td>
                                 <td>
-                                    <?= $gia ?>
+                                    <?= $gia_san_pham ?>
                                 </td>
                                 <td>
                                     <?= $tong_tien ?>

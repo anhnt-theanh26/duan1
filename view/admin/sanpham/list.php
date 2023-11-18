@@ -51,14 +51,17 @@
                                 <th style="width: 20%">
                                     Tên
                                 </th>
-                                <th style="width: 20%">
+                                <th style="width: 10%">
                                     Ảnh
                                 </th>
-                                <th style="width: 20%">
+                                <th style="width: 10%">
                                     Giá
                                 </th>
-                                <th style="width: 5%">
+                                <th style="width: 10%">
                                     iddm
+                                </th>
+                                <th style="width: 10%">
+                                    Đã bán
                                 </th>
                             </tr>
                         </thead>
@@ -88,8 +91,11 @@
                                     <td>
                                     <?= $gia_san_pham ?>
                                     </td>
-                                    <td class="project_progress">
+                                    <td>
                                     <?= $iddm ?>
+                                    </td>
+                                    <td>
+                                    <?= $da_ban ?>
                                     </td>
                                     <td class="project-actions text-right">
                                         <!-- <a class="btn btn-primary btn-sm" href="#">
