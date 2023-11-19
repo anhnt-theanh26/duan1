@@ -431,23 +431,35 @@
               <a href="#" class="nav-link">
                 <!-- <i class="nav-icon fas fa-table"></i> -->
                 <p>
-                  Đơn hàng
+                  Hóa đơn
                   <i class="fas fa-angle-left right"></i>
                 </p>
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="index.php?act=donhang" class="nav-link">
+                  <a href="index.php?act=hoadon" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Danh sách</p>
                   </a>
                 </li>
-                <!-- <li class="nav-item">
-                  <a href="index.php?act=themdonhang" class="nav-link">
+                <li class="nav-item">
+                  <a href="index.php?act=dangchuanbi" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Thêm</p>
+                    <p>Đang chuẩn bị</p>
                   </a>
-                </li> -->
+                </li>
+                <li class="nav-item">
+                  <a href="index.php?act=donhangdanggiao" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Đang giao</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="index.php?act=donhangdagiao" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Đã giao</p>
+                  </a>
+                </li>
               </ul>
             </li>
             <li class="nav-item">

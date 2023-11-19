@@ -9,12 +9,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Chờ xác nhận</h1>
+                        <h1>Danh mục</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="index.php?act=home">Home</a></li>
-                            <li class="breadcrumb-item active">Chờ xác nhận</li>
+                            <li class="breadcrumb-item active">Danh mục</li>
                         </ol>
                     </div>
                 </div>
@@ -27,7 +27,7 @@
             <!-- Default box -->
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Chờ xác nhận</h3>
+                    <h3 class="card-title">Danh mục</h3>
 
                     <div class="card-tools">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -48,20 +48,17 @@
                                 <th style="width: 4%">
                                     id
                                 </th>
-                                <th style="width: 15%">
-                                    Tên khách hàng
-                                </th>
-                                <th style="width: 15%">
-                                    Số điện thoại
-                                </th>
-                                <th style="width: 20%">
-                                    Địa chỉ
+                                <th style="width: 30%">
+                                    Tên sản phẩm
                                 </th>
                                 <th style="width: 10%">
-                                    Ngày đặt
+                                    Số lượng
                                 </th>
                                 <th style="width: 10%">
-                                    Tổng tiền
+                                    Đơn giá
+                                </th>
+                                <th style="width: 10%">
+                                    Thành tiền
                                 </th>
                             </tr>
                         </thead>
@@ -75,52 +72,37 @@
                                         #
                                     </td>
                                     <td>
-                                        <a href="index.php?act=chitiethoadon&&id=<?= $id ?>" style="color: black;">
-                                            <?= $id ?>
-                                        </a>
+                                        <?= $id ?>
                                     </td>
                                     <td>
-                                        <a href="index.php?act=chitiethoadon&&id=<?= $id ?>" style="color: black;">
-                                            <?= $ten_khach_hang ?>
-                                        </a>
+                                        <?= $ten_san_pham ?>
                                     </td>
                                     <td>
-                                        <a href="index.php?act=chitiethoadon&&id=<?= $id ?>" style="color: black;">
-                                            <?= $sdt ?>
-                                        </a>
+                                        <?= $so_luong ?>
                                     </td>
                                     <td>
-                                        <a href="index.php?act=chitiethoadon&&id=<?= $id ?>" style="color: black;">
-                                            <?= $dia_chi ?>
-                                        </a>
+                                        <?= $gia_san_pham ?>
                                     </td>
                                     <td>
-                                        <a href="index.php?act=chitiethoadon&&id=<?= $id ?>" style="color: black;">
-                                            <?= $ngay_dat ?>
-                                        </a>
+                                        <?= $thanh_tien ?>
                                     </td>
-                                    <td>
-                                        <a href="index.php?act=chitiethoadon&&id=<?= $id ?>" style="color: black;">
-                                            <?= $tong_tien ?>
-                                        </a>
-                                    </td>
-                                    <td class="project-actions text-right">
-                                        <a onclick="return confirm('xác nhận đơn hàng')" class="btn btn-primary btn-sm" href="index.php?act=xacnhandonhang&&id=<?= $id ?>">
+                                    <!-- <td class="project-actions text-right"> -->
+                                        <!-- <a class="btn btn-primary btn-sm" href="index.php?act=dangchuanbi&&id=<?= $id ?>">
                                             <i class="fas fa-folder">
                                             </i>
-                                            Xác nhận
-                                        </a>
+                                            Chuẩn bị
+                                        </a> -->
                                         <!-- <a class="btn btn-info btn-sm" href="index.php?act=suadanhmuc&&id=">
                                             <i class="fas fa-pencil-alt">
                                             </i>
                                             Edit
                                         </a>
-                                        <a onclick="return confirm('xóa mềm Chờ xác nhận')" class="btn btn-danger btn-sm" href="index.php?act=xoadanhmuc&&id=">
+                                        <a onclick="return confirm('xóa mềm danh mục')" class="btn btn-danger btn-sm" href="index.php?act=xoadanhmuc&&id=">
                                             <i class="fas fa-trash">
                                             </i>
                                             Delete
                                         </a> -->
-                                    </td>
+                                    <!-- </td> -->
                                 </tr>
                             <?php
                             }

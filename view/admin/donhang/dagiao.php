@@ -9,12 +9,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Chờ xác nhận</h1>
+                        <h1>Đã giao</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="index.php?act=home">Home</a></li>
-                            <li class="breadcrumb-item active">Chờ xác nhận</li>
+                            <li class="breadcrumb-item active">Đã giao</li>
                         </ol>
                     </div>
                 </div>
@@ -27,7 +27,7 @@
             <!-- Default box -->
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Chờ xác nhận</h3>
+                    <h3 class="card-title">Đã giao</h3>
 
                     <div class="card-tools">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -105,17 +105,17 @@
                                         </a>
                                     </td>
                                     <td class="project-actions text-right">
-                                        <a onclick="return confirm('xác nhận đơn hàng')" class="btn btn-primary btn-sm" href="index.php?act=xacnhandonhang&&id=<?= $id ?>">
+                                        <!-- <a onclick="return confirm('đơn hàng đã giao thành công')" class="btn btn-primary btn-sm" href="index.php?act=giaohangthanhcong&&id=">
                                             <i class="fas fa-folder">
                                             </i>
-                                            Xác nhận
-                                        </a>
+                                            Giao thành công
+                                        </a> -->
                                         <!-- <a class="btn btn-info btn-sm" href="index.php?act=suadanhmuc&&id=">
                                             <i class="fas fa-pencil-alt">
                                             </i>
                                             Edit
                                         </a>
-                                        <a onclick="return confirm('xóa mềm Chờ xác nhận')" class="btn btn-danger btn-sm" href="index.php?act=xoadanhmuc&&id=">
+                                        <a onclick="return confirm('xóa mềm Đã giao')" class="btn btn-danger btn-sm" href="index.php?act=xoadanhmuc&&id=">
                                             <i class="fas fa-trash">
                                             </i>
                                             Delete

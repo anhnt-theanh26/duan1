@@ -7,7 +7,7 @@ ob_start();
 
 include '../../model/binhluan.php';
 include '../../model/danhmuc.php';
-include '../../model/donhang.php';
+include '../../model/hoadon.php';
 include '../../model/khachhang.php';
 include '../../model/khuyenmai.php';
 include '../../model/logo_banner.php';
@@ -20,7 +20,7 @@ include '../../model/tintuc.php';
 
 include '../../controller/binhluan.php';
 include '../../controller/danhmuc.php';
-include '../../controller/donhang.php';
+include '../../controller/hoadon.php';
 include '../../controller/khachhang.php';
 include '../../controller/khuyenmai.php';
 include '../../controller/logo_banner.php';
@@ -288,23 +288,69 @@ if (isset($_SESSION['user']) && ($_SESSION['user'])) {
                     break;
 
                     // đơn hàng
-                case 'donhang':
-                    $donhang = don_hang();
+                case 'hoadon':
+                    $hoadon = cho_xac_nhan();
                     include 'donhang/list.php';
                     break;
 
-                // case 'comfirmdonhang':
-                //     if (isset($_GET['id']) && ($_GET['id']) > 0) {
-                //         $id = $_GET['id'];
-                //         confirm_don_hang($id);
-                //     }
-                //     $donhang = don_hang_dat();
-                //     include 'donhang/list.php';
-                //     break;
-
-                case 'donhangdagiao':
+                case 'chitiethoadon':
+                    if (isset($_GET['id']) && ($_GET['id']) > 0) {
+                        $id = $_GET['id'];
+                        $hoadon = chi_tiet_hoa_don($id);
+                    }
+                    include 'donhang/chitietdonhang.php';
                     break;
 
+                case 'xacnhandonhang':
+                    if (isset($_GET['id']) && ($_GET['id']) > 0) {
+                        $id = $_GET['id'];
+                        xac_nhan_don_hang($id);
+                    }
+                    $hoadon = cho_xac_nhan();
+                    include 'donhang/list.php';
+                    break;
+
+
+                case 'dangchuanbi':
+                    $hoadon = dang_chuan_bi();
+                    include 'donhang/dangchuanbi.php';
+                    break;
+
+                case 'chuanbixong':
+                    if (isset($_GET['id']) && ($_GET['id']) > 0) {
+                        $id = $_GET['id'];
+                        chuan_bi_xong_don_hang($id);
+                    }
+                    $hoadon = dang_chuan_bi();
+                    include 'donhang/dangchuanbi.php';
+                    break;
+
+                case 'donhangdanggiao':
+                    $hoadon = dang_giao();
+                    include 'donhang/danggiao.php';
+                    break;
+                
+                case 'giaohangthanhcong':
+                    if (isset($_GET['id']) && ($_GET['id']) > 0) {
+                        $id = $_GET['id'];
+                        da_giao_don_hang($id);
+                    }
+                    $hoadon = dang_giao();
+                    include 'donhang/danggiao.php';
+                    break;
+
+                case 'donhangdagiao':
+                    $hoadon = da_giao();
+                    include 'donhang/dagiao.php';
+                    break;
+
+                case 'chitiethoadontungkhachhang':
+                    if (isset($_GET['id']) && ($_GET['id']) > 0) {
+                        $id = $_GET['id'];
+                        $hoadon = hoa_don_tung_khach_hang($id);
+                    }
+                    include 'donhang/chitietdonhang.php';
+                    break;
                     // khuyến mại
                 case 'khuyenmai':
                     khuyenmai();
@@ -533,12 +579,73 @@ if (isset($_SESSION['user']) && ($_SESSION['user'])) {
                     updatelogo();
                     break;
 
+                    //người dùng
+                    // khách hàng
 
                     // đơn hàng
-                case 'donhang':
-                    donhang();
+                case 'hoadon':
+                    $hoadon = cho_xac_nhan();
+                    include 'donhang/list.php';
                     break;
 
+                case 'chitiethoadon':
+                    if (isset($_GET['id']) && ($_GET['id']) > 0) {
+                        $id = $_GET['id'];
+                        $hoadon = chi_tiet_hoa_don($id);
+                    }
+                    include 'donhang/chitietdonhang.php';
+                    break;
+
+                case 'xacnhandonhang':
+                    if (isset($_GET['id']) && ($_GET['id']) > 0) {
+                        $id = $_GET['id'];
+                        xac_nhan_don_hang($id);
+                    }
+                    $hoadon = cho_xac_nhan();
+                    include 'donhang/list.php';
+                    break;
+
+
+                case 'dangchuanbi':
+                    $hoadon = dang_chuan_bi();
+                    include 'donhang/dangchuanbi.php';
+                    break;
+
+                case 'chuanbixong':
+                    if (isset($_GET['id']) && ($_GET['id']) > 0) {
+                        $id = $_GET['id'];
+                        chuan_bi_xong_don_hang($id);
+                    }
+                    $hoadon = dang_chuan_bi();
+                    include 'donhang/dangchuanbi.php';
+                    break;
+
+                case 'donhangdanggiao':
+                    $hoadon = dang_giao();
+                    include 'donhang/danggiao.php';
+                    break;
+                
+                case 'giaohangthanhcong':
+                    if (isset($_GET['id']) && ($_GET['id']) > 0) {
+                        $id = $_GET['id'];
+                        da_giao_don_hang($id);
+                    }
+                    $hoadon = dang_giao();
+                    include 'donhang/danggiao.php';
+                    break;
+
+                case 'donhangdagiao':
+                    $hoadon = da_giao();
+                    include 'donhang/dagiao.php';
+                    break;
+
+                case 'chitiethoadontungkhachhang':
+                    if (isset($_GET['id']) && ($_GET['id']) > 0) {
+                        $id = $_GET['id'];
+                        $hoadon = hoa_don_tung_khach_hang($id);
+                    }
+                    include 'donhang/chitietdonhang.php';
+                    break;
                     // khuyến mại
                 case 'khuyenmai':
                     khuyenmai();

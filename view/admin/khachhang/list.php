@@ -67,20 +67,28 @@
                                         #
                                     </td>
                                     <td>
-                                        <?= $id ?>
+                                        <a href="index.php?act=chitiethoadontungkhachhang&&id=<?= $id ?>" style="color:  black;">
+                                            <?= $id ?>
+                                        </a>
                                     </td>
                                     <td>
-                                        <?= $ten_khach_hang ?>
+                                        <a href="index.php?act=chitiethoadontungkhachhang&&id=<?= $id ?>" style="color:  black;">
+                                            <?= $ten_khach_hang ?>
+                                        </a>
                                     </td>
                                     <td>
-                                        <ul class="list-inline">
-                                            <li class="list-inline-item">
-                                                <img alt="Avatar" class="table-avatar" src="<?= $linkimg ?>">
-                                            </li>
-                                        </ul>
+                                        <a href="index.php?act=chitiethoadontungkhachhang&&id=<?= $id ?>" style="color:  black;">
+                                            <ul class="list-inline">
+                                                <li class="list-inline-item">
+                                                    <img alt="Avatar" class="table-avatar" src="<?= $linkimg ?>">
+                                                </li>
+                                            </ul>
+                                        </a>
                                     </td>
                                     <td>
-                                        <?= $email_khach_hang ?>
+                                        <a href="index.php?act=chitiethoadontungkhachhang&&id=<?= $id ?>" style="color:  black;">
+                                            <?= $email_khach_hang ?>
+                                        </a>
                                     </td>
                                     <td class="project-actions text-right">
                                         <!-- <a class="btn btn-primary btn-sm" href="#">
