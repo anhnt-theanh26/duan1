@@ -37,6 +37,7 @@ include 'header.php';
 
 if (isset($_SESSION['user']) && ($_SESSION['user'])) {
     extract($_SESSION['user']);
+    $idnd = $id;
     if ($vai_tro == 1) {
         if (isset($_GET['act']) && ($_GET['act']) != '') {
             $act = $_GET['act'];

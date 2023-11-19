@@ -55,7 +55,12 @@ function updatenguoidung()
         move_uploaded_file($_FILES['img']['tmp_name'], $target_file);
         if ($tennguoidung != "" && $tendangnhap != "" && $email != "" && $sdt != "" && $vaitro != "") {
             update_nguoidung($id, $tennguoidung, $tendangnhap, $matkhau, $email, $sdt, $vaitro, $img);
-            $thongbao = 'update người dùng thành công';
+            if($idnd = $id){
+                $_SESSION['user'] = dangnhap($tendangnhap, $matkhau);
+                $thongbao = 'update người dùng thành công';
+            }else{
+                $thongbao = 'update người dùng thành công';
+            }
         } else {
             $thongbao = 'điền đầy đủ thông tin';
         }
