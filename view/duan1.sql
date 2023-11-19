@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 19, 2023 lúc 03:19 AM
+-- Thời gian đã tạo: Th10 19, 2023 lúc 04:28 AM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.0.28
 
@@ -128,6 +128,19 @@ INSERT INTO `binhluan` (`id`, `noi_dung`, `id_sp`, `id_kh`, `ngay_binh_luan`) VA
 -- --------------------------------------------------------
 
 --
+-- Cấu trúc bảng cho bảng `chitiethoadon`
+--
+
+CREATE TABLE `chitiethoadon` (
+  `id` int(11) NOT NULL,
+  `id_hd` int(11) NOT NULL,
+  `so_luong` int(11) NOT NULL,
+  `thanh_tien` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Cấu trúc bảng cho bảng `danhmuc`
 --
 
@@ -157,36 +170,17 @@ INSERT INTO `danhmuc` (`id`, `ten_danh_muc`, `img_danh_muc`, `trang_thai`) VALUE
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `donhang`
+-- Cấu trúc bảng cho bảng `hoadon`
 --
 
-CREATE TABLE `donhang` (
+CREATE TABLE `hoadon` (
   `id` int(11) NOT NULL,
-  `id_sp` int(11) NOT NULL,
   `id_kh` int(11) NOT NULL,
-  `so_luong` int(11) NOT NULL,
-  `gia` int(11) NOT NULL,
-  `tong_tien` int(11) NOT NULL,
+  `id_km` int(11) NOT NULL,
   `ngay_dat` date NOT NULL DEFAULT current_timestamp(),
+  `tong_tien` int(11) NOT NULL,
   `trang_thai` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Đang đổ dữ liệu cho bảng `donhang`
---
-
-INSERT INTO `donhang` (`id`, `id_sp`, `id_kh`, `so_luong`, `gia`, `tong_tien`, `ngay_dat`, `trang_thai`) VALUES
-(1, 1, 1, 1, 19000, 19000, '2023-11-17', 0),
-(2, 1, 2, 2, 19000, 38000, '2023-11-17', 0),
-(3, 2, 3, 2, 17000, 34000, '2023-11-17', 0),
-(4, 3, 3, 3, 17000, 51000, '2023-11-17', 0),
-(5, 4, 1, 3, 12000, 36000, '2023-11-17', 0),
-(6, 1, 3, 2, 19000, 38000, '2023-11-17', 0),
-(7, 1, 1, 2, 19000, 38000, '2023-11-17', 0),
-(8, 4, 4, 1, 12000, 12000, '2023-11-18', 0),
-(9, 3, 4, 2, 17000, 34000, '2023-11-18', 0),
-(10, 3, 5, 1, 17000, 17000, '2023-11-18', 0),
-(11, 2, 5, 2, 25000, 50000, '2023-11-18', 0);
 
 -- --------------------------------------------------------
 
@@ -363,15 +357,21 @@ ALTER TABLE `binhluan`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Chỉ mục cho bảng `chitiethoadon`
+--
+ALTER TABLE `chitiethoadon`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Chỉ mục cho bảng `danhmuc`
 --
 ALTER TABLE `danhmuc`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `donhang`
+-- Chỉ mục cho bảng `hoadon`
 --
-ALTER TABLE `donhang`
+ALTER TABLE `hoadon`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -427,16 +427,22 @@ ALTER TABLE `binhluan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
+-- AUTO_INCREMENT cho bảng `chitiethoadon`
+--
+ALTER TABLE `chitiethoadon`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT cho bảng `danhmuc`
 --
 ALTER TABLE `danhmuc`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT cho bảng `donhang`
+-- AUTO_INCREMENT cho bảng `hoadon`
 --
-ALTER TABLE `donhang`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+ALTER TABLE `hoadon`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT cho bảng `khachhang`
