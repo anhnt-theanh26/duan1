@@ -183,10 +183,12 @@
             $linkimg = '../../view/img/' . $img_nguoi_dung;
           ?>
             <div class="image">
-              <img src="<?= $linkimg ?>" class="img-circle elevation-2" alt="User Image">
+              <a href="index.php?act=suanguoidung&&id=<?= $id ?>">
+                <img src="<?= $linkimg ?>" class="img-circle elevation-2" alt="User Image">
+            </a>
             </div>
             <div class="info">
-              <a href="#" class="d-block"><?= $ten_nguoi_dung ?></a>
+              <a href="index.php?act=suanguoidung&&id=<?= $id ?>" class="d-block"><?= $ten_nguoi_dung ?></a>
             </div>
           <?php
           } else {

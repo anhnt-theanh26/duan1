@@ -289,67 +289,40 @@ if (isset($_SESSION['user']) && ($_SESSION['user'])) {
 
                     // đơn hàng
                 case 'hoadon':
-                    $hoadon = cho_xac_nhan();
-                    include 'donhang/list.php';
+                    hoadon();
                     break;
 
                 case 'chitiethoadon':
-                    if (isset($_GET['id']) && ($_GET['id']) > 0) {
-                        $id = $_GET['id'];
-                        $hoadon = chi_tiet_hoa_don($id);
-                    }
-                    include 'donhang/chitietdonhang.php';
+                    chitiethoadon();
                     break;
 
                 case 'xacnhandonhang':
-                    if (isset($_GET['id']) && ($_GET['id']) > 0) {
-                        $id = $_GET['id'];
-                        xac_nhan_don_hang($id);
-                    }
-                    $hoadon = cho_xac_nhan();
-                    include 'donhang/list.php';
+                    xacnhandonhang();
                     break;
 
 
                 case 'dangchuanbi':
-                    $hoadon = dang_chuan_bi();
-                    include 'donhang/dangchuanbi.php';
+                    dangchuanbi();
                     break;
 
                 case 'chuanbixong':
-                    if (isset($_GET['id']) && ($_GET['id']) > 0) {
-                        $id = $_GET['id'];
-                        chuan_bi_xong_don_hang($id);
-                    }
-                    $hoadon = dang_chuan_bi();
-                    include 'donhang/dangchuanbi.php';
+                    chuanbixong();
                     break;
 
                 case 'donhangdanggiao':
-                    $hoadon = dang_giao();
-                    include 'donhang/danggiao.php';
+                    donhangdanggiao();
                     break;
-                
+
                 case 'giaohangthanhcong':
-                    if (isset($_GET['id']) && ($_GET['id']) > 0) {
-                        $id = $_GET['id'];
-                        da_giao_don_hang($id);
-                    }
-                    $hoadon = dang_giao();
-                    include 'donhang/danggiao.php';
+                    giaohangthanhcong();
                     break;
 
                 case 'donhangdagiao':
-                    $hoadon = da_giao();
-                    include 'donhang/dagiao.php';
+                    donhangdagiao();
                     break;
 
                 case 'chitiethoadontungkhachhang':
-                    if (isset($_GET['id']) && ($_GET['id']) > 0) {
-                        $id = $_GET['id'];
-                        $hoadon = hoa_don_tung_khach_hang($id);
-                    }
-                    include 'donhang/chitietdonhang.php';
+                    chitiethoadontungkhachhang();
                     break;
                     // khuyến mại
                 case 'khuyenmai':
@@ -580,71 +553,51 @@ if (isset($_SESSION['user']) && ($_SESSION['user'])) {
                     break;
 
                     //người dùng
+                case 'suanguoidung':
+                    suanguoidung();
+                    break;
+
+                case 'updatenguoidung':
+                    updatenguoidung();
+                    break;
                     // khách hàng
 
                     // đơn hàng
                 case 'hoadon':
-                    $hoadon = cho_xac_nhan();
-                    include 'donhang/list.php';
+                    hoadon();
                     break;
 
                 case 'chitiethoadon':
-                    if (isset($_GET['id']) && ($_GET['id']) > 0) {
-                        $id = $_GET['id'];
-                        $hoadon = chi_tiet_hoa_don($id);
-                    }
-                    include 'donhang/chitietdonhang.php';
+                    chitiethoadon();
                     break;
 
                 case 'xacnhandonhang':
-                    if (isset($_GET['id']) && ($_GET['id']) > 0) {
-                        $id = $_GET['id'];
-                        xac_nhan_don_hang($id);
-                    }
-                    $hoadon = cho_xac_nhan();
-                    include 'donhang/list.php';
+                    xacnhandonhang();
                     break;
 
 
                 case 'dangchuanbi':
-                    $hoadon = dang_chuan_bi();
-                    include 'donhang/dangchuanbi.php';
+                    dangchuanbi();
                     break;
 
                 case 'chuanbixong':
-                    if (isset($_GET['id']) && ($_GET['id']) > 0) {
-                        $id = $_GET['id'];
-                        chuan_bi_xong_don_hang($id);
-                    }
-                    $hoadon = dang_chuan_bi();
-                    include 'donhang/dangchuanbi.php';
+                    chuanbixong();
                     break;
 
                 case 'donhangdanggiao':
-                    $hoadon = dang_giao();
-                    include 'donhang/danggiao.php';
+                    donhangdanggiao();
                     break;
-                
+
                 case 'giaohangthanhcong':
-                    if (isset($_GET['id']) && ($_GET['id']) > 0) {
-                        $id = $_GET['id'];
-                        da_giao_don_hang($id);
-                    }
-                    $hoadon = dang_giao();
-                    include 'donhang/danggiao.php';
+                    giaohangthanhcong();
                     break;
 
                 case 'donhangdagiao':
-                    $hoadon = da_giao();
-                    include 'donhang/dagiao.php';
+                    donhangdagiao();
                     break;
 
                 case 'chitiethoadontungkhachhang':
-                    if (isset($_GET['id']) && ($_GET['id']) > 0) {
-                        $id = $_GET['id'];
-                        $hoadon = hoa_don_tung_khach_hang($id);
-                    }
-                    include 'donhang/chitietdonhang.php';
+                    chitiethoadontungkhachhang();
                     break;
                     // khuyến mại
                 case 'khuyenmai':
