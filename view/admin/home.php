@@ -6,7 +6,7 @@
     ?>
       <p>Tên người dùng: <?= $ten_nguoi_dung ?></p>
       <?php
-      if ($vai_tro == -1) {
+      if ($vai_tro == 1) {
       ?>
         <p>Chức vụ: ADMIN</p>
     <?php

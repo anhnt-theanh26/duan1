@@ -37,7 +37,7 @@ include 'header.php';
 
 if (isset($_SESSION['user']) && ($_SESSION['user'])) {
     extract($_SESSION['user']);
-    if ($vai_tro == -1) {
+    if ($vai_tro == 1) {
         if (isset($_GET['act']) && ($_GET['act']) != '') {
             $act = $_GET['act'];
             switch ($act) {
@@ -289,7 +289,20 @@ if (isset($_SESSION['user']) && ($_SESSION['user'])) {
 
                     // đơn hàng
                 case 'donhang':
-                    donhang();
+                    $donhang = don_hang();
+                    include 'donhang/list.php';
+                    break;
+
+                // case 'comfirmdonhang':
+                //     if (isset($_GET['id']) && ($_GET['id']) > 0) {
+                //         $id = $_GET['id'];
+                //         confirm_don_hang($id);
+                //     }
+                //     $donhang = don_hang_dat();
+                //     include 'donhang/list.php';
+                //     break;
+
+                case 'donhangdagiao':
                     break;
 
                     // khuyến mại
@@ -339,7 +352,7 @@ if (isset($_SESSION['user']) && ($_SESSION['user'])) {
         } else {
             include 'home.php';
         }
-    } else if ($vai_tro != -1) {
+    } else if ($vai_tro != 1) {
         if (isset($_GET['act']) && ($_GET['act']) != '') {
             $act = $_GET['act'];
             switch ($act) {

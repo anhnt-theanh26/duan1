@@ -16,7 +16,7 @@ function loadall_khuyenmai_xoamem()
 
 function loadall_khuyenmai_conhan()
 {
-    $sql = "SELECT * FROM khuyenmai WHERE ngay_ket_thuc - ngay_bat_dau > 0 AND trang_thai = '0';";
+    $sql = "SELECT * FROM khuyenmai WHERE ngay_ket_thuc - ngay_bat_dau >= 0 AND trang_thai = '0';";
     $khuyenmai = pdo_query($sql);
     return $khuyenmai;
 }
