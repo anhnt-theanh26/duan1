@@ -2,7 +2,7 @@
 //
 function select_new()
 {
-    $sql = 'select *, taikhoan.user as name, danhmuc.name as namedm, danhmuc.id as iddm from news JOIN taikhoan on news.iduser = taikhoan.id join danhmuc on news.iddm=danhmuc.id order by news.id desc limit 0,3';
+    $sql = "SELECT danhmuc.ten_danh_muc, danhmuc.id as iddm, tintuc.tieu_de, tintuc.img_tin_tuc, tintuc.ngay_dang, tintuc.id as idtt FROM tintuc JOIN danhmuc ON tintuc.iddm=danhmuc.id WHERE tintuc.trang_thai = '0' ORDER BY `tintuc`.`img_tin_tuc` ASC LIMIT 0,3";
     $list = pdo_query($sql);
     return $list;
 }
@@ -18,7 +18,7 @@ function chitietnew($id)
 // đã sửa
 function loadone_tin_tuc($id)
 {
-    $sql = "SELECT * FROM tintuc WHERE id = '$id';";
+    $sql = "SELECT * FROM tintuc WHERE trang_thai = '0' and id = '$id';";
     $tintuc = pdo_query_one($sql);
     return $tintuc;
 }

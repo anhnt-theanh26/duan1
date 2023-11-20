@@ -3,7 +3,7 @@
 // hiển thị 9 sản phẩm home
 function loadall_sanpham_home()
 {
-    $sql = "select * from sanpham where 1 and trang_thai='0' order by luot_xem desc limit 0,12;";
+    $sql = "SELECT * FROM sanpham where 1 and trang_thai='0' order by luot_xem desc limit 0,12;";
     $listsanpham = pdo_query($sql);
     return $listsanpham;
 }
@@ -11,7 +11,7 @@ function loadall_sanpham_home()
 //load top 10 sản phẩm có lượt xem cao nhất
 function loadall_sanpham_top10()
 {
-    $sql = "select * from sanpham where 1 order by view desc limit 0,10";
+    $sql = "SELECT * FROM sanpham where 1 order by view desc limit 0,10";
     $listsanpham = pdo_query($sql);
     return $listsanpham;
 }
@@ -19,7 +19,7 @@ function loadall_sanpham_top10()
 // load 1 sản phẩm cùng loại
 function loadone_sanpham($id)
 {
-    $sql = "select * from sanpham where id = '$id'";
+    $sql = "SELECT * FROM sanpham where id = '$id'";
     $sanpham = pdo_query_one($sql);
     return $sanpham;
 }
@@ -27,7 +27,7 @@ function loadone_sanpham($id)
 // load các sản phẩm cùng loại trừ sản phẩm đang xem
 function loadallsp_cungloai($id, $iddm)
 {
-    $sql = "select * from sanpham where id != '2' and iddm = '2' && trang_thai='0' order by luot_xem desc limit 0,4;";
+    $sql = "SELECT * FROM sanpham where id != '2' and iddm = '2' && trang_thai='0' order by luot_xem desc limit 0,4;";
     $sanpham = pdo_query($sql);
     return $sanpham;
 }
@@ -35,7 +35,7 @@ function loadallsp_cungloai($id, $iddm)
 // load all san pham cung danh muc
 function loadallsp_cungdanhmuc($iddm)
 {
-    $sql = "select * from sanpham where iddm = '$iddm' && trang_thai='0';";
+    $sql = "SELECT * FROM sanpham where iddm = '$iddm' && trang_thai='0';";
     $sanpham = pdo_query($sql);
     return $sanpham;
 }
@@ -49,14 +49,14 @@ function san_pham()
 // load tất cả các sản phẩm
 function loadall_sanpham($keyw = "", $iddm = 0)
 {
-    $sql = "select * from sanpham where trang_thai='0' ";
+    $sql = "SELECT * FROM sanpham where trang_thai='0' ";
     if ($keyw != "") {
-        $sql .= "and name like '%" . $keyw . "%'";
+        $sql.= "and ten_san_pham like '%" . $keyw . "%'";
     }
     if ($iddm > 0) {
-        $sql .= "and iddm = '" . $iddm . "'";
+        $sql.= "and id_dm = '" . $iddm . "'";
     }
-    $sql .= "order by id desc";
+    $sql.= "order by id desc";
     $listsanpham = pdo_query($sql);
     return $listsanpham;
 }
@@ -113,7 +113,7 @@ function restore_sanpham($id)
 // loadall các sản phẩm xóa mềm
 function loadall_sanpham_soft($keyw = "", $iddm = 0)
 {
-    $sql = "select * from sanpham where trang_thai!='0' ";
+    $sql = "SELECT * FROM sanpham where trang_thai!='0' ";
     if ($keyw != "") {
         $sql .= "and name like '%" . $keyw . "%'";
     }

@@ -19,9 +19,9 @@ function load_so_binh_luan()
     return $binhluan;
 }
 //them binh luan
-function insert_binhluan($noidung, $idsp, $idkh)
+function insert_binhluan_sanpham($idsp, $idkh, $noidung)
 {
-    $sql = "INSERT into binhluan(noi_dung, id_sp, id_kh) VALUES('$noidung', '$idsp', '$idkh');";
+    $sql = "INSERT INTO binhluan(id_sp, id_kh, noi_dung) VALUES('$idsp', '$idkh', '$noidung');";
     pdo_execute($sql);
 }
 
@@ -50,6 +50,18 @@ function binhluannews($id)
     JOIN news on binhluannews.idn=news.id 
     JOIN taikhoan on binhluannews.iduser=taikhoan.id 
     WHERE news.id = $id" . ' ORDER BY binhluannews.id DESC';
+    $binhluan = pdo_query($sql);
+    return $binhluan;
+}
+
+function binh_luan_san_pham($idsp)
+{
+    $sql = "SELECT 
+    sanpham.id as idsp,binhluan.noi_dung, khachhang.ten_khach_hang, khachhang.img_khach_hang,binhluan.ngay_binh_luan
+    FROM sanpham 
+    JOIN binhluan on sanpham.id = binhluan.id_sp 
+    JOIN khachhang on binhluan.id_kh=khachhang.id 
+    WHERE binhluan.id_sp = '$idsp' ORDER BY binhluan.id DESC;";
     $binhluan = pdo_query($sql);
     return $binhluan;
 }
