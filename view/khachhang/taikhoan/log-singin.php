@@ -16,7 +16,7 @@
                             <div class="login-form-container">
                                 <div class="login-register-form">
                                     <!-- index.php?act=dangnhaptaikhoan -->
-                                    <form action="index.php?act=dangnhap" method="post">
+                                    <form action="index.php?act=dangnhaptaikhoan" method="post">
                                         <input type="text" name="tendangnhap" placeholder="Tên đăng nhập">
                                         <input type="text" name="matkhau" placeholder="Mật khẩu">
                                         <div class="login-toggle-btn">
@@ -25,7 +25,8 @@
                                             <a href="#">Forgot Password?</a>
                                         </div>
                                         <div class="button-box btn-hover">
-                                            <button name="dangnhap" type="submit">Đăng nhập</button>
+                                            <input name="dangnhap" type="submit" type="text" id="" value="Đăng nhập">
+                                            <!-- <button name="dangnhap" type="submit">Đăng nhập</button> -->
                                         </div>
                                     </form>
                                 </div>
@@ -39,8 +40,8 @@
                         <div id="lg2" class="tab-pane">
                             <div class="login-form-container">
                                 <div class="login-register-form">
-                                    <!-- index.php?act=dangky -->
-                                    <form action="index.php?act=dangky" method="post">
+                                    <!-- index.php?act=dangkytaikhoan -->
+                                    <form action="index.php?act=dangkytaikhoan" method="post">
                                         <input type="text" name="ten" placeholder="Tên khách hàng">
                                         <input type="text" name="tendangnhap" placeholder="Tên đăng nhập">
                                         <input type="password" name="pass" placeholder="Mật khẩu">
@@ -48,7 +49,8 @@
                                         <input type="text" name="sdt" placeholder="Số điện thoại">
                                         <input type="text" name="diachi" placeholder="Địa chỉ">
                                         <div class="button-box btn-hover">
-                                            <button name="dangky" type="submit">Đăng ký</button>
+                                            <input name="dangky" type="submit" type="text" id="" value="Đăng ký">
+                                            <!-- <button name="dangky" type="submit">Đăng ký</button> -->
                                         </div>
                                     </form>
                                 </div>

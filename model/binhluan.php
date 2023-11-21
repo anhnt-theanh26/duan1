@@ -10,6 +10,14 @@ function load_binhluan($id)
     $binhluan = pdo_query($sql);
     return $binhluan;
 }
+
+function load_binhluan_khach_hang($id)
+{
+    $sql = "SELECT binhluan.id, binhluan.noi_dung, binhluan.ngay_binh_luan, sanpham.ten_san_pham FROM binhluan JOIN khachhang on binhluan.id_kh=khachhang.id JOIN sanpham on binhluan.id_sp=sanpham.id WHERE binhluan.id_kh = '$id';";
+    $binhluan = pdo_query($sql);
+    return $binhluan;
+}
+
 // load so binh luan cua san pham đã sưar
 function load_so_binh_luan()
 {

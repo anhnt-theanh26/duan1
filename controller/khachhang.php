@@ -43,7 +43,7 @@ function updatekhachhang()
         $id = $_POST['id'];
         $ten = $_POST['ten'];
         $tendangnhap = $_POST['tendangnhap'];
-        $matkhau = md5($_POST['matkhau']);
+        $matkhau = $_POST['matkhau'];
         $email = $_POST['email'];
         $sdt = $_POST['sdt'];
         $diachi = $_POST['diachi'];
@@ -51,9 +51,8 @@ function updatekhachhang()
         $target_dir = '../../view/img/';
         $target_file = $target_dir . basename($img);
         move_uploaded_file($_FILES['img']['tmp_name'], $target_file);
-        if ($ten != "" && $tendangnhap != "" && $matkhau != "" && $email != "" && $sdt != "" && $diachi != "") {
+        if ($ten != "" && $tendangnhap != "" && $email != "" && $sdt != "" && $diachi != "") {
             update_khachhang($id, $ten, $tendangnhap, $matkhau, $email, $sdt, $diachi, $img);
-
             $thongbao = 'sửa khách hàng thành công';
         } else {
             $thongbao = ' sửa thất bại';

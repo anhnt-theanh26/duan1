@@ -137,7 +137,7 @@
                             <div class="product-wrap mb-35" data-aos="fade-up">
                                 <div class="product-img img-zoom mb-25">
                                     <a href="<?= $linksp ?>">
-                                        <img src="<?= $linkimg ?>" alt="" style="width: 100x; height: 300px;">
+                                        <img src="<?= $linkimg ?>" alt="" style="width: 270x; height: 300px;">
                                     </a>
                                     <!-- <div class="product-badge badge-top badge-right badge-pink">
                                             <span>-10%</span>

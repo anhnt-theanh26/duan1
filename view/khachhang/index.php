@@ -66,6 +66,11 @@ if (isset($_GET['act']) && ($_GET['act']) != "") {
             include 'home.php';
             break;
 
+        case 'tintuc':
+            $tintuc = loadall_tin_tuc();
+            include 'tintuc/tintuc.php';
+            break;
+
         case 'chitiettintuc':
             if (isset($_GET['id']) && ($_GET['id']) != 0) {
                 $id = $_GET['id'];
@@ -77,8 +82,19 @@ if (isset($_GET['act']) && ($_GET['act']) != "") {
             break;
 
         case 'taikhoan':
+            // if (isset($_GET['idbl']) && ($_GET['idbl']) > 0) {
+            //     header("location: " . $_SERVER['HTTP_REFERER']);
+            // }
+            // $binhluan = load_binhluan_khach_hang($_SESSION['user']['id']);
             include 'taikhoan/taikhoan.php';
             break;
+
+        // case 'binhluan':
+        //     if (isset($_GET['idbl']) && ($_GET['idbl']) > 0) {
+        //         header("location: " . $_SERVER['HTTP_REFERER']);
+        //     }
+        //     $binhluan = load_binhluan_khach_hang($_SESSION['user']['id']);
+        //     break;
 
         case 'dangnhap-dangky':
             include 'taikhoan/log-singin.php';
@@ -91,38 +107,39 @@ if (isset($_GET['act']) && ($_GET['act']) != "") {
             header('location: index.php?act=home');
             break;
 
-        case 'dangnhap':
-            if (isset($_POST['dangnhap'])) {
+        case 'dangnhaptaikhoan':
+            if (isset($_POST['dangnhap']) && ($_POST['dangnhap'])) {
                 $tendangnhap = $_POST['tendangnhap'];
                 $matkhau = md5($_POST['matkhau']);
-                $dangnhap = dang_nhap($tendangnhap, $matkhau);
+                $dangnhap = dang_nhap_khach_hang($tendangnhap, $matkhau);
                 if (is_array($dangnhap)) {
                     $_SESSION['user'] = $dangnhap;
-                    header('location: index.php?act=home');
+                    header("location: index.php?act=home");
                 } else {
                     $thongbao = 'dang nhap that bai! tai khoan khong ton tai';
-                    include 'taikhoan/dangnhap.php';
                 }
             }
-            include 'taikhoan/log-singin.php';
+            include 'taikhoan/dangnhap.php';
             break;
 
-        case 'dangky':
-            if (isset($_POST['dangky'])) {
+
+
+        case 'dangkytaikhoan':
+            if (isset($_POST['dangky']) && ($_POST['dangky'])) {
                 $ten = $_POST['ten'];
                 $tendangnhap = $_POST['tendangnhap'];
-                $pass = md5($_POST['pass']);
+                $matkhau = md5($_POST['matkhau']);
                 $email = $_POST['email'];
                 $sdt = $_POST['sdt'];
                 $diachi = $_POST['diachi'];
-                if ($ten != "") {
-                    insert_taikhoan($ten, $tendangnhap, $pass, $email, $sdt, $diachi);
+                if ($ten != "" && $tendangnhap != "" && $matkhau != "" && $email != "" && $sdt != "" && $diachi != "") {
+                    insert_taikhoan($ten, $tendangnhap, $matkhau, $email, $sdt, $diachi);
                     $thongbao = 'Đăng ký thành công';
                 } else {
                     $thongbao = 'không để trống các cột để đăng ký';
                 }
             }
-            include 'taikhoan/log-singin.php';
+            include 'taikhoan/dangky.php';
             break;
 
         case 'addcart':
@@ -154,6 +171,7 @@ if (isset($_GET['act']) && ($_GET['act']) != "") {
             break;
 
         case 'cart':
+            $khuyenmai = loadall_khuyenmai_conhan();
             include 'sanpham/cart.php';
             break;
 

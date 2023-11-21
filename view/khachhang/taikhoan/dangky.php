@@ -65,24 +65,28 @@
             <div class="col-lg-8 col-md-12 offset-lg-2">
                 <div class="login-register-wrapper">
                     <div class="login-register-tab-list nav">
-                        <a href="index.php?act=dangnhap">
-                            <h4> Đăng nhập  </h4>
+                        <a href="index.php?act=dangnhaptaikhoan">
+                            <h4> Đăng nhập </h4>
                         </a>
-                        <a href="index.php?act=dangky">
-                            <h4>  Đăng ký </h4>
+                        <a href="index.php?act=dangkytaikhoan">
+                            <h4> Đăng ký </h4>
                         </a>
                     </div>
                     <div class="tab-content">
                         <div id="lg1" class="tab-pane active">
                             <div class="login-form-container">
                                 <div class="login-register-form">
-                                    <!-- index.php?act=dangnhap -->
-                                    <form action="#" method="post">
-                                        <input type="text" name="user" placeholder="Username">
-                                        <input type="password" name="pass" placeholder="Password">
-                                        <input name="email" placeholder="Email" type="text">
+                                    <!-- index.php?act=dangkytaikhoan -->
+                                    <form action="index.php?act=dangkytaikhoan" method="post">
+                                        <input type="text" name="ten" placeholder="Tên khách hàng">
+                                        <input type="text" name="tendangnhap" placeholder="Tên đăng nhập">
+                                        <input type="password" name="matkhau" placeholder="Mật khẩu">
+                                        <input type="email" name="email" placeholder="Email">
+                                        <input type="text" name="sdt" placeholder="Số điện thoại">
+                                        <input type="text" name="diachi" placeholder="Địa chỉ">
                                         <div class="button-box btn-hover">
-                                            <button name="dangky" type="submit">Đăng ký</button>
+                                            <input name="dangky" type="submit" type="text" id="" value="Đăng ký">
+                                            <!-- <button name="dangky" type="submit">Đăng ký</button> -->
                                         </div>
                                     </form>
                                 </div>

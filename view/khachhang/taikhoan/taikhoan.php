@@ -53,8 +53,8 @@ if (isset($_SESSION['user']) && is_array($_SESSION['user'])) {
             <h2>Tài khoản của tôi </h2>
             <h6>
                 <?php
-                if (isset($thongbao) && ($thongbao) != '') {
-                    echo $thongbao;
+                if (isset($id) && ($id) != '') {
+                    echo $id;
                 }
                 ?>
             </h6>
@@ -85,7 +85,7 @@ if (isset($_SESSION['user']) && is_array($_SESSION['user'])) {
                             <div class="myaccount-tab-menu nav" role="tablist">
                                 <a href="#dashboad" class="active" data-bs-toggle="tab">Bảng điều khiển</a>
                                 <a href="#orders" data-bs-toggle="tab">Đơn hàng đặt</a>
-                                <!-- <a href="#download" data-bs-toggle="tab">Download</a> -->
+                                <a href="#download" data-bs-toggle="tab">Bình luận</a>
                                 <a href="#payment-method" data-bs-toggle="tab">Phương thức thanh toán</a>
                                 <!-- <a href="#address-edit" data-bs-toggle="tab">Address</a> -->
                                 <a href="#account-info" data-bs-toggle="tab">Chi tiết tài khoản</a>
@@ -162,7 +162,56 @@ if (isset($_SESSION['user']) && is_array($_SESSION['user'])) {
                                 <!-- Single Tab Content Start -->
                                 <div class="tab-pane fade" id="download" role="tabpanel">
                                     <div class="myaccount-content">
-                                        <h3>Downloads</h3>
+                                        <div class="myaccount-content">
+                                                <?php
+                                                include 'binhluan/binhluan.php';
+                                                ?>
+                                            <h3>Bình luận</h3>
+                                            <div class="myaccount-table table-responsive text-center">
+                                                <table class="table table-bordered">
+                                                    <thead class="thead-light">
+                                                        <tr>
+                                                            <!-- <th style="width: 1%;">id</th> -->
+                                                            <th style="width: 10%;">Nội dung</th>
+                                                            <th style="width: 10%;">Tên sản phẩm</th>
+                                                            <!-- <th style="width: 10%;">Ngày bình luận</th> -->
+                                                            <th style="width: 10%;">Xóa</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <?php
+                                                        if (isset($binhluan)) {
+                                                            foreach ($binhluan as $bl) {
+                                                                extract($bl);
+                                                        ?>
+                                                                <tr>
+                                                                    <td><?= $noi_dung ?></td>
+                                                                    <td><?= $ten_san_pham  ?></td>
+                                                                    <td><a onclick="return confirm('Xóa bình luận');" href="index.php?act=taikhoan&&idbl=<?= $id ?>" class="check-btn sqr-btn ">Xóa</a></td>
+                                                                </tr>
+                                                        <?php
+                                                            }
+                                                        }
+                                                        ?>
+                                                        <!-- <tr>
+                                                            <td>2</td>
+                                                            <td>July 22, 2022</td>
+                                                            <td>Approved</td>
+                                                            <td>$200</td>
+                                                            <td><a href="cart.html" class="check-btn sqr-btn ">View</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>3</td>
+                                                            <td>June 12, 2017</td>
+                                                            <td>On Hold</td>
+                                                            <td>$990</td>
+                                                            <td><a href="cart.html" class="check-btn sqr-btn ">View</a></td>
+                                                        </tr> -->
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <!-- <h3>Bình luận</h3>
                                         <div class="myaccount-table table-responsive text-center">
                                             <table class="table table-bordered">
                                                 <thead class="thead-light">
@@ -188,7 +237,7 @@ if (isset($_SESSION['user']) && is_array($_SESSION['user'])) {
                                                     </tr>
                                                 </tbody>
                                             </table>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                                 <!-- Single Tab Content End -->
@@ -223,8 +272,12 @@ if (isset($_SESSION['user']) && is_array($_SESSION['user'])) {
                                             <form action="index.php?act=updateuser" method="post" enctype="multipart/form-data">
                                                 <div class="single-input-item">
                                                     <input type="hidden" name="id" id="" value="<?= $id ?>">
-                                                    <label for="display-name" class="required">Tên hiển thị</label>
-                                                    <input name="user" type="text" id="display-name" value="<?= $ten_khach_hang ?>" />
+                                                    <label for="ten" class="required">Tên hiển thị</label>
+                                                    <input name="ten" type="text" id="ten" value="<?= $ten_khach_hang ?>" />
+                                                </div>
+                                                <div class="single-input-item">
+                                                    <label for="tendangnhap" class="required">Tên đăng nhập</label>
+                                                    <input name="tendangnhap" type="text" id="email" value="<?= $ten_dang_nhap ?>" />
                                                 </div>
                                                 <div class="single-input-item">
                                                     <label for="email" class="required">Email</label>
@@ -235,8 +288,8 @@ if (isset($_SESSION['user']) && is_array($_SESSION['user'])) {
                                                     <input name="sdt" type="text" id="sdt" value="<?= $sdt_khach_hang ?>" />
                                                 </div>
                                                 <div class="single-input-item">
-                                                    <label for="address" class="required">Địa chỉ</label>
-                                                    <input name="address" type="text" id="address" value="<?= $dia_chi_khach_hang ?>" />
+                                                    <label for="diachi" class="required">Địa chỉ</label>
+                                                    <input name="diachi" type="text" id="diachi" value="<?= $dia_chi_khach_hang ?>" />
                                                 </div>
                                                 <div class="single-input-item">
                                                     <label for="display-name" class="required">Ảnh</label>
@@ -247,8 +300,8 @@ if (isset($_SESSION['user']) && is_array($_SESSION['user'])) {
                                                 <fieldset>
                                                     <legend>Thay đổi mật khẩu</legend>
                                                     <div class="single-input-item">
-                                                        <label for="current-pwd" class="required">Mật khẩu mới</label>
-                                                        <input name="passnew" type="text" id="current-pwd" />
+                                                        <label for="matkhau" class="required">Mật khẩu mới</label>
+                                                        <input name="matkhau" type="text" id="matkhau" />
                                                     </div>
                                                 </fieldset>
                                                 <div class="single-input-item btn-hover">

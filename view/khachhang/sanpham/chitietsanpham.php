@@ -114,10 +114,11 @@ $idsp = $id;
             <div class="col-lg-6">
                 <form action="index.php?act=addcart" method="post">
 
-                    <input type="hidden" name="id" id="" value="">
-                    <input type="hidden" name="name" id="" value="">
-                    <input type="hidden" name="price" id="" value="">
-                    <input type="hidden" name="img" id="" value="">
+                    <input type="hidden" name="id" id="" value="<?= $id ?>">
+                    <input type="hidden" name="name" id="" value="<?= $ten_san_pham ?>">
+                    <input type="hidden" name="price" id="" value="<?= $gia_san_pham ?>">
+                    <input type="hidden" name="img" id="" value="<?= $img_dai_dien ?>">
+                    <input type="hidden" name="iddm" id="" value="<?= $iddm ?>">
                     <!-- <button type="submit" name="addtocart" class="product-action-btn-2" title="Add To Cart"><i class="pe-7s-cart"></i>Thêm vào giỏ hàng</button> -->
 
 
@@ -150,8 +151,8 @@ $idsp = $id;
                                 <input class="cart-plus-minus-box input-text qty text" name="soluong" value="1">
                             </div>
                             <div class="single-product-cart btn-hover">
-                                <input type="submit" name="addtocart" class="product-action-btn-2" title="Add To Cart" value="Thêm vào giỏ hàng">
-
+                                <!-- <a href="#"><button type="submit" name="addtocart" class="product-action-btn-2" title="Add To Cart" value="Thêm vào giỏ hàng">Add To Cart </button></a> -->
+                                <input type="submit" name="addtocart" class="product-action-btn-2" title="Add To Cart" value="Thêm vào giỏ hàng" style="width: 150px; height: 60px;">
                             </div>
                             <div class="single-product-wishlist">
                                 <a title="Wishlist" href="wishlist.html"><i class="pe-7s-like"></i></a>
@@ -170,20 +171,20 @@ $idsp = $id;
                                         <li><a href="index.php?act="><?= $ten_danh_muc ?></a></li>
                                     </ul>
                                 </li>
-                                <li><span class="title">Tags:</span>
+                                <!-- <li><span class="title">Tags:</span>
                                     <ul class="tag">
                                         <li><a href="#">Furniture</a></li>
                                     </ul>
-                                </li>
+                                </li> -->
                             </ul>
                         </div>
-                        <div class="social-icon-style-4">
+                        <!-- <div class="social-icon-style-4">
                             <a href="#"><i class="fa fa-facebook"></i></a>
                             <a href="#"><i class="fa fa-dribbble"></i></a>
                             <a href="#"><i class="fa fa-pinterest-p"></i></a>
                             <a href="#"><i class="fa fa-twitter"></i></a>
                             <a href="#"><i class="fa fa-linkedin"></i></a>
-                        </div>
+                        </div> -->
                     </div>
                 </form>
             </div>

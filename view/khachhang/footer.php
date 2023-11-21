@@ -10,12 +10,12 @@
                                 extract($logo);
                                 $linkimg = '../../view/img/'.$img;
                                 ?>
-                                <a href="index.php?act=home"><img src="<?= $linkimg ?>" alt="logo" width="270px" height="140px"></a>
+                                <a href="index.php?act=home"><img src="<?= $linkimg ?>" alt="logo" width="150px" height="50px"></a>
                             </div>
-                            <p>Lorem ipsum dolor sit amet, cons adipi elit, sed do eiusmod tempor incididunt ut aliqua.</p>
-                            <div class="payment-img">
+                            <p>Cửa hàng sách đẹp trai</p>
+                            <!-- <div class="payment-img">
                                 <a href="#"><img src="assets/images/icon-img/payment.png" alt="logo"></a>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 col-sm-6 col-12">

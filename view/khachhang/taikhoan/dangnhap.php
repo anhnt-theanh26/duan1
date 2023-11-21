@@ -23,10 +23,10 @@
             <div class="col-lg-8 col-md-12 offset-lg-2">
                 <div class="login-register-wrapper">
                     <div class="login-register-tab-list nav">
-                        <a href="index.php?act=dangnhap">
+                        <a href="index.php?act=dangnhaptaikhoan">
                             <h4> Đăng nhập </h4>
                         </a>
-                        <a href="index.php?act=dangky">
+                        <a href="index.php?act=dangkytaikhoan">
                             <h4> Đăng ký </h4>
                         </a>
                     </div>
@@ -35,16 +35,17 @@
                             <div class="login-form-container">
                                 <div class="login-register-form">
                                     <!-- index.php?act=dangnhaptaikhoan -->
-                                    <form action="index.php?act=dangnhap" method="post">
-                                        <input type="text" name="user" placeholder="Tên đăng nhập">
-                                        <input type="text" name="pass" placeholder="Mật khẩu">
+                                    <form action="index.php?act=dangnhaptaikhoan" method="post">
+                                        <input type="text" name="tendangnhap" placeholder="Tên đăng nhập">
+                                        <input type="text" name="matkhau" placeholder="Mật khẩu">
                                         <div class="login-toggle-btn">
                                             <input type="checkbox">
                                             <label>Remember me</label>
                                             <a href="#">Forgot Password?</a>
                                         </div>
                                         <div class="button-box btn-hover">
-                                            <button name="dangnhap" type="submit">Đăng nhập</button>
+                                            <input name="dangnhap" type="submit" type="text" id="" value="Đăng nhập">
+                                            <!-- <button name="dangnhap" type="submit">Đăng nhập</button> -->
                                         </div>
                                     </form>
                                 </div>

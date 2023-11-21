@@ -2,7 +2,14 @@
 //
 function select_new()
 {
-    $sql = "SELECT danhmuc.ten_danh_muc, danhmuc.id as iddm, tintuc.tieu_de, tintuc.img_tin_tuc, tintuc.ngay_dang, tintuc.id as idtt FROM tintuc JOIN danhmuc ON tintuc.iddm=danhmuc.id WHERE tintuc.trang_thai = '0' ORDER BY `tintuc`.`img_tin_tuc` ASC LIMIT 0,3";
+    $sql = "SELECT danhmuc.ten_danh_muc, danhmuc.id as iddm, tintuc.tieu_de, tintuc.img_tin_tuc, tintuc.ngay_dang, tintuc.id as idtt FROM tintuc JOIN danhmuc ON tintuc.iddm=danhmuc.id WHERE tintuc.trang_thai = '0' ORDER BY tintuc.id DESC LIMIT 0,3";
+    $list = pdo_query($sql);
+    return $list;
+}
+
+function loadall_tin_tuc()
+{
+    $sql = "SELECT danhmuc.ten_danh_muc, danhmuc.id as iddm, tintuc.tieu_de, tintuc.img_tin_tuc, tintuc.ngay_dang, tintuc.id as idtt FROM tintuc JOIN danhmuc ON tintuc.iddm=danhmuc.id WHERE tintuc.trang_thai = '0' ORDER BY tintuc.id DESC";
     $list = pdo_query($sql);
     return $list;
 }

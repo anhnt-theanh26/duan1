@@ -19,9 +19,13 @@ function loadone_khachhang($id)
 // sua khach hang
 function update_khachhang($id, $ten, $tendangnhap, $matkhau, $email, $sdt, $diachi, $img)
 {
-    $sql = "UPDATE khachhang SET ten_khach_hang = '$ten', ten_dang_nhap = '$tendangnhap', mat_khau = '$matkhau', email_khach_hang = '$email', sdt_khach_hang = '$sdt', dia_chi_khach_hang = '$diachi' ";
+    $sql = "UPDATE khachhang SET ten_khach_hang = '$ten', ten_dang_nhap = '$tendangnhap', email_khach_hang = '$email', sdt_khach_hang = '$sdt', dia_chi_khach_hang = '$diachi' ";
     if ($img != "") {
         $sql .= ", img_khach_hang = '$img' ";
+    }
+    if($matkhau != ""){
+        $mk = md5($matkhau);
+        $sql .= ", mat_khau = '$mk' ";
     }
     $sql .= "WHERE id = '$id';";
     pdo_execute($sql);
@@ -66,7 +70,7 @@ function add_khachhang($ten, $tendangnhap, $matkhau, $email, $sdt, $diachi, $img
     pdo_execute($sql);
 }
 
-function dang_nhap($tendangnhap, $matkhau){
+function dang_nhap_khach_hang($tendangnhap, $matkhau){
     $sql = "SELECT * FROM khachhang WHERE ten_dang_nhap = '$tendangnhap' AND mat_khau = '$matkhau' AND trang_thai = '0';";
     $listkh = pdo_query_one($sql);
     return $listkh;

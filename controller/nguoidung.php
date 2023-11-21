@@ -45,7 +45,7 @@ function updatenguoidung()
         $id = $_POST['id'];
         $tennguoidung = $_POST['tennguoidung'];
         $tendangnhap = $_POST['tendangnhap'];
-        $matkhau = md5($_POST['matkhau']);
+        $matkhau = $_POST['matkhau'];
         $email = $_POST['email'];
         $sdt = $_POST['sdt'];
         $vaitro = $_POST['vaitro'];

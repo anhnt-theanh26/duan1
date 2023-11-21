@@ -15,7 +15,7 @@ function addbinhluan()
         $idsp = $_POST['idsp'];
         $idkh = $_POST['idkh'];
         if ($noidung != "") {
-            insert_binhluan($noidung, $idsp, $idkh);
+            insert_binhluan_sanpham($idsp, $idkh, $noidung);
             $thongbao = 'thêm bình luận thành công';
             // $thongbao = "nội dung: $noidung; idsp: $idsp; idkh: $idkh";
         } else {
