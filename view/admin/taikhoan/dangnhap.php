@@ -55,7 +55,7 @@
             <?php
             if (isset($_POST['dangnhap']) && $_POST['dangnhap']) {
               $ten_dang_nhap = $_POST['ten_dang_nhap'];
-              $mat_khau = $_POST['mat_khau'];
+              $mat_khau = md5($_POST['mat_khau']);
               $loginMess = dangnhap($ten_dang_nhap, $mat_khau);
               if (is_array($loginMess)) {
                 $_SESSION['user'] = $loginMess;

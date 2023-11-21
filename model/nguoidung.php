@@ -50,10 +50,7 @@ function loadone_nguoidung($id)
 
 function update_nguoidung($id, $tennguoidung, $tendangnhap, $matkhau, $email, $sdt, $vaitro, $img)
 {
-    $sql = "UPDATE nguoidung SET ten_nguoi_dung = '$tennguoidung', ten_dang_nhap = '$tendangnhap', email_nguoi_dung = '$email', sdt_nguoi_dung = '$sdt', vai_tro = '$vaitro'";
-    if ($matkhau != "") {
-        $sql .= ", mat_khau = '$matkhau'";
-    }
+    $sql = "UPDATE nguoidung SET ten_nguoi_dung = '$tennguoidung', ten_dang_nhap = '$tendangnhap', mat_khau = '$matkhau', email_nguoi_dung = '$email', sdt_nguoi_dung = '$sdt', vai_tro = '$vaitro'";
     if ($img != "") {
         $sql .= ", img_nguoi_dung = '$img'";
     }

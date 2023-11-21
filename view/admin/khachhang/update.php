@@ -40,6 +40,7 @@ $linkimg = '../../view/img/' . $img_khach_hang;
                     </div>
                     <div class="form-group">
                         <label for="matkhau">Mật khẩu mới</label>
+                        <input name="matkhaucu" type="hidden" class="form-control" id="matkhaucu" placeholder="Mật khẩu cu" value="<?= $mat_khau ?>">
                         <input name="matkhau" type="password" class="form-control" id="matkhau" placeholder="Mật khẩu mới">
                     </div>
                     <div class="form-group">

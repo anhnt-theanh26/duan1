@@ -19,7 +19,7 @@ function themkhachhang()
         $target_file = $target_dir . basename($img);
         move_uploaded_file($_FILES['img']['tmp_name'], $target_file);
         if ($ten != "" && $tendangnhap != "" && $matkhau != "" && $email != "" && $sdt != "" && $diachi != "") {
-            add_khachhang($ten, $tendangnhap, $matkhau, $email, $sdt, $diachi, $img);
+            add_khachhang($ten, $tendangnhap, md5($matkhau), $email, $sdt, $diachi, $img);
             $thongbao = 'thêm khách hàng thành công';
         } else {
             $thongbao = ' thêm thất bại';
@@ -44,6 +44,7 @@ function updatekhachhang()
         $ten = $_POST['ten'];
         $tendangnhap = $_POST['tendangnhap'];
         $matkhau = $_POST['matkhau'];
+        $matkhaucu = $_POST['matkhaucu'];
         $email = $_POST['email'];
         $sdt = $_POST['sdt'];
         $diachi = $_POST['diachi'];
@@ -51,8 +52,11 @@ function updatekhachhang()
         $target_dir = '../../view/img/';
         $target_file = $target_dir . basename($img);
         move_uploaded_file($_FILES['img']['tmp_name'], $target_file);
-        if ($ten != "" && $tendangnhap != "" && $email != "" && $sdt != "" && $diachi != "") {
-            update_khachhang($id, $ten, $tendangnhap, $matkhau, $email, $sdt, $diachi, $img);
+        if ($ten != "" && $tendangnhap != "" && $email != "" && $sdt != "" && $diachi != "" && $matkhau != "") {
+            update_khachhang($id, $ten, $tendangnhap, md5($matkhau), $email, $sdt, $diachi, $img);
+            $thongbao = 'sửa khách hàng thành công';
+        } else if ($ten != "" && $tendangnhap != "" && $email != "" && $sdt != "" && $diachi != "" && $matkhau == "") {
+            update_khachhang($id, $ten, $tendangnhap, $matkhaucu, $email, $sdt, $diachi, $img);
             $thongbao = 'sửa khách hàng thành công';
         } else {
             $thongbao = ' sửa thất bại';

@@ -19,12 +19,9 @@ function loadone_khachhang($id)
 // sua khach hang
 function update_khachhang($id, $ten, $tendangnhap, $matkhau, $email, $sdt, $diachi, $img)
 {
-    $sql = "UPDATE khachhang SET ten_khach_hang = '$ten', ten_dang_nhap = '$tendangnhap', email_khach_hang = '$email', sdt_khach_hang = '$sdt', dia_chi_khach_hang = '$diachi' ";
+    $sql = "UPDATE khachhang SET ten_khach_hang = '$ten', ten_dang_nhap = '$tendangnhap', mat_khau = '$matkhau' , email_khach_hang = '$email', sdt_khach_hang = '$sdt', dia_chi_khach_hang = '$diachi' ";
     if ($img != "") {
         $sql .= ", img_khach_hang = '$img' ";
-    }
-    if($matkhau != ""){
-        $sql .= ", mat_khau = '$matkhau' ";
     }
     $sql .= "WHERE id = '$id';";
     pdo_execute($sql);

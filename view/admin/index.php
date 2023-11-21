@@ -554,6 +554,7 @@ if (isset($_SESSION['user']) && ($_SESSION['user'])) {
                     break;
 
                     //người dùng
+
                 case 'suanguoidung':
                     suanguoidung();
                     break;

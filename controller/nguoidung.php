@@ -45,6 +45,7 @@ function updatenguoidung()
         $id = $_POST['id'];
         $tennguoidung = $_POST['tennguoidung'];
         $tendangnhap = $_POST['tendangnhap'];
+        $matkhaucu = $_POST['matkhaucu'];
         $matkhau = $_POST['matkhau'];
         $email = $_POST['email'];
         $sdt = $_POST['sdt'];
@@ -53,14 +54,26 @@ function updatenguoidung()
         $target_dir = '../../view/img/';
         $target_file = $target_dir . basename($img);
         move_uploaded_file($_FILES['img']['tmp_name'], $target_file);
-        if ($tennguoidung != "" && $tendangnhap != "" && $email != "" && $sdt != "" && $vaitro != "") {
-            update_nguoidung($id, $tennguoidung, $tendangnhap, $matkhau, $email, $sdt, $vaitro, $img);
-            if($idnd = $id){
-                $_SESSION['user'] = dangnhap($tendangnhap, $matkhau);
-                $thongbao = 'update người dùng thành công';
-            }else{
-                $thongbao = 'update người dùng thành công';
+        $idnd = $_SESSION['user']['id'];
+
+        if ($tennguoidung != "" && $tendangnhap != "" && $email != "" && $sdt != "" && $vaitro != "" && $matkhau != "") {
+            update_nguoidung($id, $tennguoidung, $tendangnhap, md5($matkhau), $email, $sdt, $vaitro, $img);
+            if ($idnd == $id) {
+                $dangnhap = dangnhap($tendangnhap, md5($matkhau));
+                if (is_array($dangnhap)) {
+                    $_SESSION['user'] = $dangnhap;
+                }
             }
+            $thongbao = 'update người dùng thành công';
+        } else if ($tennguoidung != "" && $tendangnhap != "" && $email != "" && $sdt != "" && $vaitro != "" && $matkhau == "") {
+            update_nguoidung($id, $tennguoidung, $tendangnhap, $matkhaucu, $email, $sdt, $vaitro, $img);
+            if ($idnd == $id) {
+                $dangnhap = dangnhap($tendangnhap, $matkhaucu);
+                if (is_array($dangnhap)) {
+                    $_SESSION['user'] = $dangnhap;
+                }
+            }
+            $thongbao = 'update người dùng thành công';
         } else {
             $thongbao = 'điền đầy đủ thông tin';
         }
