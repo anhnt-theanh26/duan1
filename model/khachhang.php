@@ -24,8 +24,7 @@ function update_khachhang($id, $ten, $tendangnhap, $matkhau, $email, $sdt, $diac
         $sql .= ", img_khach_hang = '$img' ";
     }
     if($matkhau != ""){
-        $mk = md5($matkhau);
-        $sql .= ", mat_khau = '$mk' ";
+        $sql .= ", mat_khau = '$matkhau' ";
     }
     $sql .= "WHERE id = '$id';";
     pdo_execute($sql);

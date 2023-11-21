@@ -52,8 +52,7 @@ function update_nguoidung($id, $tennguoidung, $tendangnhap, $matkhau, $email, $s
 {
     $sql = "UPDATE nguoidung SET ten_nguoi_dung = '$tennguoidung', ten_dang_nhap = '$tendangnhap', email_nguoi_dung = '$email', sdt_nguoi_dung = '$sdt', vai_tro = '$vaitro'";
     if ($matkhau != "") {
-        $mk = md5($matkhau);
-        $sql .= ", mat_khau = '$mk'";
+        $sql .= ", mat_khau = '$matkhau'";
     }
     if ($img != "") {
         $sql .= ", img_nguoi_dung = '$img'";

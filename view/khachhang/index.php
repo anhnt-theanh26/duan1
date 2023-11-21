@@ -110,7 +110,7 @@ if (isset($_GET['act']) && ($_GET['act']) != "") {
         case 'dangnhaptaikhoan':
             if (isset($_POST['dangnhap']) && ($_POST['dangnhap'])) {
                 $tendangnhap = $_POST['tendangnhap'];
-                $matkhau = md5($_POST['matkhau']);
+                $matkhau = $_POST['matkhau'];
                 $dangnhap = dang_nhap_khach_hang($tendangnhap, $matkhau);
                 if (is_array($dangnhap)) {
                     $_SESSION['user'] = $dangnhap;
@@ -128,7 +128,7 @@ if (isset($_GET['act']) && ($_GET['act']) != "") {
             if (isset($_POST['dangky']) && ($_POST['dangky'])) {
                 $ten = $_POST['ten'];
                 $tendangnhap = $_POST['tendangnhap'];
-                $matkhau = md5($_POST['matkhau']);
+                $matkhau = $_POST['matkhau'];
                 $email = $_POST['email'];
                 $sdt = $_POST['sdt'];
                 $diachi = $_POST['diachi'];

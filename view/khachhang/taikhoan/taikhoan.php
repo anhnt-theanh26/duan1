@@ -294,7 +294,7 @@ if (isset($_SESSION['user']) && is_array($_SESSION['user'])) {
                                                 <div class="single-input-item">
                                                     <label for="display-name" class="required">Ảnh</label>
                                                     <img src="<?= $linkimg ?>" alt="lỗi ảnh" style="border-radius: 50%; width: 100px;">
-                                                    <input name="img" type="file" value="<?= $email_khach_hang ?>" />
+                                                    <input name="img" type="file"/>
 
                                                 </div>
                                                 <fieldset>

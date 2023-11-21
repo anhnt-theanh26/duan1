@@ -10,7 +10,7 @@ function themkhachhang()
     if (isset($_POST['add']) && ($_POST['add'])) {
         $ten = $_POST['ten'];
         $tendangnhap = $_POST['tendangnhap'];
-        $matkhau = md5($_POST['matkhau']);
+        $matkhau = $_POST['matkhau'];
         $email = $_POST['email'];
         $sdt = $_POST['sdt'];
         $diachi = $_POST['diachi'];
