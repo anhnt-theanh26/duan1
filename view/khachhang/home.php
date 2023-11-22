@@ -643,7 +643,7 @@
 <div class="blog-area pb-70">
     <div class="container">
         <div class="section-title-2 st-border-center text-center mb-75" data-aos="fade-up">
-            <h2>Latest News</h2>
+            <h2>Tin tức mới</h2>
         </div>
         <div class="row">
             <?php

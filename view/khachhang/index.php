@@ -81,20 +81,6 @@ if (isset($_GET['act']) && ($_GET['act']) != "") {
             include 'tintuc/chitiettintuc.php';
             break;
 
-        case 'taikhoan':
-            // if (isset($_GET['idbl']) && ($_GET['idbl']) > 0) {
-            //     header("location: " . $_SERVER['HTTP_REFERER']);
-            // }
-            // $binhluan = load_binhluan_khach_hang($_SESSION['user']['id']);
-            include 'taikhoan/taikhoan.php';
-            break;
-
-        // case 'binhluan':
-        //     if (isset($_GET['idbl']) && ($_GET['idbl']) > 0) {
-        //         header("location: " . $_SERVER['HTTP_REFERER']);
-        //     }
-        //     $binhluan = load_binhluan_khach_hang($_SESSION['user']['id']);
-        //     break;
 
         case 'dangnhap-dangky':
             include 'taikhoan/log-singin.php';
@@ -110,7 +96,7 @@ if (isset($_GET['act']) && ($_GET['act']) != "") {
         case 'dangnhaptaikhoan':
             if (isset($_POST['dangnhap']) && ($_POST['dangnhap'])) {
                 $tendangnhap = $_POST['tendangnhap'];
-                $matkhau = $_POST['matkhau'];
+                $matkhau = md5($_POST['matkhau']);
                 $dangnhap = dang_nhap_khach_hang($tendangnhap, $matkhau);
                 if (is_array($dangnhap)) {
                     $_SESSION['user'] = $dangnhap;
@@ -128,7 +114,7 @@ if (isset($_GET['act']) && ($_GET['act']) != "") {
             if (isset($_POST['dangky']) && ($_POST['dangky'])) {
                 $ten = $_POST['ten'];
                 $tendangnhap = $_POST['tendangnhap'];
-                $matkhau = $_POST['matkhau'];
+                $matkhau = md5($_POST['matkhau']);
                 $email = $_POST['email'];
                 $sdt = $_POST['sdt'];
                 $diachi = $_POST['diachi'];
@@ -180,6 +166,76 @@ if (isset($_GET['act']) && ($_GET['act']) != "") {
                 unset($_SESSION['giohang']);
             }
             include 'sanpham/cart.php';
+            break;
+
+        case 'donhangdat':
+            include 'taikhoan/donhangdat.php';
+            break;
+
+        case 'taikhoan':
+            if (isset($_SESSION['user'])) {
+                $id = $_SESSION['user']['id'];
+                $binhluan = load_binhluan_khach_hang($_SESSION['user']['id']);
+            }
+            if (isset($_GET['idbl']) && ($_GET['idbl']) > 0) {
+                $id = $_GET['idbl'];
+                delete_binhluan($id);
+                header("location: index.php?act=taikhoan");
+            }
+            $hoadon = hoa_don_khach_hang($_SESSION['user']['id']);
+            include 'taikhoan/taikhoan.php';
+            break;
+
+        case 'chitiethoadon':
+            if (isset($_GET['id']) && ($_GET['id'])) {
+                $id = $_GET['id'];
+                $hoadon = chi_tiet_hoa_don($id);
+            }
+            include 'taikhoan/donhang.php';
+            break;
+
+        case 'huydonhang':
+            if (isset($_GET['iddh']) && ($_GET['iddh']) > 0) {
+                $id = $_GET['iddh'];
+                huy_don_hang($id);
+            }
+            include 'taikhoan/taikhoan.php';
+            break;
+
+        case 'doithongtin':
+            if (isset($_POST['capnhaptaikhoan']) && ($_POST['capnhaptaikhoan'])) {
+                $id = $_POST['id'];
+                $ten = $_POST['ten'];
+                $tendangnhap = $_POST['tendangnhap'];
+                $email = $_POST['email'];
+                $sdt = $_POST['sdt'];
+                $diachi = $_POST['diachi'];
+                $matkhau = $_POST['matkhau'];
+                $matkhaucu = $_POST['matkhaucu'];
+                $img = $_FILES['img']['name'];
+                $target_dir = '../../view/img/';
+                $target_file = $target_dir . basename($img);
+                move_uploaded_file($_FILES['img']['tmp_name'], $target_file);
+                if ($ten != "" && $tendangnhap != "" && $email != "" && $sdt != "" && $diachi != "" && $matkhau != "") {
+                    update_khachhang($id, $ten, $tendangnhap, md5($matkhau), $email, $sdt, $diachi, $img);
+                    $dangnhap = dang_nhap_khach_hang($tendangnhap, md5($matkhau));
+                    if (is_array($dangnhap)) {
+                        $_SESSION['user'] = $dangnhap;
+                        $thongbao = 'sửa thông tin thành công';
+                    }
+                } else if ($ten != "" && $tendangnhap != "" && $email != "" && $sdt != "" && $diachi != "" && $matkhau == "") {
+                    update_khachhang($id, $ten, $tendangnhap, $matkhaucu, $email, $sdt, $diachi, $img);
+                    $dangnhap = dang_nhap_khach_hang($tendangnhap, $matkhaucu);
+                    if (is_array($dangnhap)) {
+                        $_SESSION['user'] = $dangnhap;
+                        $thongbao = 'sửa thông tin thành công';
+                    }
+                } else {
+                    $thongbao = ' sửa thông tin thất bại';
+                }
+            }
+            // include 'taikhoan/taikhoan.php';
+            header("location: index.php?act=taikhoan");
             break;
     }
 } else {

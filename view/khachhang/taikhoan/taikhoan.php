@@ -1,61 +1,24 @@
 <?php
 if (isset($_SESSION['user']) && is_array($_SESSION['user'])) {
     extract($_SESSION['user']);
+    $idkh = $id;
     $linkimg = '../../view/img/' . $img_khach_hang;
 }
 ?>
-<!-- <div class="sidebar-cart-active">
-    <div class="sidebar-cart-all">
-        <a class="cart-close" href="#"><i class="pe-7s-close"></i></a>
-        <div class="cart-content">
-            <h3>Shopping Cart</h3>
-            <ul>
-                <li>
-                    <div class="cart-img">
-                        <a href="#"><img src="assets/images/cart/cart-1.jpg" alt=""></a>
-                    </div>
-                    <div class="cart-title">
-                        <h4><a href="#">Stylish Swing Chair</a></h4>
-                        <span> 1 × $49.00 </span>
-                    </div>
-                    <div class="cart-delete">
-                        <a href="#">×</a>
-                    </div>
-                </li>
-                <li>
-                    <div class="cart-img">
-                        <a href="#"><img src="assets/images/cart/cart-2.jpg" alt=""></a>
-                    </div>
-                    <div class="cart-title">
-                        <h4><a href="#">Modern Chairs</a></h4>
-                        <span> 1 × $49.00 </span>
-                    </div>
-                    <div class="cart-delete">
-                        <a href="#">×</a>
-                    </div>
-                </li>
-            </ul>
-            <div class="cart-total">
-                <h4>Subtotal: <span>$170.00</span></h4>
-            </div>
-            <div class="cart-btn btn-hover">
-                <a class="theme-color" href="cart.html">view cart</a>
-            </div>
-            <div class="checkout-btn btn-hover">
-                <a class="theme-color" href="checkout.html">checkout</a>
-            </div>
-        </div>
-    </div>
-</div> -->
 <div class="breadcrumb-area bg-gray-4 breadcrumb-padding-1">
     <div class="container">
         <div class="breadcrumb-content text-center">
             <h2>Tài khoản của tôi </h2>
             <h6>
                 <?php
-                if (isset($id) && ($id) != '') {
-                    echo $id;
-                }
+                // if (isset($id) && ($id) != '') {
+                //     echo $id;
+                // }
+                ?>
+                <?php
+                // if (isset($thongbao) && ($thongbao) != "") {
+                //     echo $thongbao;
+                // }
                 ?>
             </h6>
             <ul>
@@ -86,7 +49,7 @@ if (isset($_SESSION['user']) && is_array($_SESSION['user'])) {
                                 <a href="#dashboad" class="active" data-bs-toggle="tab">Bảng điều khiển</a>
                                 <a href="#orders" data-bs-toggle="tab">Đơn hàng đặt</a>
                                 <a href="#download" data-bs-toggle="tab">Bình luận</a>
-                                <a href="#payment-method" data-bs-toggle="tab">Phương thức thanh toán</a>
+                                <!-- <a href="#payment-method" data-bs-toggle="tab">Phương thức thanh toán</a> -->
                                 <!-- <a href="#address-edit" data-bs-toggle="tab">Address</a> -->
                                 <a href="#account-info" data-bs-toggle="tab">Chi tiết tài khoản</a>
                                 <a href="index.php?act=dangxuat">Đăng xuất</a>
@@ -113,46 +76,70 @@ if (isset($_SESSION['user']) && is_array($_SESSION['user'])) {
                                                 </div> -->
                                             </div>
                                         </div>
+                                        <?php
+                                        if (isset($thongbao) && ($thongbao) != "") {
+                                            echo $thongbao;
+                                        }
+                                        ?>
                                     </div>
                                 </div>
                                 <!-- Single Tab Content End -->
                                 <!-- Single Tab Content Start -->
                                 <div class="tab-pane fade" id="orders" role="tabpanel">
                                     <div class="myaccount-content">
-                                        <h3>Orders</h3>
+                                        <h3>Đơn đặt hàng</h3>
                                         <div class="myaccount-table table-responsive text-center">
                                             <table class="table table-bordered">
                                                 <thead class="thead-light">
                                                     <tr>
-                                                        <th>Order</th>
-                                                        <th>Date</th>
-                                                        <th>Status</th>
-                                                        <th>Total</th>
-                                                        <th>Action</th>
+                                                        <th>Ngày</th>
+                                                        <th>Tổng cộng</th>
+                                                        <th>Trạng thái</th>
+                                                        <th>Xem</th>
+                                                        <th>Hủy</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>Aug 22, 2022</td>
-                                                        <td>Pending</td>
-                                                        <td>$3000</td>
-                                                        <td><a href="cart.html" class="check-btn sqr-btn ">View</a></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>2</td>
-                                                        <td>July 22, 2022</td>
-                                                        <td>Approved</td>
-                                                        <td>$200</td>
-                                                        <td><a href="cart.html" class="check-btn sqr-btn ">View</a></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>3</td>
-                                                        <td>June 12, 2017</td>
-                                                        <td>On Hold</td>
-                                                        <td>$990</td>
-                                                        <td><a href="cart.html" class="check-btn sqr-btn ">View</a></td>
-                                                    </tr>
+                                                    <?php
+                                                    if (isset($hoadon)) {
+                                                        foreach ($hoadon as $hd) {
+                                                            extract($hd);
+                                                            $iddh = $id;
+                                                            if ($trang_thai == 0) {
+                                                                $trangthai = 'Chờ xác nhận';
+                                                            }
+                                                            if ($trang_thai == 1) {
+                                                                $trangthai = 'Đang chuẩn bị';
+                                                            }
+                                                            if ($trang_thai == 2) {
+                                                                $trangthai = 'Đang giao';
+                                                            }
+                                                            if ($trang_thai == 3) {
+                                                                $trangthai = 'Đã giao';
+                                                            }
+                                                    ?>
+
+                                                            <tr>
+                                                                <td><?php echo date('d/m/Y', strtotime($ngay_dat)); ?></td>
+                                                                <td><?= $tong_tien ?> đ</td>
+                                                                <td><?= $trangthai ?></td>
+                                                                <td><a href="index.php?act=chitiethoadon&&id=<?= $_SESSION['user']['id'] ?>" class="check-btn sqr-btn ">Chi tiết</a></td>
+                                                                <?php
+                                                                if ($trang_thai == 0 || $trang_thai == 1) {
+                                                                ?>
+                                                                    <td><a onclick="return confirm('xác nhận hủy đơn hàng')" href="index.php?act=huydonhang&&iddh=<?= $iddh ?>" class="check-btn sqr-btn ">Hủy</a></td>
+                                                                <?php
+                                                                } else {
+                                                                ?>
+                                                                    <td>Không thể hủy</td>
+                                                                <?php
+                                                                }
+                                                                ?>
+                                                            </tr>
+                                                    <?php
+                                                        }
+                                                    }
+                                                    ?>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -163,9 +150,6 @@ if (isset($_SESSION['user']) && is_array($_SESSION['user'])) {
                                 <div class="tab-pane fade" id="download" role="tabpanel">
                                     <div class="myaccount-content">
                                         <div class="myaccount-content">
-                                                <?php
-                                                include 'binhluan/binhluan.php';
-                                                ?>
                                             <h3>Bình luận</h3>
                                             <div class="myaccount-table table-responsive text-center">
                                                 <table class="table table-bordered">
@@ -183,61 +167,21 @@ if (isset($_SESSION['user']) && is_array($_SESSION['user'])) {
                                                         if (isset($binhluan)) {
                                                             foreach ($binhluan as $bl) {
                                                                 extract($bl);
+                                                                $idbl = $id;
                                                         ?>
                                                                 <tr>
                                                                     <td><?= $noi_dung ?></td>
                                                                     <td><?= $ten_san_pham  ?></td>
-                                                                    <td><a onclick="return confirm('Xóa bình luận');" href="index.php?act=taikhoan&&idbl=<?= $id ?>" class="check-btn sqr-btn ">Xóa</a></td>
+                                                                    <td><a onclick="return confirm('Xóa bình luận');" href="index.php?act=taikhoan&&idbl=<?= $idbl ?>" class="check-btn sqr-btn ">Xóa</a></td>
                                                                 </tr>
                                                         <?php
                                                             }
                                                         }
                                                         ?>
-                                                        <!-- <tr>
-                                                            <td>2</td>
-                                                            <td>July 22, 2022</td>
-                                                            <td>Approved</td>
-                                                            <td>$200</td>
-                                                            <td><a href="cart.html" class="check-btn sqr-btn ">View</a></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>3</td>
-                                                            <td>June 12, 2017</td>
-                                                            <td>On Hold</td>
-                                                            <td>$990</td>
-                                                            <td><a href="cart.html" class="check-btn sqr-btn ">View</a></td>
-                                                        </tr> -->
                                                     </tbody>
                                                 </table>
                                             </div>
                                         </div>
-                                        <!-- <h3>Bình luận</h3>
-                                        <div class="myaccount-table table-responsive text-center">
-                                            <table class="table table-bordered">
-                                                <thead class="thead-light">
-                                                    <tr>
-                                                        <th>Product</th>
-                                                        <th>Date</th>
-                                                        <th>Expire</th>
-                                                        <th>Download</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>Haven - Free Real Estate PSD Template</td>
-                                                        <td>Aug 22, 2022</td>
-                                                        <td>Yes</td>
-                                                        <td><a href="#" class="check-btn sqr-btn "><i class="fa fa-cloud-download"></i> Download File</a></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>HasTech - Profolio Business Template</td>
-                                                        <td>Sep 12, 2022</td>
-                                                        <td>Never</td>
-                                                        <td><a href="#" class="check-btn sqr-btn "><i class="fa fa-cloud-download"></i> Download File</a></td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div> -->
                                     </div>
                                 </div>
                                 <!-- Single Tab Content End -->
@@ -269,15 +213,15 @@ if (isset($_SESSION['user']) && is_array($_SESSION['user'])) {
                                         <h3>Chi tiết tài khoản</h3>
                                         <div class="account-details-form">
                                             <!-- index.php?act=doithongtin -->
-                                            <form action="index.php?act=updateuser" method="post" enctype="multipart/form-data">
+                                            <form action="index.php?act=doithongtin" method="post" enctype="multipart/form-data">
                                                 <div class="single-input-item">
-                                                    <input type="hidden" name="id" id="" value="<?= $id ?>">
+                                                    <input type="hidden" name="id" id="id" value="<?= $idkh ?>" placeholder=" id">
                                                     <label for="ten" class="required">Tên hiển thị</label>
                                                     <input name="ten" type="text" id="ten" value="<?= $ten_khach_hang ?>" />
                                                 </div>
                                                 <div class="single-input-item">
                                                     <label for="tendangnhap" class="required">Tên đăng nhập</label>
-                                                    <input name="tendangnhap" type="text" id="email" value="<?= $ten_dang_nhap ?>" />
+                                                    <input name="tendangnhap" type="text" id="tendangnhap" value="<?= $ten_dang_nhap ?>" />
                                                 </div>
                                                 <div class="single-input-item">
                                                     <label for="email" class="required">Email</label>
@@ -294,18 +238,19 @@ if (isset($_SESSION['user']) && is_array($_SESSION['user'])) {
                                                 <div class="single-input-item">
                                                     <label for="display-name" class="required">Ảnh</label>
                                                     <img src="<?= $linkimg ?>" alt="lỗi ảnh" style="border-radius: 50%; width: 100px;">
-                                                    <input name="img" type="file"/>
+                                                    <input name="img" type="file" />
 
                                                 </div>
                                                 <fieldset>
                                                     <legend>Thay đổi mật khẩu</legend>
                                                     <div class="single-input-item">
                                                         <label for="matkhau" class="required">Mật khẩu mới</label>
-                                                        <input name="matkhau" type="text" id="matkhau" />
+                                                        <input name="matkhaucu" type="hidden" id="matkhaucu" value="<?= $mat_khau ?>" />
+                                                        <input name="matkhau" type="text" id="matkhau" placeholder="Mật khẩu mới" />
                                                     </div>
                                                 </fieldset>
                                                 <div class="single-input-item btn-hover">
-                                                    <input type="submit" name="capnhap" class="check-btn sqr-btn" id="" value="Lưu thay đổi">
+                                                    <input type="submit" name="capnhaptaikhoan" class="check-btn sqr-btn" id="" value="Lưu thay đổi">
                                                     <!-- <button name="capnhap" class="check-btn sqr-btn" type="submit">Save Changes</button> -->
                                                 </div>
                                             </form>

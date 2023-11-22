@@ -5,12 +5,14 @@
             foreach ($tintuc as $tt) {
                 extract($tt);
                 $linkimg = '../../view/img/' . $img_tin_tuc;
+                $linknews = 'index.php?act=chitiettintuc&&id='.$idtt;
+                $linkdm = 'index.php?act=danhmuc&&id=' . $iddm;
             ?>
                 <div class="col-lg-4 col-md-6">
                     <div class="blog-wrap mb-50" data-aos="fade-up" data-aos-delay="200">
                         <div class="blog-img-date-wrap mb-25">
                             <div class="blog-img">
-                                <a href="blog-details.html"><img src="<?= $linkimg ?>" alt="" style="width: 370x; height: 250px;"></a>
+                                <a href="<?= $linknews ?>"><img src="<?= $linkimg ?>" alt="" style="width: 370x; height: 250px;"></a>
                             </div>
                             <div class="blog-date">
                                 <h5><?php echo date("d", strtotime($ngay_dang)) ?><span><?php echo date("m", strtotime($ngay_dang)) ?></span></h5>
