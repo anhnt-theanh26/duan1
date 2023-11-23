@@ -12,13 +12,13 @@ function select_logo_id($id)
     return pdo_query_one($sql);
 }
 
-function update_logo($id, $img)
+function update_logo($id, $gioithieu, $diachi, $sdt, $email, $img)
 {
-    $sql = "update logo set id = '$id'";
+    $sql = "UPDATE logo SET gioi_thieu = '$gioithieu', dia_chi = '$diachi', sdt = '$sdt', email = '$email' ";
     if ($img != "") {
         $sql .= ", img='$img'";
     }
-    $sql .= " where id='$id'";
+    $sql .= " WHERE id = '$id';";
     pdo_execute($sql);
 }
 

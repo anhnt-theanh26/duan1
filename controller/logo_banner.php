@@ -111,12 +111,17 @@ function updatelogo()
 {
     if (isset($_POST['sualg']) && ($_POST['sualg']) > 0) {
         $id = $_POST['id'];
+        $gioithieu = $_POST['gioithieu'];
+        $diachi = $_POST['diachi'];
+        $sdt = $_POST['sdt'];
+        $email = $_POST['email'];
         $img = $_FILES['img']['name'];
         $target_dir = '../../view/img/';
         $target_file = $target_dir . basename($img);
         move_uploaded_file($_FILES['img']['tmp_name'], $target_file);
-        update_logo($id, $img);
-        if ($img != '') {
+        update_logo($id, $gioithieu, $diachi, $sdt, $email, $img);
+        if ($gioithieu != "" && $diachi != "" && $sdt != "" && $email != "") {
+            update_logo($id, $gioithieu, $diachi, $sdt, $email, $img);
             $thongbao = 'update logo thành công';
         } else {
             $thongbao = 'update logo thất bại';
