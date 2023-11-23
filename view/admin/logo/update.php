@@ -36,6 +36,22 @@ $linkimg = '../../view/img/'.$img;
                         <img src="<?= $linkimg ?>" alt="" width="100px">
                         <input type="file" name="img" id="img">
                     </div>
+                    <div class="form-group">
+                        <label for="gioithieu">Giới thiệu</label>
+                        <input name="gioithieu" type="text" class="form-control" id="gioithieu" placeholder="Giới thiệu" value="<?= $gioi_thieu ?>">
+                    </div>
+                    <div class="form-group">
+                        <label for="diachi">Địa chỉ</label>
+                        <input name="diachi" type="text" class="form-control" id="diachi" placeholder="Địa chỉ" value="<?= $dia_chi ?>">
+                    </div>
+                    <div class="form-group">
+                        <label for="sdt">Số điện thoại</label>
+                        <input name="sdt" type="number" class="form-control" id="sdt" placeholder="Số điện thoại" value="<?= $sdt ?>">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input name="email" type="text" class="form-control" id="email" placeholder="Email" value="<?= $email ?>">
+                    </div>
                 </div>
                 <!-- /.card-body -->
 

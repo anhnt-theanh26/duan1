@@ -45,11 +45,23 @@
                                 <th style="width: 1%">
                                     #
                                 </th>
-                                <th style="width: 20%">
+                                <th style="width: 4%">
                                     id
                                 </th>
-                                <th style="width: 20%">
+                                <th style="width: 15%">
                                     Ảnh
+                                </th>
+                                <th style="width: 15%">
+                                    Giới thiệu
+                                </th>
+                                <th style="width: 15%">
+                                    Địa chỉ
+                                </th>
+                                <th style="width: 15%">
+                                    SĐT
+                                </th>
+                                <th style="width: 15%">
+                                    Email
                                 </th>
                             </tr>
                         </thead>
@@ -72,7 +84,18 @@
                                         </li>
                                     </ul>
                                 </td>
-                                
+                                <td>
+                                    <?= $gioi_thieu ?>
+                                </td>
+                                <td>
+                                    <?= $dia_chi ?>
+                                </td>
+                                <td>
+                                    <?= $sdt ?>
+                                </td>
+                                <td>
+                                    <?= $email ?>
+                                </td>
                                 <td class="project-actions text-right">
                                     <!-- <a class="btn btn-primary btn-sm" href="#">
                                         <i class="fas fa-folder">
