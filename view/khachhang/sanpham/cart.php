@@ -133,7 +133,7 @@
                             </div>
                             <div class="input-style">
                                 <label for="">Số điện thoại khách hàng</label>
-                                <input type="text" value="<?= $sdt_khach_hang ?>">
+                                <input type="text" max="11" min="10" value="<?= $sdt_khach_hang ?>">
                             </div>
                             <div class="input-style">
                                 <label for="">Địa chỉ nhận</label>

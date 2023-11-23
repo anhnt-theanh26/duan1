@@ -9,9 +9,9 @@ function loadall_sanpham_home()
 }
 
 //load top 10 sản phẩm có lượt xem cao nhất
-function loadall_sanpham_top10()
+function loadall_sanpham_san_pham()
 {
-    $sql = "SELECT * FROM sanpham where 1 order by view desc limit 0,10";
+    $sql = "SELECT * FROM sanpham JOIN danhmuc on sanpham.iddm=danhmuc.id WHERE sanpham.trang_thai='0' AND danhmuc.trang_thai='0';";
     $listsanpham = pdo_query($sql);
     return $listsanpham;
 }

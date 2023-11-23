@@ -3,7 +3,8 @@ session_start();
 ob_start();
 
 
-if (!isset($_SESSION['giohang'])) $_SESSION['giohang'] = [];
+if (!isset($_SESSION['giohang']))
+    $_SESSION['giohang'] = [];
 
 
 include '../../model/binhluan.php';
@@ -22,7 +23,7 @@ include '../../model/tintuc.php';
 
 
 
-
+$danhmuc = loadall_danhmuc();
 $logo = select_logo();
 include 'header.php';
 if (isset($_GET['act']) && ($_GET['act']) != "") {
@@ -33,6 +34,11 @@ if (isset($_GET['act']) && ($_GET['act']) != "") {
             $danhmuc = loadall_danhmuc();
             $sanpham = loadall_sanpham_home();
             include 'home.php';
+            break;
+        case 'loadallsanpham':
+            $danhmuc = loadall_danhmuc();
+            $sanpham = loadall_sanpham_san_pham();
+            include 'sanpham/sanpham.php';
             break;
         case 'chitietsanpham':
             if (isset($_GET['idsp']) && ($_GET['iddm'])) {
@@ -45,14 +51,14 @@ if (isset($_GET['act']) && ($_GET['act']) != "") {
             }
             include 'sanpham/chitietsanpham.php';
             break;
+
         case 'danhmuc':
             if (isset($_GET['id']) && ($_GET['id']) > 0) {
                 $id = $_GET['id'];
                 $danhmuc = loadall_danhmuc();
-                $tintuc = select_new();
                 $sanpham = loadallsp_cungdanhmuc($id);
             }
-            include 'home.php';
+            include 'sanpham/sanpham.php';
             break;
 
         case 'search':
@@ -61,9 +67,8 @@ if (isset($_GET['act']) && ($_GET['act']) != "") {
                 $iddm = 0;
             }
             $sanpham = loadall_sanpham($tk, $iddm);
-            $tintuc = select_new();
             $danhmuc = loadall_danhmuc();
-            include 'home.php';
+            include 'sanpham/sanpham.php';
             break;
 
         case 'tintuc':

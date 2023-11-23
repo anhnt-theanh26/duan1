@@ -9,7 +9,8 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Urdan - Minimal eCommerce HTML Template</title>
     <meta name="robots" content="noindex, follow" />
-    <meta name="description" content="Urdan Minimal eCommerce Bootstrap 5 Template is a stunning eCommerce website template that is the best choice for any online store.">
+    <meta name="description"
+        content="Urdan Minimal eCommerce Bootstrap 5 Template is a stunning eCommerce website template that is the best choice for any online store.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="profile" href="https://gmpg.org/xfn/11">
     <link rel="canonical" href="https://htmldemo.hasthemes.com/urdan/index.html" />
@@ -22,7 +23,8 @@
     <meta property="og:site_name" content="Urdan - Minimal eCommerce HTML Template" />
     <!-- For the og:image content, replace the # with a link of an image -->
     <meta property="og:image" content="#" />
-    <meta property="og:description" content="Urdan Minimal eCommerce Bootstrap 5 Template is a stunning eCommerce website template that is the best choice for any online store." />
+    <meta property="og:description"
+        content="Urdan Minimal eCommerce Bootstrap 5 Template is a stunning eCommerce website template that is the best choice for any online store." />
     <!-- Add site Favicon -->
     <link rel="icon" href="assets/images/favicon/cropped-favicon-32x32.png" sizes="32x32" />
     <link rel="icon" href="assets/images/favicon/cropped-favicon-192x192.png" sizes="192x192" />
@@ -30,7 +32,7 @@
     <meta name="msapplication-TileImage" content="assets/images/favicon/cropped-favicon-270x270.png" />
 
     <!-- All CSS is here
-	============================================ -->
+    ============================================ -->
     <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css" />
     <link rel="stylesheet" href="assets/css/vendor/pe-icon-7-stroke.css" />
     <link rel="stylesheet" href="assets/css/vendor/themify-icons.css" />
@@ -60,9 +62,10 @@
                             <div class="logo">
                                 <?php
                                 extract($logo);
-                                $linkimg = '../../view/img/'.$img;
+                                $linkimg = '../../view/img/' . $img;
                                 ?>
-                                <a href="index.php?act=home"><img src="<?= $linkimg ?>" alt="logo" width="150px" height="50px"></a>
+                                <a href="index.php?act=home"><img src="<?= $linkimg ?>" alt="logo" width="150px"
+                                        height="50px"></a>
                             </div>
                         </div>
                         <div class="col-lg-6 d-none d-lg-block d-flex justify-content-center">
@@ -71,25 +74,35 @@
                                     <ul>
                                         <li><a href="index.php?act=home">Trang chủ</a></li>
                                         <!-- <li><a href="index.php?act=thongtintaikhoan">SHOP</a></li> -->
-                                        <!-- <li><a href="#">PAGES</a> -->
-                                            <!-- <ul class="sub-menu-style">
-                                                <li><a href="about-us.html">about us </a></li>
-                                                <li><a href="cart.html">cart page</a></li>
+                                        <li><a href="#">Danh mục</a>
+                                            <ul class="sub-menu-style">
+                                                <?php
+                                                if (isset($danhmuc)) {
+                                                    foreach ($danhmuc as $dm) {
+                                                        extract($dm);
+                                                        $linkdm = 'index.php?act=danhmuc&&id=' . $id;
+                                                        ?>
+                                                        <li><a href="<?= $linkdm ?>"><?= $ten_danh_muc ?></a></li>
+                                                        <?php
+                                                    }
+                                                }
+                                                ?>
+                                                <!-- <li><a href="cart.html">cart page</a></li>
                                                 <li><a href="checkout.html">checkout </a></li>
                                                 <li><a href="my-account.html">my account</a></li>
                                                 <li><a href="wishlist.html">wishlist </a></li>
                                                 <li><a href="compare.html">compare </a></li>
                                                 <li><a href="contact-us.html">contact us </a></li>
-                                                <li><a href="login-register.html">login / register </a></li>
-                                            </ul> -->
+                                                <li><a href="login-register.html">login / register </a></li> -->
+                                            </ul>
                                         </li>
-                                        <!-- <li><a href="blog.html">BLOG</a>
-                                            <ul class="sub-menu-style">
+                                        <li><a href="index.php?act=loadallsanpham">Sản phẩm</a>
+                                            <!-- <ul class="sub-menu-style">
                                                 <li><a href="blog.html">blog standard </a></li>
                                                 <li><a href="blog-sidebar.html">blog sidebar</a></li>
                                                 <li><a href="blog-details.html">blog details</a></li>
-                                            </ul>
-                                        </li> -->
+                                            </ul> -->
+                                        </li>
                                         <!-- <li><a href="about-us.html">ABOUT</a></li> -->
                                         <li><a href="index.php?act=tintuc">Tin tức</a></li>
                                     </ul>
@@ -106,21 +119,24 @@
                                     <div class="search-wrap-1">
                                         <form action="index.php?act=search" method="post">
                                             <input name="keyw" placeholder="Search products…" type="text">
-                                            <button name="timkiem" class="button-search"><i class="pe-7s-search"></i></button>
+                                            <button name="timkiem" class="button-search"><i
+                                                    class="pe-7s-search"></i></button>
                                         </form>
                                     </div>
                                 </div>
                                 <div class="header-action-style">
                                     <?php
                                     if (isset($_SESSION['user']) && ($_SESSION['user'])) {
-                                    ?>
-                                        <a title="Login Register" href="index.php?act=taikhoan"><i class="pe-7s-user"></i></a>
+                                        ?>
+                                        <a title="Login Register" href="index.php?act=taikhoan"><i
+                                                class="pe-7s-user"></i></a>
 
-                                    <?php
+                                        <?php
                                     } else {
-                                    ?>
-                                        <a title="Login Register" href="index.php?act=dangnhap-dangky"><i class="pe-7s-user"></i></a>
-                                    <?php
+                                        ?>
+                                        <a title="Login Register" href="index.php?act=dangnhap-dangky"><i
+                                                class="pe-7s-user"></i></a>
+                                        <?php
                                     }
                                     ?>
                                 </div>
@@ -131,11 +147,11 @@
                                     <a class="#" href="index.php?act=cart"><i class="pe-7s-shopbag"></i>
                                         <span class="product-count bg-black">
                                             <?php
-                                                if(isset($_SESSION['giohang']) && count($_SESSION['giohang']) > 0){
-                                                    echo count($_SESSION['giohang']);
-                                                }else{
-                                                    echo '0';
-                                                }
+                                            if (isset($_SESSION['giohang']) && count($_SESSION['giohang']) > 0) {
+                                                echo count($_SESSION['giohang']);
+                                            } else {
+                                                echo '0';
+                                            }
                                             ?>
                                         </span>
                                     </a>
