@@ -25,6 +25,8 @@ include '../../model/tintuc.php';
 
 $danhmuc = loadall_danhmuc();
 $logo = select_logo();
+$admin = loadall_admin();
+$banner = loadall_banner();
 include 'header.php';
 if (isset($_GET['act']) && ($_GET['act']) != "") {
     $act = $_GET['act'];
@@ -60,7 +62,11 @@ if (isset($_GET['act']) && ($_GET['act']) != "") {
                 $danhmuc = loadall_danhmuc();
                 $sanpham = loadallsp_cungdanhmuc($id);
             }
-
+            // if(isset($_POST['loc'])){
+            //     $tk = $_POST['tk'];
+            //     $id = $_POST['id'];
+            //     $sanpham = loc_san_pham($tk, $id);
+            // }
             include 'sanpham/sanpham.php';
             break;
 

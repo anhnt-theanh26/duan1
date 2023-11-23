@@ -6,9 +6,9 @@
                     <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                         <div class="footer-widget footer-about mb-40">
                             <div class="footer-logo">
-                            <?php
+                                <?php
                                 extract($logo);
-                                $linkimg = '../../view/img/'.$img;
+                                $linkimg = '../../view/img/' . $img;
                                 ?>
                                 <a href="index.php?act=home"><img src="<?= $linkimg ?>" alt="logo" width="150px" height="50px"></a>
                             </div>
@@ -20,25 +20,43 @@
                     </div>
                     <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                         <div class="footer-widget footer-widget-margin-1 footer-list mb-40">
-                            <h3 class="footer-title">Information</h3>
+                            <h3 class="footer-title">Danh mục sản phẩm</h3>
                             <ul>
-                                <li><a href="about-us.html">About Us</a></li>
+                                <?php
+                                $danhmuc = loadall_danhmuc();
+                                foreach ($danhmuc as $dm) {
+                                    extract($dm);
+                                ?>
+                                <li><a href="index.php?act=danhmuc&&id=<?= $id ?>"><?= $ten_danh_muc ?></a></li>
+                                <?php
+                                }
+                                ?>
+                                <!-- <li><a href="about-us.html">About Us</a></li>
                                 <li><a href="#">Delivery Information</a></li>
                                 <li><a href="#">Privacy Policy</a></li>
                                 <li><a href="#">Terms & Conditions</a></li>
-                                <li><a href="#">Customer Service</a></li>
+                                <li><a href="#">Customer Service</a></li> -->
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-2 col-md-6 col-sm-6 col-12">
                         <div class="footer-widget footer-list mb-40">
-                            <h3 class="footer-title">My Accound</h3>
+                            <h3 class="footer-title">Liên hệ</h3>
                             <ul>
-                                <li><a href="my-account.html">My Account</a></li>
+                                <?php
+                                foreach ($admin as $ad) {
+                                    extract($ad);
+                                ?>
+                                    <li>MR: <a href="#"><?= $ten_nguoi_dung ?></a></li>
+                                    <li>SĐT: <a href="#"><?= $sdt_nguoi_dung ?></a></li>
+                                <?php
+                                }
+                                ?>
+                                <!-- <li><a href="my-account.html">My Account</a></li>
                                 <li><a href="#">Order History</a></li>
                                 <li><a href="wishlist.html">Wish List</a></li>
                                 <li><a href="#">Newsletter</a></li>
-                                <li><a href="#">Order History</a></li>
+                                <li><a href="#">Order History</a></li> -->
                             </ul>
                         </div>
                     </div>
@@ -46,13 +64,12 @@
                         <div class="footer-widget footer-widget-margin-2 footer-address mb-40">
                             <h3 class="footer-title">Get in touch</h3>
                             <ul>
-                                <li><span>Address: </span>Your address goes here </li>
-                                <li><span>Telephone Enquiry:</span> (012) 345 6789</li>
-                                <li><span>Email: </span>demo@example.com</li>
+                                <li><span>Địa chỉ: </span><?= $dia_chi ?></li>
+                                <li><span>Điện thoại:</span><?= $sdt ?></li>
+                                <li><span>Email: </span><?= $email ?></li>
                             </ul>
                             <div class="open-time">
-                                <p>Open : <span>8:00 AM</span> - Close : <span>18:00 PM</span></p>
-                                <p>Saturday - Sunday : Close</p>
+                                <p>Mở cửa : <span>8:00 sáng</span> - Đóng cửa : <span>22:00 tối</span></p>
                             </div>
                         </div>
                     </div>
@@ -266,6 +283,3 @@
 <!-- Mirrored from htmldemo.net/urdan/urdan/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 01 Nov 2023 08:19:16 GMT -->
 
 </html>
-
-
-
