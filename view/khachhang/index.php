@@ -35,11 +35,13 @@ if (isset($_GET['act']) && ($_GET['act']) != "") {
             $sanpham = loadall_sanpham_home();
             include 'home.php';
             break;
+
         case 'loadallsanpham':
             $danhmuc = loadall_danhmuc();
             $sanpham = loadall_sanpham_san_pham();
             include 'sanpham/sanpham.php';
             break;
+
         case 'chitietsanpham':
             if (isset($_GET['idsp']) && ($_GET['iddm'])) {
                 $id = $_GET['idsp'];
@@ -58,9 +60,13 @@ if (isset($_GET['act']) && ($_GET['act']) != "") {
                 $danhmuc = loadall_danhmuc();
                 $sanpham = loadallsp_cungdanhmuc($id);
             }
+
             include 'sanpham/sanpham.php';
             break;
 
+        case 'loctheodanhmuc':
+            break;
+            
         case 'search':
             if (isset($_POST['timkiem'])) {
                 $tk = $_POST['keyw'];
@@ -112,7 +118,6 @@ if (isset($_GET['act']) && ($_GET['act']) != "") {
             }
             include 'taikhoan/dangnhap.php';
             break;
-
 
 
         case 'dangkytaikhoan':
