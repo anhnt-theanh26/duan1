@@ -361,6 +361,10 @@ if (isset($_SESSION['user']) && ($_SESSION['user'])) {
                 case 'khuyenmaichuahethan':
                     khuyenmaichuahethan();
                     break;
+                case 'thongke':
+                    $thongke = thong_ke();
+                    include 'thongke/thongke.php';
+                    break;
 
                     //đăng nhập
                 case 'dangxuat':

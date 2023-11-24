@@ -185,7 +185,7 @@
             <div class="image">
               <a href="index.php?act=suanguoidung&&id=<?= $id ?>">
                 <img src="<?= $linkimg ?>" class="img-circle elevation-2" alt="User Image">
-            </a>
+              </a>
             </div>
             <div class="info">
               <a href="index.php?act=suanguoidung&&id=<?= $id ?>" class="d-block"><?= $ten_nguoi_dung ?></a>
@@ -497,6 +497,15 @@
                   </a>
                 </li>
               </ul>
+            </li>
+            <li class="nav-item">
+              <a href="index.php?act=thongke" class="nav-link">
+                <p>
+                  Thống kê
+                  <!-- <i class="fas fa-angle-left right"></i> -->
+                </p>
+              </a>
+             
             </li>
             <li class="nav-item">
               <a href="#" class="nav-link">
