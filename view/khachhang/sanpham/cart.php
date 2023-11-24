@@ -133,7 +133,7 @@
                             </div>
                             <div class="input-style">
                                 <label for="">Số điện thoại khách hàng</label>
-                                <input type="text" max="11" min="10" value="<?= $sdt_khach_hang ?>">
+                                <input type="text" value="<?= $sdt_khach_hang ?>">
                             </div>
                             <div class="input-style">
                                 <label for="">Địa chỉ nhận</label>
@@ -145,6 +145,29 @@
                         </div>
                     <?php
                     } else {
+                    ?>
+                        <div class="calculate-discount-content">
+                            <!-- <div class="input-style">
+                                <label for="">Tên khách hàng</label>
+                                <input type="text" value="">
+                            </div>
+                            <div class="input-style">
+                                <label for="">Email khách hàng</label>
+                                <input type="text" value="">
+                            </div>
+                            <div class="input-style">
+                                <label for="">Số điện thoại khách hàng</label>
+                                <input type="text" value="">
+                            </div>
+                            <div class="input-style">
+                                <label for="">Địa chỉ nhận</label>
+                                <input type="text" value="">
+                            </div> -->
+                            <div class="calculate-discount-btn btn-hover">
+                                <a class="btn theme-color" href="index.php?act=dangnhap-dangky">Đăng nhập</a>
+                            </div>
+                        </div>
+                    <?php
                     }
                     ?>
                 </div>

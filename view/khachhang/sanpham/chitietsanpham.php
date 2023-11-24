@@ -124,31 +124,19 @@ $idsp = $id;
 
                     <div class="product-details-content" data-aos="fade-up" data-aos-delay="20">
                         <h2><?= $ten_san_pham ?> <?= $idsp ?></h2>
+                        <div class="product-color product-color-active product-details-color">
+                            <ul>
+                                <input type="text" name="sanphamcon" id="" value="<?= $so_luong ?>">
+                                <li>Còn: <?= $so_luong ?> sản phẩm</li>
+                            </ul>
+                        </div>
                         <div class="product-details-price">
-                            <!-- <span class="old-price">$25.89 </span> -->
                             <span class="new-price"><?= $gia_san_pham ?> đ</span>
                         </div>
-                        <!-- <div class="product-details-review">
-                            <div class="product-rating">
-                                <i class=" ti-star"></i>
-                                <i class=" ti-star"></i>
-                                <i class=" ti-star"></i>
-                                <i class=" ti-star"></i>
-                                <i class=" ti-star"></i>
-                            </div>
-                            <span>( 1 đánh giá )</span>
-                        </div>
-                        <div class="product-color product-color-active product-details-color">
-                            <span>Color :</span>
-                            <ul>
-                                <li><a title="Pink" class="pink" href="#">pink</a></li>
-                                <li><a title="Yellow" class="active yellow" href="#">yellow</a></li>
-                                <li><a title="Purple" class="purple" href="#">purple</a></li>
-                            </ul>
-                        </div> -->
+
                         <div class="product-details-action-wrap">
                             <div class="product-quality">
-                                <input class="cart-plus-minus-box input-text qty text" name="soluong" value="1">
+                                <input type="number" class="cart-plus-minus-box input-text qty text" name="soluong" value="1" min="1" max="<?= $so_luong ?>">
                             </div>
                             <div class="single-product-cart btn-hover">
                                 <!-- <a href="#"><button type="submit" name="addtocart" class="product-action-btn-2" title="Add To Cart" value="Thêm vào giỏ hàng">Add To Cart </button></a> -->
@@ -171,11 +159,11 @@ $idsp = $id;
                                         <li><a href="index.php?act="><?= $ten_danh_muc ?></a></li>
                                     </ul>
                                 </li>
-                                <!-- <li><span class="title">Tags:</span>
-                                    <ul class="tag">
-                                        <li><a href="#">Furniture</a></li>
-                                    </ul>
-                                </li> -->
+                                <?php
+                                if(isset($thongbao) && ($thongbao)){
+                                    echo $thongbao;
+                                } 
+                                ?>
                             </ul>
                         </div>
                         <!-- <div class="social-icon-style-4">

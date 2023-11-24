@@ -37,7 +37,7 @@
                                     <!-- index.php?act=dangnhaptaikhoan -->
                                     <form action="index.php?act=dangnhaptaikhoan" method="post">
                                         <input type="text" name="tendangnhap" placeholder="Tên đăng nhập">
-                                        <input type="text" name="matkhau" placeholder="Mật khẩu">
+                                        <input type="password" name="matkhau" placeholder="Mật khẩu">
                                         <div class="login-toggle-btn">
                                             <input type="checkbox">
                                             <label>Remember me</label>

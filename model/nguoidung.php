@@ -57,3 +57,10 @@ function update_nguoidung($id, $tennguoidung, $tendangnhap, $matkhau, $email, $s
     $sql .= " WHERE id = '$id';";
     pdo_execute($sql);
 }
+
+function loadall_admin()
+{
+    $sql = "SELECT * FROM nguoidung WHERE trang_thai = '0' and vai_tro = '1'";
+    $nguoidung = pdo_query($sql);
+    return $nguoidung;
+}

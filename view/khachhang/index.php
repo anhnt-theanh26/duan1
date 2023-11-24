@@ -62,17 +62,17 @@ if (isset($_GET['act']) && ($_GET['act']) != "") {
                 $danhmuc = loadall_danhmuc();
                 $sanpham = loadallsp_cungdanhmuc($id);
             }
-            // if(isset($_POST['loc'])){
-            //     $tk = $_POST['tk'];
-            //     $id = $_POST['id'];
-            //     $sanpham = loc_san_pham($tk, $id);
-            // }
+            if (isset($_POST['loc'])) {
+                $tk = $_POST['tk'];
+                $id = $_POST['id'];
+                $sanpham = loc_san_pham($tk, $id);
+            }
             include 'sanpham/sanpham.php';
             break;
 
         case 'loctheodanhmuc':
             break;
-            
+
         case 'search':
             if (isset($_POST['timkiem'])) {
                 $tk = $_POST['keyw'];
@@ -130,12 +130,12 @@ if (isset($_GET['act']) && ($_GET['act']) != "") {
             if (isset($_POST['dangky']) && ($_POST['dangky'])) {
                 $ten = $_POST['ten'];
                 $tendangnhap = $_POST['tendangnhap'];
-                $matkhau = md5($_POST['matkhau']);
+                $matkhau = $_POST['matkhau'];
                 $email = $_POST['email'];
                 $sdt = $_POST['sdt'];
                 $diachi = $_POST['diachi'];
                 if ($ten != "" && $tendangnhap != "" && $matkhau != "" && $email != "" && $sdt != "" && $diachi != "") {
-                    insert_taikhoan($ten, $tendangnhap, $matkhau, $email, $sdt, $diachi);
+                    insert_taikhoan($ten, $tendangnhap, md5($matkhau), $email, $sdt, $diachi);
                     $thongbao = 'Đăng ký thành công';
                 } else {
                     $thongbao = 'không để trống các cột để đăng ký';
@@ -167,7 +167,7 @@ if (isset($_GET['act']) && ($_GET['act']) != "") {
                 }
                 // header("location: " . $_SERVER['HTTP_REFERER']);
                 // $thongbao = 'them vao gio hang';
-                header('location: index.php?act=cart');
+                // header('location: index.php?act=cart');
             }
             header("location: " . $_SERVER['HTTP_REFERER']);
             break;
@@ -181,7 +181,7 @@ if (isset($_GET['act']) && ($_GET['act']) != "") {
             if (isset($_SESSION['giohang'])) {
                 unset($_SESSION['giohang']);
             }
-            include 'sanpham/cart.php';
+            header("location: index.php?act=cart");
             break;
 
         case 'donhangdat':

@@ -153,3 +153,17 @@ function updateslsp($vitrisptrung, $soluong)
         }
     }
 }
+
+
+function loc_san_pham($tk, $id){
+    // giảm
+    $sql = "SELECT * FROM sanpham JOIN danhmuc on sanpham.iddm=danhmuc.id WHERE sanpham.trang_thai = '0' AND danhmuc.trang_thai = '0' AND sanpham.iddm = '$id' ";
+    if($tk == 2){
+        $sql.=" ORDER BY sanpham.gia_san_pham DESC;";
+    }
+    // tăng
+    if($tk == 1){
+        $sql.=" ORDER BY sanpham.gia_san_pham ASC;";
+    }
+    return pdo_query($sql);
+}
