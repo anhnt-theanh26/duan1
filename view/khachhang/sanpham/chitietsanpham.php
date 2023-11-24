@@ -126,7 +126,6 @@ $idsp = $id;
                         <h2><?= $ten_san_pham ?> <?= $idsp ?></h2>
                         <div class="product-color product-color-active product-details-color">
                             <ul>
-                                <input type="text" name="sanphamcon" id="" value="<?= $so_luong ?>">
                                 <li>Còn: <?= $so_luong ?> sản phẩm</li>
                             </ul>
                         </div>

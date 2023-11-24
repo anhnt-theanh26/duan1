@@ -27,7 +27,7 @@ function loadone_sanpham($id)
 // load các sản phẩm cùng loại trừ sản phẩm đang xem
 function loadallsp_cungloai($id, $iddm)
 {
-    $sql = "SELECT * FROM sanpham where id != '2' and iddm = '2' && trang_thai='0' order by luot_xem desc limit 0,4;";
+    $sql = "SELECT * FROM sanpham where id != '$id' and iddm = '$iddm' && trang_thai='0' order by luot_xem desc limit 0,4;";
     $sanpham = pdo_query($sql);
     return $sanpham;
 }

@@ -49,6 +49,7 @@
                                         for ($i = 0; $i < count($_SESSION['giohang']); $i++) {
                                             $linksp = "index.php?act=chitietsanpham&&idsp=" . $_SESSION['giohang'][$i][0] . "&&iddm=" . $_SESSION['giohang'][$i][5];
                                             $linkimg = '../../view/img/' . $_SESSION['giohang'][$i][2];
+                                            $link_del_pro_cart = "index.php?act=delprocart&&id=$i";
                                             $gia = $_SESSION['giohang'][$i][3] * $_SESSION['giohang'][$i][4];
                                     ?>
                                             <tr>
@@ -60,7 +61,7 @@
                                                 </td>
                                                 <td class="product-cart-price"><span class="amount"><?= $gia ?></span></td>
                                                 <td class="product-cart-soluong"><span class="amount"><?= $_SESSION['giohang'][$i][4] ?></span></td>
-                                                <td class="product-remove"><a href="#"><i class=" ti-trash "></i></a></td>
+                                                <td class="product-remove"><a href="<?= $link_del_pro_cart ?>"><i class=" ti-trash "></i></a></td>
                                             </tr>
                                     <?php
                                             $tonggia += $gia;
@@ -69,27 +70,6 @@
 
 
                                     ?>
-
-                                    <!-- <tr>
-                                        <td class="product-thumbnail">
-                                            <a href="product-details.html"><img src="view/assets/images/cart/cart-2.jpg" alt=""></a>
-                                        </td>
-                                        <td class="product-name">
-                                            <h5><a href="product-details.html">Modern Lounge Chairs</a></h5>
-                                        </td>
-                                        <td class="product-cart-price"><span class="amount">$120.00</span></td>
-                                        <td class="product-remove"><a href="#"><i class=" ti-trash "></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="product-thumbnail">
-                                            <a href="product-details.html"><img src="view/assets/images/cart/cart-3.jpg" alt=""></a>
-                                        </td>
-                                        <td class="product-name">
-                                            <h5><a href="product-details.html">Modern Swivel Chair</a></h5>
-                                        </td>
-                                        <td class="product-cart-price"><span class="amount">$120.00</span></td>
-                                        <td class="product-remove"><a href="#"><i class=" ti-trash "></i></a></td>
-                                    </tr> -->
                                 </tbody>
                             </table>
                         </div>
@@ -147,22 +127,6 @@
                     } else {
                     ?>
                         <div class="calculate-discount-content">
-                            <!-- <div class="input-style">
-                                <label for="">Tên khách hàng</label>
-                                <input type="text" value="">
-                            </div>
-                            <div class="input-style">
-                                <label for="">Email khách hàng</label>
-                                <input type="text" value="">
-                            </div>
-                            <div class="input-style">
-                                <label for="">Số điện thoại khách hàng</label>
-                                <input type="text" value="">
-                            </div>
-                            <div class="input-style">
-                                <label for="">Địa chỉ nhận</label>
-                                <input type="text" value="">
-                            </div> -->
                             <div class="calculate-discount-btn btn-hover">
                                 <a class="btn theme-color" href="index.php?act=dangnhap-dangky">Đăng nhập</a>
                             </div>
