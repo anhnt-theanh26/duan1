@@ -58,6 +58,9 @@
                                     Địa chỉ
                                 </th>
                                 <th style="width: 10%">
+                                    Email
+                                </th>
+                                <th style="width: 10%">
                                     Ngày đặt
                                 </th>
                                 <th style="width: 10%">
@@ -81,7 +84,7 @@
                                     </td>
                                     <td>
                                         <a href="index.php?act=chitiethoadon&&id=<?= $id ?>" style="color: black;">
-                                            <?= $ten_khach_hang ?>
+                                            <?= $ten_kh ?>
                                         </a>
                                     </td>
                                     <td>
@@ -92,6 +95,11 @@
                                     <td>
                                         <a href="index.php?act=chitiethoadon&&id=<?= $id ?>" style="color: black;">
                                             <?= $dia_chi ?>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="index.php?act=chitiethoadon&&id=<?= $id ?>" style="color: black;">
+                                            <?= $email ?>
                                         </a>
                                     </td>
                                     <td>

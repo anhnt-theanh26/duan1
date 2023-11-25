@@ -15,7 +15,7 @@ function update_so_luong_da_ban($idsp, $soluong)
 // chờ xác nhận đơn hàng
 function cho_xac_nhan()
 {
-    $sql = "SELECT hoadon.id, khachhang.ten_khach_hang, hoadon.ngay_dat, hoadon.tong_tien, hoadon.dia_chi, hoadon.sdt FROM hoadon JOIN khachhang on hoadon.id_kh=khachhang.id WHERE hoadon.trang_thai = '0';";
+    $sql = "SELECT hoadon.id, hoadon.ten_kh, hoadon.ngay_dat, hoadon.email, hoadon.tong_tien, hoadon.dia_chi, hoadon.sdt FROM hoadon JOIN khachhang on hoadon.id_kh=khachhang.id WHERE hoadon.trang_thai = '0';";
     $donhang = pdo_query($sql);
     return $donhang;
 }

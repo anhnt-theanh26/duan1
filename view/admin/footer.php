@@ -3,7 +3,7 @@
     CKEDITOR.replace('mota');
 </script>
 <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2021 <a href="?act=home">TAD</a>.</strong>
+    <strong>Copyright &copy; DỰ ÁN 1 2023 <a href="?act=home">TAD</a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
       <b>Version</b> 3.2.0
