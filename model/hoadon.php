@@ -1,10 +1,22 @@
 <?php
 
-function dathang($idsp, $idkh, $soluong, $gia, $tongtien)
+function insert_hoadon($idkh, $tongtien, $diachi, $email, $tenkhachhang, $sdt)
 {
-    $sql = "INSERT INTO donhang(id_sp, id_kh, so_luong, gia, tong_tien) VALUES('$idsp', '$idkh', '$soluong', '$gia', '$tongtien');";
+    $conn = pdo_get_connection();
+    $sql = "INSERT INTO hoadon(id_kh, tong_tien, dia_chi, email, ten_kh, sdt) 
+    VALUES('$idkh', '$tongtien', '$diachi', '$email', '$tenkhachhang', '$sdt');";
+    $conn->exec($sql);
+    $last_id = $conn->lastInsertId();
+    return $last_id;
+}
+
+function insert_hoadon_chitiet($idhd, $idsp, $soluong, $giakhuyenmai, $thanhtien)
+{
+    $sql = "INSERT INTO chitiethoadon(id_hd, id_sp, so_luong, don_gia, thanh_tien) 
+    VALUES('$idhd', '$idsp', '$soluong', '$giakhuyenmai', '$thanhtien');";
     pdo_execute($sql);
 }
+
 function update_so_luong_da_ban($idsp, $soluong)
 {
     $sql = "UPDATE sanpham SET da_ban = da_ban + '$soluong' WHERE id = '$idsp';";
@@ -79,7 +91,7 @@ function hoa_don_tung_khach_hang($id)
 
 function chi_tiet_hoa_don($id)
 {
-    $sql = "SELECT chitiethoadon.id, sanpham.ten_san_pham, chitiethoadon.so_luong, sanpham.gia_san_pham, chitiethoadon.thanh_tien FROM chitiethoadon JOIN sanpham on chitiethoadon.id_sp = sanpham.id JOIN hoadon on chitiethoadon.id_hd = hoadon.id WHERE hoadon.id = '$id';";
+    $sql = "SELECT chitiethoadon.id, sanpham.ten_san_pham, chitiethoadon.so_luong, chitiethoadon.don_gia, chitiethoadon.thanh_tien FROM chitiethoadon JOIN sanpham on chitiethoadon.id_sp = sanpham.id JOIN hoadon on chitiethoadon.id_hd = hoadon.id WHERE hoadon.id = '$id';";
     $donhang = pdo_query($sql);
     return $donhang;
 }

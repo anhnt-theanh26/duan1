@@ -105,6 +105,7 @@
                                         </li>
                                         <!-- <li><a href="about-us.html">ABOUT</a></li> -->
                                         <li><a href="index.php?act=tintuc">Tin tức</a></li>
+                                        <li><a href="index.php?act=nhanvien">Nhân viên</a></li>
                                     </ul>
                                 </nav>
                             </div>

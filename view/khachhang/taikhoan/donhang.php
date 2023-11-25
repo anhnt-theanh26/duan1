@@ -10,7 +10,7 @@ if (isset($_SESSION['user']) && is_array($_SESSION['user'])) {
         <div class="breadcrumb-content text-center">
             <h2>Tài khoản của tôi </h2>
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.php?act=home">Home</a></li>
                 <li><i class="ti-angle-right"></i></li>
                 <li>Tài khoản</li>
             </ul>
@@ -41,9 +41,9 @@ if (isset($_SESSION['user']) && is_array($_SESSION['user'])) {
 
                                     <tr>
                                         <td><?= $ten_san_pham ?></td>
-                                        <td><?= $gia_san_pham ?> đ</td>
+                                        <td><?= $don_gia ?> đ</td>
                                         <td><?= $so_luong ?></td>
-                                        <td><?= $thanh_tien  ?></td>
+                                        <td><?= $thanh_tien  ?> đ</td>
                                     </tr>
                                 <?php
                                 }

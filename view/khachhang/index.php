@@ -144,6 +144,7 @@ if (isset($_GET['act']) && ($_GET['act']) != "") {
             include 'taikhoan/dangky.php';
             break;
 
+            // thêm sản phẩm vào giỏ hàng
         case 'addcart':
             if (isset($_POST['addtocart']) && ($_POST['addtocart'])) {
                 $id = $_POST['id'];
@@ -171,12 +172,12 @@ if (isset($_GET['act']) && ($_GET['act']) != "") {
             }
             header("location: " . $_SERVER['HTTP_REFERER']);
             break;
-
+            // giỏ hàng
         case 'cart':
             $khuyenmai = loadall_khuyenmai_conhan();
             include 'sanpham/cart.php';
             break;
-
+            // xóa giỏ hàng
         case 'delcart':
             if (isset($_SESSION['giohang'])) {
                 unset($_SESSION['giohang']);
@@ -184,6 +185,7 @@ if (isset($_GET['act']) && ($_GET['act']) != "") {
             header("location: index.php?act=cart");
             break;
 
+            // xóa sản phẩm ở giỏ hàng
         case 'delprocart':
             if (isset($_GET['id']) && ($_GET['id']) >= 0) {
                 $id = $_GET['id'];
@@ -216,6 +218,32 @@ if (isset($_GET['act']) && ($_GET['act']) != "") {
                 $hoadon = chi_tiet_hoa_don($id);
             }
             include 'taikhoan/donhang.php';
+            break;
+
+        case 'thanhtoan':
+            if (isset($_POST['dathang']) && ($_POST['dathang'])) {
+                $idkh = $_POST['idkh'];
+                $khuyenmai = $_POST['khuyenmai'];
+                $tongtien = $_POST['tongtien'];
+                $tenkhachhang = $_POST['tenkhachhang'];
+                $sdt = $_POST['sdt'];
+                $email = $_POST['email'];
+                $diachi = $_POST['diachi'];
+                if ($tenkhachhang != "" && $sdt != "" && $email != "" && $diachi != "") {
+                    $idhd = insert_hoadon($idkh, $tongtien, $diachi, $email, $tenkhachhang, $sdt);
+                    // $thongbao = "idkh = $idkh; tổng tiền = $tongtien; khuyến mại = $khuyenmai; sdt = $sdt; email = $email; địa chỉ = $diachi </br> id hóa đơn = $idhd";
+                    if (isset($_SESSION['giohang']) && count($_SESSION['giohang']) > 0) {
+                        foreach ($_SESSION['giohang'] as $item) {
+                            $giakhuyenmai = $item[3] - ($item[3] * $khuyenmai) / 100;
+                            $thanhtien = $giakhuyenmai * $item[4];
+                            insert_hoadon_chitiet($idhd, $item[0], $item[4], $giakhuyenmai, $thanhtien);
+                        }
+                        unset($_SESSION['giohang']);
+                    }
+                }
+            }
+            header("location: index.php?act=cart");
+            // include 'sanpham/cart.php';
             break;
 
         case 'huydonhang':
@@ -261,6 +289,10 @@ if (isset($_GET['act']) && ($_GET['act']) != "") {
             // include 'taikhoan/taikhoan.php';
             header("location: index.php?act=taikhoan");
             break;
+            case 'nhanvien':
+                $nhanvien = loadall_nguoidung();
+                include 'nhanvien/nhanvien.php';
+                break;
     }
 } else {
     $tintuc = select_new();

@@ -12,7 +12,7 @@
             ?>
 
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.php?act=home">Home</a></li>
                 <li><i class="ti-angle-right"></i></li>
                 <li>Giỏ hàng</li>
             </ul>
@@ -81,9 +81,6 @@
                                     <a href="index.php?act=home">Tiếp tục mua hàng</a>
                                 </div>
                                 <div class="cart-clear-wrap">
-                                    <!-- <div class="cart-clear btn-hover">
-                                        <button>Update Cart</button>
-                                    </div> -->
                                     <div class="cart-clear btn-hover">
                                         <a href="index.php?act=delcart">Xóa giỏ hàng</a>
                                     </div>
@@ -94,53 +91,12 @@
                 </form>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-4 col-md-6 col-12">
-                <div class="cart-calculate-discount-wrap mb-40">
-                    <h4>Thông tin khách hàng</h4>
-                    <?php
-                    if (isset($_SESSION['user'])) {
-                        extract($_SESSION['user']);
-                    ?>
-                        <div class="calculate-discount-content">
-                            <div class="input-style">
-                                <label for="">Tên khách hàng</label>
-                                <input type="text" value="<?= $ten_khach_hang ?>">
-                            </div>
-                            <div class="input-style">
-                                <label for="">Email khách hàng</label>
-                                <input type="text" value="<?= $email_khach_hang ?>">
-                            </div>
-                            <div class="input-style">
-                                <label for="">Số điện thoại khách hàng</label>
-                                <input type="text" value="<?= $sdt_khach_hang ?>">
-                            </div>
-                            <div class="input-style">
-                                <label for="">Địa chỉ nhận</label>
-                                <input type="text" value="<?= $dia_chi_khach_hang ?>">
-                            </div>
-                            <div class="calculate-discount-btn btn-hover">
-                                <!-- <a class="btn theme-color" href="#">Update</a> -->
-                            </div>
-                        </div>
-                    <?php
-                    } else {
-                    ?>
-                        <div class="calculate-discount-content">
-                            <div class="calculate-discount-btn btn-hover">
-                                <a class="btn theme-color" href="index.php?act=dangnhap-dangky">Đăng nhập</a>
-                            </div>
-                        </div>
-                    <?php
-                    }
-                    ?>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-12">
+        <div class="row" style="display: fl;">
+            <div class="col-lg-4 col-md-6 col-12" style="width: 33%; float: right;">
                 <div class="cart-calculate-discount-wrap mb-40">
                     <h4>Phiếu giảm giá</h4>
                     <div class="select-style mb-15">
-                        <form action="" method="post">
+                        <form action="#" method="post">
                             <select name="khuyenmai" class="select-two-active">
                                 <option value="0">--Phiếu giảm giá--</option>
                                 <?php
@@ -155,55 +111,119 @@
                             <input class="btn theme-color" type="submit" name="giamgia" id="" style="border: 1px solid black; margin-top: 20px;" value="Áp dụng">
                         </form>
                     </div>
-                    <!-- <div class="calculate-discount-content">
-                        <div class="input-style">
-                        </div>
-                        <div class="calculate-discount-btn btn-hover">
-                            <a class="btn theme-color" href="#">Apply Coupon</a>
-                        </div>
-                    </div> -->
+                    <div class="select-style mb-15">
+                        <h4>Phương thức thanh toán</h4>
+                        <select name="khuyenmai" class="select-two-active">
+                            <option value="0">--Thanh toán khi nhận hàng--</option>
+                            <option value="" disabled>--Thanh online (Đang cập nhật)--</option>
+                            <option value="" disabled>--Thanh MOMO (Đang cập nhật)--</option>
+                            <option value="" disabled>--Thanh chuyển khoản (Đang cập nhật)--</option>
+                        </select>
+                    </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-12 col-12">
+
+            <!-- <form action=""> -->
+            <div class="col-lg-4 col-md-12 col-12" style="float: right;">
+                <h4>Tính giá sản phẩm</h4>
+                <div class="select-style mb-15">
+                </div><br>
+                <div class="select-style mb-15">
+                </div>
                 <?php
                 if (isset($_SESSION['giohang'])) {
                     if (isset($_POST['giamgia']) && ($_POST['giamgia']) > 0) {
                         $khuyenmai = $_POST['khuyenmai'];
+                        $conlai = $tonggia - ($tonggia * $khuyenmai / 100);
                 ?>
                         <div class="grand-total-wrap">
                             <div class="grand-total-content">
-                                <h3>Giá: <span><?= $tonggia ?> đ</span></h3>
-                                <h3>Khuyến mại: <span><?= $khuyenmai ?> %</span></h3>
-                                <h3>Trừ: <span><?= ($tonggia * $khuyenmai / 100) ?> đ</span></h3>
+                                <h3 style="">Giá: <span><?= $tonggia ?> đ</span></h3>
+                                <h3 style="margin-top: 20px;">Khuyến mại: <span><?= $khuyenmai ?> %</span></h3>
+                                <h3 style="margin-top: 20px;">Trừ: <span><?= ($tonggia * $khuyenmai / 100) ?> đ</span></h3>
+                                <h3 style="margin-top: 20px;">Chi tiết:<span> <?= $tonggia ?> - <?= ($tonggia * $khuyenmai / 100) ?> đ</span></h3>
                                 <div class="grand-total">
-                                    <h4>Còn lại: <span><?= $tonggia - ($tonggia * $khuyenmai / 100) ?> đ</span></h4>
+                                    <h4 style="margin-top: 20px;">Còn lại: <span><?= $tonggia - ($tonggia * $khuyenmai / 100) ?> đ</span></h4>
                                 </div>
                             </div>
-                            <div class="grand-total-btn btn-hover">
-                                <a class="btn theme-color" href="checkout.html">Proceed to checkout</a>
-                            </div>
+
                         </div>
                     <?php
-                        // header("location: ".$_SERVER['HTTP_REFERER']);
                     } else {
+                        $khuyenmai = 0;
+                        $conlai = $tonggia;
                     ?>
                         <div class="grand-total-wrap">
                             <div class="grand-total-content">
-                                <h3>Giá: <span><?= $tonggia ?> đ</span></h3>
-                                <h3>Khuyến mại: <span> 0 %</span></h3>
-                                <h3>Trừ: <span>0 đ</span></h3>
+                                <h3 style="">Giá: <span><?= $tonggia ?> đ</span></h3>
+                                <h3 style="margin-top: 20px;">Khuyến mại: <span><?= $khuyenmai ?> %</span></h3>
+                                <h3 style="margin-top: 20px;">Trừ: <span><?= ($tonggia * $khuyenmai / 100) ?> đ</span></h3>
+                                <h3 style="margin-top: 20px;">Chi tiết:<span> <?= $tonggia ?> - <?= ($tonggia * $khuyenmai / 100) ?> đ</span></h3>
                                 <div class="grand-total">
-                                    <h4>Còn lại: <span><?= $tonggia ?> đ</span></h4>
+                                    <h4 style="margin-top: 20px;">Còn lại: <span><?= $tonggia - ($tonggia * $khuyenmai / 100) ?> đ</span></h4>
                                 </div>
                             </div>
-                            <div class="grand-total-btn btn-hover">
-                                <a class="btn theme-color" href="checkout.html">Proceed to checkout</a>
-                            </div>
+
                         </div>
                 <?php
                     }
                 }
                 ?>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12" style="float: right;">
+                <div class="cart-calculate-discount-wrap mb-40">
+                    <h4>Thông tin khách hàng</h4>
+                    <?php
+                    if (isset($_SESSION['user'])) {
+                        extract($_SESSION['user']);
+                    ?>
+                        <form action="index.php?act=thanhtoan" method="post">
+                            <div class="calculate-discount-content">
+                                <div class="input-style">
+                                    <label for="khuyenmai">khuyến mại</label>
+                                    <input name="khuyenmai" type="text" value="<?= $khuyenmai ?>">
+                                </div>
+                                <div class="input-style">
+                                    <label for="idkh">id khách hàng</label>
+                                    <input name="idkh" type="text" value="<?= $id ?>">
+                                </div>
+                                <div class="input-style">
+                                    <label for="tongtien">Tổng hóa đơn</label>
+                                    <input name="tongtien" type="text" value="<?= $conlai ?>">
+                                </div>
+                                <div class="input-style">
+                                    <label for="tenkhachhang">Tên khách hàng</label>
+                                    <input name="tenkhachhang" type="text" value="<?= $ten_khach_hang ?>">
+                                </div>
+                                <div class="input-style">
+                                    <label for="sdt">Số điện thoại khách hàng</label>
+                                    <input name="sdt" type="text" value="<?= $sdt_khach_hang ?>">
+                                </div>
+                                <div class="input-style">
+                                    <label for="email">Email khách hàng</label>
+                                    <input name="email" type="email" value="<?= $email_khach_hang ?>">
+                                </div>
+                                <div class="input-style">
+                                    <label for="diachi">Địa chỉ nhận hàng</label>
+                                    <input name="diachi" type="text" value="<?= $dia_chi_khach_hang ?>">
+                                </div>
+                                <div class="calculate-discount-btn btn-hover">
+                                    <input onclick="return confirm('đặt hàng')" class="btn theme-color" type="submit" name="dathang" id="" style="border: 1px solid black;" value="Đặt hàng">
+                                </div>
+                            </div>
+                        </form>
+                    <?php
+                    } else {
+                    ?>
+                        <div class="calculate-discount-content">
+                            <div class="calculate-discount-btn btn-hover">
+                                <a class="btn theme-color" href="index.php?act=dangnhap-dangky">Đăng nhập</a>
+                            </div>
+                        </div>
+                    <?php
+                    }
+                    ?>
+                </div>
             </div>
         </div>
     </div>

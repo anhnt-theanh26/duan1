@@ -22,7 +22,7 @@ if (isset($_SESSION['user']) && is_array($_SESSION['user'])) {
                 ?>
             </h6>
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.php?act=home">Home</a></li>
                 <li><i class="ti-angle-right"></i></li>
                 <li>Tài khoản</li>
             </ul>
@@ -123,7 +123,7 @@ if (isset($_SESSION['user']) && is_array($_SESSION['user'])) {
                                                                 <td><?php echo date('d/m/Y', strtotime($ngay_dat)); ?></td>
                                                                 <td><?= $tong_tien ?> đ</td>
                                                                 <td><?= $trangthai ?></td>
-                                                                <td><a href="index.php?act=chitiethoadon&&id=<?= $_SESSION['user']['id'] ?>" class="check-btn sqr-btn ">Chi tiết</a></td>
+                                                                <td><a href="index.php?act=chitiethoadon&&id=<?= $iddh ?>" class="check-btn sqr-btn ">Chi tiết</a></td>
                                                                 <?php
                                                                 if ($trang_thai == 0 || $trang_thai == 1) {
                                                                 ?>

@@ -10,7 +10,7 @@ $linkdm = 'index.php?act=danhmuc&&id=' . $iddm;
         <div class="breadcrumb-content text-center">
             <h2 data-aos="fade-up" >Tin tức</h2>
             <ul data-aos="fade-up" >
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.php?act=home">Home</a></li>
                 <li><i class="ti-angle-right"></i></li>
                 <li>Chi tiết tin tức</li>
             </ul>

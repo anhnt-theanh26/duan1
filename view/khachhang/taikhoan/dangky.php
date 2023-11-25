@@ -4,7 +4,7 @@
         <div class="breadcrumb-content text-center">
             <h2>Đăng nhập - Đăng ký </h2>
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.php?act=home">Home</a></li>
                 <li><i class="ti-angle-right"></i></li>
                 <li>Đăng nhập - Đăng ký </li>
             </ul>
