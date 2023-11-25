@@ -61,7 +61,7 @@
                                                 </td>
                                                 <td class="product-cart-price"><span class="amount"><?= $gia ?></span></td>
                                                 <td class="product-cart-soluong"><span class="amount"><?= $_SESSION['giohang'][$i][4] ?></span></td>
-                                                <td class="product-remove"><a href="<?= $link_del_pro_cart ?>"><i class=" ti-trash "></i></a></td>
+                                                <td class="product-remove"><a onclick="return confirm('xóa sản phẩm khỏi giỏ hàng')" href="<?= $link_del_pro_cart ?>"><i class=" ti-trash "></i></a></td>
                                             </tr>
                                     <?php
                                             $tonggia += $gia;

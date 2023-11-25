@@ -155,7 +155,7 @@ $idsp = $id;
                                         <?php
                                         extract($danhmuc);
                                         ?>
-                                        <li><a href="index.php?act="><?= $ten_danh_muc ?></a></li>
+                                        <li><a href="index.php?act=danhmuc&&id=<?=$id?>"><?= $ten_danh_muc ?></a></li>
                                     </ul>
                                 </li>
                                 <?php
