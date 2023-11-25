@@ -29,8 +29,8 @@ function dangnhap($ten_dang_nhap, $mat_khau)
 // dang xuat
 function dangxuat()
 {
-    if (isset($_SESSION['user'])) {
-        unset($_SESSION['user']);
+    if (isset($_SESSION['admin'])) {
+        unset($_SESSION['admin']);
     }
 }
 

@@ -59,8 +59,8 @@ $linkimg = '../../view/img/' . $img_nguoi_dung;
                     <div class="form-group">
                         <label for="vaitro">Vai trò người dùng</label>
                         <?php
-                        if (isset($_SESSION['user'])) {
-                            if ($_SESSION['user']['id'] == 1) {
+                        if (isset($_SESSION['admin'])) {
+                            if ($_SESSION['admin']['id'] == 1) {
                         ?>
                                 <input name="vaitro" type="number" class="form-control" id="vaitro" placeholder="Vai trò người dùng" value="<?= $vai_tro ?>">
                             <?php

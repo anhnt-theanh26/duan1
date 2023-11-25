@@ -65,8 +65,8 @@
       <div class="sidebar">
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
           <?php
-          if (isset($_SESSION['user'])) {
-            extract($_SESSION['user']);
+          if (isset($_SESSION['admin'])) {
+            extract($_SESSION['admin']);
             $linkimg = '../../view/img/' . $img_nguoi_dung;
           ?>
             <div class="image">

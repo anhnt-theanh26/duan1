@@ -35,8 +35,8 @@ include 'header.php';
 // $danhmuc = loadall_danhmuc();
 
 
-if (isset($_SESSION['user']) && ($_SESSION['user'])) {
-    extract($_SESSION['user']);
+if (isset($_SESSION['admin']) && ($_SESSION['admin'])) {
+    extract($_SESSION['admin']);
     $idnd = $id;
     if ($vai_tro == 1) {
         if (isset($_GET['act']) && ($_GET['act']) != '') {
@@ -370,7 +370,7 @@ if (isset($_SESSION['user']) && ($_SESSION['user'])) {
 
                 //đăng nhập
                 case 'dangxuat':
-                    dang_xuat();
+                    dang_xuat_admin();
                     break;
                 default:
                     include 'home.php';
@@ -652,7 +652,7 @@ if (isset($_SESSION['user']) && ($_SESSION['user'])) {
 
                 //đăng nhập
                 case 'dangxuat':
-                    dang_xuat();
+                    dang_xuat_admin();
                     break;
                 default:
                     include 'home.php';

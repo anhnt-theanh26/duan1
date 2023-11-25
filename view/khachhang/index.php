@@ -105,7 +105,7 @@ if (isset($_GET['act']) && ($_GET['act']) != "") {
 
         case 'dangxuat':
             if (isset($_SESSION['user']) && ($_SESSION['user'])) {
-                dangxuat();
+                unset($_SESSION['user']);
             }
             header('location: index.php?act=home');
             break;

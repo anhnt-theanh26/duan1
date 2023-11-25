@@ -54,14 +54,14 @@ function updatenguoidung()
         $target_dir = '../../view/img/';
         $target_file = $target_dir . basename($img);
         move_uploaded_file($_FILES['img']['tmp_name'], $target_file);
-        $idnd = $_SESSION['user']['id'];
+        $idnd = $_SESSION['admin']['id'];
 
         if ($tennguoidung != "" && $tendangnhap != "" && $email != "" && $sdt != "" && $vaitro != "" && $matkhau != "") {
             update_nguoidung($id, $tennguoidung, $tendangnhap, md5($matkhau), $email, $sdt, $vaitro, $img);
             if ($idnd == $id) {
                 $dangnhap = dangnhap($tendangnhap, md5($matkhau));
                 if (is_array($dangnhap)) {
-                    $_SESSION['user'] = $dangnhap;
+                    $_SESSION['admin'] = $dangnhap;
                 }
             }
             $thongbao = 'update người dùng thành công';
@@ -70,7 +70,7 @@ function updatenguoidung()
             if ($idnd == $id) {
                 $dangnhap = dangnhap($tendangnhap, $matkhaucu);
                 if (is_array($dangnhap)) {
-                    $_SESSION['user'] = $dangnhap;
+                    $_SESSION['admin'] = $dangnhap;
                 }
             }
             $thongbao = 'update người dùng thành công';

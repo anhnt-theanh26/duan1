@@ -1,8 +1,8 @@
 <div class="content-wrapper">
   <section class="content">
     <?php
-    if (isset($_SESSION['user'])) {
-      extract($_SESSION['user']);
+    if (isset($_SESSION['admin'])) {
+      extract($_SESSION['admin']);
     ?>
       <p>Tên người dùng: <?= $ten_nguoi_dung ?></p>
       <?php

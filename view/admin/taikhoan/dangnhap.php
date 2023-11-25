@@ -58,7 +58,7 @@
               $mat_khau = md5($_POST['mat_khau']);
               $loginMess = dangnhap($ten_dang_nhap, $mat_khau);
               if (is_array($loginMess)) {
-                $_SESSION['user'] = $loginMess;
+                $_SESSION['admin'] = $loginMess;
                 header("location: index.php?act=home");
               } else {
                 $thongbao = 'dang nhap that bai! tai khoan khong ton tai';
