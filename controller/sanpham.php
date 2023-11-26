@@ -134,3 +134,33 @@ function xoasanpham()
         header("location: index.php?act=sanphamxoamem");
     }
 }
+
+// khách hàng
+function home()
+{
+    $banner = loadall_banner();
+    $tintuc = select_new();
+    $danhmuc = loadall_danhmuc();
+    $sanpham = loadall_sanpham_home();
+    include 'home.php';
+}
+function loadallsanpham()
+{
+    $banner = loadall_banner();
+    $danhmuc = loadall_danhmuc();
+    $sanpham = loadall_sanpham_san_pham();
+    include 'sanpham/sanpham.php';
+}
+
+function chitietsanpham()
+{
+    if (isset($_GET['idsp']) && ($_GET['iddm'])) {
+        $id = $_GET['idsp'];
+        $iddm = $_GET['iddm'];
+        $danhmuc = loadone_danhmuc($iddm);
+        $sanpham = loadone_sanpham($id);
+        $cungloai = loadallsp_cungloai($id, $iddm);
+        $_SESSION['view'] = update_view($id);
+    }
+    include 'sanpham/chitietsanpham.php';
+}

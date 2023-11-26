@@ -1,7 +1,7 @@
 <div class="slider-area">
     <div class="slider-active swiper-container">
         <div class="swiper-wrapper">
-        <?php
+            <?php
             foreach ($banner as $bn) {
                 extract($bn);
                 $linkimgbanner = '../img/' . $img_banner;
@@ -94,15 +94,16 @@
             }
             ?>
         </div>
-<?php if(isset($thongbao) && ($thongbao) != "") echo $thongbao ?>
+        <?php if (isset($thongbao) && ($thongbao) != "") echo $thongbao ?>
         <div class="tab-content jump">
             <div id="pro-1" class="tab-pane active">
                 <div class="row">
                     <?php
                     foreach ($sanpham as $sp) {
                         extract($sp);
+                        $idsp = $id;
                         $linkimg = '../../view/img/' . $img_dai_dien;
-                        $linksp = "index.php?act=chitietsanpham&&idsp=$id&&iddm=$iddm";
+                        $linksp = "index.php?act=chitietsanpham&&idsp=$idsp&&iddm=$iddm";
                     ?>
                         <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                             <div class="product-wrap mb-35" data-aos="fade-up">

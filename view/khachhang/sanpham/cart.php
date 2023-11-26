@@ -6,9 +6,9 @@
             // if (isset($_SESSION['giohang']) && ($_SESSION['giohang'])) {
             //     var_dump($_SESSION['giohang']);
             // }
-            // if (isset($thongbao) && ($thongbao) != "") {
-            //     echo $thongbao;
-            // }
+            if (isset($thongbao) && ($thongbao) != "") {
+                echo $thongbao;
+            }
             ?>
 
             <ul>
@@ -45,30 +45,36 @@
                                 <tbody>
                                     <?php
                                     $tonggia = 0;
+                                    $i = 1;
                                     if (isset($_SESSION['giohang']) && count($_SESSION['giohang']) > 0) {
-                                        for ($i = 0; $i < count($_SESSION['giohang']); $i++) {
-                                            $linksp = "index.php?act=chitietsanpham&&idsp=" . $_SESSION['giohang'][$i][0] . "&&iddm=" . $_SESSION['giohang'][$i][5];
-                                            $linkimg = '../../view/img/' . $_SESSION['giohang'][$i][2];
+                                        foreach ($_SESSION['giohang'] as $item) {
+                                            $gia = $item[3] * $item[4];
+                                            $linksp = "index.php?act=chitietsanpham&&idsp=" . $item[0] . "&&iddm=" . $item[5];
+                                            $linkimg = '../../view/img/' . $item[2];
                                             $link_del_pro_cart = "index.php?act=delprocart&&id=$i";
-                                            $gia = $_SESSION['giohang'][$i][3] * $_SESSION['giohang'][$i][4];
+                                            // }
+                                            // for ($i = 0; $i < count($_SESSION['giohang']); $i++) {
+                                            //     $linksp = "index.php?act=chitietsanpham&&idsp=" . $_SESSION['giohang'][$i][0] . "&&iddm=" . $_SESSION['giohang'][$i][5];
+                                            //     $linkimg = '../../view/img/' . $_SESSION['giohang'][$i][2];
+                                            //     $link_del_pro_cart = "index.php?act=delprocart&&id=$i";
+                                            //     $gia = $_SESSION['giohang'][$i][3] * $_SESSION['giohang'][$i][4];
+                                            //     echo 'hihi' . $gia;
                                     ?>
                                             <tr>
                                                 <td class="product-thumbnail">
                                                     <a href="<?= $linksp ?>"><img src="<?= $linkimg ?>" alt=""></a>
                                                 </td>
                                                 <td class="product-name">
-                                                    <h5><a href="<?= $linksp ?>"><?= $_SESSION['giohang'][$i][1] ?></a></h5>
+                                                    <h5><a href="<?= $linksp ?>"><?= $item[1] ?></a></h5>
                                                 </td>
-                                                <td class="product-cart-price"><span class="amount"><?= $gia ?></span></td>
-                                                <td class="product-cart-soluong"><span class="amount"><?= $_SESSION['giohang'][$i][4] ?></span></td>
+                                                <td class="product-cart-price"><span class="amount"><?= $gia ?> đ</span></td>
+                                                <td class="product-cart-soluong"><span class="amount"><?= $item[4] ?></span></td>
                                                 <td class="product-remove"><a onclick="return confirm('xóa sản phẩm khỏi giỏ hàng')" href="<?= $link_del_pro_cart ?>"><i class=" ti-trash "></i></a></td>
                                             </tr>
                                     <?php
                                             $tonggia += $gia;
                                         }
                                     }
-
-
                                     ?>
                                 </tbody>
                             </table>
@@ -180,16 +186,13 @@
                         <form action="index.php?act=thanhtoan" method="post">
                             <div class="calculate-discount-content">
                                 <div class="input-style">
-                                    <label for="khuyenmai">khuyến mại</label>
-                                    <input name="khuyenmai" type="text" value="<?= $khuyenmai ?>">
+                                    <input name="khuyenmai" type="hidden" value="<?= $khuyenmai ?>">
                                 </div>
                                 <div class="input-style">
-                                    <label for="idkh">id khách hàng</label>
-                                    <input name="idkh" type="text" value="<?= $id ?>">
+                                    <input name="idkh" type="hidden" value="<?= $id ?>">
                                 </div>
                                 <div class="input-style">
-                                    <label for="tongtien">Tổng hóa đơn</label>
-                                    <input name="tongtien" type="text" value="<?= $conlai ?>">
+                                    <input name="tongtien" type="hidden" value="<?= $conlai ?>">
                                 </div>
                                 <div class="input-style">
                                     <label for="tenkhachhang">Tên khách hàng</label>
@@ -228,3 +231,14 @@
         </div>
     </div>
 </div>
+
+<?php
+$giamoney = 0;
+if (isset($_SESSION['giohang']) && count($_SESSION['giohang']) > 0) {
+    foreach ($_SESSION['giohang'] as $item) {
+        $giaitem = $item[3] * $item[4];
+        $giamoney += $giaitem;
+    }
+}
+echo $giamoney;
+?>

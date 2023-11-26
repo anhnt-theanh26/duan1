@@ -51,7 +51,7 @@
                                 <th style="width: 15%">
                                     Tên khách hàng
                                 </th>
-                                <th style="width: 15%">
+                                <th style="width: 13%">
                                     Số điện thoại
                                 </th>
                                 <th style="width: 20%">
@@ -63,7 +63,7 @@
                                 <th style="width: 10%">
                                     Ngày đặt
                                 </th>
-                                <th style="width: 10%">
+                                <th style="width: 8%">
                                     Tổng tiền
                                 </th>
                             </tr>

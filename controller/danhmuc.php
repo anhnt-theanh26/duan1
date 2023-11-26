@@ -92,3 +92,33 @@ function xoacungdanhmuc()
     }
     include 'danhmuc/delete.php';
 }
+
+
+function danhmuc_khachhang()
+{
+    $banner = loadall_banner();
+    if (isset($_GET['id']) && ($_GET['id']) > 0) {
+        $id = $_GET['id'];
+        $danhmuc = loadall_danhmuc();
+        $sanpham = loadallsp_cungdanhmuc($id);
+    }
+    if (isset($_POST['loc'])) {
+        $tk = $_POST['tk'];
+        $id = $_POST['id'];
+        $sanpham = loc_san_pham($tk, $id);
+    }
+    include 'sanpham/sanpham.php';
+}
+
+function search()
+{
+    if (isset($_POST['timkiem'])) {
+        $tk = $_POST['keyw'];
+        $iddm = 0;
+        $sanpham = loadall_sanpham($tk, $iddm);
+    }
+    $tintuc = select_new();
+    $banner = loadall_banner();
+    $danhmuc = loadall_danhmuc();
+    include 'home.php';
+}

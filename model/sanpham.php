@@ -11,7 +11,7 @@ function loadall_sanpham_home()
 //load top 10 sản phẩm có lượt xem cao nhất
 function loadall_sanpham_san_pham()
 {
-    $sql = "SELECT * FROM sanpham JOIN danhmuc on sanpham.iddm=danhmuc.id WHERE sanpham.trang_thai='0' AND danhmuc.trang_thai='0';";
+    $sql = "SELECT sanpham.id, sanpham.ten_san_pham, sanpham.gia_san_pham, sanpham.img_dai_dien, sanpham.mo_ta_san_pham, sanpham.so_luong, sanpham.da_ban, sanpham.img_san_pham1, sanpham.img_san_pham2, sanpham.img_san_pham3,sanpham.iddm FROM sanpham JOIN danhmuc on sanpham.iddm=danhmuc.id WHERE sanpham.trang_thai='0' AND danhmuc.trang_thai='0';";
     $listsanpham = pdo_query($sql);
     return $listsanpham;
 }

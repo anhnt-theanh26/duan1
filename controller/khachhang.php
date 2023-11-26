@@ -101,3 +101,75 @@ function xoacungkhachhang()
     $khachhang = loadall_khachhang_xoamem();
     include 'khachhang/xoamem.php';
 }
+
+
+function dangnhaptaikhoan()
+{
+    if (isset($_POST['dangnhap']) && ($_POST['dangnhap'])) {
+        $tendangnhap = $_POST['tendangnhap'];
+        $matkhau = md5($_POST['matkhau']);
+        $dangnhap = dang_nhap_khach_hang($tendangnhap, $matkhau);
+        if (is_array($dangnhap)) {
+            $_SESSION['user'] = $dangnhap;
+            header("location: index.php?act=home");
+        } else {
+            $thongbao = 'dang nhap that bai! tai khoan khong ton tai';
+        }
+    }
+    include 'taikhoan/dangnhap.php';
+}
+
+function dangkytaikhoan()
+{
+    if (isset($_POST['dangky']) && ($_POST['dangky'])) {
+        $ten = $_POST['ten'];
+        $tendangnhap = $_POST['tendangnhap'];
+        $matkhau = $_POST['matkhau'];
+        $email = $_POST['email'];
+        $sdt = $_POST['sdt'];
+        $diachi = $_POST['diachi'];
+        if ($ten != "" && $tendangnhap != "" && $matkhau != "" && $email != "" && $sdt != "" && $diachi != "") {
+            insert_taikhoan($ten, $tendangnhap, md5($matkhau), $email, $sdt, $diachi);
+            $thongbao = 'Đăng ký thành công';
+        } else {
+            $thongbao = 'không để trống các cột để đăng ký';
+        }
+    }
+    include 'taikhoan/dangky.php';
+}
+
+function doithongtin(){
+    if (isset($_POST['capnhaptaikhoan']) && ($_POST['capnhaptaikhoan'])) {
+        $id = $_POST['id'];
+        $ten = $_POST['ten'];
+        $tendangnhap = $_POST['tendangnhap'];
+        $email = $_POST['email'];
+        $sdt = $_POST['sdt'];
+        $diachi = $_POST['diachi'];
+        $matkhau = $_POST['matkhau'];
+        $matkhaucu = $_POST['matkhaucu'];
+        $img = $_FILES['img']['name'];
+        $target_dir = '../../view/img/';
+        $target_file = $target_dir . basename($img);
+        move_uploaded_file($_FILES['img']['tmp_name'], $target_file);
+        if ($ten != "" && $tendangnhap != "" && $email != "" && $sdt != "" && $diachi != "" && $matkhau != "") {
+            update_khachhang($id, $ten, $tendangnhap, md5($matkhau), $email, $sdt, $diachi, $img);
+            $dangnhap = dang_nhap_khach_hang($tendangnhap, md5($matkhau));
+            if (is_array($dangnhap)) {
+                $_SESSION['user'] = $dangnhap;
+                $thongbao = 'sửa thông tin thành công';
+            }
+        } else if ($ten != "" && $tendangnhap != "" && $email != "" && $sdt != "" && $diachi != "" && $matkhau == "") {
+            update_khachhang($id, $ten, $tendangnhap, $matkhaucu, $email, $sdt, $diachi, $img);
+            $dangnhap = dang_nhap_khach_hang($tendangnhap, $matkhaucu);
+            if (is_array($dangnhap)) {
+                $_SESSION['user'] = $dangnhap;
+                $thongbao = 'sửa thông tin thành công';
+            }
+        } else {
+            $thongbao = ' sửa thông tin thất bại';
+        }
+    }
+    // include 'taikhoan/taikhoan.php';
+    header("location: index.php?act=taikhoan");
+}

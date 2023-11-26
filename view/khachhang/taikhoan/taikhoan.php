@@ -16,9 +16,9 @@ if (isset($_SESSION['user']) && is_array($_SESSION['user'])) {
                 // }
                 ?>
                 <?php
-                // if (isset($thongbao) && ($thongbao) != "") {
-                //     echo $thongbao;
-                // }
+                if (isset($thongbao) && ($thongbao) != "") {
+                    echo $thongbao;
+                }
                 ?>
             </h6>
             <ul>

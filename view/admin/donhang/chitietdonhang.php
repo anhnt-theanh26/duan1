@@ -81,7 +81,7 @@
                                         <?= $so_luong ?>
                                     </td>
                                     <td>
-                                        <?= $gia_san_pham ?>
+                                        <?= $don_gia ?>
                                     </td>
                                     <td>
                                         <?= $thanh_tien ?>

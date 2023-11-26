@@ -73,7 +73,7 @@
     <div class="container">
         <div class="section-title-tab-wrap mb-75">
             <div class="section-title-2" data-aos="fade-up">
-                <h2>Sản phẩm nhiều lượt xem</h2>
+                <h2>Sản phẩm</h2>
             </div>
         </div>
         <div class="tab-content jump">

@@ -123,31 +123,54 @@ $idsp = $id;
 
 
                     <div class="product-details-content" data-aos="fade-up" data-aos-delay="20">
-                        <h2><?= $ten_san_pham ?> <?= $idsp ?></h2>
+                        <h2><?= $ten_san_pham ?></h2>
+                        <?php
+                        if ($so_luong > 0) {
+                        ?>
                         <div class="product-color product-color-active product-details-color">
                             <ul>
                                 <li>Còn: <?= $so_luong ?> sản phẩm</li>
                             </ul>
                         </div>
+                        <?php
+                        } else {
+                        ?>
+                        <div class="product-color product-color-active product-details-color">
+                            <h5 style="color: red;">Hết hàng (Xin lỗi vì sự bất tiện này)</h5><br>
+                        </div>
+                        <?php
+                        }
+                        ?>
+                        <div class="product-color product-color-active product-details-color">
+                            <ul>
+                                <li>Đã bán: <?= $da_ban ?> sản phẩm</li>
+                            </ul>
+                        </div>
                         <div class="product-details-price">
                             <span class="new-price"><?= $gia_san_pham ?> đ</span>
                         </div>
+                        <?php
+                        if ($so_luong > 0) {
+                        ?>
 
-                        <div class="product-details-action-wrap">
-                            <div class="product-quality">
-                                <input type="number" class="cart-plus-minus-box input-text qty text" name="soluong" value="1" min="1" max="<?= $so_luong ?>">
+                            <div class="product-details-action-wrap">
+                                <div class="product-quality">
+                                    <input type="number" class="cart-plus-minus-box input-text qty text" name="soluong" value="1" min="1" max="<?= $so_luong ?>">
+                                </div>
+                                <div class="single-product-cart btn-hover">
+                                    <!-- <a href="#"><button type="submit" name="addtocart" class="product-action-btn-2" title="Add To Cart" value="Thêm vào giỏ hàng">Add To Cart </button></a> -->
+                                    <input type="submit" name="addtocart" class="product-action-btn-2" title="Add To Cart" value="Thêm vào giỏ hàng" style="width: 150px; height: 60px;">
+                                </div>
+                                <div class="single-product-wishlist">
+                                    <a title="Wishlist" href="wishlist.html"><i class="pe-7s-like"></i></a>
+                                </div>
+                                <div class="single-product-compare">
+                                    <a title="Compare" href="#"><i class="pe-7s-shuffle"></i></a>
+                                </div>
                             </div>
-                            <div class="single-product-cart btn-hover">
-                                <!-- <a href="#"><button type="submit" name="addtocart" class="product-action-btn-2" title="Add To Cart" value="Thêm vào giỏ hàng">Add To Cart </button></a> -->
-                                <input type="submit" name="addtocart" class="product-action-btn-2" title="Add To Cart" value="Thêm vào giỏ hàng" style="width: 150px; height: 60px;">
-                            </div>
-                            <div class="single-product-wishlist">
-                                <a title="Wishlist" href="wishlist.html"><i class="pe-7s-like"></i></a>
-                            </div>
-                            <div class="single-product-compare">
-                                <a title="Compare" href="#"><i class="pe-7s-shuffle"></i></a>
-                            </div>
-                        </div>
+                        <?php
+                        }
+                        ?>
                         <div class="product-details-meta">
                             <ul>
                                 <li><span class="title">Loại:</span>
@@ -155,13 +178,13 @@ $idsp = $id;
                                         <?php
                                         extract($danhmuc);
                                         ?>
-                                        <li><a href="index.php?act=danhmuc&&id=<?=$id?>"><?= $ten_danh_muc ?></a></li>
+                                        <li><a href="index.php?act=danhmuc&&id=<?= $id ?>"><?= $ten_danh_muc ?></a></li>
                                     </ul>
                                 </li>
                                 <?php
-                                if(isset($thongbao) && ($thongbao)){
+                                if (isset($thongbao) && ($thongbao)) {
                                     echo $thongbao;
-                                } 
+                                }
                                 ?>
                             </ul>
                         </div>

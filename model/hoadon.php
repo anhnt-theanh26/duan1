@@ -1,5 +1,5 @@
 <?php
-
+// tạo hóa đơn
 function insert_hoadon($idkh, $tongtien, $diachi, $email, $tenkhachhang, $sdt)
 {
     $conn = pdo_get_connection();
@@ -9,17 +9,17 @@ function insert_hoadon($idkh, $tongtien, $diachi, $email, $tenkhachhang, $sdt)
     $last_id = $conn->lastInsertId();
     return $last_id;
 }
-
+//tạo chi tiết hóa đơn
 function insert_hoadon_chitiet($idhd, $idsp, $soluong, $giakhuyenmai, $thanhtien)
 {
     $sql = "INSERT INTO chitiethoadon(id_hd, id_sp, so_luong, don_gia, thanh_tien) 
     VALUES('$idhd', '$idsp', '$soluong', '$giakhuyenmai', '$thanhtien');";
     pdo_execute($sql);
 }
-
+// update khi đặt hàng
 function update_so_luong_da_ban($idsp, $soluong)
 {
-    $sql = "UPDATE sanpham SET da_ban = da_ban + '$soluong' WHERE id = '$idsp';";
+    $sql = "UPDATE sanpham SET so_luong = so_luong - $soluong, da_ban = da_ban + $soluong WHERE id = '$idsp'";
     pdo_execute($sql);
 }
 
@@ -115,4 +115,23 @@ function huy_don_hang($id)
     $sql1 = "DELETE FROM chitiethoadon WHERE id_hd = '$id';";
     pdo_execute($sql);
     pdo_execute($sql1);
+}
+
+// load số lượng sản phẩm và id của hóa đơn khi hủy
+function load_so_luong_san_pham_huy($id)
+{
+    $sql = "SELECT chitiethoadon.id_sp, chitiethoadon.so_luong FROM chitiethoadon WHERE chitiethoadon.id_hd = '$id';";
+    $donhang = pdo_query($sql);
+    return $donhang;
+}
+
+// function update_so_luong_san_pham_khach_hang_huy($id_sp, $so_luong)
+// {
+//     $sql = "UPDATE sanpham SET so_luong = so_luong + $so_luong, da_ban = da_ban - $so_luong WHERE id = '$id_sp';";
+//     pdo_execute($sql);
+// }
+function update_so_luong_da_ban_khachhang_huy($id_sp, $so_luong)
+{
+    $sql = "UPDATE sanpham SET so_luong = so_luong + $so_luong, da_ban = da_ban - $so_luong WHERE id = '$id_sp';";
+    pdo_execute($sql);
 }

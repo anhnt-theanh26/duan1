@@ -34,6 +34,12 @@ function dangxuat()
     }
 }
 
+function dangxuat_khachhang(){
+    if (isset($_SESSION['user']) && ($_SESSION['user'])) {
+        unset($_SESSION['user']);
+    }
+    header('location: index.php?act=home');
+}
 
 // function update_taikhoan($id, $user, $pass, $email, $address, $tel){
 //     $sql = "update taikhoan set user = '$user', pass = '$pass', email = '$email', address = '$address', tel = '$tel' where id = '$id'";

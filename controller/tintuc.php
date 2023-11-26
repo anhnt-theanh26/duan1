@@ -103,3 +103,21 @@ function xoacungtintuc()
     }
     include 'tintuc/xoamem.php';
 }
+
+
+// khách hàng
+function tintuc_khachhang()
+{
+    $tintuc = loadall_tin_tuc();
+    include 'tintuc/tintuc.php';
+}
+
+function chitiettintuc(){
+    if (isset($_GET['id']) && ($_GET['id']) != 0) {
+        $id = $_GET['id'];
+    }
+    $tintuc = select_new();
+    $danhmuc = loadall_danhmuc();
+    $chitiettintuc = loadone_tin_tuc($id);
+    include 'tintuc/chitiettintuc.php';
+}

@@ -12,6 +12,11 @@ function loadall_sanpham_thongke()
 
 function thong_ke()
 {
-    $sql = "SELECT sanpham.id, sanpham.ten_san_pham, chitiethoadon.don_gia, SUM(chitiethoadon.so_luong) so_luong_da_ban, SUM(chitiethoadon.thanh_tien) thanh_tien FROM chitiethoadon JOIN sanpham on chitiethoadon.id_sp = sanpham.id GROUP BY id_sp ORDER BY SUM(chitiethoadon.thanh_tien) DESC;";
+    $sql = "SELECT sanpham.id, sanpham.ten_san_pham, chitiethoadon.don_gia, 
+    SUM(chitiethoadon.so_luong) so_luong_da_ban, 
+    SUM(chitiethoadon.thanh_tien) thanh_tien 
+    FROM chitiethoadon 
+    JOIN sanpham on chitiethoadon.id_sp = sanpham.id 
+    GROUP BY id_sp ORDER BY SUM(chitiethoadon.thanh_tien) DESC;";
     return pdo_query($sql);
 }

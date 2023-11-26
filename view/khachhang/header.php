@@ -142,7 +142,7 @@
                                     ?>
                                 </div>
                                 <div class="header-action-style">
-                                    <a title="Wishlist" href="wishlist.html"><i class="pe-7s-like"></i></a>
+                                    <a title="Wishlist" href="#"><i class="pe-7s-like"></i></a>
                                 </div>
                                 <div class="header-action-style header-action-cart">
                                     <a class="#" href="index.php?act=cart"><i class="pe-7s-shopbag"></i>
