@@ -27,6 +27,7 @@ if (isset($_SESSION['user']) && is_array($_SESSION['user'])) {
                         <table class="table table-bordered">
                             <thead class="thead-light">
                                 <tr>
+                                    <th>ID</th>
                                     <th>Tên sản phẩm</th>
                                     <th>Giá</th>
                                     <th>Số lượng</th>
@@ -37,10 +38,11 @@ if (isset($_SESSION['user']) && is_array($_SESSION['user'])) {
                                 <?php
                                 foreach ($hoadon as $hd) {
                                     extract($hd);
+                                    $linksp = "index.php?act=chitietsanpham&&idsp=$idsp&&iddm=$iddm";
                                 ?>
 
-                                    <tr>
-                                        <td><?= $ten_san_pham ?></td>
+                                    <tr><td><?= $idsp ?></td>
+                                        <td><a href="<?= $linksp ?>"><?= $ten_san_pham ?></a></td>
                                         <td><?= $don_gia ?> đ</td>
                                         <td><?= $so_luong ?></td>
                                         <td><?= $thanh_tien  ?> đ</td>

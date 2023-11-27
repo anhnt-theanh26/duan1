@@ -53,7 +53,7 @@
                     </div>
                     <div class="form-group">
                         <label for="diachi">Địa chỉ khách hàng</label>
-                        <input name="diachi" type="text" class="form-control" id="diachi" placeholder="Vai trò khách hàng">
+                        <input name="diachi" type="text" class="form-control" id="diachi" placeholder="Địa chỉ khách hàng">
                     </div>
                 </div>
                 <!-- /.card-body -->

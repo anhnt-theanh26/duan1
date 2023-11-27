@@ -60,7 +60,7 @@ function update_nguoidung($id, $tennguoidung, $tendangnhap, $matkhau, $email, $s
 
 function loadall_admin()
 {
-    $sql = "SELECT * FROM nguoidung WHERE trang_thai = '0' and vai_tro = '1'";
+    $sql = "SELECT * FROM nguoidung WHERE trang_thai = '0' and vai_tro = '1' LIMIT 0,3;";
     $nguoidung = pdo_query($sql);
     return $nguoidung;
 }

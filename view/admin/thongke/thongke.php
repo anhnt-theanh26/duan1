@@ -1,7 +1,7 @@
 <?php
 $daban = 0;
 $tien = 0;
-foreach($thongke as $tk){
+foreach ($thongke as $tk) {
     extract($tk);
     $daban += $so_luong_da_ban;
     $tien += $thanh_tien;
@@ -41,7 +41,7 @@ foreach($thongke as $tk){
                                 <div class="icon">
                                     <i class="ion ion-bag"></i>
                                 </div>
-                                <a href="#" class="small-box-footer">SẢN PHẨM ĐÃ BÁN</a>
+                                <a href="index.php?act=bieudo" class="small-box-footer">SẢN PHẨM ĐÃ BÁN</a>
                             </div>
                         </div>
                         <!-- ./col -->
@@ -56,12 +56,12 @@ foreach($thongke as $tk){
                                 <div class="icon">
                                     <i class="ion ion-stats-bars"></i>
                                 </div>
-                                <a href="#" class="small-box-footer">TỔNG TIỀN</a>
+                                <a href="index.php?act=bieudo" class="small-box-footer">TỔNG TIỀN</a>
                             </div>
                         </div>
                     </div>
                     <!-- /.d-flex -->
-                    
+
                     <!-- /.d-flex -->
                 </div>
             </div>

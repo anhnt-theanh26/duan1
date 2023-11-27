@@ -91,7 +91,7 @@ function hoa_don_tung_khach_hang($id)
 
 function chi_tiet_hoa_don($id)
 {
-    $sql = "SELECT chitiethoadon.id, sanpham.ten_san_pham, chitiethoadon.so_luong, chitiethoadon.don_gia, chitiethoadon.thanh_tien FROM chitiethoadon JOIN sanpham on chitiethoadon.id_sp = sanpham.id JOIN hoadon on chitiethoadon.id_hd = hoadon.id WHERE hoadon.id = '$id';";
+    $sql = "SELECT chitiethoadon.id, sanpham.id as idsp, sanpham.iddm as iddm, sanpham.ten_san_pham, chitiethoadon.so_luong, chitiethoadon.don_gia, chitiethoadon.thanh_tien FROM chitiethoadon JOIN sanpham on chitiethoadon.id_sp = sanpham.id JOIN hoadon on chitiethoadon.id_hd = hoadon.id WHERE hoadon.id = '$id';";
     $donhang = pdo_query($sql);
     return $donhang;
 }

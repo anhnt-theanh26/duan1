@@ -57,7 +57,6 @@ if (isset($_GET['act']) && ($_GET['act']) != "") {
             danhmuc_khachhang();
             break;
 
-
         case 'search':
             search();
             break;
@@ -69,7 +68,6 @@ if (isset($_GET['act']) && ($_GET['act']) != "") {
         case 'chitiettintuc':
             chitiettintuc();
             break;
-
 
         case 'dangnhap-dangky':
             include 'taikhoan/log-singin.php';
@@ -107,11 +105,11 @@ if (isset($_GET['act']) && ($_GET['act']) != "") {
             delprocart();
             break;
 
-        // case 'donhangdat':
-        //     include 'taikhoan/donhangdat.php';
-        //     break;
+            // case 'donhangdat':
+            //     include 'taikhoan/donhangdat.php';
+            //     break;
 
-        // thông tin
+            // thông tin
         case 'taikhoan':
             taikhoan();
             break;
@@ -124,21 +122,9 @@ if (isset($_GET['act']) && ($_GET['act']) != "") {
             thanhtoan();
             break;
 
-            // hủy đơn hàng chưa xong
+            // hủy đơn hàng cập nhật lại hàng hóa số lượng hàng hóa
         case 'huydonhang':
-            // huydonhang();
-            if (isset($_GET['iddh']) && is_numeric($_GET['iddh']) && ($_GET['iddh'] > 0)) {
-                $id = $_GET['iddh'];
-                huy_don_hang($id);
-                $data = load_so_luong_san_pham_huy($id);
-                foreach ($data as $item) {
-                    extract($item);
-                    update_so_luong_da_ban_khachhang_huy($id_sp, $so_luong);
-                }
-            } else {
-                $thongbao = "đơn hàng không tồn tại";
-            }
-            header("location: index.php?act=taikhoan");
+            huydonhang();
             break;
 
             // cập nhật thông tin

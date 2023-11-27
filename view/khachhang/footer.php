@@ -13,56 +13,41 @@
                                 <a href="index.php?act=home"><img src="<?= $linkimg ?>" alt="logo" width="150px" height="50px"></a>
                             </div>
                             <p>Cửa hàng sách đẹp trai</p>
-                            <!-- <div class="payment-img">
-                                <a href="#"><img src="assets/images/icon-img/payment.png" alt="logo"></a>
-                            </div> -->
+                            <p><?= $gioi_thieu ?></p>
+                            <div class="payment-img">
+                                <a href="index.php?act=home"><img src="assets/images/icon-img/payment.png" alt="logo"></a>
+                            </div>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                         <div class="footer-widget footer-widget-margin-1 footer-list mb-40">
-                            <h3 class="footer-title">Danh mục sản phẩm</h3>
+                            <h3 class="footer-title">Bản đồ</h3>
                             <ul>
-                                <?php
-                                $danhmuc = loadall_danhmuc();
-                                foreach ($danhmuc as $dm) {
-                                    extract($dm);
-                                ?>
-                                <li><a href="index.php?act=danhmuc&&id=<?= $id ?>"><?= $ten_danh_muc ?></a></li>
-                                <?php
-                                }
-                                ?>
-                                <!-- <li><a href="about-us.html">About Us</a></li>
-                                <li><a href="#">Delivery Information</a></li>
-                                <li><a href="#">Privacy Policy</a></li>
-                                <li><a href="#">Terms & Conditions</a></li>
-                                <li><a href="#">Customer Service</a></li> -->
+                            <iframe src="https://www.google.com/maps/d/embed?mid=1Rio6QKd3EP4V81NaTswpXzwc1gcottc&ehbc=2E312F" width="200" height="300"></iframe>
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-2 col-md-6 col-sm-6 col-12">
                         <div class="footer-widget footer-list mb-40">
                             <h3 class="footer-title">Liên hệ</h3>
+                            
                             <ul>
                                 <?php
                                 foreach ($admin as $ad) {
                                     extract($ad);
                                 ?>
-                                    <li>MR: <a href="#"><?= $ten_nguoi_dung ?></a></li>
-                                    <li>SĐT: <a href="#"><?= $sdt_nguoi_dung ?></a></li>
+                                    <li>Mr: <a href="#"><?= $ten_nguoi_dung ?></a></li>
+                                    <li>Sđt: <a href="#"><?= $sdt_nguoi_dung ?></a></li>
+                                    <li>Email:<a href="#"><?= $email_nguoi_dung ?></a></li>
                                 <?php
                                 }
                                 ?>
-                                <!-- <li><a href="my-account.html">My Account</a></li>
-                                <li><a href="#">Order History</a></li>
-                                <li><a href="wishlist.html">Wish List</a></li>
-                                <li><a href="#">Newsletter</a></li>
-                                <li><a href="#">Order History</a></li> -->
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-6 col-12">
                         <div class="footer-widget footer-widget-margin-2 footer-address mb-40">
-                            <h3 class="footer-title">Get in touch</h3>
+                            <h3 class="footer-title">Địa chỉ</h3>
                             <ul>
                                 <li><span>Địa chỉ: </span><?= $dia_chi ?></li>
                                 <li><span>Điện thoại:</span><?= $sdt ?></li>

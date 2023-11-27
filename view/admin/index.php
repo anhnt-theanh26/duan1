@@ -368,6 +368,11 @@ if (isset($_SESSION['admin']) && ($_SESSION['admin'])) {
                     include 'thongke/thongke.php';
                     break;
 
+                    case 'bieudo':
+                        $thongke = thong_ke();
+                        include 'thongke/bieudo.php';
+                        break;
+
                 //đăng nhập
                 case 'dangxuat':
                     dang_xuat_admin();
