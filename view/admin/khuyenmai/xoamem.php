@@ -78,10 +78,10 @@
                                         <?= $phan_tram_phuyen_mai ?>
                                     </td>
                                     <td>
-                                        <?= $ngay_bat_dau ?>
+                                        <?= date("d-m-Y", strtotime($ngay_bat_dau)) ?>
                                     </td>
                                     <td>
-                                        <?= $ngay_ket_thuc ?>
+                                        <?= date("d-m-Y", strtotime($ngay_ket_thuc)) ?>
                                     </td>
 
                                     <td class="project-actions text-right">

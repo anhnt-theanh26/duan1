@@ -17,7 +17,7 @@ $dsbl =  binh_luan_san_pham($idsp);
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Urdan - Minimal eCommerce HTML Template</title>
+    <title>TAD</title>
     <meta name="robots" content="noindex, follow" />
     <meta name="description" content="Urdan Minimal eCommerce Bootstrap 5 Template is a stunning eCommerce website template that is the best choice for any online store.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -69,25 +69,24 @@ $dsbl =  binh_luan_san_pham($idsp);
                         <div class="blog-details-wrapper" style="width: 100%;">
                             <div class="blog-comment-form-wrap" style="width: 100%;">
                                 <div class="blog-comment-form-title">
-                                    <h2 data-aos="fade-up" data-aos-delay="-500000">Bình luận tin tức</h2>
+                                    <h2>Bình luận</h2>
                                 </div>
                                 <div class="blog-comment-form">
                                     <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
                                         <div class="row">
                                             <input type="hidden" name="idsp" id="" placeholder="id" value="<?= $idsp ?>">
                                             <div class="col-lg-12 col-md-12">
-                                                <div class="single-blog-comment-form" data-aos="fade-up" data-aos-delay="-500000">
+                                                <div class="single-blog-comment-form" >
                                                     <textarea name="noidung" placeholder="Comment"></textarea>
                                                 </div>
                                             </div>
                                             <div class="col-lg-12 col-md-12">
-                                                <div class="comment-submit-btn btn-hover" data-aos="fade-up" data-aos-delay="-500000">
+                                                <div class="comment-submit-btn btn-hover" >
                                                     <?php
                                                     if (isset($_SESSION['user']) && ($_SESSION['user'])) {
                                                         extract($_SESSION['user']);
                                                     ?>
                                                         <input type="submit" name="binhluan" class="submit" placeholder="Gửi bình luận ">
-                                                        <!-- <button name="binhluan" class="submit" type="submit">Gửi bình luận <i class=" ti-arrow-right"></i></button> -->
                                                     <?php
                                                     }
                                                     ?>
@@ -100,7 +99,6 @@ $dsbl =  binh_luan_san_pham($idsp);
                                         $noidung = $_POST['noidung'];
                                         $idkh = $_SESSION['user']['id'];
                                         $idsp = $_POST['idsp'];
-                                        // echo '<h1>'.$noidung.''.$iduser.''.$idn.'</h1>';
                                         insert_binhluan_sanpham($idsp, $idkh, $noidung);
                                         header("location: " . $_SERVER['HTTP_REFERER']);
                                     }
@@ -109,14 +107,13 @@ $dsbl =  binh_luan_san_pham($idsp);
                                 </div>
                             </div>
                             <div class="blog-comment-wrapper">
-                                <!-- <h4 class="blog-dec-title" data-aos="fade-up" data-aos-delay="-500000">Comments (02)</h4> -->
                                 <?php
                                 foreach ($dsbl as $ds) {
                                     extract($ds);
                                     $linkimg = '../../../view/img/' . $img_khach_hang;
                                     // $link = '';
                                 ?>
-                                    <div class="single-comment-wrapper single-comment-border" data-aos="fade-up" data-aos-delay="-500000" style="margin-top: 10px;">
+                                    <div class="single-comment-wrapper single-comment-border" style="margin-top: 10px;">
                                         <div class="blog-comment-img">
                                             <img src="<?= $linkimg ?>" alt="" style="border-radius: 50%;">
                                         </div>
@@ -133,23 +130,6 @@ $dsbl =  binh_luan_san_pham($idsp);
                                 <?php
                                 }
                                 ?>
-                                <!-- <div class="single-comment-wrapper single-comment-border" data-aos="fade-up" data-aos-delay="-500000">
-                                    <div class="blog-comment-img">
-                                        <img src="../assets/images/blog/blog-comment-1.png" alt="">
-                                    </div>
-                                    <div class="blog-comment-content">
-                                        <div class="comment-info-reply-wrap">
-                                            <div class="comment-info">
-                                                <span>October 14, 2022 </span>
-                                                <h4>Anthony Stephens</h4>
-                                            </div>
-                                            <div class="comment-reply">
-                                                <a href="#">Reply</a>
-                                            </div>
-                                        </div>
-                                        <p>Lorem ipsum dolor sit amet, consecteg adipisicing elit sed do eius tempor incididunt ut lab et dolore magna aliqua. Ut enim ad minikl veniam, quis nostrud exercitatio. </p>
-                                    </div>
-                                </div> -->
                             </div>
                         </div>
                     </div>

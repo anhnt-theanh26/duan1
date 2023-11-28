@@ -30,6 +30,18 @@
                     <h3 class="card-title">Danh mục</h3>
 
                     <div class="card-tools">
+                        <button type="button" class="btn btn-tool">
+                            <form action="index.php?act=locdonhang" method="post">
+                                <select name="id" id="" style="height: 26px;">
+                                    <option value="0">Chờ xác nhận</option>
+                                    <option value="1">Đang chuẩn bị</option>
+                                    <option value="2">Đang giao</option>
+                                    <option value="3">Giao thành công</option>
+                                </select>
+                                <input type="submit" name="loc" id="" value="Lọc" style="height: 26px;">
+                            </form>
+                            <!-- <i class="fas fa-times"></i> -->
+                        </button>
                         <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                             <i class="fas fa-minus"></i>
                         </button>
@@ -64,8 +76,10 @@
                         </thead>
                         <tbody>
                             <?php
+                            $tongtien = 0;
                             foreach ($hoadon as $hd) {
                                 extract($hd);
+                                $tongtien += $thanh_tien;
                             ?>
                                 <tr>
                                     <td>
@@ -81,18 +95,18 @@
                                         <?= $so_luong ?>
                                     </td>
                                     <td>
-                                        <?= $don_gia ?>
+                                        <?= number_format($don_gia, 0, ',', '.') ?>
                                     </td>
                                     <td>
-                                        <?= $thanh_tien ?>
+                                        <?= number_format($thanh_tien, 0, ',', '.') ?>
                                     </td>
                                     <!-- <td class="project-actions text-right"> -->
-                                        <!-- <a class="btn btn-primary btn-sm" href="index.php?act=dangchuanbi&&id=<?= $id ?>">
+                                    <!-- <a class="btn btn-primary btn-sm" href="index.php?act=dangchuanbi&&id=<?= $id ?>">
                                             <i class="fas fa-folder">
                                             </i>
                                             Chuẩn bị
                                         </a> -->
-                                        <!-- <a class="btn btn-info btn-sm" href="index.php?act=suadanhmuc&&id=">
+                                    <!-- <a class="btn btn-info btn-sm" href="index.php?act=suadanhmuc&&id=">
                                             <i class="fas fa-pencil-alt">
                                             </i>
                                             Edit
@@ -107,6 +121,10 @@
                             <?php
                             }
                             ?>
+                            <tr>
+                                <td colspan="3" style="text-align: center;">Tổng tiền:</td>
+                                <td colspan="3" style="text-align: center;"><?= number_format($tongtien, 0, ',', '.') ?> đ</td>
+                            </tr>
                         </tbody>
 
                     </table>

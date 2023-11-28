@@ -57,7 +57,9 @@ function load_tin_tuc()
 // đã sửa
 function add_new($tieude, $noidung, $iddm, $img)
 {
-    $sql = "INSERT INTO tintuc(tieu_de, noi_dung, iddm, img_tin_tuc) VALUES('$tieude', '$noidung', '$iddm', '$img');";
+    $date = getdate();
+    $ngayhomnay = $date['year'] . '/' . $date['mon'] . '/' . $date['mday'];
+    $sql = "INSERT INTO tintuc(tieu_de, noi_dung, iddm, img_tin_tuc, ngay_dang) VALUES('$tieude', '$noidung', '$iddm', '$img, '$ngayhomnay');";
     pdo_execute($sql);
 }
 function load_tin_tuc_xoa_mem()

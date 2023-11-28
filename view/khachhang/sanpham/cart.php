@@ -6,9 +6,9 @@
             // if (isset($_SESSION['giohang']) && ($_SESSION['giohang'])) {
             //     var_dump($_SESSION['giohang']);
             // }
-            if (isset($thongbao) && ($thongbao) != "") {
-                echo $thongbao;
-            }
+            // if (isset($thongbao) && ($thongbao) != "") {
+            //     echo $thongbao;
+            // }
             ?>
 
             <ul>
@@ -45,20 +45,13 @@
                                 <tbody>
                                     <?php
                                     $tonggia = 0;
-                                    $i = 1;
+                                    $i = 0;
                                     if (isset($_SESSION['giohang']) && count($_SESSION['giohang']) > 0) {
                                         foreach ($_SESSION['giohang'] as $item) {
                                             $gia = $item[3] * $item[4];
                                             $linksp = "index.php?act=chitietsanpham&&idsp=" . $item[0] . "&&iddm=" . $item[5];
-                                            $linkimg = '../../view/img/' . $item[2];
+                                            $linkimg = 'view/img/' . $item[2];
                                             $link_del_pro_cart = "index.php?act=delprocart&&id=$i";
-                                            // }
-                                            // for ($i = 0; $i < count($_SESSION['giohang']); $i++) {
-                                            //     $linksp = "index.php?act=chitietsanpham&&idsp=" . $_SESSION['giohang'][$i][0] . "&&iddm=" . $_SESSION['giohang'][$i][5];
-                                            //     $linkimg = '../../view/img/' . $_SESSION['giohang'][$i][2];
-                                            //     $link_del_pro_cart = "index.php?act=delprocart&&id=$i";
-                                            //     $gia = $_SESSION['giohang'][$i][3] * $_SESSION['giohang'][$i][4];
-                                            //     echo 'hihi' . $gia;
                                     ?>
                                             <tr>
                                                 <td class="product-thumbnail">
@@ -67,12 +60,13 @@
                                                 <td class="product-name">
                                                     <h5><a href="<?= $linksp ?>"><?= $item[1] ?></a></h5>
                                                 </td>
-                                                <td class="product-cart-price"><span class="amount"><?= $gia ?> đ</span></td>
+                                                <td class="product-cart-price"><span class="amount"><?= number_format($gia, 0, ',', '.') ?> đ</span></td>
                                                 <td class="product-cart-soluong"><span class="amount"><?= $item[4] ?></span></td>
                                                 <td class="product-remove"><a onclick="return confirm('xóa sản phẩm khỏi giỏ hàng')" href="<?= $link_del_pro_cart ?>"><i class=" ti-trash "></i></a></td>
                                             </tr>
                                     <?php
                                             $tonggia += $gia;
+                                            $i++;
                                         }
                                     }
                                     ?>
@@ -144,12 +138,16 @@
                 ?>
                         <div class="grand-total-wrap">
                             <div class="grand-total-content">
-                                <h3 style="">Giá: <span><?= $tonggia ?> đ</span></h3>
-                                <h3 style="margin-top: 20px;">Khuyến mại: <span><?= $khuyenmai ?> %</span></h3>
-                                <h3 style="margin-top: 20px;">Trừ: <span><?= ($tonggia * $khuyenmai / 100) ?> đ</span></h3>
-                                <h3 style="margin-top: 20px;">Chi tiết:<span> <?= $tonggia ?> - <?= ($tonggia * $khuyenmai / 100) ?> đ</span></h3>
-                                <div class="grand-total">
-                                    <h4 style="margin-top: 20px;">Còn lại: <span><?= $tonggia - ($tonggia * $khuyenmai / 100) ?> đ</span></h4>
+                                <div class="grand-total-content">
+                                    <h3 style="">Giá: <span><?= number_format($tonggia, 0, ',', '.') ?> đ</span></h3>
+                                    <h3 style="margin-top: 20px;">Khuyến mại: <span><?= $khuyenmai ?> %</span></h3>
+                                    <?php $tru = ($tonggia * $khuyenmai) / 100 ?>
+                                    <h3 style="margin-top: 20px;">Trừ: <span><?= number_format($tru, 0, ',', '.') ?> đ</span></h3>
+                                    <h3 style="margin-top: 20px;">Chi tiết:<span> <?= number_format($tonggia, 0, ',', '.') ?> - <?= number_format($tru, 0, ',', '.') ?> đ</span></h3>
+                                    <div class="grand-total">
+                                        <?php $conlai = $tonggia - ($tonggia * $khuyenmai) / 100 ?>
+                                        <h4 style="margin-top: 20px;">Còn lại: <span><?= number_format($conlai, 0, ',', '.') ?> đ</span></h4>
+                                    </div>
                                 </div>
                             </div>
 
@@ -161,12 +159,13 @@
                     ?>
                         <div class="grand-total-wrap">
                             <div class="grand-total-content">
-                                <h3 style="">Giá: <span><?= $tonggia ?> đ</span></h3>
+                                <h3 style="">Giá: <span><?= number_format($tonggia, 0, ',', '.') ?> đ</span></h3>
                                 <h3 style="margin-top: 20px;">Khuyến mại: <span><?= $khuyenmai ?> %</span></h3>
                                 <h3 style="margin-top: 20px;">Trừ: <span><?= ($tonggia * $khuyenmai / 100) ?> đ</span></h3>
-                                <h3 style="margin-top: 20px;">Chi tiết:<span> <?= $tonggia ?> - <?= ($tonggia * $khuyenmai / 100) ?> đ</span></h3>
+                                <h3 style="margin-top: 20px;">Chi tiết:<span> <?= number_format($tonggia, 0, ',', '.') ?> - <?= (number_format($tonggia, 0, ',', '.') *  number_format($khuyenmai, 0, ',', '.') / 100) ?> đ</span></h3>
                                 <div class="grand-total">
-                                    <h4 style="margin-top: 20px;">Còn lại: <span><?= $tonggia - ($tonggia * $khuyenmai / 100) ?> đ</span></h4>
+                                    <?php $conlai = $tonggia - ($tonggia * $khuyenmai) / 100 ?>
+                                    <h4 style="margin-top: 20px;">Còn lại: <span><?= number_format($conlai, 0, ',', '.') ?> đ</span></h4>
                                 </div>
                             </div>
 
@@ -211,7 +210,7 @@
                                     <input name="diachi" type="text" value="<?= $dia_chi_khach_hang ?>">
                                 </div>
                                 <div class="calculate-discount-btn btn-hover">
-                                    <input onclick="return confirm('đặt hàng')" class="btn theme-color" type="submit" name="dathang" id="" style="border: 1px solid black;" value="Đặt hàng">
+                                    <input onclick="return confirm('đặt hàng thành công')" class="btn theme-color" type="submit" name="dathang" id="" style="border: 1px solid black;" value="Đặt hàng">
                                 </div>
                             </div>
                         </form>
@@ -231,14 +230,3 @@
         </div>
     </div>
 </div>
-
-<?php
-$giamoney = 0;
-if (isset($_SESSION['giohang']) && count($_SESSION['giohang']) > 0) {
-    foreach ($_SESSION['giohang'] as $item) {
-        $giaitem = $item[3] * $item[4];
-        $giamoney += $giaitem;
-    }
-}
-echo $giamoney;
-?>

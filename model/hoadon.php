@@ -1,10 +1,12 @@
 <?php
 // tạo hóa đơn
-function insert_hoadon($idkh, $tongtien, $diachi, $email, $tenkhachhang, $sdt)
+function insert_hoadon($idkh, $tongtien, $diachi, $email, $tenkhachhang, $sdt, $khuyenmai)
 {
     $conn = pdo_get_connection();
-    $sql = "INSERT INTO hoadon(id_kh, tong_tien, dia_chi, email, ten_kh, sdt) 
-    VALUES('$idkh', '$tongtien', '$diachi', '$email', '$tenkhachhang', '$sdt');";
+    $date = getdate();
+    $ngayhomnay = $date['year'] . '/' . $date['mon'] . '/' . $date['mday'];
+    $sql = "INSERT INTO hoadon(id_kh, tong_tien, dia_chi, email, ten_kh, sdt, ngay_dat, khuyen_mai) 
+    VALUES('$idkh', '$tongtien', '$diachi', '$email', '$tenkhachhang', '$sdt', '$ngayhomnay', '$khuyenmai');";
     $conn->exec($sql);
     $last_id = $conn->lastInsertId();
     return $last_id;
@@ -23,37 +25,15 @@ function update_so_luong_da_ban($idsp, $soluong)
     pdo_execute($sql);
 }
 
-
-// chờ xác nhận đơn hàng
-function cho_xac_nhan()
+// lọc hóa đơn
+function loc_hoa_don($id)
 {
-    $sql = "SELECT hoadon.id, hoadon.ten_kh, hoadon.ngay_dat, hoadon.email, hoadon.tong_tien, hoadon.dia_chi, hoadon.sdt FROM hoadon JOIN khachhang on hoadon.id_kh=khachhang.id WHERE hoadon.trang_thai = '0';";
+    $sql = "SELECT * FROM hoadon WHERE hoadon.trang_thai = '$id' ORDER BY id DESC;";
     $donhang = pdo_query($sql);
     return $donhang;
 }
 
-// đon hàng đã xác nhận 
-function dang_chuan_bi()
-{
-    $sql = "SELECT hoadon.id, khachhang.ten_khach_hang, hoadon.ngay_dat, hoadon.tong_tien, hoadon.dia_chi, hoadon.sdt FROM hoadon JOIN khachhang on hoadon.id_kh=khachhang.id WHERE hoadon.trang_thai = '1';";
-    $donhang = pdo_query($sql);
-    return $donhang;
-}
 
-// đơn hàng đang giao
-function dang_giao()
-{
-    $sql = "SELECT hoadon.id, khachhang.ten_khach_hang, hoadon.ngay_dat, hoadon.tong_tien, hoadon.dia_chi, hoadon.sdt FROM hoadon JOIN khachhang on hoadon.id_kh=khachhang.id WHERE hoadon.trang_thai = '2';";
-    $donhang = pdo_query($sql);
-    return $donhang;
-}
-
-function da_giao()
-{
-    $sql = "SELECT hoadon.id, khachhang.ten_khach_hang, hoadon.ngay_dat, hoadon.tong_tien, hoadon.dia_chi, hoadon.sdt FROM hoadon JOIN khachhang on hoadon.id_kh=khachhang.id WHERE hoadon.trang_thai = '3';";
-    $donhang = pdo_query($sql);
-    return $donhang;
-}
 
 // xác nhận đơn hàng
 function xac_nhan_don_hang($id)

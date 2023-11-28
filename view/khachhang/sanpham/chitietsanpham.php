@@ -6,17 +6,17 @@ if (isset($_SESSION['view']) && ($_SESSION['view'])) {
 
 
 extract($sanpham);
-$linkimg = '../../view/img/' . $img_dai_dien;
-$linkimg1 = '../../view/img/' . $img_san_pham1;
-$linkimg2 = '../../view/img/' . $img_san_pham2;
-$linkimg3 = '../../view/img/' . $img_san_pham3;
+$linkimg = 'view/img/' . $img_dai_dien;
+$linkimg1 = 'view/img/' . $img_san_pham1;
+$linkimg2 = 'view/img/' . $img_san_pham2;
+$linkimg3 = 'view/img/' . $img_san_pham3;
 $idsp = $id;
 ?>
 <div class="breadcrumb-area bg-gray-4 breadcrumb-padding-1">
     <div class="container">
         <div class="breadcrumb-content text-center">
-            <h2 data-aos="fade-up" data-aos-delay="20">Chi tiết sản phẩm</h2>
-            <ul data-aos="fade-up" data-aos-delay="200">
+            <h2>Chi tiết sản phẩm</h2>
+            <ul>
                 <li><a href="index.php?act=home">Home</a></li>
                 <li><i class="ti-angle-right"></i></li>
                 <li>Chi tiết sản phẩm</li>
@@ -28,7 +28,7 @@ $idsp = $id;
     <div class="container">
         <div class="row">
             <div class="col-lg-6">
-                <div class="product-details-img-wrap product-details-vertical-wrap" data-aos="fade-up" data-aos-delay="20">
+                <div class="product-details-img-wrap product-details-vertical-wrap">
                     <div class="product-details-small-img-wrap">
                         <div class="swiper-container product-details-small-img-slider-1 pd-small-img-style">
                             <div class="swiper-wrapper">
@@ -122,7 +122,7 @@ $idsp = $id;
                     <!-- <button type="submit" name="addtocart" class="product-action-btn-2" title="Add To Cart"><i class="pe-7s-cart"></i>Thêm vào giỏ hàng</button> -->
 
 
-                    <div class="product-details-content" data-aos="fade-up" data-aos-delay="20">
+                    <div class="product-details-content">
                         <h2><?= $ten_san_pham ?></h2>
                         <?php
                         if ($so_luong > 0) {
@@ -147,7 +147,7 @@ $idsp = $id;
                             </ul>
                         </div>
                         <div class="product-details-price">
-                            <span class="new-price"><?= $gia_san_pham ?> đ</span>
+                            <span class="new-price"><?= number_format($gia_san_pham, 0, ',', '.') ?> đ</span>
                         </div>
                         <?php
                         if ($so_luong > 0) {
@@ -203,16 +203,16 @@ $idsp = $id;
 </div>
 <div class="description-review-area pb-85">
     <div class="container">
-        <div class="description-review-topbar nav" data-aos="fade-up" data-aos-delay="20">
+        <div class="description-review-topbar nav">
             <a class="active" data-bs-toggle="tab" href="#des-details1"> Mô tả </a>
             <a data-bs-toggle="tab" href="#des-details2" class=""> Thông tin </a>
-            <a data-bs-toggle="tab" href="#des-details3" class=""> Đánh giá </a>
+            <a data-bs-toggle="tab" href="#des-details3" class=""> Bình luận </a>
         </div>
         <div class="tab-content">
             <div id="des-details1" class="tab-pane active">
                 <div class="product-description-content text-center">
-                    <p data-aos="fade-up" data-aos-delay="20"><?= $mo_ta_san_pham ?></p>
-                    <!-- <p data-aos="fade-up" data-aos-delay="400">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut per unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo</p> -->
+                    <p><?= $mo_ta_san_pham ?></p>
+                    <!-- <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut per unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo</p> -->
                 </div>
             </div>
             <div id="des-details2" class="tab-pane">
@@ -220,7 +220,7 @@ $idsp = $id;
                     <table>
                         <tbody>
                             <tr>
-                                <td class="width1">Nhãn hiệu</td>
+                                <td class="width1">Loại sách</td>
                                 <?php
                                 extract($danhmuc);
                                 ?>
@@ -231,14 +231,14 @@ $idsp = $id;
                 </div>
             </div>
             <div id="des-details3" class="tab-pane">
-                <iframe src="sanpham/binhluansanpham.php?idsp=<?= $idsp ?>" frameborder="0" width="100%" height="500px"></iframe>
+                <iframe src="view/khachhang/sanpham/binhluansanpham.php?idsp=<?= $idsp ?>" frameborder="0" width="100%" height="500px"></iframe>
             </div>
         </div>
     </div>
 </div>
 <div class="related-product-area pb-95">
     <div class="container">
-        <div class="section-title-2 st-border-center text-center mb-75" data-aos="fade-up" data-aos-delay="20">
+        <div class="section-title-2 st-border-center text-center mb-75">
             <h2>Sản phẩm cùng loại</h2>
         </div>
         <div class="related-product-active swiper-container">
@@ -248,11 +248,11 @@ $idsp = $id;
                     foreach ($cungloai as $sp) {
                         // var_dump($sp);
                         extract($sp);
-                        $linkimg = '../../view/img/' . $img_dai_dien;
+                        $linkimg = 'view/img/' . $img_dai_dien;
                         $linksp = "index.php?act=chitietsanpham&&idsp=$id&&iddm=$iddm";
                 ?>
                         <div class="swiper-slide">
-                            <div class="product-wrap" data-aos="fade-up" data-aos-delay="600">
+                            <div class="product-wrap">
                                 <div class="product-img img-zoom mb-25">
                                     <a href="<?= $linksp ?>">
                                         <img src="<?= $linkimg ?>" alt="" style="width: 250px; height: 300px;">

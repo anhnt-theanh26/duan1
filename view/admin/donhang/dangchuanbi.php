@@ -1,7 +1,4 @@
 <div class="wrapper">
-
-
-
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -30,12 +27,21 @@
                     <h3 class="card-title">Đang chuẩn bị</h3>
 
                     <div class="card-tools">
+                        <button type="button" class="btn btn-tool">
+                            <form action="index.php?act=locdonhang" method="post">
+                                <select name="id" id="" style="height: 26px;">
+                                    <option value="0">Chờ xác nhận</option>
+                                    <option value="1">Đang chuẩn bị</option>
+                                    <option value="2">Đang giao</option>
+                                    <option value="3">Giao thành công</option>
+                                </select>
+                                <input type="submit" name="loc" id="" value="Lọc" style="height: 26px;">
+                            </form>
+                            <!-- <i class="fas fa-times"></i> -->
+                        </button>
                         <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                             <i class="fas fa-minus"></i>
                         </button>
-                        <!-- <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-                            <i class="fas fa-times"></i>
-                        </button> -->
                     </div>
                 </div>
                 <div class="card-body p-0">
@@ -48,14 +54,17 @@
                                 <th style="width: 4%">
                                     id
                                 </th>
-                                <th style="width: 15%">
+                                <th style="width: 14%">
                                     Tên khách hàng
                                 </th>
-                                <th style="width: 15%">
+                                <th style="width: 11%">
                                     Số điện thoại
                                 </th>
-                                <th style="width: 20%">
+                                <th style="width: 13%">
                                     Địa chỉ
+                                </th>
+                                <th style="width: 10%">
+                                    Khuyến mại
                                 </th>
                                 <th style="width: 10%">
                                     Ngày đặt
@@ -81,7 +90,7 @@
                                     </td>
                                     <td>
                                         <a href="index.php?act=chitiethoadon&&id=<?= $id ?>" style="color: black;">
-                                            <?= $ten_khach_hang ?>
+                                            <?= $ten_kh ?>
                                         </a>
                                     </td>
                                     <td>
@@ -96,26 +105,53 @@
                                     </td>
                                     <td>
                                         <a href="index.php?act=chitiethoadon&&id=<?= $id ?>" style="color: black;">
-                                            <?= $ngay_dat ?>
+                                            <?= $khuyen_mai ?> %
                                         </a>
                                     </td>
                                     <td>
                                         <a href="index.php?act=chitiethoadon&&id=<?= $id ?>" style="color: black;">
-                                            <?= $tong_tien ?>
+                                            <?= date("d-m-Y", strtotime($ngay_dat)) ?>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="index.php?act=chitiethoadon&&id=<?= $id ?>" style="color: black;">
+                                            <?= number_format($tong_tien, 0, ',', '.') ?> đ
                                         </a>
                                     </td>
                                     <td class="project-actions text-right">
-                                        <a onclick="return confirm('đơn hàng đã chuẩn bị xong và đang giao')" class="btn btn-primary btn-sm" href="index.php?act=chuanbixong&&id=<?= $id ?>">
-                                            <i class="fas fa-folder">
-                                            </i>
-                                            Chuẩn bị xong
-                                        </a>
-                                        <!-- <a class="btn btn-info btn-sm" href="index.php?act=suadanhmuc&&id=">
+                                        <a class="btn btn-info btn-sm" href="index.php?act=chitiethoadon&&id=<?= $id ?>">
                                             <i class="fas fa-pencil-alt">
                                             </i>
-                                            Edit
+                                            Chi tiết
                                         </a>
-                                        <a onclick="return confirm('xóa mềm Đang chuẩn bị')" class="btn btn-danger btn-sm" href="index.php?act=xoadanhmuc&&id=">
+                                        <?php
+                                        if ($trang_thai === 0) {
+                                        ?>
+                                            <a onclick="return confirm('Tiếp nhận đơn hàng')" class="btn btn-primary btn-sm" href="index.php?act=xacnhandonhang&&id=<?= $id ?>">
+                                                <i class="fas fa-folder">
+                                                </i>
+                                                Tiếp nhận
+                                            </a>
+                                        <?php
+                                        } else if ($trang_thai == 1) {
+                                        ?>
+                                            <a onclick="return confirm('đơn hàng đã chuẩn bị xong và đang giao')" class="btn btn-primary btn-sm" href="index.php?act=chuanbixong&&id=<?= $id ?>">
+                                                <i class="fas fa-folder">
+                                                </i>
+                                                Chuẩn bị xong
+                                            </a>
+                                        <?php
+                                        } else if ($trang_thai == 2) {
+                                        ?>
+                                            <a onclick="return confirm('đơn hàng đã giao thành công')" class="btn btn-primary btn-sm" href="index.php?act=giaohangthanhcong&&id=<?= $id ?>">
+                                                <i class="fas fa-folder">
+                                                </i>
+                                                Giao thành công
+                                            </a>
+                                        <?php
+                                        }
+                                        ?>
+                                        <!-- <a onclick="return confirm('xóa mềm Đơn hàng')" class="btn btn-danger btn-sm" href="index.php?act=xoadanhmuc&&id=">
                                             <i class="fas fa-trash">
                                             </i>
                                             Delete

@@ -4,7 +4,7 @@
             <?php
             foreach ($banner as $bn) {
                 extract($bn);
-                $linkimgbanner = '../img/' . $img_banner;
+                $linkimgbanner = 'view/img/' . $img_banner;
             ?>
                 <div class="swiper-slide">
                     <div class="intro-section slider-height-1 slider-content-center bg-img single-animation-wrap slider-bg-color-1" style="background-image:url(view/assets/images/slider/slider-bg-1.jpg)">
@@ -41,39 +41,46 @@
 </div>
 <div class="service-area pb-70">
 </div>
+
 <div class="service-area pb-70">
-    <div class="container">
-        <div class="row">
-            <?php
-            foreach ($danhmuc as $dm) {
-                extract($dm);
-                $linkdm = 'index.php?act=danhmuc&&id=' . $id;
-                $linkimg = '../../view/img/' . $img_danh_muc;
-            ?>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-30">
-                    <a href="<?= $linkdm ?>">
-                        <div class="service-wrap" data-aos="fade-up">
-                            <div class="service-img">
-                                <img src="<?= $linkimg ?>" alt="">
-                            </div>
-                            <div class="service-content">
-                                <h3><?= $ten_danh_muc ?></h3>
-                                <p>Xem các sản phẩm</p>
-                            </div>
+    <div class="product-area pb-95">
+        <div class="container">
+            <div class="product-slider-active-1 swiper-container">
+                <div class="swiper-wrapper">
+                    <?php
+                    foreach ($danhmuc as $dm) {
+                        extract($dm);
+                        $linkdm = 'index.php?act=danhmuc&&id=' . $id;
+                        $linkimg = 'view/img/' . $img_danh_muc;
+                    ?>
+                        <div class="swiper-slide">
+                            <a href="<?= $linkdm ?>">
+                                <div class="service-wrap">
+                                    <div class="service-img">
+                                        <img src="<?= $linkimg ?>" alt="">
+                                    </div>
+                                    <div class="service-content">
+                                        <h3><?= $ten_danh_muc ?></h3>
+                                        <p>Xem các sản phẩm</p>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
-                    </a>
+                    <?php
+                    }
+                    ?>
                 </div>
-            <?php
-            }
-            ?>
+                <div class="product-prev-1 product-nav-1" data-aos-delay="200"><i class="fa fa-angle-left"></i></div>
+                <div class="product-next-1 product-nav-1" data-aos-delay="200"><i class="fa fa-angle-right"></i></div>
+            </div>
         </div>
     </div>
 </div>
 <div class="product-area pb-60">
     <div class="container">
         <div class="section-title-tab-wrap mb-75">
-            <div class="section-title-2" data-aos="fade-up">
-                <h2>Sản phẩm</h2>
+            <div class="section-title-2">
+                <h2>Sản phẩm nhiều lượt xem</h2>
             </div>
         </div>
         <div class="tab-content jump">
@@ -82,11 +89,11 @@
                     <?php
                     foreach ($sanpham as $sp) {
                         extract($sp);
-                        $linkimg = '../../view/img/' . $img_dai_dien;
+                        $linkimg = 'view/img/' . $img_dai_dien;
                         $linksp = "index.php?act=chitietsanpham&&idsp=$id&&iddm=$iddm";
                     ?>
                         <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                            <div class="product-wrap mb-35" data-aos="fade-up">
+                            <div class="product-wrap mb-35">
                                 <div class="product-img img-zoom mb-25">
                                     <a href="<?= $linksp ?>">
                                         <img src="<?= $linkimg ?>" alt="" style="width: 270x; height: 300px;">
@@ -116,7 +123,7 @@
                                     <h3><a href="<?= $linksp ?>"><?= $ten_san_pham ?></a></h3>
                                     <div class="product-price">
                                         <!-- <span class="old-price">$25.89 </span> -->
-                                        <span class="new-price"><?= $gia_san_pham ?>đ</span>
+                                        <span class="new-price"><?= number_format($gia_san_pham, 0, ',', '.') ?> đ</span>
                                     </div>
                                 </div>
                             </div>
@@ -134,19 +141,19 @@
 </div>
 <div class="blog-area pb-70">
     <div class="container">
-        <div class="section-title-2 st-border-center text-center mb-75" data-aos="fade-up">
+        <div class="section-title-2 st-border-center text-center mb-75">
             <h2>Tin tức mới</h2>
         </div>
         <div class="row">
             <?php
             foreach ($tintuc as $tt) {
                 extract($tt);
-                $linkimg = '../../view/img/' . $img_tin_tuc;
+                $linkimg = 'view/img/' . $img_tin_tuc;
                 $linknews = 'index.php?act=chitiettintuc&&id=' . $idtt;
                 $linkdm = 'index.php?act=danhmuc&&id=' . $iddm;
             ?>
                 <div class="col-lg-4 col-md-6">
-                    <div class="blog-wrap mb-30" data-aos="fade-up">
+                    <div class="blog-wrap mb-30">
                         <div class="blog-img-date-wrap mb-25">
                             <div class="blog-img">
                                 <a href="<?= $linknews ?>"><img src="<?= $linkimg ?>" alt="" style="width: 370x; height: 250px;"></a>

@@ -78,7 +78,7 @@
                                     <?= $ten_khach_hang ?>
                                 </td>
                                 <td>
-                                    <?= $ngay_binh_luan ?>
+                                    <?= date("d-m-Y", strtotime($ngay_binh_luan)) ?>
                                 </td>
                                 <td class="project-actions text-right">
                                     <!-- <a class="btn btn-primary btn-sm" href="#">

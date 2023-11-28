@@ -46,7 +46,7 @@ if (isset($_SESSION['admin']) && ($_SESSION['admin'])) {
                     include 'home.php';
                     break;
 
-                //danh mục
+                    //danh mục
                 case 'danhmuc':
                     danhmuc();
                     break;
@@ -79,7 +79,7 @@ if (isset($_SESSION['admin']) && ($_SESSION['admin'])) {
                     xoacungdanhmuc();
                     break;
 
-                // sản phẩm
+                    // sản phẩm
                 case 'sanpham':
                     sanpham();
                     break;
@@ -114,7 +114,7 @@ if (isset($_SESSION['admin']) && ($_SESSION['admin'])) {
                     xoasanpham();
                     break;
 
-                // bình luận
+                    // bình luận
                 case 'binhluan':
                     binhluan();
                     break;
@@ -139,7 +139,7 @@ if (isset($_SESSION['admin']) && ($_SESSION['admin'])) {
                     xoabinhluan();
                     break;
 
-                //tin tức
+                    //tin tức
                 case 'tintuc':
                     tintuc();
                     break;
@@ -173,7 +173,7 @@ if (isset($_SESSION['admin']) && ($_SESSION['admin'])) {
                     break;
 
 
-                // banner
+                    // banner
                 case 'banner':
                     banner();
                     break;
@@ -206,7 +206,7 @@ if (isset($_SESSION['admin']) && ($_SESSION['admin'])) {
                     restorebanner();
                     break;
 
-                //logo 
+                    //logo 
                 case 'logo':
                     logo();
                     break;
@@ -219,7 +219,7 @@ if (isset($_SESSION['admin']) && ($_SESSION['admin'])) {
                     updatelogo();
                     break;
 
-                //người dùng
+                    //người dùng
                 case 'nguoidung':
                     nguoidung();
                     break;
@@ -253,7 +253,7 @@ if (isset($_SESSION['admin']) && ($_SESSION['admin'])) {
                     break;
 
 
-                // khách hàng
+                    // khách hàng
                 case 'khachhang':
                     khachhang();
                     break;
@@ -288,9 +288,13 @@ if (isset($_SESSION['admin']) && ($_SESSION['admin'])) {
                     xoacungkhachhang();
                     break;
 
-                // đơn hàng
+                    // đơn hàng
                 case 'hoadon':
                     hoadon();
+                    break;
+
+                case 'locdonhang':
+                    lochoadon();
                     break;
 
                 case 'chitiethoadon':
@@ -325,7 +329,7 @@ if (isset($_SESSION['admin']) && ($_SESSION['admin'])) {
                 case 'chitiethoadontungkhachhang':
                     chitiethoadontungkhachhang();
                     break;
-                // khuyến mại
+                    // khuyến mại
                 case 'khuyenmai':
                     khuyenmai();
                     break;
@@ -362,18 +366,18 @@ if (isset($_SESSION['admin']) && ($_SESSION['admin'])) {
                     khuyenmaichuahethan();
                     break;
 
-                //thống kê
+                    //thống kê
                 case 'thongke':
                     $thongke = thong_ke();
                     include 'thongke/thongke.php';
                     break;
 
-                    case 'bieudo':
-                        $thongke = thong_ke();
-                        include 'thongke/bieudo.php';
-                        break;
+                case 'bieudo':
+                    $thongke = thong_ke();
+                    include 'thongke/bieudo.php';
+                    break;
 
-                //đăng nhập
+                    //đăng nhập
                 case 'dangxuat':
                     dang_xuat_admin();
                     break;
@@ -391,7 +395,7 @@ if (isset($_SESSION['admin']) && ($_SESSION['admin'])) {
                     include 'home.php';
                     break;
 
-                //danh mục
+                    //danh mục
                 case 'danhmuc':
                     danhmuc();
                     break;
@@ -424,7 +428,7 @@ if (isset($_SESSION['admin']) && ($_SESSION['admin'])) {
                     xoacungdanhmuc();
                     break;
 
-                // sản phẩm
+                    // sản phẩm
                 case 'sanpham':
                     sanpham();
                     break;
@@ -459,7 +463,7 @@ if (isset($_SESSION['admin']) && ($_SESSION['admin'])) {
                     xoasanpham();
                     break;
 
-                // bình luận
+                    // bình luận
                 case 'binhluan':
                     binhluan();
                     break;
@@ -484,7 +488,7 @@ if (isset($_SESSION['admin']) && ($_SESSION['admin'])) {
                     xoabinhluan();
                     break;
 
-                //tin tức
+                    //tin tức
                 case 'tintuc':
                     tintuc();
                     break;
@@ -518,7 +522,7 @@ if (isset($_SESSION['admin']) && ($_SESSION['admin'])) {
                     break;
 
 
-                // banner
+                    // banner
                 case 'banner':
                     banner();
                     break;
@@ -551,7 +555,7 @@ if (isset($_SESSION['admin']) && ($_SESSION['admin'])) {
                     restorebanner();
                     break;
 
-                //logo 
+                    //logo 
                 case 'logo':
                     logo();
                     break;
@@ -564,7 +568,7 @@ if (isset($_SESSION['admin']) && ($_SESSION['admin'])) {
                     updatelogo();
                     break;
 
-                //người dùng
+                    //người dùng
 
                 case 'suanguoidung':
                     suanguoidung();
@@ -573,9 +577,9 @@ if (isset($_SESSION['admin']) && ($_SESSION['admin'])) {
                 case 'updatenguoidung':
                     updatenguoidung();
                     break;
-                // khách hàng
+                    // khách hàng
 
-                // đơn hàng
+                    // đơn hàng
                 case 'hoadon':
                     hoadon();
                     break;
@@ -612,7 +616,7 @@ if (isset($_SESSION['admin']) && ($_SESSION['admin'])) {
                 case 'chitiethoadontungkhachhang':
                     chitiethoadontungkhachhang();
                     break;
-                // khuyến mại
+                    // khuyến mại
                 case 'khuyenmai':
                     khuyenmai();
                     break;
@@ -648,14 +652,14 @@ if (isset($_SESSION['admin']) && ($_SESSION['admin'])) {
                 case 'khuyenmaichuahethan':
                     khuyenmaichuahethan();
                     break;
-                    
-                //thống kê
+
+                    //thống kê
                 case 'thongke':
                     $thongke = thong_ke();
                     include 'thongke/thongke.php';
                     break;
 
-                //đăng nhập
+                    //đăng nhập
                 case 'dangxuat':
                     dang_xuat_admin();
                     break;

@@ -57,52 +57,58 @@
                                 <th style="width: 5%">
                                     IDDM
                                 </th>
+                                <th style="width: 15%">
+                                    Ngày đăng
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
                             foreach ($tintuc as $tt) {
                                 extract($tt);
-                                $linkimg = '../../view/img/'.$img_tin_tuc;
+                                $linkimg = '../../view/img/' . $img_tin_tuc;
                             ?>
-                            <tr>
-                                <td>
-                                    #
-                                </td>
-                                <td>
-                                    <?= $id ?>
-                                </td>
-                                <td>
-                                    <?= $tieu_de ?>
-                                </td>
-                                <td>
-                                    <ul class="list-inline">
-                                        <li class="list-inline-item">
-                                            <img alt="Avatar" class="table-avatar" src="<?= $linkimg ?>">
-                                        </li>
-                                    </ul>
-                                </td>
-                                <td class="project_progress">
-                                    <?= $iddm ?>
-                                </td>
-                                <td class="project-actions text-right">
-                                    <!-- <a class="btn btn-primary btn-sm" href="#">
+                                <tr>
+                                    <td>
+                                        #
+                                    </td>
+                                    <td>
+                                        <?= $id ?>
+                                    </td>
+                                    <td>
+                                        <?= $tieu_de ?>
+                                    </td>
+                                    <td>
+                                        <ul class="list-inline">
+                                            <li class="list-inline-item">
+                                                <img alt="Avatar" class="table-avatar" src="<?= $linkimg ?>">
+                                            </li>
+                                        </ul>
+                                    </td>
+                                    <td class="project_progress">
+                                        <?= $iddm ?>
+                                    </td>
+                                    <td>
+                                        <?= date("d-m-Y", strtotime($ngay_dang)) ?>
+                                    </td>
+                                    <td class="project-actions text-right">
+                                        <!-- <a class="btn btn-primary btn-sm" href="#">
                                         <i class="fas fa-folder">
                                         </i>
                                         View
                                     </a> -->
-                                    <a class="btn btn-info btn-sm" href="index.php?act=suatintuc&&id=<?= $id ?>">
-                                        <i class="fas fa-pencil-alt">
-                                        </i>
-                                        Edit
-                                    </a>
-                                    <a onclick="return confirm('xóa mềm tin tức')" class="btn btn-danger btn-sm" href="index.php?act=xoamemtintuc&&id=<?= $id ?>">
-                                        <i class="fas fa-trash">
-                                        </i>
-                                        Delete
-                                    </a>
-                                </td>
-                            </tr>
+                                        <a class="btn btn-info btn-sm" href="index.php?act=suatintuc&&id=<?= $id ?>">
+                                            <i class="fas fa-pencil-alt">
+                                            </i>
+                                            Edit
+                                        </a>
+                                        <a onclick="return confirm('xóa mềm tin tức')" class="btn btn-danger btn-sm" href="index.php?act=xoamemtintuc&&id=<?= $id ?>">
+                                            <i class="fas fa-trash">
+                                            </i>
+                                            Delete
+                                        </a>
+                                    </td>
+                                </tr>
                             <?php
                             }
 

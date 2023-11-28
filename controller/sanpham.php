@@ -142,14 +142,14 @@ function home()
     $tintuc = select_new();
     $danhmuc = loadall_danhmuc();
     $sanpham = loadall_sanpham_home();
-    include 'home.php';
+    include 'view/khachhang/home.php';
 }
 function loadallsanpham()
 {
     $banner = loadall_banner();
     $danhmuc = loadall_danhmuc();
     $sanpham = loadall_sanpham_san_pham();
-    include 'sanpham/sanpham.php';
+    include 'view/khachhang/sanpham/sanpham.php';
 }
 
 function chitietsanpham()
@@ -162,5 +162,5 @@ function chitietsanpham()
         $cungloai = loadallsp_cungloai($id, $iddm);
         $_SESSION['view'] = update_view($id);
     }
-    include 'sanpham/chitietsanpham.php';
+    include 'view/khachhang/sanpham/chitietsanpham.php';
 }

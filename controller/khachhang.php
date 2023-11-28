@@ -116,7 +116,7 @@ function dangnhaptaikhoan()
             $thongbao = 'dang nhap that bai! tai khoan khong ton tai';
         }
     }
-    include 'taikhoan/dangnhap.php';
+    include 'view/khachhang/taikhoan/dangnhap.php';
 }
 
 function dangkytaikhoan()
@@ -135,10 +135,11 @@ function dangkytaikhoan()
             $thongbao = 'không để trống các cột để đăng ký';
         }
     }
-    include 'taikhoan/dangky.php';
+    include 'view/khachhang/taikhoan/dangky.php';
 }
 
-function doithongtin(){
+function doithongtin()
+{
     if (isset($_POST['capnhaptaikhoan']) && ($_POST['capnhaptaikhoan'])) {
         $id = $_POST['id'];
         $ten = $_POST['ten'];

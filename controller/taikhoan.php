@@ -19,11 +19,11 @@ function taikhoan()
         header("location: index.php?act=taikhoan");
     }
     $hoadon = hoa_don_khach_hang($_SESSION['user']['id']);
-    include 'taikhoan/taikhoan.php';
+    include 'view/khachhang/taikhoan/taikhoan.php';
 }
 
 function nhanvien()
 {
     $nhanvien = loadall_nguoidung();
-    include 'nhanvien/nhanvien.php';
+    include 'view/khachhang/nhanvien/nhanvien.php';
 }

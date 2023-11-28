@@ -63,13 +63,16 @@
                                 <th style="width: 10%">
                                     Đã bán
                                 </th>
+                                <th style="width: 13%">
+                                    Ngày nhập
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
                             foreach ($sanpham as $sp) {
                                 extract($sp);
-                                $linkimg = '../../view/img/'.$img_dai_dien;
+                                $linkimg = '../../view/img/' . $img_dai_dien;
                             ?>
                                 <tr>
                                     <td>
@@ -79,7 +82,7 @@
                                         <?= $id ?>
                                     </td>
                                     <td>
-                                    <?= $ten_san_pham ?>
+                                        <?= $ten_san_pham ?>
                                     </td>
                                     <td>
                                         <ul class="list-inline">
@@ -89,13 +92,16 @@
                                         </ul>
                                     </td>
                                     <td>
-                                    <?= $gia_san_pham ?>
+                                        <?= $gia_san_pham ?>
                                     </td>
                                     <td>
-                                    <?= $iddm ?>
+                                        <?= $iddm ?>
                                     </td>
                                     <td>
-                                    <?= $da_ban ?>
+                                        <?= $da_ban ?>
+                                    </td>
+                                    <td>
+                                        <?= date("d-m-Y", strtotime($ngay_nhap)) ?>
                                     </td>
                                     <td class="project-actions text-right">
                                         <!-- <a class="btn btn-primary btn-sm" href="#">

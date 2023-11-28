@@ -42,7 +42,7 @@ function loadallsp_cungdanhmuc($iddm)
 
 function san_pham()
 {
-    $sql = "SELECT * FROM `sanpham` WHERE trang_thai='0'";
+    $sql = "SELECT * FROM `sanpham` WHERE trang_thai='0' ORDER BY id DESC";
     $sanpham = pdo_query($sql);
     return $sanpham;
 }
@@ -85,8 +85,10 @@ function update_sanpham($tensanpham, $giasanpham, $anhdaidien, $mota, $soluongsa
 // thêm sản phẩm đã sửa
 function add_sanpham($tensanpham, $giasanpham, $anhdaidien, $mota, $soluongsanpham, $anh1, $anh2, $anh3, $iddm)
 {
-    $sql = "INSERT INTO sanpham(ten_san_pham, gia_san_pham, img_dai_dien, mo_ta_san_pham, so_luong, img_san_pham1, img_san_pham2, img_san_pham3, iddm) 
-        VALUES('$tensanpham', '$giasanpham', '$anhdaidien', '$mota', '$soluongsanpham', '$anh1', '$anh2', '$anh3', '$iddm');";
+    $date = getdate();
+    $ngayhomnay = $date['year'] . '/' . $date['mon'] . '/' . $date['mday'];
+    $sql = "INSERT INTO sanpham(ten_san_pham, gia_san_pham, img_dai_dien, mo_ta_san_pham, so_luong, img_san_pham1, img_san_pham2, img_san_pham3, iddm, ngay_nhap) 
+        VALUES('$tensanpham', '$giasanpham', '$anhdaidien', '$mota', '$soluongsanpham', '$anh1', '$anh2', '$anh3', '$iddm', '$ngayhomnay');";
     pdo_execute($sql);
 }
 

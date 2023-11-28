@@ -4,7 +4,7 @@
             <?php
             foreach ($banner as $bn) {
                 extract($bn);
-                $linkimgbanner = '../img/' . $img_banner;
+                $linkimgbanner = 'view/img/' . $img_banner;
             ?>
                 <div class="swiper-slide">
                     <div class="intro-section slider-height-1 slider-content-center bg-img single-animation-wrap slider-bg-color-1" style="background-image:url(view/assets/images/slider/slider-bg-1.jpg)">
@@ -26,7 +26,7 @@
                                         <img class="animated animated-slider-img-1" src="<?= $linkimgbanner ?>" alt="" style="width: 500px;">
                                     </div>
                                 </div>
-                            </div>
+                            </div>  
                         </div>
                     </div>
                 </div>
@@ -41,33 +41,36 @@
 <div class="service-area pb-70">
 </div>
 <div class="service-area pb-70">
-    <div class="container">
-        <div class="row">
-            <?php
-            foreach ($danhmuc as $dm) {
-                extract($dm);
-                $iddm = $id;
-                $linkdm = 'index.php?act=danhmuc&&id=' . $iddm;
-                $linkimg = '../../view/img/' . $img_danh_muc;
-            ?>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-30">
-                    <a href="<?= $linkdm ?>">
-                        <div class="service-wrap" data-aos="fade-up">
-                            <div class="service-img">
-                                <img src="<?= $linkimg ?>" alt="">
-                            </div>
-                            <div class="service-content">
-                                <h3>
-                                    <?= $ten_danh_muc ?>
-                                </h3>
-                                <p>Xem các sản phẩm</p>
-                            </div>
+    <div class="product-area pb-95">
+        <div class="container">
+            <div class="product-slider-active-1 swiper-container">
+                <div class="swiper-wrapper">
+                    <?php
+                    foreach ($danhmuc as $dm) {
+                        extract($dm);
+                        $linkdm = 'index.php?act=danhmuc&&id=' . $id;
+                        $linkimg = 'view/img/' . $img_danh_muc;
+                    ?>
+                        <div class="swiper-slide">
+                            <a href="<?= $linkdm ?>">
+                                <div class="service-wrap">
+                                    <div class="service-img">
+                                        <img src="<?= $linkimg ?>" alt="">
+                                    </div>
+                                    <div class="service-content">
+                                        <h3><?= $ten_danh_muc ?></h3>
+                                        <p>Xem các sản phẩm</p>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
-                    </a>
+                    <?php
+                    }
+                    ?>
                 </div>
-            <?php
-            }
-            ?>
+                <div class="product-prev-1 product-nav-1"><i class="fa fa-angle-left"></i></div>
+                <div class="product-next-1 product-nav-1"><i class="fa fa-angle-right"></i></div>
+            </div>
         </div>
     </div>
 </div>
@@ -75,7 +78,7 @@
     <div class="container">
         <div class="section-title-tab-wrap mb-75">
             <div class="section-title-2" data-aos="fade-up">
-                <h2>Sản phẩm danh mục</h2>
+                <h2>Sản phẩm</h2>
             </div>
             <?php
             if (isset($_GET['id']) && ($_GET['id'])) {
@@ -102,7 +105,7 @@
                     foreach ($sanpham as $sp) {
                         extract($sp);
                         $idsp = $id;
-                        $linkimg = '../../view/img/' . $img_dai_dien;
+                        $linkimg = 'view/img/' . $img_dai_dien;
                         $linksp = "index.php?act=chitietsanpham&&idsp=$idsp&&iddm=$iddm";
                     ?>
                         <div class="col-lg-3 col-md-4 col-sm-6 col-12">
@@ -139,7 +142,7 @@
                                     <div class="product-price">
                                         <!-- <span class="old-price">$25.89 </span> -->
                                         <span class="new-price">
-                                            <?= $gia_san_pham ?>đ
+                                            <?= number_format($gia_san_pham, 0, ',', '.') ?> đ
                                         </span>
                                     </div>
                                 </div>

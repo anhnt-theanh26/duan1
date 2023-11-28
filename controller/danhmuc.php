@@ -107,7 +107,7 @@ function danhmuc_khachhang()
         $id = $_POST['id'];
         $sanpham = loc_san_pham($tk, $id);
     }
-    include 'sanpham/sanpham.php';
+    include 'view/khachhang/sanpham/sanpham.php';
 }
 
 function search()
@@ -120,5 +120,5 @@ function search()
     $tintuc = select_new();
     $banner = loadall_banner();
     $danhmuc = loadall_danhmuc();
-    include 'home.php';
+    include 'view/khachhang/home.php';
 }

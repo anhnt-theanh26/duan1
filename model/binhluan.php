@@ -29,7 +29,9 @@ function load_so_binh_luan()
 //them binh luan
 function insert_binhluan_sanpham($idsp, $idkh, $noidung)
 {
-    $sql = "INSERT INTO binhluan(id_sp, id_kh, noi_dung) VALUES('$idsp', '$idkh', '$noidung');";
+    $date = getdate();
+    $ngayhomnay = $date['year'] . '/' . $date['mon'] . '/' . $date['mday'];
+    $sql = "INSERT INTO binhluan(id_sp, id_kh, noi_dung, ngay_binh_luan) VALUES('$idsp', '$idkh', '$noidung', '$ngayhomnay');";
     pdo_execute($sql);
 }
 

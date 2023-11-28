@@ -8,14 +8,14 @@
                             <div class="footer-logo">
                                 <?php
                                 extract($logo);
-                                $linkimg = '../../view/img/' . $img;
+                                $linkimg = 'view/img/' . $img;
                                 ?>
                                 <a href="index.php?act=home"><img src="<?= $linkimg ?>" alt="logo" width="150px" height="50px"></a>
                             </div>
                             <p>Cửa hàng sách đẹp trai</p>
                             <p><?= $gioi_thieu ?></p>
                             <div class="payment-img">
-                                <a href="index.php?act=home"><img src="assets/images/icon-img/payment.png" alt="logo"></a>
+                                <a href="index.php?act=home"><img src="view/khachhang/assets/images/icon-img/payment.png" alt="logo"></a>
                             </div>
                         </div>
                     </div>
@@ -81,7 +81,7 @@
                 <div class="row gx-0">
                     <div class="col-lg-5 col-md-5 col-12">
                         <div class="modal-img-wrap">
-                            <img src="assets/images/product/quickview.png" alt="">
+                            <img src="view/khachhang/assets/images/product/quickview.png" alt="">
                         </div>
                     </div>
                     <div class="col-lg-7 col-md-7 col-12">
@@ -224,12 +224,12 @@
                 </div>
             </div>
             <div class="language-wrap">
-                <a class="language-active" href="#"><img src="assets/images/icon-img/flag.png" alt=""> English <i class=" ti-angle-down "></i></a>
+                <a class="language-active" href="#"><img src="view/khachhang/assets/images/icon-img/flag.png" alt=""> English <i class=" ti-angle-down "></i></a>
                 <div class="language-dropdown">
                     <ul>
-                        <li><a href="#"><img src="assets/images/icon-img/flag.png" alt="">English </a></li>
-                        <li><a href="#"><img src="assets/images/icon-img/spanish.png" alt="">Spanish</a></li>
-                        <li><a href="#"><img src="assets/images/icon-img/arabic.png" alt="">Arabic </a></li>
+                        <li><a href="#"><img src="view/khachhang/assets/images/icon-img/flag.png" alt="">English </a></li>
+                        <li><a href="#"><img src="view/khachhang/assets/images/icon-img/spanish.png" alt="">Spanish</a></li>
+                        <li><a href="#"><img src="view/khachhang/assets/images/icon-img/arabic.png" alt="">Arabic </a></li>
                     </ul>
                 </div>
             </div>
@@ -238,30 +238,30 @@
 </div>
 </div>
 <!-- All JS is here -->
-<script src="assets/js/vendor/modernizr-3.11.7.min.js"></script>
-<script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
-<script src="assets/js/vendor/jquery-migrate-3.3.2.min.js"></script>
-<script src="assets/js/vendor/popper.min.js"></script>
-<script src="assets/js/vendor/bootstrap.min.js"></script>
-<script src="assets/js/plugins/wow.js"></script>
-<script src="assets/js/plugins/scrollup.js"></script>
-<script src="assets/js/plugins/aos.js"></script>
-<script src="assets/js/plugins/magnific-popup.js"></script>
-<script src="assets/js/plugins/jquery.syotimer.min.js"></script>
-<script src="assets/js/plugins/swiper.min.js"></script>
-<script src="assets/js/plugins/imagesloaded.pkgd.min.js"></script>
-<script src="assets/js/plugins/isotope.pkgd.min.js"></script>
-<script src="assets/js/plugins/jquery-ui.js"></script>
-<script src="assets/js/plugins/jquery-ui-touch-punch.js"></script>
-<script src="assets/js/plugins/jquery.nice-select.min.js"></script>
-<script src="assets/js/plugins/waypoints.min.js"></script>
-<script src="assets/js/plugins/jquery.counterup.js"></script>
-<script src="assets/js/plugins/select2.min.js"></script>
-<script src="assets/js/plugins/easyzoom.js"></script>
-<script src="assets/js/plugins/slinky.min.js"></script>
-<script src="assets/js/plugins/ajax-mail.js"></script>
+<script src="view/khachhang/assets/js/vendor/modernizr-3.11.7.min.js"></script>
+<script src="view/khachhang/assets/js/vendor/jquery-3.6.0.min.js"></script>
+<script src="view/khachhang/assets/js/vendor/jquery-migrate-3.3.2.min.js"></script>
+<script src="view/khachhang/assets/js/vendor/popper.min.js"></script>
+<script src="view/khachhang/assets/js/vendor/bootstrap.min.js"></script>
+<script src="view/khachhang/assets/js/plugins/wow.js"></script>
+<script src="view/khachhang/assets/js/plugins/scrollup.js"></script>
+<script src="view/khachhang/assets/js/plugins/aos.js"></script>
+<script src="view/khachhang/assets/js/plugins/magnific-popup.js"></script>
+<script src="view/khachhang/assets/js/plugins/jquery.syotimer.min.js"></script>
+<script src="view/khachhang/assets/js/plugins/swiper.min.js"></script>
+<script src="view/khachhang/assets/js/plugins/imagesloaded.pkgd.min.js"></script>
+<script src="view/khachhang/assets/js/plugins/isotope.pkgd.min.js"></script>
+<script src="view/khachhang/assets/js/plugins/jquery-ui.js"></script>
+<script src="view/khachhang/assets/js/plugins/jquery-ui-touch-punch.js"></script>
+<script src="view/khachhang/assets/js/plugins/jquery.nice-select.min.js"></script>
+<script src="view/khachhang/assets/js/plugins/waypoints.min.js"></script>
+<script src="view/khachhang/assets/js/plugins/jquery.counterup.js"></script>
+<script src="view/khachhang/assets/js/plugins/select2.min.js"></script>
+<script src="view/khachhang/assets/js/plugins/easyzoom.js"></script>
+<script src="view/khachhang/assets/js/plugins/slinky.min.js"></script>
+<script src="view/khachhang/assets/js/plugins/ajax-mail.js"></script>
 <!-- Main JS -->
-<script src="assets/js/main.js"></script>
+<script src="view/khachhang/assets/js/main.js"></script>
 </body>
 
 

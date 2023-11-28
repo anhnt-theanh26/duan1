@@ -2,7 +2,7 @@
 if (isset($_SESSION['user']) && is_array($_SESSION['user'])) {
     extract($_SESSION['user']);
     $idkh = $id;
-    $linkimg = '../../view/img/' . $img_khach_hang;
+    $linkimg = 'view/img/' . $img_khach_hang;
 }
 ?>
 <div class="breadcrumb-area bg-gray-4 breadcrumb-padding-1">
@@ -16,9 +16,9 @@ if (isset($_SESSION['user']) && is_array($_SESSION['user'])) {
                 // }
                 ?>
                 <?php
-                if (isset($thongbao) && ($thongbao) != "") {
-                    echo $thongbao;
-                }
+                // if (isset($thongbao) && ($thongbao) != "") {
+                //     echo $thongbao;
+                // }
                 ?>
             </h6>
             <ul>
@@ -62,7 +62,7 @@ if (isset($_SESSION['user']) && is_array($_SESSION['user'])) {
                                 <!-- Single Tab Content Start -->
                                 <div class="tab-pane fade show active" id="dashboad" role="tabpanel">
                                     <div class="myaccount-content">
-                                        <div class="sidebar-widget mb-50" data-aos="fade-up" data-aos-delay="-5000">
+                                        <div class="sidebar-widget mb-50">
                                             <div class="blog-author-content text-center">
                                                 <img src="<?= $linkimg ?>" alt="" style="border-radius: 50%; width: 180px;">
                                                 <h2><?= $ten_khach_hang ?></h2>
@@ -121,7 +121,7 @@ if (isset($_SESSION['user']) && is_array($_SESSION['user'])) {
 
                                                             <tr>
                                                                 <td><?php echo date('d/m/Y', strtotime($ngay_dat)); ?></td>
-                                                                <td><?= $tong_tien ?> đ</td>
+                                                                <td><?=  number_format($tong_tien, 0, ',' , '.') ?> đ</td>
                                                                 <td><?= $trangthai ?></td>
                                                                 <td><a href="index.php?act=chitiethoadon&&id=<?= $iddh ?>" class="check-btn sqr-btn ">Chi tiết</a></td>
                                                                 <?php

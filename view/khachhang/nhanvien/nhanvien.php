@@ -7,7 +7,7 @@
             <?php
             foreach ($nhanvien as $nv) {
                 extract($nv);
-                $linkimg = '../../view/img/'.$img_nguoi_dung;
+                $linkimg = 'view/img/'.$img_nguoi_dung;
                 if($vai_tro == 1){
                     $chucvu = 'ADMIN';
                 }else{

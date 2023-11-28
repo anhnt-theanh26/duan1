@@ -2,7 +2,8 @@
 
 function hoadon()
 {
-    $hoadon = cho_xac_nhan();
+    $loc = 0;
+    $hoadon = loc_hoa_don($loc);
     include 'donhang/list.php';
 }
 
@@ -22,13 +23,15 @@ function xacnhandonhang()
         $id = $_GET['id'];
         xac_nhan_don_hang($id);
     }
-    $hoadon = cho_xac_nhan();
+    $loc = 0;
+    $hoadon = loc_hoa_don($loc);
     include 'donhang/list.php';
 }
 
 function dangchuanbi()
 {
-    $hoadon = dang_chuan_bi();
+    $loc = 1;
+    $hoadon = loc_hoa_don($loc);
     include 'donhang/dangchuanbi.php';
 }
 
@@ -38,13 +41,15 @@ function chuanbixong()
         $id = $_GET['id'];
         chuan_bi_xong_don_hang($id);
     }
-    $hoadon = dang_chuan_bi();
+    $loc = 1;
+    $hoadon = loc_hoa_don($loc);
     include 'donhang/dangchuanbi.php';
 }
 
 function donhangdanggiao()
 {
-    $hoadon = dang_giao();
+    $loc = 2;
+    $hoadon = loc_hoa_don($loc);
     include 'donhang/danggiao.php';
 }
 
@@ -55,13 +60,24 @@ function giaohangthanhcong()
         $id = $_GET['id'];
         da_giao_don_hang($id);
     }
-    $hoadon = dang_giao();
+    $loc = 2;
+    $hoadon = loc_hoa_don($loc);
     include 'donhang/danggiao.php';
+}
+
+function lochoadon()
+{
+    if (isset($_POST['loc']) && $_POST['loc']) {
+        $id = $_POST['id'];
+        $hoadon = loc_hoa_don($id);
+    }
+    include 'donhang/list.php';
 }
 
 function donhangdagiao()
 {
-    $hoadon = da_giao();
+    $loc = 3;
+    $hoadon = loc_hoa_don($loc);
     include 'donhang/dagiao.php';
 }
 
@@ -107,7 +123,7 @@ function addcart()
 function cart()
 {
     $khuyenmai = loadall_khuyenmai_conhan();
-    include 'sanpham/cart.php';
+    include 'view/khachhang/sanpham/cart.php';
 }
 
 
@@ -134,7 +150,7 @@ function chitiethoadon_khachhang()
         $id = $_GET['id'];
         $hoadon = chi_tiet_hoa_don($id);
     }
-    include 'taikhoan/donhang.php';
+    include 'view/khachhang/taikhoan/donhang.php';
 }
 
 function thanhtoan()
@@ -148,7 +164,7 @@ function thanhtoan()
         $email = $_POST['email'];
         $diachi = $_POST['diachi'];
         if ($tenkhachhang != "" && $sdt != "" && $email != "" && $diachi != "") {
-            $idhd = insert_hoadon($idkh, $tongtien, $diachi, $email, $tenkhachhang, $sdt);
+            $idhd = insert_hoadon($idkh, $tongtien, $diachi, $email, $tenkhachhang, $sdt, $khuyenmai);
             // $thongbao = "idkh = $idkh; tổng tiền = $tongtien; khuyến mại = $khuyenmai; sdt = $sdt; email = $email; địa chỉ = $diachi </br> id hóa đơn = $idhd";
             if (isset($_SESSION['giohang']) && count($_SESSION['giohang']) > 0) {
                 foreach ($_SESSION['giohang'] as $item) {

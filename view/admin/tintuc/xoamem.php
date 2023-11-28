@@ -54,8 +54,11 @@
                                 <th style="width: 20%">
                                     Ảnh
                                 </th>
-                                <th style="width: 5%">
+                                <th style="width: 10%">
                                     IDDM
+                                </th>
+                                <th style="width: 15%">
+                                    Ngày đăng
                                 </th>
                             </tr>
                         </thead>
@@ -85,6 +88,9 @@
                                 <td class="project_progress">
                                     <?= $iddm ?>
                                 </td>
+                                <td>
+                                        <?= date("d-m-Y", strtotime($ngay_dang)) ?>
+                                    </td>
                                 <td class="project-actions text-right">
                                     <a class="btn btn-primary btn-sm" href="index.php?act=khoiphuctintuc&&id=<?= $id ?>">
                                         <i class="fas fa-folder">

@@ -1,7 +1,7 @@
 <?php
 if (isset($_SESSION['user']) && is_array($_SESSION['user'])) {
     extract($_SESSION['user']);
-    $linkimg = '../../view/img/' . $img_khach_hang;
+    $linkimg = 'view/img/' . $img_khach_hang;
 }
 ?>
 
@@ -27,7 +27,6 @@ if (isset($_SESSION['user']) && is_array($_SESSION['user'])) {
                         <table class="table table-bordered">
                             <thead class="thead-light">
                                 <tr>
-                                    <th>ID</th>
                                     <th>Tên sản phẩm</th>
                                     <th>Giá</th>
                                     <th>Số lượng</th>
@@ -36,20 +35,26 @@ if (isset($_SESSION['user']) && is_array($_SESSION['user'])) {
                             </thead>
                             <tbody>
                                 <?php
+                                $tongtien = 0;
                                 foreach ($hoadon as $hd) {
                                     extract($hd);
                                     $linksp = "index.php?act=chitietsanpham&&idsp=$idsp&&iddm=$iddm";
                                 ?>
 
-                                    <tr><td><?= $idsp ?></td>
+                                    <tr>
                                         <td><a href="<?= $linksp ?>"><?= $ten_san_pham ?></a></td>
-                                        <td><?= $don_gia ?> đ</td>
+                                        <td><?= number_format($don_gia, 0, ',', '.') ?> đ</td>
                                         <td><?= $so_luong ?></td>
-                                        <td><?= $thanh_tien  ?> đ</td>
+                                        <td><?= number_format($thanh_tien, 0, ',', '.')  ?> đ</td>
                                     </tr>
                                 <?php
+                                    $tongtien += $thanh_tien;
                                 }
                                 ?>
+                                <tr>
+                                    <td colspan="2" style="text-align: center;">Tổng tiền</td>
+                                    <td colspan="2" style="text-align: center;"><?= number_format($tongtien, 0, ',', '.') ?> đ</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
