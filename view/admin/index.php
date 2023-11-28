@@ -92,11 +92,9 @@ if (isset($_SESSION['admin']) && ($_SESSION['admin'])) {
                     themsanpham();
                     break;
 
-
                 case 'suasanpham':
                     suasanpham();
                     break;
-
 
                 case 'xoamemsanpham':
                     xoamemsanpham();
@@ -171,7 +169,6 @@ if (isset($_SESSION['admin']) && ($_SESSION['admin'])) {
                 case 'xoacungtintuc':
                     xoacungtintuc();
                     break;
-
 
                     // banner
                 case 'banner':
@@ -252,12 +249,10 @@ if (isset($_SESSION['admin']) && ($_SESSION['admin'])) {
                     xoacungnguoidung();
                     break;
 
-
                     // khách hàng
                 case 'khachhang':
                     khachhang();
                     break;
-
 
                 case 'themkhachhang':
                     themkhachhang();
@@ -274,7 +269,6 @@ if (isset($_SESSION['admin']) && ($_SESSION['admin'])) {
                 case 'xoamemkhachhang':
                     xoamemkhachhang();
                     break;
-
 
                 case 'khachhangxoamem':
                     khachhangxoamem();
@@ -304,7 +298,6 @@ if (isset($_SESSION['admin']) && ($_SESSION['admin'])) {
                 case 'xacnhandonhang':
                     xacnhandonhang();
                     break;
-
 
                 case 'dangchuanbi':
                     dangchuanbi();
@@ -368,13 +361,11 @@ if (isset($_SESSION['admin']) && ($_SESSION['admin'])) {
 
                     //thống kê
                 case 'thongke':
-                    $thongke = thong_ke();
-                    include 'thongke/thongke.php';
+                    thong_ke();
                     break;
 
                 case 'bieudo':
-                    $thongke = thong_ke();
-                    include 'thongke/bieudo.php';
+                    bieu_do();
                     break;
 
                     //đăng nhập
@@ -445,7 +436,6 @@ if (isset($_SESSION['admin']) && ($_SESSION['admin'])) {
                 case 'suasanpham':
                     suasanpham();
                     break;
-
 
                 case 'xoamemsanpham':
                     xoamemsanpham();
@@ -521,7 +511,6 @@ if (isset($_SESSION['admin']) && ($_SESSION['admin'])) {
                     xoacungtintuc();
                     break;
 
-
                     // banner
                 case 'banner':
                     banner();
@@ -584,6 +573,10 @@ if (isset($_SESSION['admin']) && ($_SESSION['admin'])) {
                     hoadon();
                     break;
 
+                case 'locdonhang':
+                    lochoadon();
+                    break;
+
                 case 'chitiethoadon':
                     chitiethoadon();
                     break;
@@ -591,7 +584,6 @@ if (isset($_SESSION['admin']) && ($_SESSION['admin'])) {
                 case 'xacnhandonhang':
                     xacnhandonhang();
                     break;
-
 
                 case 'dangchuanbi':
                     dangchuanbi();
@@ -655,8 +647,11 @@ if (isset($_SESSION['admin']) && ($_SESSION['admin'])) {
 
                     //thống kê
                 case 'thongke':
-                    $thongke = thong_ke();
-                    include 'thongke/thongke.php';
+                    thong_ke();
+                    break;
+
+                case 'bieudo':
+                    bieu_do();
                     break;
 
                     //đăng nhập
