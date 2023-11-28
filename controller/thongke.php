@@ -1,11 +1,11 @@
 <?php
-function thong_ke()
+function thongke()
 {
     $thongke = thong_ke();
     include 'thongke/thongke.php';
 }
 
-function bieu_do()
+function bieudo()
 {
     $thongke = thong_ke();
     include 'thongke/bieudo.php';

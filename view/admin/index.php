@@ -361,11 +361,11 @@ if (isset($_SESSION['admin']) && ($_SESSION['admin'])) {
 
                     //thống kê
                 case 'thongke':
-                    thong_ke();
+                    thongke();
                     break;
 
                 case 'bieudo':
-                    bieu_do();
+                    bieudo();
                     break;
 
                     //đăng nhập
@@ -647,11 +647,11 @@ if (isset($_SESSION['admin']) && ($_SESSION['admin'])) {
 
                     //thống kê
                 case 'thongke':
-                    thong_ke();
+                    thongke();
                     break;
 
                 case 'bieudo':
-                    bieu_do();
+                    bieudo();
                     break;
 
                     //đăng nhập
