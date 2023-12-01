@@ -125,7 +125,7 @@
                                             Chi tiết
                                         </a>
                                         <?php
-                                        if ($trang_thai === 0) {
+                                        if ($trang_thai == 0) {
                                         ?>
                                             <a onclick="return confirm('Tiếp nhận đơn hàng')" class="btn btn-primary btn-sm" href="index.php?act=xacnhandonhang&&id=<?= $id ?>">
                                                 <i class="fas fa-folder">
@@ -148,14 +148,15 @@
                                                 </i>
                                                 Giao thành công
                                             </a>
+
+                                            <a onclick="return confirm('xóa đơn hàng')" class="btn btn-danger btn-sm" href="index.php?act=xoadonhang&&id=<?= $id ?>">
+                                                <i class="fas fa-trash">
+                                                </i>
+                                                Delete
+                                            </a>
                                         <?php
                                         }
                                         ?>
-                                        <!-- <a onclick="return confirm('xóa mềm Đơn hàng')" class="btn btn-danger btn-sm" href="index.php?act=xoadanhmuc&&id=">
-                                            <i class="fas fa-trash">
-                                            </i>
-                                            Delete
-                                        </a> -->
                                     </td>
                                 </tr>
                             <?php

@@ -319,6 +319,10 @@ if (isset($_SESSION['admin']) && ($_SESSION['admin'])) {
                     donhangdagiao();
                     break;
 
+                case 'xoadonhang':
+                    xoadonhang();
+                    break;
+
                 case 'chitiethoadontungkhachhang':
                     chitiethoadontungkhachhang();
                     break;
@@ -605,9 +609,14 @@ if (isset($_SESSION['admin']) && ($_SESSION['admin'])) {
                     donhangdagiao();
                     break;
 
+                case 'xoadonhang':
+                    xoadonhang();
+                    break;
+
                 case 'chitiethoadontungkhachhang':
                     chitiethoadontungkhachhang();
                     break;
+
                     // khuyến mại
                 case 'khuyenmai':
                     khuyenmai();

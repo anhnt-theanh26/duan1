@@ -57,21 +57,25 @@ function da_giao_don_hang($id)
 }
 function hoa_don_khach_hang($id)
 {
-    $sql = "SELECT hoadon.id, khachhang.ten_khach_hang, hoadon.ngay_dat, hoadon.tong_tien, hoadon.dia_chi, hoadon.sdt, hoadon.trang_thai FROM hoadon JOIN khachhang on hoadon.id_kh=khachhang.id WHERE hoadon.id_kh = '$id';";
+    $sql = "SELECT hoadon.id, hoadon.ten_kh, hoadon.ngay_dat, hoadon.tong_tien, hoadon.dia_chi, hoadon.sdt, hoadon.trang_thai FROM hoadon JOIN khachhang on hoadon.id_kh=khachhang.id WHERE hoadon.id_kh = '$id' ORDER BY hoadon.id DESC;";
     $hoadon = pdo_query($sql);
     return $hoadon;
 }
 // chi tiết hóa đơn của từng khách hàng
 function hoa_don_tung_khach_hang($id)
 {
-    $sql = "SELECT  chitiethoadon.id, sanpham.ten_san_pham, sanpham.gia_san_pham, chitiethoadon.so_luong, chitiethoadon.thanh_tien FROM hoadon JOIN khachhang on hoadon.id_kh = khachhang.id JOIN chitiethoadon on chitiethoadon.id_hd = hoadon.id JOIN sanpham on chitiethoadon.id_sp = sanpham.id WHERE hoadon.id_kh = '$id';";
+    $sql = "SELECT chitiethoadon.id, sanpham.ten_san_pham, sanpham.gia_san_pham, chitiethoadon.so_luong, chitiethoadon.thanh_tien FROM hoadon JOIN khachhang on hoadon.id_kh = khachhang.id JOIN chitiethoadon on chitiethoadon.id_hd = hoadon.id JOIN sanpham on chitiethoadon.id_sp = sanpham.id WHERE hoadon.id_kh = '$id';";
     $hoadon = pdo_query($sql);
     return $hoadon;
 }
 
 function chi_tiet_hoa_don($id)
 {
-    $sql = "SELECT chitiethoadon.id, sanpham.id as idsp, sanpham.iddm as iddm, sanpham.ten_san_pham, chitiethoadon.so_luong, chitiethoadon.don_gia, chitiethoadon.thanh_tien FROM chitiethoadon JOIN sanpham on chitiethoadon.id_sp = sanpham.id JOIN hoadon on chitiethoadon.id_hd = hoadon.id WHERE hoadon.id = '$id';";
+    $sql = "SELECT chitiethoadon.id, sanpham.id as idsp, sanpham.iddm as iddm, sanpham.ten_san_pham, chitiethoadon.so_luong, hoadon.ten_kh, hoadon.dia_chi, hoadon.sdt, hoadon.email, chitiethoadon.don_gia, chitiethoadon.thanh_tien 
+    FROM chitiethoadon 
+    JOIN sanpham on chitiethoadon.id_sp = sanpham.id 
+    JOIN hoadon on chitiethoadon.id_hd = hoadon.id 
+    WHERE hoadon.id = '$id' ORDER BY chitiethoadon.id DESC;";
     $donhang = pdo_query($sql);
     return $donhang;
 }

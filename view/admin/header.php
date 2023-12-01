@@ -180,6 +180,34 @@
             </li>
             <li class="nav-item">
               <a href="#" class="nav-link">
+                <p>
+                  Tin tức
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="index.php?act=tintuc" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Danh sách</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="index.php?act=themtintuc" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Thêm</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="index.php?act=tintucxoamem" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Xóa mềm</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
                 <!-- <i class="nav-icon fas fa-chart-pie"></i> -->
                 <p>
                   Sản phẩm
@@ -229,34 +257,6 @@
                   </a>
                 </li>
 
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <p>
-                  Tin tức
-                  <i class="fas fa-angle-left right"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="index.php?act=tintuc" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Danh sách</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="index.php?act=themtintuc" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Thêm</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="index.php?act=tintucxoamem" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Xóa mềm</p>
-                  </a>
-                </li>
               </ul>
             </li>
             <li class="nav-item">

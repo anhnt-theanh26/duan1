@@ -55,6 +55,18 @@ if (isset($_SESSION['user']) && is_array($_SESSION['user'])) {
                                     <td colspan="2" style="text-align: center;">Tổng tiền</td>
                                     <td colspan="2" style="text-align: center;"><?= number_format($tongtien, 0, ',', '.') ?> đ</td>
                                 </tr>
+                                <tr>
+                                    <th>Tên người nhận</th>
+                                    <th>Địa chỉ nhận</th>
+                                    <th>Số điện thoại</th>
+                                    <th>Email</th>
+                                </tr>
+                                <tr>
+                                    <td><?= $ten_kh ?></td>
+                                    <td><?= $dia_chi ?></td>
+                                    <td><?= $sdt ?></td>
+                                    <td><?= $email ?></td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>

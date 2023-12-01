@@ -196,3 +196,21 @@ function huydonhang()
     }
     header("location: index.php?act=taikhoan");
 }
+
+function xoadonhang()
+{
+    if (isset($_GET['id']) && is_numeric($_GET['id']) && ($_GET['id'] > 0)) {
+        $id = $_GET['id'];
+        $data = load_so_luong_san_pham_huy($id);
+        foreach ($data as $item) {
+            extract($item);
+            update_so_luong_da_ban_khachhang_huy($id_sp, $so_luong);
+        }
+        huy_don_hang($_GET['id']);
+    } else {
+        $thongbao = "đơn hàng không tồn tại";
+    }
+    $loc = 2;
+    $hoadon = loc_hoa_don($loc);
+    include 'donhang/danggiao.php';
+}

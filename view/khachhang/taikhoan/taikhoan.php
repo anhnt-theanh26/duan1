@@ -92,7 +92,10 @@ if (isset($_SESSION['user']) && is_array($_SESSION['user'])) {
                                             <table class="table table-bordered">
                                                 <thead class="thead-light">
                                                     <tr>
-                                                        <th>Ngày</th>
+                                                        <th>Ngày đặt</th>
+                                                        <th>Tên người nhận</th>
+                                                        <th>SĐT</th>
+                                                        <th>Địa chỉ</th>
                                                         <th>Tổng cộng</th>
                                                         <th>Trạng thái</th>
                                                         <th>Xem</th>
@@ -121,7 +124,10 @@ if (isset($_SESSION['user']) && is_array($_SESSION['user'])) {
 
                                                             <tr>
                                                                 <td><?php echo date('d/m/Y', strtotime($ngay_dat)); ?></td>
-                                                                <td><?=  number_format($tong_tien, 0, ',' , '.') ?> đ</td>
+                                                                <td><?= $ten_kh ?></td>
+                                                                <td><?= $sdt ?></td>
+                                                                <td><?= $dia_chi ?></td>
+                                                                <td><?= number_format($tong_tien, 0, ',', '.') ?> đ</td>
                                                                 <td><?= $trangthai ?></td>
                                                                 <td><a href="index.php?act=chitiethoadon&&id=<?= $iddh ?>" class="check-btn sqr-btn ">Chi tiết</a></td>
                                                                 <?php

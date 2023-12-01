@@ -6,12 +6,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Đang chuẩn bị</h1>
+                        <h1>Danh sách</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="index.php?act=home">Home</a></li>
-                            <li class="breadcrumb-item active">Đang chuẩn bị</li>
+                            <li class="breadcrumb-item active">Danh sách</li>
                         </ol>
                     </div>
                 </div>
@@ -24,7 +24,7 @@
             <!-- Default box -->
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Đang chuẩn bị</h3>
+                    <h3 class="card-title">Danh sách</h3>
 
                     <div class="card-tools">
                         <button type="button" class="btn btn-tool">
@@ -125,7 +125,7 @@
                                             Chi tiết
                                         </a>
                                         <?php
-                                        if ($trang_thai === 0) {
+                                        if ($trang_thai == 0) {
                                         ?>
                                             <a onclick="return confirm('Tiếp nhận đơn hàng')" class="btn btn-primary btn-sm" href="index.php?act=xacnhandonhang&&id=<?= $id ?>">
                                                 <i class="fas fa-folder">
@@ -148,14 +148,15 @@
                                                 </i>
                                                 Giao thành công
                                             </a>
+
+                                            <a onclick="return confirm('xóa đơn hàng')" class="btn btn-danger btn-sm" href="index.php?act=xoadonhang&&id=<?= $id ?>">
+                                                <i class="fas fa-trash">
+                                                </i>
+                                                Delete
+                                            </a>
                                         <?php
                                         }
                                         ?>
-                                        <!-- <a onclick="return confirm('xóa mềm Đơn hàng')" class="btn btn-danger btn-sm" href="index.php?act=xoadanhmuc&&id=">
-                                            <i class="fas fa-trash">
-                                            </i>
-                                            Delete
-                                        </a> -->
                                     </td>
                                 </tr>
                             <?php
