@@ -38,6 +38,7 @@ if (isset($_SESSION['user']) && is_array($_SESSION['user'])) {
                                 $tongtien = 0;
                                 foreach ($hoadon as $hd) {
                                     extract($hd);
+                                    
                                     $linksp = "index.php?act=chitietsanpham&&idsp=$idsp&&iddm=$iddm";
                                 ?>
 
@@ -52,20 +53,45 @@ if (isset($_SESSION['user']) && is_array($_SESSION['user'])) {
                                 }
                                 ?>
                                 <tr>
-                                    <td colspan="2" style="text-align: center;">Tổng tiền</td>
+                                    <td colspan="2" style="text-align: center;">Tổng tiền:</td>
                                     <td colspan="2" style="text-align: center;"><?= number_format($tongtien, 0, ',', '.') ?> đ</td>
                                 </tr>
+                            </tbody>
+                        </table>
+                        <h4>Thông tin người nhận:</h4>
+                        <table class="table table-bordered">
+                            <thead class="thead-light">
                                 <tr>
                                     <th>Tên người nhận</th>
-                                    <th>Địa chỉ nhận</th>
+                                    <th>Địa chỉ</th>
                                     <th>Số điện thoại</th>
                                     <th>Email</th>
+                                    <th>Trạng thái</th>
+                                    <th>Ngày đặt</th>
                                 </tr>
+                            </thead>
+                            <?php
+                            if ($trang_thai == 0) {
+                                $trangthai = 'Chờ xác nhận';
+                            }
+                            if ($trang_thai == 1) {
+                                $trangthai = 'Đang chuẩn bị';
+                            }
+                            if ($trang_thai == 2) {
+                                $trangthai = 'Đang giao';
+                            }
+                            if ($trang_thai == 3) {
+                                $trangthai = 'Đã giao';
+                            }
+                            ?>
+                            <tbody>
                                 <tr>
                                     <td><?= $ten_kh ?></td>
                                     <td><?= $dia_chi ?></td>
                                     <td><?= $sdt ?></td>
                                     <td><?= $email ?></td>
+                                    <td><?= $trangthai ?></td>
+                                    <td><?= date("d/m/Y", strtotime($ngay_dat)) ?></td>
                                 </tr>
                             </tbody>
                         </table>

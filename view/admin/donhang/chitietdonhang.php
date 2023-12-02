@@ -128,6 +128,42 @@
                         </tbody>
 
                     </table>
+                    <table class="table table-striped projects">
+                        <thead>
+                            <tr>
+                                <th>Tên người nhận</th>
+                                <th>Địa chỉ</th>
+                                <th>Số điện thoại</th>
+                                <th>Email</th>
+                                <th>Trạng thái</th>
+                                <th>Ngày đặt</th>
+                            </tr>
+                        </thead>
+                        <?php
+                        if ($trang_thai == 0) {
+                            $trangthai = 'Chờ xác nhận';
+                        }
+                        if ($trang_thai == 1) {
+                            $trangthai = 'Đang chuẩn bị';
+                        }
+                        if ($trang_thai == 2) {
+                            $trangthai = 'Đang giao';
+                        }
+                        if ($trang_thai == 3) {
+                            $trangthai = 'Đã giao';
+                        }
+                        ?>
+                        <tbody>
+                            <tr>
+                                <td><?= $ten_kh ?></td>
+                                <td><?= $dia_chi ?></td>
+                                <td><?= $sdt ?></td>
+                                <td><?= $email ?></td>
+                                <td><?= $trangthai ?></td>
+                                <td><?= date("d/m/Y", strtotime($ngay_dat)) ?></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
                 <!-- /.card-body -->
             </div>
