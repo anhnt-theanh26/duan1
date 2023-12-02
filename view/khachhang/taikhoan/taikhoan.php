@@ -98,12 +98,14 @@ if (isset($_SESSION['user']) && is_array($_SESSION['user'])) {
                                                         <th>Địa chỉ</th>
                                                         <th>Tổng cộng</th>
                                                         <th>Trạng thái</th>
+                                                        <th>Nhận hàng</th>
                                                         <th>Xem</th>
                                                         <th>Hủy</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <?php
+                                                    $comfirm = '';
                                                     if (isset($hoadon)) {
                                                         foreach ($hoadon as $hd) {
                                                             extract($hd);
@@ -116,6 +118,12 @@ if (isset($_SESSION['user']) && is_array($_SESSION['user'])) {
                                                             }
                                                             if ($trang_thai == 2) {
                                                                 $trangthai = 'Đang giao';
+                                                                $comfirm = '
+                                                                        <form action="index.php?act=comfirm" method="post">
+                                                                            <input type="hidden" name="id" value="' . $iddh . '">
+                                                                            <input type="submit" name="nhan" id="" value="Đã nhận hàng">
+                                                                        </form>
+                                                                        ';
                                                             }
                                                             if ($trang_thai == 3) {
                                                                 $trangthai = 'Đã giao';
@@ -129,6 +137,7 @@ if (isset($_SESSION['user']) && is_array($_SESSION['user'])) {
                                                                 <td><?= $dia_chi ?></td>
                                                                 <td><?= number_format($tong_tien, 0, ',', '.') ?> đ</td>
                                                                 <td><?= $trangthai ?></td>
+                                                                <td><?= $comfirm ?></td>
                                                                 <td><a href="index.php?act=chitiethoadon&&id=<?= $iddh ?>" class="check-btn sqr-btn ">Chi tiết</a></td>
                                                                 <?php
                                                                 if ($trang_thai == 0 || $trang_thai == 1) {

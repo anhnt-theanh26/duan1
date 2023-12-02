@@ -38,7 +38,7 @@ if (isset($_SESSION['user']) && is_array($_SESSION['user'])) {
                                 $tongtien = 0;
                                 foreach ($hoadon as $hd) {
                                     extract($hd);
-                                    
+
                                     $linksp = "index.php?act=chitietsanpham&&idsp=$idsp&&iddm=$iddm";
                                 ?>
 
@@ -68,9 +68,11 @@ if (isset($_SESSION['user']) && is_array($_SESSION['user'])) {
                                     <th>Email</th>
                                     <th>Trạng thái</th>
                                     <th>Ngày đặt</th>
+                                    <th>Nhận hàng</th>
                                 </tr>
                             </thead>
                             <?php
+                            $comfirm = '';
                             if ($trang_thai == 0) {
                                 $trangthai = 'Chờ xác nhận';
                             }
@@ -79,6 +81,20 @@ if (isset($_SESSION['user']) && is_array($_SESSION['user'])) {
                             }
                             if ($trang_thai == 2) {
                                 $trangthai = 'Đang giao';
+                                $comfirm = '
+                                            <a onclick="return confirm("đã nhận hàng")" class="btn btn-primary btn-sm" href="index.php?act=comfirm&&id=' . $iddh . '">
+                                                Đã nhận hàng
+                                            </a>
+                                ';
+                                $comfirm = '
+                                <form action="index.php?act=comfirm" method="post">
+                                    <input type="hidden" name="id" value="' . $iddh . '">
+                                    <input type="submit" name="nhan" id="" value="Đã nhận hàng">
+                                </form>
+                                ';
+                            ?>
+
+                            <?php
                             }
                             if ($trang_thai == 3) {
                                 $trangthai = 'Đã giao';
@@ -92,6 +108,8 @@ if (isset($_SESSION['user']) && is_array($_SESSION['user'])) {
                                     <td><?= $email ?></td>
                                     <td><?= $trangthai ?></td>
                                     <td><?= date("d/m/Y", strtotime($ngay_dat)) ?></td>
+                                    <td><?= $comfirm ?></td>
+
                                 </tr>
                             </tbody>
                         </table>
