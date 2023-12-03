@@ -135,7 +135,6 @@ if (isset($_SESSION['user']) && is_array($_SESSION['user'])) {
                                                                 $trangthai = 'Đã giao';
                                                             }
                                                             ?>
-                                                            ?>
 
                                                             <tr>
                                                                 <td>
