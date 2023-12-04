@@ -69,6 +69,7 @@ if (isset($_SESSION['user']) && is_array($_SESSION['user'])) {
                                     <th>Trạng thái</th>
                                     <th>Ngày đặt</th>
                                     <th>Nhận hàng</th>
+                                    <th>Hủy</th>
                                 </tr>
                             </thead>
                             <?php
@@ -109,6 +110,18 @@ if (isset($_SESSION['user']) && is_array($_SESSION['user'])) {
                                     <td><?= $trangthai ?></td>
                                     <td><?= date("d/m/Y", strtotime($ngay_dat)) ?></td>
                                     <td><?= $comfirm ?></td>
+                                    <?php
+                                    if ($trang_thai == 0 || $trang_thai == 1) {
+                                    ?>
+                                        <td><a onclick="return confirm('xác nhận hủy đơn hàng')" href="index.php?act=huydonhang&&iddh=<?= $iddh ?>" class="check-btn sqr-btn ">Hủy</a></td>
+                                    <?php
+                                    } else {
+                                    ?>
+                                        <td>Không thể hủy</td>
+                                    <?php
+                                    }
+                                    ?>
+                                </tr>
 
                                 </tr>
                             </tbody>
