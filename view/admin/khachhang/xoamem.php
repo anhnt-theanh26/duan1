@@ -93,7 +93,7 @@
                                             </i>
                                             Edit
                                         </a>
-                                        <a onclick="return confirm('xóa cứng khách hàng')" class="btn btn-danger btn-sm" href="index.php?act=xoamemkhachhang&&id=<?= $id ?>">
+                                        <a onclick="return confirm('xóa cứng khách hàng')" class="btn btn-danger btn-sm" href="index.php?act=xoacungkhachhang&&id=<?= $id ?>">
                                             <i class="fas fa-trash">
                                             </i>
                                             Delete

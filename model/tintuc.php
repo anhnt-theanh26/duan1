@@ -25,7 +25,7 @@ function chitietnew($id)
 // đã sửa
 function loadone_tin_tuc($id)
 {
-    $sql = "SELECT * FROM tintuc WHERE trang_thai = '0' and id = '$id';";
+    $sql = "SELECT * FROM tintuc WHERE id = '$id';";
     $tintuc = pdo_query_one($sql);
     return $tintuc;
 }
@@ -50,7 +50,7 @@ function xoa_mem_news($id)
 // đã sửa
 function load_tin_tuc()
 {
-    $sql = "SELECT * FROM tintuc WHERE trang_thai = '0';";
+    $sql = "SELECT * FROM tintuc WHERE trang_thai = '0' ORDER BY tintuc.id DESC;";
     $tintuc = pdo_query($sql);
     return $tintuc;
 }
@@ -59,7 +59,7 @@ function add_new($tieude, $noidung, $iddm, $img)
 {
     $date = getdate();
     $ngayhomnay = $date['year'] . '/' . $date['mon'] . '/' . $date['mday'];
-    $sql = "INSERT INTO tintuc(tieu_de, noi_dung, iddm, img_tin_tuc, ngay_dang) VALUES('$tieude', '$noidung', '$iddm', '$img, '$ngayhomnay');";
+    $sql = "INSERT INTO tintuc(tieu_de, noi_dung, iddm, img_tin_tuc, ngay_dang) VALUES('$tieude', '$noidung', '$iddm', '$img', '$ngayhomnay');";
     pdo_execute($sql);
 }
 function load_tin_tuc_xoa_mem()

@@ -3,7 +3,7 @@
 // load khach hang
 function loadall_khachhang()
 {
-    $sql = "SELECT * FROM khachhang WHERE trang_thai = '0';";
+    $sql = "SELECT * FROM khachhang WHERE trang_thai = '0' ORDER BY khachhang.id DESC;";
     $listkh = pdo_query($sql);
     return $listkh;
 }

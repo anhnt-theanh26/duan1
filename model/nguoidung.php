@@ -14,7 +14,7 @@ function add_nguoi_dung($tennguoidung, $tendangnhap, $matkhau, $email, $sdt, $va
 
 function loadall_nguoidung()
 {
-    $sql = "SELECT * FROM nguoidung WHERE trang_thai = 0";
+    $sql = "SELECT * FROM nguoidung WHERE trang_thai = 0 ORDER BY nguoidung.id DESC;";
     $nguoidung = pdo_query($sql);
     return $nguoidung;
 }
