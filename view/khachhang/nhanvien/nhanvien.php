@@ -8,9 +8,10 @@
             foreach ($nhanvien as $nv) {
                 extract($nv);
                 $linkimg = 'view/img/'.$img_nguoi_dung;
+                $chucvu;
                 if($vai_tro == 1){
-                }else{
                     $chucvu = 'ADMIN';
+                }else{
                     $chucvu = 'Người bán hàng';
                 }
             ?>
@@ -21,6 +22,8 @@
                         <div class="team-info">
                             <h3><?= $ten_nguoi_dung ?></h3>
                             <span><?= $chucvu ?></span><br>
+                            <span><?= $sdt_nguoi_dung ?></span><br>
+                            <span><?= $email_nguoi_dung ?></span><br>
                         </div>
                     </div>
                 </div>
