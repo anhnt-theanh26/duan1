@@ -83,29 +83,29 @@ if (isset($_GET['act']) && ($_GET['act']) != "") {
             dangkytaikhoan();
             break;
 
-            // thêm sản phẩm vào giỏ hàng
-        case 'addcart':
-            addcart();
-            break;
+        // thêm sản phẩm vào giỏ hàng
+        // case 'addcart':
+        //     addcart();
+        //     break;
 
         case 'cart':
             cart();
             break;
 
-            // xóa giỏ hàng
+        // xóa giỏ hàng
         case 'delcart':
             delcart();
             break;
-            // xóa 1 sản phẩm ở giỏ hàng
+        // xóa 1 sản phẩm ở giỏ hàng
         case 'delprocart':
             delprocart();
             break;
 
-            // case 'donhangdat':
-            //     include 'taikhoan/donhangdat.php';
-            //     break;
+        // case 'donhangdat':
+        //     include 'taikhoan/donhangdat.php';
+        //     break;
 
-            // thông tin
+        // thông tin
         case 'taikhoan':
             taikhoan();
             break;
