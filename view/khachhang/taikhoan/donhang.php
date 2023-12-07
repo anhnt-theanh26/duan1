@@ -111,7 +111,7 @@ if (isset($_SESSION['user']) && is_array($_SESSION['user'])) {
                                     <td><?= date("d/m/Y", strtotime($ngay_dat)) ?></td>
                                     <td><?= $comfirm ?></td>
                                     <?php
-                                    if ($trang_thai == 0 || $trang_thai == 1) {
+                                    if ($trang_thai == 0) {
                                     ?>
                                         <td><a onclick="return confirm('xác nhận hủy đơn hàng')" href="index.php?act=huydonhang&&iddh=<?= $iddh ?>" class="check-btn sqr-btn ">Hủy</a></td>
                                     <?php

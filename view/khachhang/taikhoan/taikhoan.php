@@ -10,16 +10,7 @@ if (isset($_SESSION['user']) && is_array($_SESSION['user'])) {
         <div class="breadcrumb-content text-center">
             <h2>Tài khoản của tôi </h2>
             <h6>
-                <?php
-                // if (isset($id) && ($id) != '') {
-                //     echo $id;
-                // }
-                ?>
-                <?php
-                // if (isset($thongbao) && ($thongbao) != "") {
-                //     echo $thongbao;
-                // }
-                ?>
+                <?= $ten_khach_hang ?>
             </h6>
             <ul>
                 <li><a href="index.php?act=home">Home</a></li>
@@ -161,7 +152,7 @@ if (isset($_SESSION['user']) && is_array($_SESSION['user'])) {
                                                                 <td><a href="index.php?act=chitiethoadon&&id=<?= $iddh ?>"
                                                                         class="check-btn sqr-btn ">Chi tiết</a></td>
                                                                 <?php
-                                                                if ($trang_thai == 0 || $trang_thai == 1) {
+                                                                if ($trang_thai == 0) {
                                                                     ?>
                                                                     <td><a onclick="return confirm('xác nhận hủy đơn hàng')"
                                                                             href="index.php?act=huydonhang&&iddh=<?= $iddh ?>"

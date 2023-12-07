@@ -20,7 +20,9 @@
                     <div class="team-info-position">
                         <div class="team-info">
                             <h3><?= $ten_nguoi_dung ?></h3>
-                            <span><?= $chucvu ?></span>
+                            <span><?= $chucvu ?></span><br>
+                            <span><?= $email_nguoi_dung ?></span><br>
+                            <span><?= $sdt_nguoi_dung ?></span><br>
                         </div>
                     </div>
                 </div>
