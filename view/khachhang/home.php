@@ -203,7 +203,7 @@
         $.ajax({
             type: 'POST',
             // Đường dẫn tới tệp PHP xử lý dữ liệu
-            url: './view/khachhang/sanpham/addtocard.php',
+            url: './view/khachhang/sanpham/addtocart.php',
             data: {
                 id: id,
                 name: name,
