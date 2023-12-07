@@ -6,9 +6,9 @@
             // if (isset($_SESSION['giohang']) && ($_SESSION['giohang'])) {
             //     var_dump($_SESSION['giohang']);
             // }
-            // if (isset($thongbao) && ($thongbao) != "") {
-            //     echo $thongbao;
-            // }
+            if (isset($thongbao) && ($thongbao) != "") {
+                echo $thongbao;
+            }
             ?>
 
             <ul>
@@ -26,7 +26,7 @@
     </div>
 </div>
 <div class="cart-area pt-100 pb-100">
-    <div class="container">
+    <div class="container" id="order">
         <div class="row">
             <div class="col-12">
                 <form action="#">
@@ -45,31 +45,56 @@
                                 <tbody>
                                     <?php
                                     $tonggia = 0;
-                                    $i = 0;
-                                    if (isset($_SESSION['giohang']) && count($_SESSION['giohang']) > 0) {
-                                        foreach ($_SESSION['giohang'] as $item) {
-                                            $gia = $item[3] * $item[4];
-                                            $linksp = "index.php?act=chitietsanpham&&idsp=" . $item[0] . "&&iddm=" . $item[5];
-                                            $linkimg = 'view/img/' . $item[2];
-                                            $link_del_pro_cart = "index.php?act=delprocart&&id=$i";
+                                    // $i = 0;
+                                    if (!empty($dataDB)) {
+                                        foreach ($dataDB as $key => $prd) {
+                                            $linksp = "index.php?act=chitietsanpham&&idsp=".$prd['id']."&&iddm=".$prd['iddm'];
+                                            $linkimg = 'view/img/' . $prd['img_dai_dien'];
+                                            $quantityInCart = 0;
+                                            foreach ($_SESSION['giohang'] as $item) {
+                                                if ($item['id'] == $prd['id']) {
+                                                    $quantityInCart = $item['quantity'];
+                                                    break;
+                                                }
+                                            }
                                     ?>
                                             <tr>
                                                 <td class="product-thumbnail">
-                                                    <a href="<?= $linksp ?>"><img src="<?= $linkimg ?>" alt=""></a>
+                                                    <a href="<?= $linksp ?>"><img src="<?= $linkimg ?>" alt="<?= $prd['ten_san_pham'] ?>"></a>
                                                 </td>
                                                 <td class="product-name">
-                                                    <h5><a href="<?= $linksp ?>"><?= $item[1] ?></a></h5>
+                                                    <h5><a href="<?= $linksp ?>"><?= $prd['ten_san_pham'] ?></a></h5>
                                                 </td>
-                                                <td class="product-cart-price"><span class="amount"><?= number_format($gia, 0, ',', '.') ?> đ</span></td>
-                                                <td class="product-cart-soluong"><span class="amount"><?= $item[4] ?></span></td>
-                                                <td class="product-remove"><a onclick="return confirm('xóa sản phẩm khỏi giỏ hàng')" href="<?= $link_del_pro_cart ?>"><i class=" ti-trash "></i></a></td>
+                                                <td class="product-cart-price">
+                                                    <span class="amount">
+                                                        <?= number_format($prd['gia_san_pham'], 0, ',', '.') ?> <u>đ</u>
+                                                    </span>
+                                                </td>
+                                                <td class="product-cart-soluong">
+                                                    <span class="amount">
+                                                        <input type="number" value="<?= $quantityInCart ?>" min="1" max="<?= $prd['so_luong'] ?>" style="width: 40px;" id="quantity_<?= $prd['id'] ?>" oninput="updateQuantity(<?= $prd['id'] ?>, <?= $key ?>)">
+                                                    </span>
+                                                </td>
+                                                <td class="product-remove">
+                                                    <a onclick="removeForm(<?= $prd['id'] ?>)" href=""><i class=" ti-trash "></i></a>
+                                                </td>
                                             </tr>
                                     <?php
-                                            $tonggia += $gia;
-                                            $i++;
+                                            $tonggia += $prd['gia_san_pham'] * $quantityInCart;
+                                            // $i++;
+                                            $_SESSION['resultTotal'] = $tonggia;
                                         }
                                     }
                                     ?>
+                                    <tr>
+                                        <td colspan="3" style="text-align: center;">
+                                            <h3>Tổng tiền</h3>
+                                        </td>
+                                        <td colspan="2" style="text-align: center;">
+                                            <h3><span class="amount"><?= number_format($tonggia, 0, ',', '.') ?> <u>đ</u></span></h3>
+                                            <input id="tonggiasanpham" type="hidden" value="<?= $tonggia ?>">
+                                        </td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -97,10 +122,10 @@
                     <h4>Phiếu giảm giá</h4>
                     <div class="select-style mb-15">
                         <form action="#" method="post">
-                            <select name="khuyenmai" class="select-two-active">
+                            <select id="khuyenmai" style="border: 1px solid black; margin-top: 20px; height: 50px;">
                                 <option value="0">--Phiếu giảm giá--</option>
                                 <?php
-                                foreach ($khuyenmai as $km) {
+                                foreach ($khuyenmaiconhan as $km) {
                                     extract($km);
                                 ?>
                                     <option value="<?= $phan_tram_phuyen_mai ?>"><?= $ma_khuyen_mai ?></option>
@@ -108,12 +133,11 @@
                                 }
                                 ?>
                             </select>
-                            <input class="btn theme-color" type="submit" name="giamgia" id="" style="border: 1px solid black; margin-top: 20px;" value="Áp dụng">
                         </form>
                     </div>
                     <div class="select-style mb-15">
                         <h4>Phương thức thanh toán</h4>
-                        <select name="khuyenmai" class="select-two-active">
+                        <select name="" class="select-two-active">
                             <option value="0">--Thanh toán khi nhận hàng--</option>
                             <option value="" disabled>--Thanh online (Đang cập nhật)--</option>
                             <option value="" disabled>--Thanh MOMO (Đang cập nhật)--</option>
@@ -125,55 +149,36 @@
 
             <!-- <form action=""> -->
             <div class="col-lg-4 col-md-12 col-12" style="float: right;">
-                <h4>Tính giá sản phẩm</h4>
-                <div class="select-style mb-15">
-                </div><br>
-                <div class="select-style mb-15">
-                </div>
-                <?php
-                if (isset($_SESSION['giohang'])) {
-                    if (isset($_POST['giamgia']) && ($_POST['giamgia']) > 0) {
-                        $khuyenmai = $_POST['khuyenmai'];
-                        $conlai = $tonggia - ($tonggia * $khuyenmai / 100);
-                ?>
-                        <div class="grand-total-wrap">
-                            <div class="grand-total-content">
-                                <div class="grand-total-content">
-                                    <h3 style="">Giá: <span><?= number_format($tonggia, 0, ',', '.') ?> đ</span></h3>
-                                    <h3 style="margin-top: 20px;">Khuyến mại: <span><?= $khuyenmai ?> %</span></h3>
-                                    <?php $tru = ($tonggia * $khuyenmai) / 100 ?>
-                                    <h3 style="margin-top: 20px;">Trừ: <span><?= number_format($tru, 0, ',', '.') ?> đ</span></h3>
-                                    <h3 style="margin-top: 20px;">Chi tiết:<span> <?= number_format($tonggia, 0, ',', '.') ?> - <?= number_format($tru, 0, ',', '.') ?> đ</span></h3>
-                                    <div class="grand-total">
-                                        <?php $conlai = $tonggia - ($tonggia * $khuyenmai) / 100 ?>
-                                        <h4 style="margin-top: 20px;">Còn lại: <span><?= number_format($conlai, 0, ',', '.') ?> đ</span></h4>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
+                <div id="km">
+                    <h4>Tính giá sản phẩm</h4>
+                    <div class="select-style mb-15">
+                    </div><br>
+                    <div class="select-style mb-15">
+                    </div>
                     <?php
+                    if (isset($_POST['khuyenmai'])) {
+                        $khuyenmai = $_POST['khuyenmai'];
                     } else {
                         $khuyenmai = 0;
-                        $conlai = $tonggia;
+                    }
                     ?>
-                        <div class="grand-total-wrap">
+                    <div class="grand-total-wrap">
+                        <div class="grand-total-content">
                             <div class="grand-total-content">
                                 <h3 style="">Giá: <span><?= number_format($tonggia, 0, ',', '.') ?> đ</span></h3>
                                 <h3 style="margin-top: 20px;">Khuyến mại: <span><?= $khuyenmai ?> %</span></h3>
-                                <h3 style="margin-top: 20px;">Trừ: <span><?= ($tonggia * $khuyenmai / 100) ?> đ</span></h3>
-                                <h3 style="margin-top: 20px;">Chi tiết:<span> <?= number_format($tonggia, 0, ',', '.') ?> - <?= (number_format($tonggia, 0, ',', '.') *  number_format($khuyenmai, 0, ',', '.') / 100) ?> đ</span></h3>
+                                <?php $tru = ($tonggia * $khuyenmai) / 100 ?>
+                                <h3 style="margin-top: 20px;">Trừ: <span><?= number_format($tru, 0, ',', '.') ?> đ</span></h3>
+                                <h3 style="margin-top: 20px;">Chi tiết:<span> <?= number_format($tonggia, 0, ',', '.') ?> - <?= number_format($tru, 0, ',', '.') ?> đ</span></h3>
                                 <div class="grand-total">
                                     <?php $conlai = $tonggia - ($tonggia * $khuyenmai) / 100 ?>
                                     <h4 style="margin-top: 20px;">Còn lại: <span><?= number_format($conlai, 0, ',', '.') ?> đ</span></h4>
                                 </div>
                             </div>
-
                         </div>
-                <?php
-                    }
-                }
-                ?>
+
+                    </div>
+                </div>
             </div>
             <div class="col-lg-4 col-md-6 col-12" style="float: right;">
                 <div class="cart-calculate-discount-wrap mb-40">
