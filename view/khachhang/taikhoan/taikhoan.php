@@ -10,7 +10,6 @@ if (isset($_SESSION['user']) && is_array($_SESSION['user'])) {
         <div class="breadcrumb-content text-center">
             <h2>Tài khoản của tôi </h2>
             <h6>
-                <?= $ten_khach_hang ?>
             </h6>
             <ul>
                 <li><a href="index.php?act=home">Home</a></li>
