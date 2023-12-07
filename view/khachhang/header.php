@@ -73,7 +73,6 @@
                                 <nav>
                                     <ul>
                                         <li><a href="index.php?act=home">Trang chủ</a></li>
-                                        <!-- <li><a href="index.php?act=thongtintaikhoan">SHOP</a></li> -->
                                         <li><a href="#">Danh mục</a>
                                             <ul class="sub-menu-style">
                                                 <?php
@@ -82,28 +81,18 @@
                                                         extract($dm);
                                                         $linkdm = 'index.php?act=danhmuc&&id=' . $id;
                                                         ?>
-                                                        <li><a href="<?= $linkdm ?>"><?= $ten_danh_muc ?></a></li>
+                                                        <li><a href="<?= $linkdm ?>">
+                                                                <?= $ten_danh_muc ?>
+                                                            </a></li>
                                                         <?php
                                                     }
                                                 }
                                                 ?>
-                                                <!-- <li><a href="cart.html">cart page</a></li>
-                                                <li><a href="checkout.html">checkout </a></li>
-                                                <li><a href="my-account.html">my account</a></li>
-                                                <li><a href="wishlist.html">wishlist </a></li>
-                                                <li><a href="compare.html">compare </a></li>
-                                                <li><a href="contact-us.html">contact us </a></li>
-                                                <li><a href="login-register.html">login / register </a></li> -->
+
                                             </ul>
                                         </li>
                                         <li><a href="index.php?act=loadallsanpham">Sản phẩm</a>
-                                            <!-- <ul class="sub-menu-style">
-                                                <li><a href="blog.html">blog standard </a></li>
-                                                <li><a href="blog-sidebar.html">blog sidebar</a></li>
-                                                <li><a href="blog-details.html">blog details</a></li>
-                                            </ul> -->
                                         </li>
-                                        <!-- <li><a href="about-us.html">ABOUT</a></li> -->
                                         <li><a href="index.php?act=tintuc">Tin tức</a></li>
                                         <li><a href="index.php?act=nhanvien">Nhân viên</a></li>
                                     </ul>
@@ -147,19 +136,10 @@
                                 <div class="header-action-style header-action-cart">
                                     <a class="#" href="index.php?act=cart"><i class="pe-7s-shopbag"></i>
                                         <span class="product-count bg-black">
-                                            <?php
-                                            if (isset($_SESSION['giohang']) && count($_SESSION['giohang']) > 0) {
-                                                echo count($_SESSION['giohang']);
-                                            } else {
-                                                echo '0';
-                                            }
-                                            ?>
+                                            <?php !empty($_SESSION['giohang']) ? count($_SESSION['giohang']) : 0; ?>
                                         </span>
                                     </a>
                                 </div>
-                                <!-- <div class="header-action-style d-block d-lg-none">
-                                        <a class="mobile-menu-active-button" href="#"><i class="pe-7s-menu"></i></a>
-                                    </div> -->
                             </div>
                         </div>
                     </div>

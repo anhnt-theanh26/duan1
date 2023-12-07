@@ -3,10 +3,6 @@ session_start();
 ob_start();
 
 
-if (!isset($_SESSION['giohang']))
-    $_SESSION['giohang'] = [];
-
-
 include 'model/binhluan.php';
 include 'model/danhmuc.php';
 include 'model/hoadon.php';
