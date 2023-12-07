@@ -122,8 +122,6 @@ if (isset($_SESSION['user']) && is_array($_SESSION['user'])) {
                                     }
                                     ?>
                                 </tr>
-
-                                </tr>
                             </tbody>
                         </table>
                     </div>
