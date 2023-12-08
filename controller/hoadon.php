@@ -122,7 +122,15 @@ function addcart()
 
 function cart()
 {
-    $khuyenmai = loadall_khuyenmai_conhan();
+    if (!empty($_SESSION['giohang'])) {
+        $cart = $_SESSION['giohang'];
+        $idpro = array_column($cart, 'id');
+        // var_dump($idpro);
+        $idList = implode(',', $idpro);
+        $dataDB = loadone_sanpham_cart($idList);
+        // var_dump($dataDB);
+    }
+    $khuyenmaiconhan = loadall_khuyenmai_conhan();
     include 'view/khachhang/sanpham/cart.php';
 }
 
