@@ -127,3 +127,31 @@
         </div>
     </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script>
+    function updateQuantity(id, index) {
+        // alert('hihi');
+        let newQuantity = $('#quantity_' + id).val();
+        // console.log(newQuantity);
+        if (newQuantity <= 0) newQuantity = 1;
+        $.ajax({
+            type: 'post',
+            url: './view/khachhang/sanpham/updateQuantity.php',
+            data: {
+                id: id,
+                quantity: newQuantity,
+            },
+            success: function(response) {
+                // cập nhật thành công
+                $.post('./view/khachhang/sanpham/tableCartOrder.php', function(data) {
+                    $('#order').html(data);
+                })
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        })
+    }
+</script>
