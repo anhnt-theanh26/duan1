@@ -114,17 +114,7 @@
                                         <input type="hidden" name="price" id="" value="<?= $gia_san_pham ?>">
                                         <input type="hidden" name="img" id="" value="<?= $img_dai_dien ?>">
                                         <input type="hidden" name="iddm" id="" value="<?= $iddm ?>">
-                                        <?php
-                                        if ($so_luong > 0) {
-                                        ?>
                                             <button data-id="<?= $id ?>" onclick="addtocart('<?= $id ?>', '<?= $ten_san_pham ?>', '<?= $gia_san_pham ?>')" name="addtocart" class="product-action-btn-2" title="Thêm vào giỏ hàng"><i class="pe-7s-cart"></i>Thêm vào giỏ hàng</button>
-                                        <?php
-                                        } else {
-                                        ?>
-                                            <button class="product-action-btn-2" title="Thêm vào giỏ hàng">Hết hàng</button>
-                                        <?php
-                                        }
-                                        ?>
                                         <!-- <input data-id="" type="submit" name="addtocart" class="product-action-btn-2" title="Add To Cart" value="Thêm vào giỏ hàng"  onclick="addToCart()> -->
                                     </div>
                                     <!-- </form> -->
