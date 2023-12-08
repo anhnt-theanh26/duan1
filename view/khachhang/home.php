@@ -11,15 +11,8 @@
                         <div class="container">
                             <div class="row align-items-center">
                                 <div class="col-lg-6 col-md-6">
-                                    <div class="slider-content-1 slider-animated-1">
-                                        <!-- <h3 class="animated">Sản phẩm mới</h3> -->
+                                    <div class="slider-content-1 slider-animated-1">    
                                         <h1 class="animated"><?= $ten_banner ?></h1>
-                                        <!-- <h1 class="animated">Hàng <br>Mới Về</h1> -->
-                                        <!-- <div class="slider-btn btn-hover">
-                                        <a href="product-details.html" class="btn animated">
-                                            Shop Now <i class=" ti-arrow-right "></i>
-                                        </a>
-                                    </div> -->
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6">
@@ -98,15 +91,6 @@
                                     <a href="<?= $linksp ?>">
                                         <img src="<?= $linkimg ?>" alt="" style="width: 270x; height: 300px;">
                                     </a>
-                                    <!-- <div class="product-badge badge-top badge-right badge-pink">
-                                            <span>-10%</span>
-                                        </div> -->
-                                    <!-- <div class="product-action-wrap">
-                                            <button class="product-action-btn-1" title="Wishlist"><i class="pe-7s-like"></i></button>
-                                            <button class="product-action-btn-1" title="Quick View" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                <i class="pe-7s-look"></i>
-                                            </button>
-                                        </div> -->
                                     <!-- <form action="index.php?act=addcart" method="post"> -->
                                     <div class="product-action-2-wrap">
                                         <input type="hidden" name="id" id="" value="<?= $id ?>">
@@ -114,15 +98,23 @@
                                         <input type="hidden" name="price" id="" value="<?= $gia_san_pham ?>">
                                         <input type="hidden" name="img" id="" value="<?= $img_dai_dien ?>">
                                         <input type="hidden" name="iddm" id="" value="<?= $iddm ?>">
+                                        <?php
+                                        if ($so_luong > 0) {
+                                        ?>
                                             <button data-id="<?= $id ?>" onclick="addtocart('<?= $id ?>', '<?= $ten_san_pham ?>', '<?= $gia_san_pham ?>')" name="addtocart" class="product-action-btn-2" title="Thêm vào giỏ hàng"><i class="pe-7s-cart"></i>Thêm vào giỏ hàng</button>
-                                        <!-- <input data-id="" type="submit" name="addtocart" class="product-action-btn-2" title="Add To Cart" value="Thêm vào giỏ hàng"  onclick="addToCart()> -->
+                                        <?php
+                                        } else {
+                                        ?>
+                                            <button class="product-action-btn-2" title="Thêm vào giỏ hàng">Hết hàng</button>
+                                        <?php
+                                        }
+                                        ?>
                                     </div>
                                     <!-- </form> -->
                                 </div>
                                 <div class="product-content">
                                     <h3><a href="<?= $linksp ?>"><?= $ten_san_pham ?></a></h3>
                                     <div class="product-price">
-                                        <!-- <span class="old-price">$25.89 </span> -->
                                         <span class="new-price"><?= number_format($gia_san_pham, 0, ',', '.') ?> đ</span>
                                     </div>
                                 </div>
@@ -201,7 +193,6 @@
             },
             success: function(response) {
                 totalProduct.innerText = response;
-                // alert('Bạn đã thêm sản phẩm vào giỏ hàng thành công!')
             },
             error: function(error) {
                 console.log(error);
