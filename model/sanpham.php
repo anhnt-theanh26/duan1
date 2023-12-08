@@ -169,3 +169,10 @@ function loc_san_pham($tk, $id){
     }
     return pdo_query($sql);
 }
+
+function loadone_sanpham_cart($id)
+{
+    $sql = "SELECT * FROM sanpham WHERE trang_thai='0' AND id IN($id)";
+    $sanpham = pdo_query($sql);
+    return $sanpham;
+}
