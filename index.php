@@ -91,6 +91,10 @@ if (isset($_GET['act']) && ($_GET['act']) != "") {
             taikhoan();
             break;
 
+        case 'comfirm':
+            comfirm();
+            break;
+
         case 'chitiethoadon':
             chitiethoadon_khachhang();
             break;
