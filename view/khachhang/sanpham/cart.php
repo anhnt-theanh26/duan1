@@ -236,6 +236,7 @@
     </div>
 </div>
 
+
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script>
@@ -261,5 +262,28 @@
                 console.log(error);
             }
         })
+    }
+</script>
+<script>
+    function removeForm(id) {
+        if (confirm('xóa sản phẩm khỏi giỏ hàng')) {
+
+            $.ajax({
+                type: 'post',
+                url: './view/khachhang/sanpham/removeFormCart.php',
+                data: {
+                    id: id,
+                },
+                success: function(response) {
+                    // cập nhật thành công
+                    $.post('./view/khachhang/sanpham/tableCartOrder.php', function(data) {
+                        $('#order').html(data);
+                    })
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            })
+        }
     }
 </script>
