@@ -287,3 +287,37 @@
         }
     }
 </script>
+<script>
+    $(document).ready(function() {
+        // Khai báo biến tonggia ở đây để có thể sử dụng nó ở nơi khác
+        var tonggia = $('#tonggiasanpham').val();
+
+        $('#tonggiasanpham').on('change', function() {
+            tonggia = $(this).val();
+            console.log("Changed value:", tonggia);
+        });
+
+        $("#khuyenmai").on("change", function() {
+            var khuyenmai = $(this).val();
+
+            $.ajax({
+                url: './view/khachhang/sanpham/discountCode.php',
+                type: 'post',
+                dataType: 'html',
+                data: {
+                    khuyenmai: khuyenmai,
+                    tonggia: tonggia,
+                },
+                success: function(response) {
+                    // Update successful
+                    $('#km').html(response);
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            });
+
+            console.log("Selected option:", khuyenmai);
+        });
+    });
+</script>
