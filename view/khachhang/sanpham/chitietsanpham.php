@@ -240,8 +240,18 @@ $idsp = $id;
                                     </a>
                                     <div class="product-action-wrap">
                                     </div>
-                                    <div class="product-action-2-wrap">                                       
-                                        <button data-id="<?= $id ?>" onclick="addtocart('<?= $id ?>', '<?= $ten_san_pham ?>', '<?= $gia_san_pham ?>')" name="addtocart" class="product-action-btn-2" title="Thêm vào giỏ hàng"><i class="pe-7s-cart"></i>Thêm vào giỏ hàng</button>
+                                    <div class="product-action-2-wrap">
+                                        <?php
+                                        if ($so_luong > 0) {
+                                        ?>
+                                            <button data-id="<?= $id ?>" onclick="addtocart('<?= $id ?>', '<?= $ten_san_pham ?>', '<?= $gia_san_pham ?>')" name="addtocart" class="product-action-btn-2" title="Thêm vào giỏ hàng"><i class="pe-7s-cart"></i>Thêm vào giỏ hàng</button>
+                                        <?php
+                                        } else {
+                                        ?>
+                                            <button class="product-action-btn-2" title="Thêm vào giỏ hàng">Hết hàng</button>
+                                        <?php
+                                        }
+                                        ?>
                                     </div>
                                 </div>
                                 <div class="product-content">
@@ -276,7 +286,7 @@ $idsp = $id;
         $.ajax({
             type: 'POST',
             // Đường dẫn tới tệp PHP xử lý dữ liệu
-            url: './view/khachhang/sanpham/addtocard.php',
+            url: './view/khachhang/sanpham/addtocart.php',
             data: {
                 id: id,
                 name: name,
