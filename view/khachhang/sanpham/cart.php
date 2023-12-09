@@ -236,6 +236,7 @@
     </div>
 </div>
 
+
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script>
@@ -262,4 +263,61 @@
             }
         })
     }
+</script>
+<script>
+    function removeForm(id) {
+        if (confirm('xóa sản phẩm khỏi giỏ hàng')) {
+
+            $.ajax({
+                type: 'post',
+                url: './view/khachhang/sanpham/removeFormCart.php',
+                data: {
+                    id: id,
+                },
+                success: function(response) {
+                    // cập nhật thành công
+                    $.post('./view/khachhang/sanpham/tableCartOrder.php', function(data) {
+                        $('#order').html(data);
+                    })
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            })
+        }
+    }
+</script>
+<script>
+    $(document).ready(function() {
+        // Khai báo biến tonggia ở đây để có thể sử dụng nó ở nơi khác
+        var tonggia = $('#tonggiasanpham').val();
+
+        $('#tonggiasanpham').on('change', function() {
+            tonggia = $(this).val();
+            console.log("Changed value:", tonggia);
+        });
+
+        $("#khuyenmai").on("change", function() {
+            var khuyenmai = $(this).val();
+
+            $.ajax({
+                url: './view/khachhang/sanpham/discountCode.php',
+                type: 'post',
+                dataType: 'html',
+                data: {
+                    khuyenmai: khuyenmai,
+                    tonggia: tonggia,
+                },
+                success: function(response) {
+                    // Update successful
+                    $('#km').html(response);
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            });
+
+            console.log("Selected option:", khuyenmai);
+        });
+    });
 </script>
