@@ -173,13 +173,12 @@ function thanhtoan()
         $diachi = $_POST['diachi'];
         if ($tenkhachhang != "" && $sdt != "" && $email != "" && $diachi != "") {
             $idhd = insert_hoadon($idkh, $tongtien, $diachi, $email, $tenkhachhang, $sdt, $khuyenmai);
-            // $thongbao = "idkh = $idkh; tổng tiền = $tongtien; khuyến mại = $khuyenmai; sdt = $sdt; email = $email; địa chỉ = $diachi </br> id hóa đơn = $idhd";
             if (isset($_SESSION['giohang']) && count($_SESSION['giohang']) > 0) {
                 foreach ($_SESSION['giohang'] as $item) {
-                    $giakhuyenmai = $item[3] - ($item[3] * $khuyenmai) / 100;
-                    $thanhtien = $giakhuyenmai * $item[4];
-                    insert_hoadon_chitiet($idhd, $item[0], $item[4], $giakhuyenmai, $thanhtien);
-                    update_so_luong_da_ban($item[0], $item[4]);
+                    $giakhuyenmai = $item['price'] - ($item['price'] * $khuyenmai) / 100;
+                    $thanhtien = $giakhuyenmai * $item['quantity'];
+                    insert_hoadon_chitiet($idhd, $item['id'], $item['quantity'], $giakhuyenmai, $thanhtien);
+                    update_so_luong_da_ban($item['id'], $item['quantity']);
                 }
                 unset($_SESSION['giohang']);
             }
@@ -203,6 +202,16 @@ function huydonhang()
         $thongbao = "đơn hàng không tồn tại";
     }
     header("location: index.php?act=taikhoan");
+}
+
+function comfirm()
+{
+    if (isset($_POST['nhan']) && $_POST['nhan']) {
+        $id = $_POST['id'];
+        da_giao_don_hang($id);
+        $hoadon = chi_tiet_hoa_don($id);
+        header("location: index.php?act=chitiethoadon&&id=$id");
+    }
 }
 
 function xoadonhang()
