@@ -51,12 +51,12 @@ function loadall_sanpham($keyw = "", $iddm = 0)
 {
     $sql = "SELECT * FROM sanpham where trang_thai='0' ";
     if ($keyw != "") {
-        $sql.= "and ten_san_pham like '%" . $keyw . "%'";
+        $sql .= "and ten_san_pham like '%" . $keyw . "%'";
     }
     if ($iddm > 0) {
-        $sql.= "and id_dm = '" . $iddm . "'";
+        $sql .= "and id_dm = '" . $iddm . "'";
     }
-    $sql.= "order by id desc";
+    $sql .= "order by id desc";
     $listsanpham = pdo_query($sql);
     return $listsanpham;
 }
@@ -157,15 +157,16 @@ function updateslsp($vitrisptrung, $soluong)
 }
 
 
-function loc_san_pham($tk, $id){
+function loc_san_pham($tk, $id)
+{
     // giảm
     $sql = "SELECT * FROM sanpham JOIN danhmuc on sanpham.iddm=danhmuc.id WHERE sanpham.trang_thai = '0' AND danhmuc.trang_thai = '0' AND sanpham.iddm = '$id' ";
-    if($tk == 2){
-        $sql.=" ORDER BY sanpham.gia_san_pham DESC;";
+    if ($tk == 2) {
+        $sql .= " ORDER BY sanpham.gia_san_pham DESC;";
     }
     // tăng
-    if($tk == 1){
-        $sql.=" ORDER BY sanpham.gia_san_pham ASC;";
+    if ($tk == 1) {
+        $sql .= " ORDER BY sanpham.gia_san_pham ASC;";
     }
     return pdo_query($sql);
 }

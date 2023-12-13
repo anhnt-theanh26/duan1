@@ -63,7 +63,7 @@
                             <?php
                             foreach ($binhluan as $bl) {
                                 extract($bl);
-                                $linkimg = '../../view/img/'.$img_dai_dien;
+                                $linkimg = '../../view/img/' . $img_dai_dien;
                             ?>
                                 <tr>
                                     <td>

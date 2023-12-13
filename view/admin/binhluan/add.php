@@ -32,7 +32,7 @@
                     <div class="form-group">
                         <label for="idsp">Sản phẩm</label><br>
                         <select name="idsp" id="idsp">
-                        <?php
+                            <?php
                             foreach ($sanpham as $sp) {
                                 extract($sp);
                             ?>

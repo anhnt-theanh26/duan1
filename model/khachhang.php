@@ -66,9 +66,9 @@ function add_khachhang($ten, $tendangnhap, $matkhau, $email, $sdt, $diachi, $img
     pdo_execute($sql);
 }
 
-function dang_nhap_khach_hang($tendangnhap, $matkhau){
+function dang_nhap_khach_hang($tendangnhap, $matkhau)
+{
     $sql = "SELECT * FROM khachhang WHERE ten_dang_nhap = '$tendangnhap' AND mat_khau = '$matkhau' AND trang_thai = '0';";
     $listkh = pdo_query_one($sql);
     return $listkh;
 }
-

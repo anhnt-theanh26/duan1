@@ -57,14 +57,14 @@
                                 <th style="width: 20%">
                                     Link
                                 </th>
-                            
+
                             </tr>
                         </thead>
                         <tbody>
                             <?php
                             foreach ($banner as $bn) {
                                 extract($bn);
-                                $linkimg = '../../view/img/'.$img_banner;
+                                $linkimg = '../../view/img/' . $img_banner;
                             ?>
                                 <tr>
                                     <td>

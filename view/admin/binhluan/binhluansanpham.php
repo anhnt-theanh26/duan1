@@ -64,40 +64,40 @@
                             foreach ($binhluan as $bl) {
                                 extract($bl);
                             ?>
-                            <tr>
-                                <td>
-                                    #
-                                </td>
-                                <td>
-                                    <?= $idbl ?>
-                                </td>
-                                <td>
-                                    <?= $noi_dung ?>
-                                </td>
-                                <td>
-                                    <?= $ten_khach_hang ?>
-                                </td>
-                                <td>
-                                    <?= date("d-m-Y", strtotime($ngay_binh_luan)) ?>
-                                </td>
-                                <td class="project-actions text-right">
-                                    <!-- <a class="btn btn-primary btn-sm" href="#">
+                                <tr>
+                                    <td>
+                                        #
+                                    </td>
+                                    <td>
+                                        <?= $idbl ?>
+                                    </td>
+                                    <td>
+                                        <?= $noi_dung ?>
+                                    </td>
+                                    <td>
+                                        <?= $ten_khach_hang ?>
+                                    </td>
+                                    <td>
+                                        <?= date("d-m-Y", strtotime($ngay_binh_luan)) ?>
+                                    </td>
+                                    <td class="project-actions text-right">
+                                        <!-- <a class="btn btn-primary btn-sm" href="#">
                                         <i class="fas fa-folder">
                                         </i>
                                         View
                                     </a> -->
-                                    <a class="btn btn-info btn-sm" href="index.php?act=suabinhluan&&idbl=<?= $idbl ?>">
-                                        <i class="fas fa-pencil-alt">
-                                        </i>
-                                        Edit
-                                    </a>
-                                    <a onclick="return confirm('xóa bình luận')" class="btn btn-danger btn-sm" href="index.php?act=xoabinhluan&&idbl=<?= $idbl ?>&&idsp=<?= $idsp ?>">
-                                        <i class="fas fa-trash">
-                                        </i>
-                                        Delete
-                                    </a>
-                                </td>
-                            </tr>
+                                        <a class="btn btn-info btn-sm" href="index.php?act=suabinhluan&&idbl=<?= $idbl ?>">
+                                            <i class="fas fa-pencil-alt">
+                                            </i>
+                                            Edit
+                                        </a>
+                                        <a onclick="return confirm('xóa bình luận')" class="btn btn-danger btn-sm" href="index.php?act=xoabinhluan&&idbl=<?= $idbl ?>&&idsp=<?= $idsp ?>">
+                                            <i class="fas fa-trash">
+                                            </i>
+                                            Delete
+                                        </a>
+                                    </td>
+                                </tr>
                             <?php
                             }
                             ?>

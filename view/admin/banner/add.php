@@ -37,7 +37,7 @@
                         <label for="link">Link banner</label>
                         <input name="link" type="text" class="form-control" id="link" placeholder="Link banner">
                     </div>
-                    
+
                 </div>
                 <!-- /.card-body -->
 

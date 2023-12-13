@@ -5,7 +5,7 @@
             foreach ($tintuc as $tt) {
                 extract($tt);
                 $linkimg = 'view/img/' . $img_tin_tuc;
-                $linknews = 'index.php?act=chitiettintuc&&id='.$idtt;
+                $linknews = 'index.php?act=chitiettintuc&&id=' . $idtt;
                 $linkdm = 'index.php?act=danhmuc&&id=' . $iddm;
             ?>
                 <div class="col-lg-4 col-md-6">
@@ -35,7 +35,7 @@
             <?php
             }
             ?>
-            
+
         </div>
     </div>
 </div>

@@ -1,6 +1,6 @@
-<?php 
+<?php
 extract($logo);
-$linkimg = '../../view/img/'.$img;
+$linkimg = '../../view/img/' . $img;
 ?>
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->

@@ -26,7 +26,7 @@
                                         <img class="animated animated-slider-img-1" src="<?= $linkimgbanner ?>" alt="" style="width: 500px;">
                                     </div>
                                 </div>
-                            </div>  
+                            </div>
                         </div>
                     </div>
                 </div>

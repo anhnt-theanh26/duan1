@@ -19,7 +19,7 @@ extract($khuyenmai);
             </div>
         </div><!-- /.container-fluid -->
     </section>
-    
+
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
@@ -46,7 +46,7 @@ extract($khuyenmai);
                         <label for="ketthuc">Ngày kết thúc khuyến mại</label>
                         <input name="ketthuc" type="date" class="form-control" id="ketthuc" placeholder="Ngày kết thúc khuyến mại" value="<?= $ngay_ket_thuc ?>">
                     </div>
-                    
+
                 </div>
                 <!-- /.card-body -->
 

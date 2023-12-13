@@ -61,7 +61,7 @@
                             <?php
                             foreach ($danhmuc as $dm) {
                                 extract($dm);
-                                $linkimg = '../../view/img/'.$img_danh_muc;
+                                $linkimg = '../../view/img/' . $img_danh_muc;
                             ?>
                                 <tr>
                                     <td>

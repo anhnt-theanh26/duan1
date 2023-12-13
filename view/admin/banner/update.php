@@ -1,6 +1,6 @@
 <?php
 extract($banner);
-$linkimg = '../../view/img/'.$img_banner;
+$linkimg = '../../view/img/' . $img_banner;
 ?>
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -43,7 +43,7 @@ $linkimg = '../../view/img/'.$img_banner;
                         <img src="<?= $linkimg ?>" alt="" width="100px">
                         <input type="file" name="img" id="img">
                     </div>
-                    
+
                 </div>
                 <!-- /.card-body -->
 

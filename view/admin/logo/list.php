@@ -68,7 +68,7 @@
                         <tbody>
                             <?php
                             extract($logo);
-                            $linkimg = '../../view/img/'.$img;
+                            $linkimg = '../../view/img/' . $img;
                             ?>
                             <tr>
                                 <td>
@@ -114,9 +114,9 @@
                                     </a> -->
                                 </td>
                             </tr>
-                            
+
                         </tbody>
-                        
+
                     </table>
                 </div>
                 <!-- /.card-body -->

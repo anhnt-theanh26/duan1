@@ -9,11 +9,11 @@
       if ($vai_tro == 1) {
       ?>
         <p>Chức vụ: ADMIN</p>
-    <?php
-      }else{
-        ?>
+      <?php
+      } else {
+      ?>
         <p>Chức vụ: Người bán hàng</p>
-        <?php
+    <?php
       }
     }
     ?>

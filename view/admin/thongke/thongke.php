@@ -49,7 +49,7 @@ foreach ($thongke as $tk) {
                             <!-- small box -->
                             <div class="small-box bg-success">
                                 <div class="inner">
-                                    <h3><?= number_format($tien, 0 ,',', '.') ?><sup style="font-size: 20px"> đ</sup></h3>
+                                    <h3><?= number_format($tien, 0, ',', '.') ?><sup style="font-size: 20px"> đ</sup></h3>
 
                                     <p>TỔNG TIỀN</p>
                                 </div>
@@ -106,13 +106,13 @@ foreach ($thongke as $tk) {
                                     <?= $ten_san_pham ?>
                                 </td>
                                 <td>
-                                    <?= number_format($don_gia, 0 ,',', '.') ?> đ
+                                    <?= number_format($don_gia, 0, ',', '.') ?> đ
                                 </td>
                                 <td>
                                     <?= $so_luong_da_ban ?>
                                 </td>
                                 <td>
-                                    <?= number_format($thanh_tien, 0 ,',', '.') ?> đ
+                                    <?= number_format($thanh_tien, 0, ',', '.') ?> đ
                                 </td>
                             </tr>
                         <?php

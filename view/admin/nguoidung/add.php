@@ -40,7 +40,7 @@
                     <div class="form-group">
                         <label for="img">Ảnh đại diện người dùng</label>
                         <div class="input-group">
-                            <input name="img" type="file" >
+                            <input name="img" type="file">
                         </div>
                     </div>
                     <div class="form-group">

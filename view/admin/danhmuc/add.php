@@ -29,7 +29,7 @@
                         <label for="exampleInputEmail1">Tên danh mục</label>
                         <input name="tendanhmuc" type="text" class="form-control" id="exampleInputEmail1" placeholder="Tên danh mục">
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="img_danh_muc">Ảnh danh mục</label><br>
                         <input type="file" name="img_danh_muc" id="img_danh_muc">
@@ -41,13 +41,13 @@
                     <input type="submit" class="btn btn-primary" name="themsanpham" id="" value="Thêm danh mục">
                 </div>
                 <?php
-                if(isset($thongbao) && $thongbao != ""){
-                    echo '<p>'.$thongbao.'</p>';
-                } 
+                if (isset($thongbao) && $thongbao != "") {
+                    echo '<p>' . $thongbao . '</p>';
+                }
                 ?>
-                
+
             </form>
-            
+
     </section>
     <!-- /.content -->
 </div>

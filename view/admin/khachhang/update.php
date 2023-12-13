@@ -60,7 +60,7 @@ $linkimg = '../../view/img/' . $img_khach_hang;
                         <label for="diachi">Địa chỉ khách hàng</label>
                         <input name="diachi" type="text" class="form-control" id="diachi" placeholder="Địa chỉ khách hàng" value="<?= $dia_chi_khach_hang ?>">
                     </div>
-                </div>  
+                </div>
                 <!-- /.card-body -->
 
                 <div class="card-footer">

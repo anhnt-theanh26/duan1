@@ -18,8 +18,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo 'Sản phầm ko tồn tại trong giỏ hàng';
         }
     }
-
 } else {
     echo 'Yêu cầu không hợp lệ';
 }
-?>

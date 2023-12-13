@@ -23,14 +23,14 @@
                         <div class="footer-widget footer-widget-margin-1 footer-list mb-40">
                             <h3 class="footer-title">Bản đồ</h3>
                             <ul>
-                            <iframe src="https://www.google.com/maps/d/embed?mid=1Rio6QKd3EP4V81NaTswpXzwc1gcottc&ehbc=2E312F" width="200" height="300"></iframe>
+                                <iframe src="https://www.google.com/maps/d/embed?mid=1Rio6QKd3EP4V81NaTswpXzwc1gcottc&ehbc=2E312F" width="200" height="300"></iframe>
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-2 col-md-6 col-sm-6 col-12">
                         <div class="footer-widget footer-list mb-40">
                             <h3 class="footer-title">Liên hệ</h3>
-                            
+
                             <ul>
                                 <?php
                                 foreach ($admin as $ad) {

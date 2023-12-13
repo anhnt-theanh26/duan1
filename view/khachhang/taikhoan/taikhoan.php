@@ -54,8 +54,7 @@ if (isset($_SESSION['user']) && is_array($_SESSION['user'])) {
                                     <div class="myaccount-content">
                                         <div class="sidebar-widget mb-50">
                                             <div class="blog-author-content text-center">
-                                                <img src="<?= $linkimg ?>" alt=""
-                                                    style="border-radius: 50%; width: 180px;">
+                                                <img src="<?= $linkimg ?>" alt="" style="border-radius: 50%; width: 180px;">
                                                 <h2>
                                                     <?= $ten_khach_hang ?>
                                                 </h2>
@@ -124,7 +123,7 @@ if (isset($_SESSION['user']) && is_array($_SESSION['user'])) {
                                                             if ($trang_thai == 3) {
                                                                 $trangthai = 'Đã giao';
                                                             }
-                                                            ?>
+                                                    ?>
 
                                                             <tr>
                                                                 <td>
@@ -148,23 +147,20 @@ if (isset($_SESSION['user']) && is_array($_SESSION['user'])) {
                                                                 <td>
                                                                     <?= $comfirm ?>
                                                                 </td>
-                                                                <td><a href="index.php?act=chitiethoadon&&id=<?= $iddh ?>"
-                                                                        class="check-btn sqr-btn ">Chi tiết</a></td>
+                                                                <td><a href="index.php?act=chitiethoadon&&id=<?= $iddh ?>" class="check-btn sqr-btn ">Chi tiết</a></td>
                                                                 <?php
                                                                 if ($trang_thai == 0) {
-                                                                    ?>
-                                                                    <td><a onclick="return confirm('xác nhận hủy đơn hàng')"
-                                                                            href="index.php?act=huydonhang&&iddh=<?= $iddh ?>"
-                                                                            class="check-btn sqr-btn ">Hủy</a></td>
-                                                                    <?php
+                                                                ?>
+                                                                    <td><a onclick="return confirm('xác nhận hủy đơn hàng')" href="index.php?act=huydonhang&&iddh=<?= $iddh ?>" class="check-btn sqr-btn ">Hủy</a></td>
+                                                                <?php
                                                                 } else {
-                                                                    ?>
+                                                                ?>
                                                                     <td>Không thể hủy</td>
-                                                                    <?php
+                                                                <?php
                                                                 }
                                                                 ?>
                                                             </tr>
-                                                            <?php
+                                                    <?php
                                                         }
                                                     }
                                                     ?>
@@ -196,7 +192,7 @@ if (isset($_SESSION['user']) && is_array($_SESSION['user'])) {
                                                             foreach ($binhluan as $bl) {
                                                                 extract($bl);
                                                                 $idbl = $id;
-                                                                ?>
+                                                        ?>
                                                                 <tr>
                                                                     <td>
                                                                         <?= $noi_dung ?>
@@ -204,11 +200,9 @@ if (isset($_SESSION['user']) && is_array($_SESSION['user'])) {
                                                                     <td>
                                                                         <?= $ten_san_pham ?>
                                                                     </td>
-                                                                    <td><a onclick="return confirm('Xóa bình luận');"
-                                                                            href="index.php?act=taikhoan&&idbl=<?= $idbl ?>"
-                                                                            class="check-btn sqr-btn ">Xóa</a></td>
+                                                                    <td><a onclick="return confirm('Xóa bình luận');" href="index.php?act=taikhoan&&idbl=<?= $idbl ?>" class="check-btn sqr-btn ">Xóa</a></td>
                                                                 </tr>
-                                                                <?php
+                                                        <?php
                                                             }
                                                         }
                                                         ?>
@@ -248,39 +242,31 @@ if (isset($_SESSION['user']) && is_array($_SESSION['user'])) {
                                         <h3>Chi tiết tài khoản</h3>
                                         <div class="account-details-form">
                                             <!-- index.php?act=doithongtin -->
-                                            <form action="index.php?act=doithongtin" method="post"
-                                                enctype="multipart/form-data">
+                                            <form action="index.php?act=doithongtin" method="post" enctype="multipart/form-data">
                                                 <div class="single-input-item">
-                                                    <input type="hidden" name="id" id="id" value="<?= $idkh ?>"
-                                                        placeholder=" id">
+                                                    <input type="hidden" name="id" id="id" value="<?= $idkh ?>" placeholder=" id">
                                                     <label for="ten" class="required">Tên hiển thị</label>
-                                                    <input name="ten" type="text" id="ten"
-                                                        value="<?= $ten_khach_hang ?>" />
+                                                    <input name="ten" type="text" id="ten" value="<?= $ten_khach_hang ?>" />
                                                 </div>
                                                 <div class="single-input-item">
                                                     <label for="tendangnhap" class="required">Tên đăng nhập</label>
-                                                    <input name="tendangnhap" type="text" id="tendangnhap"
-                                                        value="<?= $ten_dang_nhap ?>" />
+                                                    <input name="tendangnhap" type="text" id="tendangnhap" value="<?= $ten_dang_nhap ?>" />
                                                 </div>
                                                 <div class="single-input-item">
                                                     <label for="email" class="required">Email</label>
-                                                    <input name="email" type="text" id="email"
-                                                        value="<?= $email_khach_hang ?>" />
+                                                    <input name="email" type="text" id="email" value="<?= $email_khach_hang ?>" />
                                                 </div>
                                                 <div class="single-input-item">
                                                     <label for="sdt" class="required">Số điện thoại</label>
-                                                    <input name="sdt" type="text" id="sdt"
-                                                        value="<?= $sdt_khach_hang ?>" />
+                                                    <input name="sdt" type="text" id="sdt" value="<?= $sdt_khach_hang ?>" />
                                                 </div>
                                                 <div class="single-input-item">
                                                     <label for="diachi" class="required">Địa chỉ</label>
-                                                    <input name="diachi" type="text" id="diachi"
-                                                        value="<?= $dia_chi_khach_hang ?>" />
+                                                    <input name="diachi" type="text" id="diachi" value="<?= $dia_chi_khach_hang ?>" />
                                                 </div>
                                                 <div class="single-input-item">
                                                     <label for="display-name" class="required">Ảnh</label>
-                                                    <img src="<?= $linkimg ?>" alt="lỗi ảnh"
-                                                        style="border-radius: 50%; width: 100px;">
+                                                    <img src="<?= $linkimg ?>" alt="lỗi ảnh" style="border-radius: 50%; width: 100px;">
                                                     <input name="img" type="file" />
 
                                                 </div>
@@ -288,15 +274,12 @@ if (isset($_SESSION['user']) && is_array($_SESSION['user'])) {
                                                     <legend>Thay đổi mật khẩu</legend>
                                                     <div class="single-input-item">
                                                         <label for="matkhau" class="required">Mật khẩu mới</label>
-                                                        <input name="matkhaucu" type="hidden" id="matkhaucu"
-                                                            value="<?= $mat_khau ?>" />
-                                                        <input name="matkhau" type="text" id="matkhau"
-                                                            placeholder="Mật khẩu mới" />
+                                                        <input name="matkhaucu" type="hidden" id="matkhaucu" value="<?= $mat_khau ?>" />
+                                                        <input name="matkhau" type="text" id="matkhau" placeholder="Mật khẩu mới" />
                                                     </div>
                                                 </fieldset>
                                                 <div class="single-input-item btn-hover">
-                                                    <input type="submit" name="capnhaptaikhoan"
-                                                        class="check-btn sqr-btn" id="" value="Lưu thay đổi">
+                                                    <input type="submit" name="capnhaptaikhoan" class="check-btn sqr-btn" id="" value="Lưu thay đổi">
                                                     <!-- <button name="capnhap" class="check-btn sqr-btn" type="submit">Save Changes</button> -->
                                                 </div>
                                             </form>

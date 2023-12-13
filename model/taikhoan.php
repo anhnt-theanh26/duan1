@@ -34,7 +34,8 @@ function dangxuat()
     }
 }
 
-function dangxuat_khachhang(){
+function dangxuat_khachhang()
+{
     if (isset($_SESSION['user']) && ($_SESSION['user'])) {
         unset($_SESSION['user']);
     }

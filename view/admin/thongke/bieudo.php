@@ -26,9 +26,9 @@ foreach ($thongke as $tk) {
     </div>
     <div class="content">
         <div class="container-fluid">
-            <div class="card-body p-0" >
+            <div class="card-body p-0">
 
-                <div id="piechart" ></div>
+                <div id="piechart"></div>
 
                 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
@@ -56,7 +56,6 @@ foreach ($thongke as $tk) {
                             'title': 'Biểu đồ thống kê sản phẩm',
                             'width': 1000,
                             'height': 500,
-                            
                         };
 
                         // Display the chart inside the <div> element with id="piechart"

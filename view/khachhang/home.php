@@ -11,7 +11,7 @@
                         <div class="container">
                             <div class="row align-items-center">
                                 <div class="col-lg-6 col-md-6">
-                                    <div class="slider-content-1 slider-animated-1">    
+                                    <div class="slider-content-1 slider-animated-1">
                                         <h1 class="animated"><?= $ten_banner ?></h1>
                                     </div>
                                 </div>
@@ -73,7 +73,7 @@
     <div class="container">
         <div class="section-title-tab-wrap mb-75">
             <div class="section-title-2">
-                <h2>Sản phẩm nhiều lượt xem</h2>
+                <h2>Sản phẩm</h2>
             </div>
         </div>
         <div class="tab-content jump">

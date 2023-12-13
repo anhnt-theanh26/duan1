@@ -41,7 +41,7 @@
                         <label for="ketthuc">Ngày kết thúc khuyến mại</label>
                         <input name="ketthuc" type="date" value="1" class="form-control" id="ketthuc" placeholder="Ngày kết thúc khuyến mại">
                     </div>
-                    
+
                 </div>
                 <!-- /.card-body -->
 

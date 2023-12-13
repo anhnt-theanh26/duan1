@@ -71,7 +71,7 @@ $linkimg = '../../view/img/';
                             foreach ($danhmuc as $dm) {
                                 extract($dm);
                                 if ($iddm == $id) {
-                                $iddm_old = "selected";
+                                    $iddm_old = "selected";
                             ?>
                                     <option value="<?= $id ?>" <?= $iddm_old ?>><?= $ten_danh_muc ?></option>
                                 <?php

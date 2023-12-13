@@ -16,7 +16,7 @@ function loadall_khuyenmai_xoamem()
 
 function loadall_khuyenmai_conhan()
 {
-    
+
     $date = getdate();
     $ngayhomnay = $date['year'] . '/' . $date['mon'] . '/' . $date['mday'];
     $sql = "SELECT * FROM khuyenmai WHERE ngay_bat_dau <= '$ngayhomnay' AND ngay_ket_thuc >= '$ngayhomnay' AND trang_thai = '0';";
