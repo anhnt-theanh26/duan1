@@ -286,7 +286,7 @@ $idsp = $id;
         $.ajax({
             type: 'POST',
             // Đường dẫn tới tệp PHP xử lý dữ liệu
-            url: './view/khachhang/sanpham/addtocart.php',
+            url: './view/khachhang/sanpham/addtocard.php',
             data: {
                 id: id,
                 name: name,

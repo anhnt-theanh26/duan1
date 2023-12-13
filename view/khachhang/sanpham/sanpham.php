@@ -104,12 +104,11 @@
                     <?php
                     foreach ($sanpham as $sp) {
                         extract($sp);
-                        $idsp = $id;
                         $linkimg = 'view/img/' . $img_dai_dien;
-                        $linksp = "index.php?act=chitietsanpham&&idsp=$idsp&&iddm=$iddm";
+                        $linksp = "index.php?act=chitietsanpham&&idsp=$id&&iddm=$iddm";
                     ?>
                         <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                            <div class="product-wrap mb-35" data-aos="fade-up">
+                            <div class="product-wrap mb-35">
                                 <div class="product-img img-zoom mb-25">
                                     <a href="<?= $linksp ?>">
                                         <img src="<?= $linkimg ?>" alt="" style="width: 270x; height: 300px;">
@@ -123,27 +122,33 @@
                                                 <i class="pe-7s-look"></i>
                                             </button>
                                         </div> -->
-                                    <form action="index.php?act=addcart" method="post">
-                                        <div class="product-action-2-wrap">
-                                            <input type="hidden" name="id" id="" value="<?= $id ?>">
-                                            <input type="hidden" name="name" id="" value="<?= $ten_san_pham ?>">
-                                            <input type="hidden" name="price" id="" value="<?= $gia_san_pham ?>">
-                                            <input type="hidden" name="img" id="" value="<?= $img_dai_dien ?>">
-                                            <input type="hidden" name="iddm" id="" value="<?= $iddm ?>">
-                                            <!-- <button type="submit" name="addtocart" class="product-action-btn-2" title="Add To Cart"><i class="pe-7s-cart"></i>Thêm vào giỏ hàng</button> -->
-                                            <input type="submit" name="addtocart" class="product-action-btn-2" title="Add To Cart" value="Thêm vào giỏ hàng">
-                                        </div>
-                                    </form>
+                                    <!-- <form action="index.php?act=addcart" method="post"> -->
+                                    <div class="product-action-2-wrap">
+                                        <input type="hidden" name="id" id="" value="<?= $id ?>">
+                                        <input type="hidden" name="name" id="" value="<?= $ten_san_pham ?>">
+                                        <input type="hidden" name="price" id="" value="<?= $gia_san_pham ?>">
+                                        <input type="hidden" name="img" id="" value="<?= $img_dai_dien ?>">
+                                        <input type="hidden" name="iddm" id="" value="<?= $iddm ?>">
+                                        <?php
+                                        if ($so_luong > 0) {
+                                        ?>
+                                            <button data-id="<?= $id ?>" onclick="addtocart('<?= $id ?>', '<?= $ten_san_pham ?>', '<?= $gia_san_pham ?>')" name="addtocart" class="product-action-btn-2" title="Thêm vào giỏ hàng"><i class="pe-7s-cart"></i>Thêm vào giỏ hàng</button>
+                                        <?php
+                                        } else {
+                                        ?>
+                                            <button class="product-action-btn-2" title="Thêm vào giỏ hàng">Hết hàng</button>
+                                        <?php
+                                        }
+                                        ?>
+                                        <!-- <input data-id="" type="submit" name="addtocart" class="product-action-btn-2" title="Add To Cart" value="Thêm vào giỏ hàng"  onclick="addToCart()> -->
+                                    </div>
+                                    <!-- </form> -->
                                 </div>
                                 <div class="product-content">
-                                    <h3><a href="<?= $linksp ?>">
-                                            <?= $ten_san_pham ?>
-                                        </a></h3>
+                                    <h3><a href="<?= $linksp ?>"><?= $ten_san_pham ?></a></h3>
                                     <div class="product-price">
                                         <!-- <span class="old-price">$25.89 </span> -->
-                                        <span class="new-price">
-                                            <?= number_format($gia_san_pham, 0, ',', '.') ?> đ
-                                        </span>
+                                        <span class="new-price"><?= number_format($gia_san_pham, 0, ',', '.') ?> đ</span>
                                     </div>
                                 </div>
                             </div>
@@ -157,5 +162,30 @@
         </div>
     </div>
 </div>
-</div>
-</div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script>
+    let totalProduct = document.getElementById('totalProduct');
+
+    function addtocart(id, name, price) {
+        // console.log(id, name, price);
+        // Sử dụng jQuery
+        $.ajax({
+            type: 'POST',
+            // Đường dẫn tới tệp PHP xử lý dữ liệu
+            url: './view/khachhang/sanpham/addtocard.php',
+            data: {
+                id: id,
+                name: name,
+                price: price,
+            },
+            success: function(response) {
+                totalProduct.innerText = response;
+                // alert('Bạn đã thêm sản phẩm vào giỏ hàng thành công!')
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+    }
+</script>

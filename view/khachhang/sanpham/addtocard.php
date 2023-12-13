@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!empty($_SESSION['giohang'])) {
         $index = array_search($id, array_column($_SESSION['giohang'], 'id'));
     }
-
+    
     // array_column() trích xuất một cột từ mảng giỏ hàng và trả về một mảng chứ giá trị của cột id
     if ($index !== false) {
         $_SESSION['giohang'][$index]['quantity'] += 1;
@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'price' => $price,
             'quantity' => 1
         ];
-
+        
         $_SESSION['giohang'][] = $product;
         // var_dump($_SESSION['giohang']);die;
     }
@@ -39,3 +39,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 } else {
     echo 'Yêu cầu không hợp lệ';
 }
+?>

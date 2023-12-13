@@ -48,7 +48,7 @@
                                     // $i = 0;
                                     if (!empty($dataDB)) {
                                         foreach ($dataDB as $key => $prd) {
-                                            $linksp = "index.php?act=chitietsanpham&&idsp=" . $prd['id'] . "&&iddm=" . $prd['iddm'];
+                                            $linksp = "index.php?act=chitietsanpham&&idsp=".$prd['id']."&&iddm=".$prd['iddm'];
                                             $linkimg = 'view/img/' . $prd['img_dai_dien'];
                                             $quantityInCart = 0;
                                             foreach ($_SESSION['giohang'] as $item) {

@@ -76,12 +76,12 @@ $dsbl =  binh_luan_san_pham($idsp);
                                         <div class="row">
                                             <input type="hidden" name="idsp" id="" placeholder="id" value="<?= $idsp ?>">
                                             <div class="col-lg-12 col-md-12">
-                                                <div class="single-blog-comment-form">
+                                                <div class="single-blog-comment-form" >
                                                     <textarea name="noidung" placeholder="Comment"></textarea>
                                                 </div>
                                             </div>
                                             <div class="col-lg-12 col-md-12">
-                                                <div class="comment-submit-btn btn-hover">
+                                                <div class="comment-submit-btn btn-hover" >
                                                     <?php
                                                     if (isset($_SESSION['user']) && ($_SESSION['user'])) {
                                                         extract($_SESSION['user']);
