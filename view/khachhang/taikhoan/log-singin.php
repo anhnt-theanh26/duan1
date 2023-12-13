@@ -44,7 +44,7 @@
                                     <form action="index.php?act=dangkytaikhoan" method="post">
                                         <input type="text" name="ten" placeholder="Tên khách hàng">
                                         <input type="text" name="tendangnhap" placeholder="Tên đăng nhập">
-                                        <input type="password" name="pass" placeholder="Mật khẩu">
+                                        <input type="password" name="matkhau" placeholder="Mật khẩu">
                                         <input type="email" name="email" placeholder="Email">
                                         <input type="text" name="sdt" placeholder="Số điện thoại">
                                         <input type="text" name="diachi" placeholder="Địa chỉ">
