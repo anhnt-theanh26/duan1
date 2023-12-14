@@ -131,6 +131,7 @@ $conlai = $tonggia - ($tonggia * $khuyenmai / 100);
             });
 
             console.log("Selected option:", khuyenmai);
+            console.log("Selected option:", tonggia);
         });
     });
 </script>

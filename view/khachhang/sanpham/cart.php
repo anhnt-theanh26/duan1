@@ -48,7 +48,7 @@
                                     // $i = 0;
                                     if (!empty($dataDB)) {
                                         foreach ($dataDB as $key => $prd) {
-                                            $linksp = "index.php?act=chitietsanpham&&idsp=".$prd['id']."&&iddm=".$prd['iddm'];
+                                            $linksp = "index.php?act=chitietsanpham&&idsp=" . $prd['id'] . "&&iddm=" . $prd['iddm'];
                                             $linkimg = 'view/img/' . $prd['img_dai_dien'];
                                             $quantityInCart = 0;
                                             foreach ($_SESSION['giohang'] as $item) {
@@ -189,14 +189,12 @@
                     ?>
                         <form action="index.php?act=thanhtoan" method="post">
                             <div class="calculate-discount-content">
-                                <div class="input-style">
+                                <div class="input-style" id="khuyenmaicode">
                                     <input name="khuyenmai" type="hidden" value="<?= $khuyenmai ?>">
+                                    <input name="tongtien" type="hidden" value="<?= $conlai ?>">
                                 </div>
                                 <div class="input-style">
                                     <input name="idkh" type="hidden" value="<?= $id ?>">
-                                </div>
-                                <div class="input-style">
-                                    <input name="tongtien" type="hidden" value="<?= $conlai ?>">
                                 </div>
                                 <div class="input-style">
                                     <label for="tenkhachhang">Tên khách hàng</label>
@@ -311,6 +309,40 @@
                 success: function(response) {
                     // Update successful
                     $('#km').html(response);
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            });
+
+            console.log("Selected option:", khuyenmai);
+        });
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        // Khai báo biến tonggia ở đây để có thể sử dụng nó ở nơi khác
+        var tonggia = $('#tonggiasanpham').val();
+
+        $('#tonggiasanpham').on('change', function() {
+            tonggia = $(this).val();
+            console.log("Changed value:", tonggia);
+        });
+
+        $("#khuyenmai").on("change", function() {
+            var khuyenmai = $(this).val();
+
+            $.ajax({
+                url: './view/khachhang/sanpham/discount.php',
+                type: 'post',
+                dataType: 'html',
+                data: {
+                    khuyenmai: khuyenmai,
+                    tonggia: tonggia,
+                },
+                success: function(response) {
+                    // Update successful
+                    $('#khuyenmaicode').html(response);
                 },
                 error: function(error) {
                     console.log(error);
